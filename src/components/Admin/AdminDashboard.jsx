@@ -11,7 +11,17 @@ const AdminDashboard = () => {
   const { user, logout } = useAuth();
   const { content, hasChanges, saveContent, exportContent } = useContentManager();
   const [activeEditor, setActiveEditor] = useState('overview');
-
+     // Add this null check
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
   const editorSections = [
     { id: 'overview', name: 'Overview', icon: BarChart3, color: 'blue' },
     { id: 'about', name: 'About Me', icon: User, color: 'green' },
@@ -35,8 +45,10 @@ const AdminDashboard = () => {
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 text-white">
         <div className="flex items-center space-x-4">
           <img 
-            src={user.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || 'Admin')}&background=ffffff&color=000000`}
-            alt={user.name || 'Admin'} 
+            /* src={user.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || 'Admin')}&background=ffffff&color=000000`}
+            alt={user.name || 'Admin'}  */
+            src={user?.avatar_url || 'https://ui-avatars.com/api/?name=Admin&background=ffffff&color=000000'}
+            alt={user?.name || 'Admin'}
             className="w-16 h-16 rounded-full border-4 border-white shadow-lg" 
           />
           <div>

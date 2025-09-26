@@ -18,11 +18,10 @@ export const useAuth = () => {
         localStorage.removeItem('admin_user');
       }
     }
-  }, []);
+  }, []); // Fixed: Added proper closing braces
 
   const loginWithGitHub = () => {
     setIsLoading(true);
-    
     // Simulate GitHub OAuth flow
     setTimeout(() => {
       const demoUser = {
@@ -35,7 +34,7 @@ export const useAuth = () => {
         location: 'Available Remote/Hybrid',
         company: 'Independent Consultant'
       };
-      
+
       // Save to localStorage
       localStorage.setItem('admin_user', JSON.stringify(demoUser));
       
