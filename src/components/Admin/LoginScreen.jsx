@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import { Github, Shield, Lock, Key, Zap, CheckCircle } from 'lucide-react';
+import { Github, Shield, Lock, Key, Zap, CheckCircle, Clock } from 'lucide-react';
 
 const LoginScreen = () => {
   const { loginWithGitHub, isLoading } = useAuth();
-  const [isClicked, setIsClicked] = useState(false);
 
   const handleLogin = () => {
-    setIsClicked(true);
     loginWithGitHub();
   };
 
@@ -32,8 +30,19 @@ const LoginScreen = () => {
           <p className="text-gray-600">Secure access to your portfolio management</p>
         </div>
 
+        {/* Demo Mode Notice */}
+        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="flex items-center mb-2">
+            <Zap className="text-blue-600 mr-2" size={20} />
+            <span className="font-semibold text-blue-900">Demo Mode Active</span>
+          </div>
+          <p className="text-blue-800 text-sm">
+            Click below to simulate GitHub authentication and access the admin dashboard.
+          </p>
+        </div>
+
         {/* Features List */}
-        <div className="space-y-4 mb-8">
+        <div className="space-y-3 mb-8">
           <div className="flex items-center text-gray-700 text-sm">
             <div className="bg-green-100 p-2 rounded-full mr-3">
               <CheckCircle className="text-green-600" size={16} />
@@ -50,52 +59,56 @@ const LoginScreen = () => {
             <div className="bg-purple-100 p-2 rounded-full mr-3">
               <Lock className="text-purple-600" size={16} />
             </div>
-            <span>Secure GitHub authentication</span>
+            <span>Secure demo authentication</span>
           </div>
         </div>
 
         {/* Login Button */}
         <button
           onClick={handleLogin}
-          disabled={isLoading || isClicked}
+          disabled={isLoading}
           className={`w-full py-4 px-6 rounded-xl font-semibold text-lg flex items-center justify-center space-x-3 transition-all duration-300 transform ${
-            isLoading || isClicked
+            isLoading
               ? 'bg-gray-400 cursor-not-allowed'
               : 'bg-gray-900 hover:bg-gray-800 hover:scale-105 active:scale-95'
           } text-white shadow-lg`}
         >
-          {isLoading || isClicked ? (
+          {isLoading ? (
             <>
               <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
-              <span>Connecting to GitHub...</span>
+              <span>Simulating GitHub Login...</span>
             </>
           ) : (
             <>
               <Github size={28} />
-              <span>Continue with GitHub</span>
+              <span>Demo GitHub Login</span>
             </>
           )}
         </button>
+
+        {/* Loading Steps */}
+        {isLoading && (
+          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+            <div className="flex items-center text-gray-600 text-sm mb-2">
+              <Clock className="mr-2 animate-pulse" size={16} />
+              <span>Connecting to GitHub...</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="bg-blue-600 h-2 rounded-full animate-pulse" style={{width: '60%'}}></div>
+            </div>
+          </div>
+        )}
 
         {/* Security Info */}
         <div className="border-t border-gray-200 pt-6 mt-6">
           <div className="flex items-center justify-center text-gray-500 text-sm">
             <Key size={14} className="mr-2" />
-            <span>Powered by GitHub OAuth 2.0</span>
+            <span>Demo Mode - GitHub OAuth Ready</span>
           </div>
           <p className="text-center text-gray-400 text-xs mt-2">
-            Your credentials are never stored. Authentication handled by GitHub.
+            This demonstrates the GitHub OAuth flow. Ready for production setup.
           </p>
         </div>
-
-        {/* Demo Mode Notice */}
-        {!import.meta.env.VITE_GITHUB_CLIENT_ID && (
-          <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <p className="text-yellow-800 text-sm text-center">
-              <strong>Demo Mode:</strong> Click to simulate GitHub login
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );
