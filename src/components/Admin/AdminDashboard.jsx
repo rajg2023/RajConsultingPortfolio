@@ -8,20 +8,30 @@ import {
 } from 'lucide-react';
 
 const AdminDashboard = () => {
-  const { user, logout } = useAuth();
-  const { content, hasChanges, saveContent, exportContent } = useContentManager();
-  const [activeEditor, setActiveEditor] = useState('overview');
-     // Add this null check
-  if (!user) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading dashboard...</p>
-        </div>
-      </div>
-    );
-  }
+    const { user, isAuthenticated, isLoading, logout } = useAuth();
+    const { content, hasChanges, saveContent, exportContent } = useContentManager();
+    const [activeEditor, setActiveEditor] = useState('overview');
+    // Add this null check
+    if (!user) {
+        return (
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                    <p className="text-gray-600">Loading dashboard...</p>
+                </div>
+            </div>
+        );
+    }
+    if (isLoading) {
+        return <LoadingScreen />;
+    }
+
+    if (isAuthenticated && user) {
+        return <AdminDashboard />;
+    } else {
+        return <LoginScreen />;
+    }
+  
   const editorSections = [
     { id: 'overview', name: 'Overview', icon: BarChart3, color: 'blue' },
     { id: 'about', name: 'About Me', icon: User, color: 'green' },

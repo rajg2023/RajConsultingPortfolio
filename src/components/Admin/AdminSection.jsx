@@ -4,7 +4,7 @@ import LoginScreen from './LoginScreen';
 import AdminDashboard from './AdminDashboard';
 
 const AdminSection = () => {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { user, isAuthenticated, isLoading } = useAuth();
 
   // Show loading spinner while checking authentication
   if (isLoading) {
@@ -19,7 +19,7 @@ const AdminSection = () => {
   }
 
   // Show login screen if not authenticated
-  if (!isAuthenticated) {
+  if (!isAuthenticated || !user) {
     return <LoginScreen />;
   }
 

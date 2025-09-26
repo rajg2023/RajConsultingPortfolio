@@ -1,27 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export const useAuth = () => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    // Check if user is already logged in
-    const savedUser = localStorage.getItem('admin_user');
-    if (savedUser) {
-      try {
-        const userData = JSON.parse(savedUser);
-        setUser(userData);
-        setIsAuthenticated(true);
-      } catch (error) {
-        console.error('Error parsing saved user:', error);
-        localStorage.removeItem('admin_user');
-      }
-    }
-  }, []); // Fixed: Added proper closing braces
+  // Remove the useEffect completely - no automatic auth check
 
   const loginWithGitHub = () => {
     setIsLoading(true);
+    
     // Simulate GitHub OAuth flow
     setTimeout(() => {
       const demoUser = {
@@ -44,7 +32,7 @@ export const useAuth = () => {
       setIsLoading(false);
       
       console.log('Demo login successful:', demoUser);
-    }, 2000); // 2-second delay to simulate OAuth flow
+    }, 2000);
   };
 
   const logout = () => {
