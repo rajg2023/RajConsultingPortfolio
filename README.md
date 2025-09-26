@@ -215,4 +215,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
+<<<<<<< HEAD
 ⭐ **If you found this portfolio template helpful, please consider giving it a star!** ⭐
+=======
+⭐ **If you found this portfolio template helpful, please consider giving it a star!** ⭐
+>>>>>>> 7398e7d0aca183ed2f4a85d714ab1a1bc1351968
