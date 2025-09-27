@@ -8,30 +8,28 @@ import {
 } from 'lucide-react';
 
 const AdminDashboard = () => {
-    const { user, isAuthenticated, isLoading, logout } = useAuth();
-    const { content, hasChanges, saveContent, exportContent } = useContentManager();
-    const [activeEditor, setActiveEditor] = useState('overview');
-    // Add this null check
-    if (!user) {
-        return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                    <p className="text-gray-600">Loading dashboard...</p>
-                </div>
-            </div>
-        );
-    }
-    if (isLoading) {
-        return <LoadingScreen />;
-    }
-
-    if (isAuthenticated && user) {
-        return <AdminDashboard />;
-    } else {
-        return <LoginScreen />;
-    }
+  // ALL HOOKS MUST BE CALLED FIRST - NO EXCEPTIONS
+  const { user, logout } = useAuth();
+  const { content, hasChanges, saveContent, exportContent } = useContentManager();
+  const [activeEditor, setActiveEditor] = useState('overview');
   
+  console.log('🟢 AdminDashboard render:', { user: !!user, hasContent: !!content });
+  
+  // NOW we can do conditional logic
+  if (!user) {
+    console.log('🟡 AdminDashboard: No user, showing loading...');
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
+  console.log('🟢 AdminDashboard: User exists, rendering dashboard...');
+
   const editorSections = [
     { id: 'overview', name: 'Overview', icon: BarChart3, color: 'blue' },
     { id: 'about', name: 'About Me', icon: User, color: 'green' },
@@ -55,11 +53,9 @@ const AdminDashboard = () => {
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 text-white">
         <div className="flex items-center space-x-4">
           <img 
-            /* src={user.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || 'Admin')}&background=ffffff&color=000000`}
-            alt={user.name || 'Admin'}  */
-            src={user?.avatar_url || 'https://ui-avatars.com/api/?name=Admin&background=ffffff&color=000000'}
+            src={user?.avatar_url || `https://ui-avatars.com/api/?name=Admin&background=ffffff&color=000000`} 
             alt={user?.name || 'Admin'}
-            className="w-16 h-16 rounded-full border-4 border-white shadow-lg" 
+            className="w-16 h-16 rounded-full border-4 border-white shadow-lg"
           />
           <div>
             <h2 className="text-2xl font-bold">Welcome back, {user.name || 'Admin'}!</h2>
@@ -74,7 +70,7 @@ const AdminDashboard = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm">Skills Listed</p>
-              <p className="text-3xl font-bold text-blue-600">{content.skills?.length || 0}</p>
+              <p className="text-3xl font-bold text-blue-600">{content?.skills?.length || 0}</p>
             </div>
             <Star className="text-blue-500" size={32} />
           </div>
@@ -84,7 +80,7 @@ const AdminDashboard = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm">Projects</p>
-              <p className="text-3xl font-bold text-green-600">{content.projects?.length || 0}</p>
+              <p className="text-3xl font-bold text-green-600">{content?.projects?.length || 0}</p>
             </div>
             <FolderOpen className="text-green-500" size={32} />
           </div>
@@ -94,7 +90,7 @@ const AdminDashboard = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm">Services</p>
-              <p className="text-3xl font-bold text-purple-600">{content.services?.length || 0}</p>
+              <p className="text-3xl font-bold text-purple-600">{content?.services?.length || 0}</p>
             </div>
             <Briefcase className="text-purple-500" size={32} />
           </div>
@@ -104,7 +100,7 @@ const AdminDashboard = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm">Experience Years</p>
-              <p className="text-3xl font-bold text-orange-600">{content.experience?.length || 0}</p>
+              <p className="text-3xl font-bold text-orange-600">{content?.experience?.length || 0}</p>
             </div>
             <Clock className="text-orange-500" size={32} />
           </div>
@@ -153,7 +149,7 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      {/* Recent Activity */}
+      {/* Portfolio Status */}
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-xl font-bold text-gray-900 mb-4">Portfolio Status</h3>
         <div className="space-y-3">
@@ -217,12 +213,12 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Admin Sidebar */}
-      <div className="w-64 bg-white shadow-xl">
+      <div className="w-64 bg-white shadow-xl relative">
         {/* User Profile */}
         <div className="p-6 border-b border-gray-200 bg-gradient-to-r from-blue-500 to-purple-600">
           <div className="flex items-center space-x-3">
             <img 
-              src={user.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || 'Admin')}&background=ffffff&color=000000`}
+              src={user.avatar_url || `https://ui-avatars.com/api/?name=Admin&background=ffffff&color=000000`}
               alt={user.name || 'Admin'} 
               className="w-12 h-12 rounded-full border-2 border-white shadow-lg" 
             />

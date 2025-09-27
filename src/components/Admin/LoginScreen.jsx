@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import { Github, Shield, Lock, Key, Zap, CheckCircle, Clock } from 'lucide-react';
+import { Github, Shield, Lock, CheckCircle, Users } from 'lucide-react';
 
 const LoginScreen = () => {
   const { loginWithGitHub, isLoading } = useAuth();
@@ -11,7 +11,6 @@ const LoginScreen = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
-      
       {/* Background Animation */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500 rounded-full opacity-10 animate-pulse"></div>
@@ -20,46 +19,25 @@ const LoginScreen = () => {
       </div>
 
       <div className="relative bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md mx-4 backdrop-blur-lg">
-        
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-6 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 shadow-lg">
-            <Shield className="text-white" size={40} />
+          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <Shield className="text-white" size={32} />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Portfolio Admin</h1>
-          <p className="text-gray-600">Secure access to your portfolio management</p>
+          <p className="text-gray-600">Secure GitHub OAuth authentication</p>
         </div>
 
-        {/* Demo Mode Notice */}
-        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <div className="flex items-center mb-2">
-            <Zap className="text-blue-600 mr-2" size={20} />
-            <span className="font-semibold text-blue-900">Demo Mode Active</span>
-          </div>
-          <p className="text-blue-800 text-sm">
-            Click below to simulate GitHub authentication and access the admin dashboard.
-          </p>
-        </div>
-
-        {/* Features List */}
-        <div className="space-y-3 mb-8">
-          <div className="flex items-center text-gray-700 text-sm">
-            <div className="bg-green-100 p-2 rounded-full mr-3">
-              <CheckCircle className="text-green-600" size={16} />
+        {/* OAuth Notice */}
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+          <div className="flex items-start space-x-3">
+            <Lock className="text-blue-500 flex-shrink-0 mt-1" size={18} />
+            <div>
+              <h3 className="font-semibold text-blue-900 text-sm">OAuth Authentication</h3>
+              <p className="text-blue-700 text-sm mt-1">
+                Authenticate with your GitHub account to access the admin panel.
+              </p>
             </div>
-            <span>Edit all portfolio sections</span>
-          </div>
-          <div className="flex items-center text-gray-700 text-sm">
-            <div className="bg-blue-100 p-2 rounded-full mr-3">
-              <Zap className="text-blue-600" size={16} />
-            </div>
-            <span>Real-time content updates</span>
-          </div>
-          <div className="flex items-center text-gray-700 text-sm">
-            <div className="bg-purple-100 p-2 rounded-full mr-3">
-              <Lock className="text-purple-600" size={16} />
-            </div>
-            <span>Secure demo authentication</span>
           </div>
         </div>
 
@@ -67,46 +45,62 @@ const LoginScreen = () => {
         <button
           onClick={handleLogin}
           disabled={isLoading}
-          className={`w-full py-4 px-6 rounded-xl font-semibold text-lg flex items-center justify-center space-x-3 transition-all duration-300 transform ${
+          className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200 ${
             isLoading
               ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-gray-900 hover:bg-gray-800 hover:scale-105 active:scale-95'
-          } text-white shadow-lg`}
+              : 'bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black transform hover:scale-[1.02] active:scale-[0.98]'
+          }`}
         >
           {isLoading ? (
             <>
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
-              <span>Simulating GitHub Login...</span>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white inline-block mr-2"></div>
+              Processing OAuth...
             </>
           ) : (
             <>
-              <Github size={28} />
-              <span>Demo GitHub Login</span>
+              <Github className="inline-block mr-2" size={20} />
+              Continue with GitHub
             </>
           )}
         </button>
 
-        {/* Loading Steps */}
-        {isLoading && (
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-            <div className="flex items-center text-gray-600 text-sm mb-2">
-              <Clock className="mr-2 animate-pulse" size={16} />
-              <span>Connecting to GitHub...</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-blue-600 h-2 rounded-full animate-pulse" style={{width: '60%'}}></div>
-            </div>
+        {/* Features List */}
+        <div className="mt-8 pt-6 border-t border-gray-200">
+          <h4 className="text-sm font-semibold text-gray-900 mb-3">Admin Features</h4>
+          <div className="space-y-2">
+            {[
+              'Edit all portfolio sections',
+              'Real-time content updates',
+              'Secure GitHub OAuth authentication',
+              'Session-based access control'
+            ].map((feature, index) => (
+              <div key={index} className="flex items-center space-x-2 text-sm text-gray-600">
+                <CheckCircle className="text-green-500" size={16} />
+                <span>{feature}</span>
+              </div>
+            ))}
           </div>
-        )}
+        </div>
+
+        {/* Authorized Users */}
+        <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+          <div className="flex items-center space-x-2 text-gray-600 mb-2">
+            <Users size={16} />
+            <span className="text-sm font-medium">Authorized Access</span>
+          </div>
+          <p className="text-xs text-gray-500">
+            Only authorized GitHub accounts can access this admin panel.
+          </p>
+        </div>
 
         {/* Security Info */}
-        <div className="border-t border-gray-200 pt-6 mt-6">
-          <div className="flex items-center justify-center text-gray-500 text-sm">
-            <Key size={14} className="mr-2" />
-            <span>Demo Mode - GitHub OAuth Ready</span>
+        <div className="mt-6 text-center">
+          <div className="flex items-center justify-center space-x-2 text-gray-500">
+            <Shield size={16} />
+            <span className="text-sm">Secure OAuth - GitHub Authentication</span>
           </div>
-          <p className="text-center text-gray-400 text-xs mt-2">
-            This demonstrates the GitHub OAuth flow. Ready for production setup.
+          <p className="text-xs text-gray-400 mt-1">
+            Your credentials are never stored locally
           </p>
         </div>
       </div>

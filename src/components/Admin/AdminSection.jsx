@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import LoginScreen from './LoginScreen';
 import AdminDashboard from './AdminDashboard';
 
 const AdminSection = () => {
-  const { user, isAuthenticated, isLoading } = useAuth();
+  const { user, isAuthenticated, isLoading, renderKey } = useAuth(); // Added renderKey
+  
+  console.log('🟢 AdminSection render:', { 
+    hasUser: !!user, 
+    isAuthenticated, 
+    isLoading,
+    renderKey,
+    userDetails: user ? { name: user.name, login: user.login } : null
+  });
 
-  // Show loading spinner while checking authentication
+  // Force re-render when auth state changes
+  useEffect(() => {
+    console.log('🟢 AdminSection useEffect triggered:', { 
+      hasUser: !!user, 
+      isAuthenticated, 
+      isLoading, 
+      renderKey 
+    });
+  }, [user, isAuthenticated, isLoading, renderKey]);
+
   if (isLoading) {
+    console.log('🟡 AdminSection: Showing loading...');
     return (
       <section className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
@@ -18,12 +36,12 @@ const AdminSection = () => {
     );
   }
 
-  // Show login screen if not authenticated
   if (!isAuthenticated || !user) {
+    console.log('🟡 AdminSection: Showing login screen...');
     return <LoginScreen />;
   }
 
-  // Show admin dashboard if authenticated
+  console.log('🟢 AdminSection: Showing admin dashboard...');
   return <AdminDashboard />;
 };
 
