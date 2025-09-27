@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useContentManager } from '../../hooks/useContentManager';
 import { 
@@ -8,27 +8,51 @@ import {
 } from 'lucide-react';
 
 const AdminDashboard = () => {
-  // ALL HOOKS MUST BE CALLED FIRST - NO EXCEPTIONS
+  // ALL HOOKS MUST BE CALLED FIRST
   const { user, logout } = useAuth();
   const { content, hasChanges, saveContent, exportContent } = useContentManager();
   const [activeEditor, setActiveEditor] = useState('overview');
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   
-  console.log('🟢 AdminDashboard render:', { user: !!user, hasContent: !!content });
+  console.log('🟢 AdminDashboard render:', { 
+    user: !!user, 
+    hasContent: !!content,
+    isLoggingOut 
+  });
   
-  // NOW we can do conditional logic
+  // Handle logout properly
+  const handleLogout = async () => {
+    console.log('🔴 Logout button clicked');
+    setIsLoggingOut(true);
+    
+    // Small delay to show logout feedback
+    setTimeout(() => {
+      logout();
+      setIsLoggingOut(false);
+    }, 500);
+  };
+
+  // If user is null, don't render anything (let AdminSection handle it)
   if (!user) {
-    console.log('🟡 AdminDashboard: No user, showing loading...');
+    console.log('🟡 AdminDashboard: No user, returning null');
+    return null;
+  }
+
+  // If logging out, show logout message
+  if (isLoggingOut) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading dashboard...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Logging out...</p>
         </div>
       </div>
     );
   }
 
   console.log('🟢 AdminDashboard: User exists, rendering dashboard...');
+  
+
 
   const editorSections = [
     { id: 'overview', name: 'Overview', icon: BarChart3, color: 'blue' },
@@ -267,11 +291,16 @@ const AdminDashboard = () => {
             </div>
           )}
           <button
-            onClick={logout}
-            className="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center space-x-2 text-sm"
+            onClick={handleLogout}
+            disabled={isLoggingOut}
+            className={`w-full py-2 px-4 rounded-lg transition-colors flex items-center justify-center space-x-2 text-sm ${
+              isLoggingOut 
+                ? 'bg-gray-400 cursor-not-allowed text-white'
+                : 'bg-red-600 text-white hover:bg-red-700'
+            }`}
           >
             <LogOut size={16} />
-            <span>Logout</span>
+            <span>{isLoggingOut ? 'Logging out...' : 'Logout'}</span>
           </button>
         </div>
       </div>

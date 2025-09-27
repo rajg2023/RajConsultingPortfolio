@@ -1,23 +1,27 @@
-import React, { useEffect } from 'react';
-import { useAuth } from '../../hooks/useAuth';
+import { useState } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
 import LoginScreen from './LoginScreen';
 import AdminDashboard from './AdminDashboard';
 
 const AdminSection = () => {
-  const { user, isAuthenticated, isLoading, renderKey } = useAuth();
+  const { user, isAuthenticated, isLoading, logout } = useAuth();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  useEffect(() => {
-    console.log('AdminSection state:', { hasUser: !!user, isAuthenticated, isLoading });
-  }, [user, isAuthenticated, isLoading, renderKey]);
+  const handleLogout = () => {
+    console.log('🔴 Logout button clicked from AdminSection');
+    setIsLoggingOut(true);
 
-  if (isLoading) {
+    setTimeout(() => {
+      logout();
+      setIsLoggingOut(false);
+    }, 500);
+  };
+
+  if (isLoading || isLoggingOut) {
     return (
-      <section className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Authenticating...</p>
-        </div>
-      </section>
+      <div className="min-h-screen flex items-center justify-center text-gray-600">
+        {isLoggingOut ? 'Logging out...' : 'Loading...'}
+      </div>
     );
   }
 
@@ -25,7 +29,7 @@ const AdminSection = () => {
     return <LoginScreen />;
   }
 
-  return <AdminDashboard />;
+  return <AdminDashboard onLogout={handleLogout} />;
 };
 
 export default AdminSection;

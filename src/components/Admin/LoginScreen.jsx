@@ -1,6 +1,7 @@
 import React from 'react';
-import { useAuth } from '../../hooks/useAuth';
+/* import { useAuth } from '../../hooks/useAuth'; */
 import { Github, Shield, Lock, CheckCircle, Users } from 'lucide-react';
+import { useAuth } from '../../contexts/AuthContext';
 
 const LoginScreen = () => {
   const { loginWithGitHub, isLoading } = useAuth();

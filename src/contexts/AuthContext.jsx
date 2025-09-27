@@ -1,49 +1,41 @@
-import { useState, useEffect, useRef } from 'react';
+// src/contexts/AuthContext.jsx
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 
-export const useAuth = () => {
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [authError, setAuthError] = useState(null);
-  
-  // Use refs to prevent multiple effect runs
+
   const initialized = useRef(false);
   const loginTimeoutRef = useRef(null);
 
-  console.log('useAuth state:', { user: !!user, isAuthenticated, isLoading });
-
-  // Single initialization effect
   useEffect(() => {
-    if (initialized.current) return; // Prevent multiple runs
-    
+    if (initialized.current) return;
     initialized.current = true;
-    console.log('🔵 useAuth initializing...');
-    
+
     const savedUser = localStorage.getItem('admin_user');
     if (savedUser) {
       try {
         const userData = JSON.parse(savedUser);
-        console.log('🔵 Found existing session on mount');
         setUser(userData);
         setIsAuthenticated(true);
       } catch (error) {
-        console.error('Error loading saved session:', error);
         localStorage.removeItem('admin_user');
       }
     }
   }, []);
 
   const loginWithGitHub = () => {
-    console.log('🔵 Starting demo GitHub login...');
-    
-    // Clear any existing timeout
     if (loginTimeoutRef.current) {
       clearTimeout(loginTimeoutRef.current);
     }
-    
+
     setIsLoading(true);
     setAuthError(null);
-    
+
     loginTimeoutRef.current = setTimeout(() => {
       try {
         const demoUser = {
@@ -59,15 +51,10 @@ export const useAuth = () => {
           authenticated_at: new Date().toISOString()
         };
 
-        console.log('🔵 Setting user data...');
         localStorage.setItem('admin_user', JSON.stringify(demoUser));
-        
-        // Update state in single batch
         setUser(demoUser);
         setIsAuthenticated(true);
         setIsLoading(false);
-        
-        console.log('🔵 Demo login successful!');
       } catch (error) {
         console.error('🔴 Login failed:', error);
         setAuthError('Login failed. Please try again.');
@@ -77,44 +64,39 @@ export const useAuth = () => {
   };
 
   const logout = () => {
-    console.log('🔴 Logging out...');
-    
-    // Clear timeout if exists
     if (loginTimeoutRef.current) {
       clearTimeout(loginTimeoutRef.current);
     }
-    
-    // Clear data
+
     localStorage.removeItem('admin_user');
-    localStorage.removeItem('github_access_token');
-    localStorage.removeItem('token_expiry');
-    
-    // Update state in single batch
     setUser(null);
     setIsAuthenticated(false);
     setIsLoading(false);
     setAuthError(null);
-    
-    console.log('🔴 Logout complete');
   };
 
-  // Cleanup effect
-  useEffect(() => {
-    return () => {
-      if (loginTimeoutRef.current) {
-        clearTimeout(loginTimeoutRef.current);
-      }
-    };
-  }, []);
+  const clearError = () => setAuthError(null);
 
-  return { 
-    user, 
-    isAuthenticated, 
-    isLoading, 
-    authError,
-    loginWithGitHub, 
-    logout,
-    clearError: () => setAuthError(null)
-  };
+  return (
+    <AuthContext.Provider value={{
+      user,
+      isAuthenticated,
+      isLoading,
+      authError,
+      loginWithGitHub,
+      logout,
+      clearError,
+    }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
+/* export const useAuth = () => useContext(AuthContext); */
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth() must be used within an <AuthProvider>');
+  }
+  return context;
+};
