@@ -5,8 +5,9 @@ import AdminToolbar from './AdminToolbar';
 import AdminAboutEditor from './editors/AdminAboutEditor';
 import AdminProjectsEditor from './editors/AdminProjectsEditor';
 import AdminSiteSettingsEditor from './editors/AdminSiteSettingsEditor';
-import AdminSkillsEditor from './editors/AdminSkillsEditor';
-import AdminServicesEditor from './editors/AdminServicesEditor';
+import AdminSkillsEditor from './editors/AdminSkillsEditor.jsx';
+import AdminServicesEditor from './editors/AdminServicesEditor.jsx';
+
 import { 
   BarChart3, User, Star, Briefcase, FolderOpen, Clock, 
   GraduationCap, Mail, LogOut, Save, Download, Upload,
