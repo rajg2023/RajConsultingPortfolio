@@ -3,7 +3,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import LoginScreen from './LoginScreen';
 import AdminDashboard from './AdminDashboard';
 
-const AdminSection = () => {
+const AdminSection = ({ setActiveSection }) => {
   const { user, isAuthenticated, isLoading, logout } = useAuth();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
@@ -29,7 +29,7 @@ const AdminSection = () => {
     return <LoginScreen />;
   }
 
-  return <AdminDashboard onLogout={handleLogout} />;
+  return <AdminDashboard setActiveSection={setActiveSection}/>;
 };
 
 export default AdminSection;

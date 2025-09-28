@@ -1,6 +1,8 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, lazy, Suspense, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useLocation } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 // Lazy load components - only load when needed
 const AboutSection = lazy(() => import('../components/About/AboutSection'));
@@ -24,6 +26,17 @@ const LoadingSpinner = () => (
 
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const { isAuthenticated } = useAuth();
+
+  // If we navigated here with a target section (from admin/login), honor it
+  useEffect(() => {
+    const target = location.state?.section;
+    if (target) {
+      setActiveSection(target);
+      // Optionally, we could clean the history state here, but not necessary
+    }
+  }, [location.state]);
 
   const renderSection = () => {
     switch(activeSection) {
@@ -40,17 +53,20 @@ const HomePage = () => {
       case 'education':
         return <EducationSection />;
       case 'admin':
-        return <AdminSection />;
+        return <AdminSection setActiveSection={setActiveSection} />;
       case 'contact':
         return <ContactSection />;
       default:
         return <AboutSection />;
     }
   };
-
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Header
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+        disabledNav={isAuthenticated && activeSection === 'admin'}
+      />
       <main className="flex-1 overflow-hidden">
         <Suspense fallback={<LoadingSpinner />}>
           {renderSection()}

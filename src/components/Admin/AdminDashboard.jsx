@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../contexts/AuthContext';
 import { useContentManager } from '../../hooks/useContentManager';
 import { 
   BarChart3, User, Star, Briefcase, FolderOpen, Clock, 
   GraduationCap, Mail, LogOut, Save, Download, Upload,
   Bell, Settings as SettingsIcon, Edit3, Plus, Trash2
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
   // ALL HOOKS MUST BE CALLED FIRST
   const { user, logout } = useAuth();
+   const navigate = useNavigate();
   const { content, hasChanges, saveContent, exportContent } = useContentManager();
   const [activeEditor, setActiveEditor] = useState('overview');
   const [isLoggingOut, setIsLoggingOut] = useState(false);
@@ -19,9 +21,19 @@ const AdminDashboard = () => {
     hasContent: !!content,
     isLoggingOut 
   });
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading admin panel...</p>
+        </div>
+      </div>
+    );
+  }
   
   // Handle logout properly
-  const handleLogout = async () => {
+  /* const handleLogout = async () => {
     console.log('🔴 Logout button clicked');
     setIsLoggingOut(true);
     
@@ -29,14 +41,21 @@ const AdminDashboard = () => {
     setTimeout(() => {
       logout();
       setIsLoggingOut(false);
+      navigate('/admin/login');
+    }, 500);
+  }; */
+
+   const handleLogout = () => {
+    console.log('🔴 Logout button clicked');
+    setIsLoggingOut(true);
+
+    setTimeout(() => {
+      logout();               // ✅ Clear auth state
+      setIsLoggingOut(false);
+      navigate('/login');     // ✅ Redirect to login screen
     }, 500);
   };
 
-  // If user is null, don't render anything (let AdminSection handle it)
-  if (!user) {
-    console.log('🟡 AdminDashboard: No user, returning null');
-    return null;
-  }
 
   // If logging out, show logout message
   if (isLoggingOut) {

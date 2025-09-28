@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { User, Star, Briefcase, FolderOpen, Clock, GraduationCap, Settings, Mail, Menu, X } from 'lucide-react';
 
-const Header = ({ activeSection, setActiveSection }) => {
+const Header = ({ activeSection, setActiveSection, disabledNav = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigationItems = [
@@ -45,7 +45,13 @@ const Header = ({ activeSection, setActiveSection }) => {
     return colorMap[color];
   };
 
+  const handleClick = (sectionId) => {
+    if (disabledNav) return;
+    setActiveSection(sectionId);
+  };
+
   const handleMobileNavClick = (sectionId) => {
+    if (disabledNav) return;
     setActiveSection(sectionId);
     setIsMobileMenuOpen(false); // Close menu after selection
   };
@@ -66,8 +72,10 @@ const Header = ({ activeSection, setActiveSection }) => {
                 return (
                   <button
                     key={item.id}
-                    onClick={() => setActiveSection(item.id)}
-                    className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${getColorClasses(item.color, isActive)}`}
+                    onClick={() => handleClick(item.id)}
+                    aria-disabled={disabledNav}
+                    tabIndex={disabledNav ? -1 : 0}
+                    className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${getColorClasses(item.color, isActive)} ${disabledNav ? 'opacity-60 cursor-not-allowed pointer-events-none' : ''}`}
                   >
                     <IconComponent size={16} />
                     <span>{item.name}</span>
@@ -175,19 +183,7 @@ const Header = ({ activeSection, setActiveSection }) => {
         </div>
       </div>
 
-      {/* Add CSS animations */}
-      <style jsx>{`
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-      `}</style>
+      {/* Animation classes are now handled by Tailwind */}
     </>
   );
 };

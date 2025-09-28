@@ -1,4 +1,3 @@
-// src/contexts/AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 
 const AuthContext = createContext();
@@ -22,13 +21,15 @@ export const AuthProvider = ({ children }) => {
         const userData = JSON.parse(savedUser);
         setUser(userData);
         setIsAuthenticated(true);
-      } catch (error) {
+      } catch {
         localStorage.removeItem('admin_user');
       }
     }
   }, []);
 
   const loginWithGitHub = () => {
+    if (isLoading) return; // prevent multiple clicks while loading
+
     if (loginTimeoutRef.current) {
       clearTimeout(loginTimeoutRef.current);
     }
@@ -66,6 +67,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     if (loginTimeoutRef.current) {
       clearTimeout(loginTimeoutRef.current);
+      loginTimeoutRef.current = null;
     }
 
     localStorage.removeItem('admin_user');
@@ -78,21 +80,23 @@ export const AuthProvider = ({ children }) => {
   const clearError = () => setAuthError(null);
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      isAuthenticated,
-      isLoading,
-      authError,
-      loginWithGitHub,
-      logout,
-      clearError,
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isAuthenticated,
+        isLoading,
+        authError,
+        loginWithGitHub,
+        logout,
+        clearError,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
 
-/* export const useAuth = () => useContext(AuthContext); */
+// Export your useAuth hook properly:
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

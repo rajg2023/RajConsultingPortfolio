@@ -1,14 +1,45 @@
-import React from 'react';
-/* import { useAuth } from '../../hooks/useAuth'; */
-import { Github, Shield, Lock, CheckCircle, Users } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { GithubIcon, Shield, Lock, CheckCircle, Users } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
-const LoginScreen = () => {
-  const { loginWithGitHub, isLoading } = useAuth();
+const LoginScreen = ({ setActiveSection }) => {
+  const navigate = useNavigate();
+  const { loginWithGitHub, isLoading, isAuthenticated, error: authError } = useAuth();
+  const [loginAttempted, setLoginAttempted] = useState(false);
+  const navigateToAdmin = useRef(false);
 
-  const handleLogin = () => {
-    loginWithGitHub();
+  const handleLogin = async () => {
+    try {
+      setLoginAttempted(true);
+      navigateToAdmin.current = false; // Reset the navigation flag on new login attempt
+      await loginWithGitHub();
+    } catch (error) {
+      console.error('Login failed:', error);
+      setLoginAttempted(false);
+    }
   };
+
+  useEffect(() => {
+    // Only attempt to navigate if we've tried to log in and are now authenticated
+    if (loginAttempted && isAuthenticated && !navigateToAdmin.current) {
+      navigateToAdmin.current = true;
+      // Prefer routing to the admin page for consistent UX
+      navigate('/admin', { replace: true });
+      // For backward compatibility, also notify parent if provided
+      if (setActiveSection) {
+        setActiveSection('admin');
+      }
+    }
+  }, [isAuthenticated, setActiveSection, loginAttempted, navigate]);
+
+  // If already authenticated when visiting login page, redirect to admin
+  useEffect(() => {
+    if (isAuthenticated && !loginAttempted) {
+      navigate('/admin', { replace: true });
+    }
+  }, [isAuthenticated, loginAttempted, navigate]);
+  
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
@@ -59,7 +90,7 @@ const LoginScreen = () => {
             </>
           ) : (
             <>
-              <Github className="inline-block mr-2" size={20} />
+              <GithubIcon className="inline-block mr-2" size={20} />
               Continue with GitHub
             </>
           )}
