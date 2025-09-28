@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { TestTube, Code, BarChart3, CheckCircle, Star, Calendar, Github, ExternalLink } from 'lucide-react';
+import { usePublishedContent } from '../../hooks/usePublishedContent';
 
 const ProjectsSection = () => {
-  const [activeProject, setActiveProject] = useState('QA Testing Project');
-
-  const projects = {
+  const { content } = usePublishedContent();
+  // Fallback demo projects if no published content
+  const demoProjects = {
     'QA Testing Project': {
       title: 'E-commerce Website Testing',
       description: 'Manual testing of an online shopping website including user registration, product search, cart functionality, and checkout process.',
@@ -76,6 +77,36 @@ const ProjectsSection = () => {
     }
   };
 
+  const fromPublished = useMemo(() => {
+    const list = content?.projects || [];
+    if (!list.length) return null;
+    // Map to the shape used by the UI
+    const mapped = {};
+    list.forEach((p, idx) => {
+      const key = p.title || `Project ${idx + 1}`;
+      mapped[key] = {
+        title: p.title || `Project ${idx + 1}`,
+        description: p.summary || '',
+        icon: Code,
+        color: 'blue',
+        details: (p.summary ? p.summary.split('\n') : []).slice(0, 6),
+        technologies: p.tech || [],
+        duration: p.duration || '—',
+        status: p.status || '—',
+        learnings: p.learnings || '',
+        icon_bg: 'bg-blue-50',
+        icon_text: 'text-blue-600',
+        border: 'border-blue-200',
+        image: p.image,
+        url: p.url,
+        repo: p.repo
+      };
+    });
+    return mapped;
+  }, [content]);
+
+  const projects = fromPublished || demoProjects;
+  const [activeProject, setActiveProject] = useState(Object.keys(projects)[0]);
   const projectNames = Object.keys(projects);
   const currentProject = projects[activeProject];
   const IconComponent = currentProject.icon;
@@ -167,7 +198,7 @@ const ProjectsSection = () => {
                     Technologies Used
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {currentProject.technologies.map((tech, index) => (
+                    {(currentProject.technologies || []).map((tech, index) => (
                       <span
                         key={index}
                         className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium"
@@ -217,14 +248,18 @@ const ProjectsSection = () => {
                     Check out the code and documentation for this project, or let's discuss how similar work could help your team.
                   </p>
                   <div className="flex space-x-3">
-                    <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center">
-                      <Github size={16} className="mr-2" />
-                      View Code
-                    </button>
-                    <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors font-medium flex items-center">
-                      <ExternalLink size={16} className="mr-2" />
-                      Live Demo
-                    </button>
+                    {currentProject.repo && (
+                      <a href={currentProject.repo} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center">
+                        <Github size={16} className="mr-2" />
+                        View Code
+                      </a>
+                    )}
+                    {currentProject.url && (
+                      <a href={currentProject.url} target="_blank" rel="noreferrer" className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors font-medium flex items-center">
+                        <ExternalLink size={16} className="mr-2" />
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
 

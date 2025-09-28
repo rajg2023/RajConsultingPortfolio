@@ -10,6 +10,9 @@ import { BrowserRouter } from 'react-router-dom';
     <App />
   </React.StrictMode>
 );  */
+const basename = process.env.NODE_ENV === 'production' 
+  ? '/RajConsultingPortfolio'  // Your GitHub repo name
+  : '';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter> {/* ✅ This is the ONLY BrowserRouter */}

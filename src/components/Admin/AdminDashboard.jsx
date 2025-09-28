@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useContentManager } from '../../hooks/useContentManager';
+import AdminToolbar from './AdminToolbar';
+import AdminAboutEditor from './editors/AdminAboutEditor';
+import AdminProjectsEditor from './editors/AdminProjectsEditor';
+import AdminSiteSettingsEditor from './editors/AdminSiteSettingsEditor';
+import AdminSkillsEditor from './editors/AdminSkillsEditor';
+import AdminServicesEditor from './editors/AdminServicesEditor';
 import { 
   BarChart3, User, Star, Briefcase, FolderOpen, Clock, 
   GraduationCap, Mail, LogOut, Save, Download, Upload,
@@ -12,7 +18,7 @@ const AdminDashboard = () => {
   // ALL HOOKS MUST BE CALLED FIRST
   const { user, logout } = useAuth();
    const navigate = useNavigate();
-  const { content, hasChanges, saveContent, exportContent } = useContentManager();
+  const { content, hasChanges, saveContent, exportContent, isLoading } = useContentManager();
   const [activeEditor, setActiveEditor] = useState('overview');
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   
@@ -81,7 +87,8 @@ const AdminDashboard = () => {
     { id: 'projects', name: 'Projects', icon: FolderOpen, color: 'red' },
     { id: 'experience', name: 'Experience', icon: Clock, color: 'indigo' },
     { id: 'education', name: 'Education', icon: GraduationCap, color: 'pink' },
-    { id: 'contact', name: 'Contact', icon: Mail, color: 'gray' }
+    { id: 'contact', name: 'Contact', icon: Mail, color: 'gray' },
+    { id: 'settings', name: 'Site Settings', icon: SettingsIcon, color: 'blue' }
   ];
 
   const handleSave = () => {
@@ -231,23 +238,32 @@ const AdminDashboard = () => {
   );
 
   const renderEditor = () => {
+    if (isLoading) {
+      return (
+        <div className="min-h-[200px] flex items-center justify-center text-gray-600">
+          Loading content...
+        </div>
+      );
+    }
     switch(activeEditor) {
       case 'overview': 
         return renderOverview();
       case 'about': 
-        return renderComingSoon('About Me');
+        return <AdminAboutEditor />;
       case 'skills': 
-        return renderComingSoon('Skills');
+        return <AdminSkillsEditor />;
       case 'services': 
-        return renderComingSoon('Services');
+        return <AdminServicesEditor />;
       case 'projects': 
-        return renderComingSoon('Projects');
+        return <AdminProjectsEditor />;
       case 'experience': 
         return renderComingSoon('Experience');
       case 'education': 
         return renderComingSoon('Education');
       case 'contact': 
         return renderComingSoon('Contact');
+      case 'settings':
+        return <AdminSiteSettingsEditor />;
       default: 
         return renderOverview();
     }
@@ -327,6 +343,7 @@ const AdminDashboard = () => {
       {/* Main Content Area */}
       <div className="flex-1 p-8 overflow-auto">
         <div className="max-w-6xl mx-auto">
+          <AdminToolbar />
           {renderEditor()}
         </div>
       </div>

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Code, Database, TestTube, BarChart3, Users, Settings, CheckCircle, Star } from 'lucide-react';
+import { usePublishedContent } from '../../hooks/usePublishedContent';
 
 const SkillsSection = () => {
+  const { content } = usePublishedContent();
   const [activeCategory, setActiveCategory] = useState('Technical');
 
   const skillCategories = [
@@ -12,7 +14,7 @@ const SkillsSection = () => {
     { name: 'Tools & Platforms', icon: Settings, color: 'gray' }
   ];
 
-  const skillsData = {
+  const demoSkills = {
     'Technical': [
       { name: 'JavaScript', level: 90, years: '8 years', certified: true },
       { name: 'Python', level: 85, years: '6 years', certified: true },
@@ -64,6 +66,28 @@ const SkillsSection = () => {
       { name: 'Postman', level: 90, years: '5 years', certified: false }
     ]
   };
+
+  const skillsData = useMemo(() => {
+    const list = content?.skills || [];
+    if (!list.length) return demoSkills;
+    const grouped = {
+      'Technical': [],
+      'Testing & QA': [],
+      'Data Analytics': [],
+      'Leadership': [],
+      'Tools & Platforms': []
+    };
+    list.forEach((s) => {
+      const cat = grouped[s.category] ? s.category : 'Technical';
+      grouped[cat].push({
+        name: s.name || 'Skill',
+        level: typeof s.level === 'number' ? s.level : 70,
+        years: s.years || '—',
+        certified: !!s.certified
+      });
+    });
+    return grouped;
+  }, [content]);
 
   const getColorClasses = (color, type = 'bg') => {
     const colorMap = {
@@ -118,7 +142,7 @@ const SkillsSection = () => {
 
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {skillsData[activeCategory].map((skill, index) => (
+          {(skillsData[activeCategory] || []).map((skill, index) => (
             <div key={skill.name} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-semibold text-gray-900 text-lg">{skill.name}</h3>

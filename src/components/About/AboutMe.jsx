@@ -1,51 +1,40 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
+import { usePublishedContent } from '../../hooks/usePublishedContent';
 
 const AboutMe = () => {
-  const specializations = ['QA & Testing', 'SDET Solutions', 'Data Analytics'];
-  const achievements = [
-    { icon: '🏆', text: '50+ Projects Delivered' },
-    { icon: '📈', text: '40% Efficiency Gains' },
-    { icon: '🎓', text: '15+ Certifications' }
-  ];
-  const highlights = [
-    { label: 'QA Expert', color: 'bg-blue-100 text-blue-800' },
-    { label: 'SDET Specialist', color: 'bg-green-100 text-green-800' },
-    { label: 'Data Analyst', color: 'bg-purple-100 text-purple-800' },
-    { label: 'Process Optimizer', color: 'bg-orange-100 text-orange-800' },
-    { label: 'Team Leader', color: 'bg-red-100 text-red-800' }
-  ];
+  const { content, isLoading } = usePublishedContent();
+  const about = content?.about;
+
+  const specializations = about?.specializations || ['QA & Testing', 'SDET Solutions', 'Data Analytics'];
+  const achievements = (about?.achievements || ['50+ Projects Delivered', '40% Efficiency Gains', '15+ Certifications']).map((t) => ({ icon: '🏆', text: t }));
 
   return (
     <div className="p-8">
       <div className="flex flex-col lg:flex-row gap-12">
         <div className="lg:w-1/3 flex flex-col items-center text-center">
-          <div className="w-40 h-40 bg-blue-500 rounded-full flex items-center justify-center text-white text-6xl font-bold mb-6">
-            JD
-          </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">John Doe</h1>
-          <p className="text-blue-600 font-medium mb-8">Independent Consultant</p>
+          {about?.avatar ? (
+            <img src={about.avatar} alt={about.name || 'Avatar'} className="w-40 h-40 rounded-full object-cover mb-6 border-4 border-white shadow" />
+          ) : (
+            <div className="w-40 h-40 bg-blue-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mb-6">
+              {(about?.name || 'User').split(' ').map(w => w[0]).slice(0,2).join('')}
+            </div>
+          )}
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">{about?.name || 'Your Name'}</h1>
+          <p className="text-blue-600 font-medium mb-8">{about?.title || 'Independent Consultant'}</p>
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+            <a href={content?.contact?.email ? `mailto:${content.contact.email}` : '#'} className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
               Get in Touch
-            </button>
-            <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors duration-200">
+            </a>
+            <a href="#services" className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors duration-200">
               View Services
-            </button>
+            </a>
           </div>
         </div>
 
         <div className="lg:w-2/3 space-y-8">
           <div className="space-y-4">
-            <p className="text-gray-700 leading-relaxed">
-              With over 10 years of experience in technology and business consulting, I help organizations 
-              optimize their processes, implement cutting-edge solutions, and drive digital transformation.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              My expertise spans QA analysis, software development, data analytics, and strategic planning. I 
-              take a holistic approach to problem-solving, combining technical skills with business acumen to 
-              deliver measurable results.
-            </p>
+            <p className="text-gray-700 leading-relaxed">{about?.bio || 'Add your bio in the Admin panel.'}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -71,17 +60,6 @@ const AboutMe = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Professional Highlights</h3>
-            <div className="flex flex-wrap gap-3">
-              {highlights.map((highlight, index) => (
-                <span key={index} className={`px-4 py-2 rounded-full text-sm font-medium ${highlight.color}`}>
-                  {highlight.label}
-                </span>
-              ))}
             </div>
           </div>
         </div>

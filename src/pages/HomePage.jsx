@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { usePublishedContent } from '../hooks/usePublishedContent';
 
 // Lazy load components - only load when needed
 const AboutSection = lazy(() => import('../components/About/AboutSection'));
@@ -28,6 +29,7 @@ const HomePage = () => {
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
   const { isAuthenticated } = useAuth();
+  const { content: published } = usePublishedContent();
 
   // If we navigated here with a target section (from admin/login), honor it
   useEffect(() => {
@@ -60,8 +62,17 @@ const HomePage = () => {
         return <AboutSection />;
     }
   };
+  const bg = published?.site?.theme || {};
+  const pageStyle = {
+    backgroundColor: bg.backgroundColor || undefined,
+    backgroundImage: bg.backgroundImage ? `url(${bg.backgroundImage})` : undefined,
+    backgroundSize: bg.backgroundImage ? 'cover' : undefined,
+    backgroundPosition: bg.backgroundImage ? 'center' : undefined,
+    backgroundRepeat: bg.backgroundImage ? 'no-repeat' : undefined
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen flex flex-col" style={pageStyle}>
       <Header
         activeSection={activeSection}
         setActiveSection={setActiveSection}
