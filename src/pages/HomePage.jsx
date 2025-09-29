@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { usePublishedContent } from '../hooks/usePublishedContent';
+import LoginScreen from '../components/Admin/LoginScreen';
 
 // Lazy load components - only load when needed
 const AboutSection = lazy(() => import('../components/About/AboutSection'));
@@ -28,7 +29,7 @@ const LoadingSpinner = () => (
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isAuthorized } = useAuth();
   const { content: published } = usePublishedContent();
 
   // If we navigated here with a target section (from admin/login), honor it
@@ -55,7 +56,10 @@ const HomePage = () => {
       case 'education':
         return <EducationSection />;
       case 'admin':
-        return <AdminSection setActiveSection={setActiveSection} />;
+        // Show admin UI only to authorized owner; otherwise behave like public site
+        return isAuthorized
+          ? <AdminSection setActiveSection={setActiveSection} />
+          : <AboutSection />;
       case 'contact':
         return <ContactSection />;
       default:

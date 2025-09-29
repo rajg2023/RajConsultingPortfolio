@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { User, Star, Briefcase, FolderOpen, Clock, GraduationCap, Settings, Mail, Menu, X } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 const Header = ({ activeSection, setActiveSection, disabledNav = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAuthorized } = useAuth();
 
   const navigationItems = [
     { id: 'home', name: 'Home', icon: User, color: 'blue' },
@@ -11,7 +13,8 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false }) => {
     { id: 'projects', name: 'Projects', icon: FolderOpen, color: 'orange' },
     { id: 'experience', name: 'Experience', icon: Clock, color: 'red' },
     { id: 'education', name: 'Education', icon: GraduationCap, color: 'indigo' },
-    { id: 'admin', name: 'Admin', icon: Settings, color: 'gray' },
+    // Admin will be conditionally included below based on isAuthorized
+    ...(isAuthorized ? [{ id: 'admin', name: 'Admin', icon: Settings, color: 'gray' }] : []),
     { id: 'contact', name: 'Contact', icon: Mail, color: 'pink' }
   ];
 

@@ -11,6 +11,14 @@ export const AuthProvider = ({ children }) => {
   const initialized = useRef(false);
   const loginTimeoutRef = useRef(null);
 
+  // Config
+  const DEMO_AUTH = String(import.meta.env.VITE_DEMO_AUTH || '').toLowerCase() === 'true';
+  const AUTHORIZED_USERS = (import.meta.env.VITE_AUTHORIZED_USERS || 'rajg2023')
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+  const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
+
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
@@ -30,10 +38,31 @@ export const AuthProvider = ({ children }) => {
   const loginWithGitHub = () => {
     if (isLoading) return; // prevent multiple clicks while loading
 
-    // Public client_id is safe to expose on the frontend
-    const clientId = import.meta.env.VITE_GITHUB_CLIENT_ID;
-    if (!clientId) {
-      setAuthError('GitHub OAuth is not configured. Missing VITE_GITHUB_CLIENT_ID');
+    // If demo mode is enabled or client id is missing, perform a simulated login.
+    if (DEMO_AUTH || !GITHUB_CLIENT_ID) {
+      setAuthError(null);
+      setIsLoading(true);
+      // Simulate async auth
+      loginTimeoutRef.current = setTimeout(() => {
+        const login = AUTHORIZED_USERS[0] || 'admin';
+        const demoUser = {
+          id: Date.now(),
+          login,
+          name: 'Portfolio Admin',
+          avatar_url: `https://github.com/${login}.png`,
+          email: null,
+          bio: 'Demo admin session',
+          location: '',
+          company: '',
+          role: 'admin',
+          demo_mode: true,
+          authenticated_at: new Date().toISOString(),
+        };
+        localStorage.setItem('admin_user', JSON.stringify(demoUser));
+        setUser(demoUser);
+        setIsAuthenticated(true);
+        setIsLoading(false);
+      }, 800);
       return;
     }
 
@@ -49,14 +78,13 @@ export const AuthProvider = ({ children }) => {
     sessionStorage.setItem('oauth_state', state);
     sessionStorage.setItem('oauth_redirect_uri', redirectUri);
 
+    // Frontend initiates GitHub authorize using public client_id.
     const params = new URLSearchParams({
-      client_id: clientId,
+      client_id: GITHUB_CLIENT_ID,
       redirect_uri: redirectUri,
       scope: 'read:user user:email',
       state,
-      // allow signup stays default; add 'allow_signup=false' if desired
     });
-
     const authorizeUrl = `https://github.com/login/oauth/authorize?${params.toString()}`;
     window.location.assign(authorizeUrl);
   };
@@ -91,6 +119,10 @@ export const AuthProvider = ({ children }) => {
         role: 'admin',
         authenticated_at: new Date().toISOString(),
       };
+      // Optionally enforce an allowlist if provided
+      if (AUTHORIZED_USERS.length && !AUTHORIZED_USERS.includes(safeUser.login)) {
+        throw new Error('User is not authorized');
+      }
       localStorage.setItem('admin_user', JSON.stringify(safeUser));
       setUser(safeUser);
       setIsAuthenticated(true);
@@ -98,7 +130,7 @@ export const AuthProvider = ({ children }) => {
       setAuthError(null);
     } catch (e) {
       console.error('Failed to finalize OAuth login', e);
-      setAuthError('Failed to finalize login');
+      setAuthError(e.message || 'Failed to finalize login');
       setIsLoading(false);
     }
   };
@@ -114,6 +146,8 @@ export const AuthProvider = ({ children }) => {
         logout,
         clearError,
         completeOAuthLogin,
+        isOAuthMode: !DEMO_AUTH && !!GITHUB_CLIENT_ID,
+        isAuthorized: !!(user && AUTHORIZED_USERS.includes(user.login)),
       }}
     >
       {children}
