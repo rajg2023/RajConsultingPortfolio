@@ -11,7 +11,9 @@ export const usePublishedContent = () => {
       try {
         setIsLoading(true);
         setError(null);
-        const res = await fetch('/content.json', { cache: 'no-store' });
+        const base = import.meta.env.BASE_URL || '/';
+        const url = new URL('content.json', window.location.origin + base).href;
+        const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (!cancelled) setContent(data);

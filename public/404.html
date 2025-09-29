@@ -9,8 +9,9 @@
       (function() {
         var l = window.location;
         var repo = '/RajConsultingPortfolio';
-        var path = l.pathname.replace(repo, '');
-        var newUrl = repo + '/?/' + path + l.search + l.hash;
+        var path = l.pathname.replace(repo, '').replace(/^\//, '');
+        var query = l.search ? ('&' + l.search.slice(1)) : '';
+        var newUrl = repo + '/?/' + path + query + l.hash;
         window.location.replace(newUrl);
       })();
     </script>

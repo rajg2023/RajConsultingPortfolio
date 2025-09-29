@@ -40,9 +40,9 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(true);
     setAuthError(null);
 
-    // Use Vite's BASE_URL to build correct callback under subpath on Pages
+    // Use Vite's BASE_URL and URL() to build correct callback under subpath on Pages
     const baseUrl = import.meta.env.BASE_URL || '/';
-    const redirectUri = `${window.location.origin}${baseUrl}oauth/callback`;
+    const redirectUri = new URL('oauth/callback', window.location.origin + baseUrl).href;
 
     // CSRF protection: random state stored in sessionStorage
     const state = Math.random().toString(36).slice(2) + Date.now().toString(36);

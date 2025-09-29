@@ -56,7 +56,9 @@ export const useContentManager = () => {
         // Fetch base content from the static file
         let fileContent = {};
         try {
-          const res = await fetch('/content.json', { cache: 'no-store' });
+          const base = import.meta.env.BASE_URL || '/';
+          const url = new URL('content.json', window.location.origin + base).href;
+          const res = await fetch(url, { cache: 'no-store' });
           if (res.ok) {
             fileContent = await res.json();
           }
