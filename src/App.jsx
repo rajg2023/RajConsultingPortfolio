@@ -9,6 +9,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext'; // ✅ use conte
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { useNavigate } from 'react-router-dom';
+import OAuthCallback from './pages/OAuthCallback';
 
 // Simple route guard for admin routes
 const ProtectedRoute = ({ children }) => {
@@ -39,6 +40,8 @@ const App = () => {
       <AuthProvider> {/* 👈 Wrap entire app with your Auth context */}
         <Routes>
           <Route path="/" element={<HomePage />} />
+          {/* OAuth callback must NOT be redirected */}
+          <Route path="/oauth/callback" element={<OAuthCallback />} />
           {/* Hide explicit login/admin routes by redirecting to Home with admin section */}
           <Route path="/login" element={<Navigate to="/" state={{ section: 'admin' }} replace />} />
           {/* Redirect common variations to the canonical admin route */}
