@@ -73,7 +73,14 @@ const OAuthCallback = () => {
         }
 
         // Finalize login in context
-        completeOAuthLogin(profile);
+        /* completeOAuthLogin(profile); */
+        if (code) {
+          completeOAuthLogin(code)
+            .then(() => {
+              // Redirect to home or admin page after successful login
+              navigate('/');
+            });
+        }
 
         // Cleanup and go home (optionally to admin section)
         sessionStorage.removeItem('oauth_state');

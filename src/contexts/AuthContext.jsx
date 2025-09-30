@@ -1,28 +1,24 @@
-import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
+// src/contexts/AuthContext.jsx
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const initialized = useRef(false);
-  const loginTimeoutRef = useRef(null);
-
-  // Config
-  const DEMO_AUTH = String(import.meta.env.VITE_DEMO_AUTH || '').toLowerCase() === 'true';
-  const AUTHORIZED_USERS = (import.meta.env.VITE_AUTHORIZED_USERS || 'rajg2023')
-    .split(',')
-    .map(s => s.trim())
-    .filter(Boolean);
+  // Get environment variables
   const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
+  const APP_URL = import.meta.env.VITE_APP_URL || window.location.origin;
+  const AUTHORIZED_USERS = ['rajg2023']; // Your GitHub username
 
+  // Check for existing session on mount
   useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-
     const savedUser = localStorage.getItem('admin_user');
     if (savedUser) {
       try {
@@ -33,106 +29,124 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('admin_user');
       }
     }
+    setIsLoading(false);
   }, []);
 
-  const loginWithGitHub = () => {
-    if (isLoading) return; // prevent multiple clicks while loading
+  // Handle OAuth callback
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const code = params.get('code');
+    const state = params.get('state');
+    const savedState = sessionStorage.getItem('oauth_state');
 
-    // If demo mode is enabled or client id is missing, perform a simulated login.
-    if (DEMO_AUTH || !GITHUB_CLIENT_ID) {
-      setAuthError(null);
-      setIsLoading(true);
-      // Simulate async auth
-      loginTimeoutRef.current = setTimeout(() => {
-        const login = AUTHORIZED_USERS[0] || 'admin';
-        const demoUser = {
-          id: Date.now(),
-          login,
-          name: 'Portfolio Admin',
-          avatar_url: `https://github.com/${login}.png`,
-          email: null,
-          bio: 'Demo admin session',
-          location: '',
-          company: '',
-          role: 'admin',
-          demo_mode: true,
-          authenticated_at: new Date().toISOString(),
-        };
-        localStorage.setItem('admin_user', JSON.stringify(demoUser));
-        setUser(demoUser);
-        setIsAuthenticated(true);
-        setIsLoading(false);
-      }, 800);
-      return;
+    if (code && state && state === savedState) {
+      handleOAuthCallback(code);
     }
+  }, [location]);
 
+  const handleOAuthCallback = async (code) => {
     setIsLoading(true);
     setAuthError(null);
 
-    // Use Vite's BASE_URL and URL() to build correct callback under subpath on Pages
-    const baseUrl = import.meta.env.BASE_URL || '/';
-    const redirectUri = new URL('oauth/callback', window.location.origin + baseUrl).href;
+    try {
+      // Get access token using the authorization code
+      const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          client_id: GITHUB_CLIENT_ID,
+          client_secret: import.meta.env.VITE_GITHUB_CLIENT_SECRET,
+          code: code
+        })
+      });
 
-    // CSRF protection: random state stored in sessionStorage
-    const state = Math.random().toString(36).slice(2) + Date.now().toString(36);
+      const { access_token } = await tokenResponse.json();
+
+      if (!access_token) {
+        throw new Error('Failed to get access token');
+      }
+
+      // Get user data
+      const userResponse = await fetch('https://api.github.com/user', {
+        headers: {
+          'Authorization': `token ${access_token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+
+      if (!userResponse.ok) {
+        throw new Error('Failed to fetch user data');
+      }
+
+      const userData = await userResponse.json();
+
+      // Check if user is authorized
+      if (AUTHORIZED_USERS.includes(userData.login.toLowerCase())) {
+        const adminUser = {
+          id: userData.id,
+          login: userData.login,
+          name: userData.name || userData.login,
+          avatar_url: userData.avatar_url,
+          role: 'admin',
+          authenticated_at: new Date().toISOString()
+        };
+
+        // Store minimal user data in localStorage
+        localStorage.setItem('admin_user', JSON.stringify(adminUser));
+        setUser(adminUser);
+        setIsAuthenticated(true);
+        
+        // Clean up URL
+        const cleanUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+
+        // Redirect to admin or previous location
+        const from = location.state?.from?.pathname || '/admin';
+        navigate(from, { replace: true });
+      } else {
+        throw new Error('User not authorized');
+      }
+    } catch (error) {
+      console.error('OAuth error:', error);
+      setAuthError(error.message || 'Authentication failed');
+      logout();
+    } finally {
+      setIsLoading(false);
+      sessionStorage.removeItem('oauth_state');
+    }
+  };
+
+  const loginWithGitHub = () => {
+    if (!GITHUB_CLIENT_ID) {
+      setAuthError('GitHub OAuth not configured');
+      return;
+    }
+
+    // Generate secure state parameter
+    const state = Math.random().toString(36).substring(2, 15);
     sessionStorage.setItem('oauth_state', state);
-    sessionStorage.setItem('oauth_redirect_uri', redirectUri);
-
-    // Frontend initiates GitHub authorize using public client_id.
-    const params = new URLSearchParams({
-      client_id: GITHUB_CLIENT_ID,
-      redirect_uri: redirectUri,
-      scope: 'read:user user:email',
-      state,
-    });
-    const authorizeUrl = `https://github.com/login/oauth/authorize?${params.toString()}`;
-    window.location.assign(authorizeUrl);
+    
+    // Build OAuth URL
+    const authUrl = new URL('https://github.com/login/oauth/authorize');
+    authUrl.searchParams.set('client_id', GITHUB_CLIENT_ID);
+    authUrl.searchParams.set('redirect_uri', `${APP_URL}/admin`);
+    authUrl.searchParams.set('scope', 'read:user');
+    authUrl.searchParams.set('state', state);
+    
+    // Redirect to GitHub
+    window.location.href = authUrl.toString();
   };
 
   const logout = () => {
-    if (loginTimeoutRef.current) {
-      clearTimeout(loginTimeoutRef.current);
-      loginTimeoutRef.current = null;
-    }
-
     localStorage.removeItem('admin_user');
+    sessionStorage.removeItem('oauth_state');
     setUser(null);
     setIsAuthenticated(false);
-    setIsLoading(false);
     setAuthError(null);
-  };
-
-  const clearError = () => setAuthError(null);
-
-  // Finalize OAuth login by storing user and updating state
-  const completeOAuthLogin = (profile) => {
-    try {
-      const safeUser = {
-        id: profile.id,
-        login: profile.login,
-        name: profile.name || profile.login,
-        avatar_url: profile.avatar_url,
-        email: profile.email || null,
-        bio: profile.bio || '',
-        location: profile.location || '',
-        company: profile.company || '',
-        role: 'admin',
-        authenticated_at: new Date().toISOString(),
-      };
-      // Optionally enforce an allowlist if provided
-      if (AUTHORIZED_USERS.length && !AUTHORIZED_USERS.includes(safeUser.login)) {
-        throw new Error('User is not authorized');
-      }
-      localStorage.setItem('admin_user', JSON.stringify(safeUser));
-      setUser(safeUser);
-      setIsAuthenticated(true);
-      setIsLoading(false);
-      setAuthError(null);
-    } catch (e) {
-      console.error('Failed to finalize OAuth login', e);
-      setAuthError(e.message || 'Failed to finalize login');
-      setIsLoading(false);
-    }
+    navigate('/');
   };
 
   return (
@@ -144,10 +158,7 @@ export const AuthProvider = ({ children }) => {
         authError,
         loginWithGitHub,
         logout,
-        clearError,
-        completeOAuthLogin,
-        isOAuthMode: !DEMO_AUTH && !!GITHUB_CLIENT_ID,
-        isAuthorized: !!(user && AUTHORIZED_USERS.includes(user.login)),
+        clearError: () => setAuthError(null)
       }}
     >
       {children}
@@ -155,11 +166,10 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Export your useAuth hook properly:
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth() must be used within an <AuthProvider>');
+    throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
 };

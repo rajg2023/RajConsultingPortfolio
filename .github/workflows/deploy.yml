@@ -2,7 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -35,6 +37,8 @@ jobs:
       - name: Build
         env:
           VITE_GITHUB_CLIENT_ID: ${{ secrets.VITE_GITHUB_CLIENT_ID }}
+          VITE_GITHUB_CLIENT_SECRET: ${{ secrets.VITE_GITHUB_CLIENT_SECRET }}
+          VITE_APP_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: npm run build
         
       - name: Setup Pages
