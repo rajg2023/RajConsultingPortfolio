@@ -11,37 +11,45 @@ export const AuthProvider = ({ children }) => {
   const [authError, setAuthError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Get environment variables
-  const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
+  // Get environment variables - these will be injected during build
+  const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID || '';
+  const GITHUB_CLIENT_SECRET = import.meta.env.VITE_GITHUB_CLIENT_SECRET || '';
   const APP_URL = import.meta.env.VITE_APP_URL || window.location.origin;
   const AUTHORIZED_USERS = ['rajg2023']; // Your GitHub username
 
   // Check for existing session on mount
   useEffect(() => {
+    console.log('AuthContext: Checking for existing session...');
     const savedUser = localStorage.getItem('admin_user');
+    console.log('AuthContext: savedUser from localStorage:', savedUser);
+    
     if (savedUser) {
       try {
         const userData = JSON.parse(savedUser);
+        console.log('AuthContext: Found user data:', userData);
         setUser(userData);
         setIsAuthenticated(true);
-      } catch {
+        console.log('AuthContext: User is now authenticated');
+      } catch (error) {
+        console.error('AuthContext: Error parsing user data:', error);
         localStorage.removeItem('admin_user');
       }
+    } else {
+      console.log('AuthContext: No saved user found');
     }
-    setIsLoading(false);
-  }, []);
-
-  // Handle OAuth callback
-  useEffect(() => {
+    
+    // Check for OAuth callback
     const params = new URLSearchParams(location.search);
     const code = params.get('code');
     const state = params.get('state');
     const savedState = sessionStorage.getItem('oauth_state');
-
+    
     if (code && state && state === savedState) {
+      console.log('AuthContext: Handling OAuth callback with code:', code);
       handleOAuthCallback(code);
     }
+    
+    setIsLoading(false);
   }, [location]);
 
   const handleOAuthCallback = async (code) => {
@@ -58,8 +66,9 @@ export const AuthProvider = ({ children }) => {
         },
         body: JSON.stringify({
           client_id: GITHUB_CLIENT_ID,
-          client_secret: import.meta.env.VITE_GITHUB_CLIENT_SECRET,
-          code: code
+          client_secret: GITHUB_CLIENT_SECRET,
+          code: code,
+          redirect_uri: 'https://rajg2023.github.io/RajConsultingPortfolio/admin'
         })
       });
 

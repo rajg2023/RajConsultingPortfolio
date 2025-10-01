@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { User, Star, Briefcase, FolderOpen, Clock, GraduationCap, Settings, Mail, Menu, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const Header = ({ activeSection, setActiveSection, disabledNav = false }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isAuthorized } = useAuth();
+  const { isAuthenticated, user, loginWithGitHub } = useAuth();
+  
+  // Debug log to track authentication state
+  useEffect(() => {
+    console.log('Header: isAuthenticated:', isAuthenticated);
+    console.log('Header: Current user:', user);
+  }, [isAuthenticated, user]);
 
   const navigationItems = [
     { id: 'home', name: 'Home', icon: User, color: 'blue' },
@@ -13,8 +19,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false }) => {
     { id: 'projects', name: 'Projects', icon: FolderOpen, color: 'orange' },
     { id: 'experience', name: 'Experience', icon: Clock, color: 'red' },
     { id: 'education', name: 'Education', icon: GraduationCap, color: 'indigo' },
-    // Admin will be conditionally included below based on isAuthorized
-    ...(isAuthorized ? [{ id: 'admin', name: 'Admin', icon: Settings, color: 'gray' }] : []),
+    { id: 'admin', name: 'Admin', icon: Settings, color: 'gray' },
     { id: 'contact', name: 'Contact', icon: Mail, color: 'pink' }
   ];
 
@@ -89,9 +94,9 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false }) => {
             
             {/* Mobile Menu Button */}
             <div className="lg:hidden">
-              <button 
+              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
+                className="p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors"
               >
                 {isMobileMenuOpen ? (
                   <X size={24} className="transform rotate-180 transition-transform duration-300" />

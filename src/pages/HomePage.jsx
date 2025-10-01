@@ -29,7 +29,7 @@ const LoadingSpinner = () => (
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
-  const { isAuthenticated, isAuthorized } = useAuth();
+  const { isAuthenticated } = useAuth();
   const { content: published } = usePublishedContent();
 
   // If we navigated here with a target section (from admin/login), honor it
@@ -56,10 +56,10 @@ const HomePage = () => {
       case 'education':
         return <EducationSection />;
       case 'admin':
-        // Show admin UI only to authorized owner; otherwise behave like public site
-        return isAuthorized
+        // Show login screen for unauthenticated users, admin dashboard for authenticated users
+        return isAuthenticated
           ? <AdminSection setActiveSection={setActiveSection} />
-          : <AboutSection />;
+          : <LoginScreen setActiveSection={setActiveSection} />;
       case 'contact':
         return <ContactSection />;
       default:

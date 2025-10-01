@@ -1,142 +1,143 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { GithubIcon, Shield, Lock, CheckCircle, Users } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Github, Shield, CheckCircle, Users, AlertCircle } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const LoginScreen = ({ setActiveSection }) => {
   const navigate = useNavigate();
-  const { loginWithGitHub, isLoading, isAuthenticated, error: authError } = useAuth();
+  const location = useLocation();
+  const { loginWithGitHub, isLoading, isAuthenticated, authError } = useAuth();
   const [loginAttempted, setLoginAttempted] = useState(false);
-  const navigateToAdmin = useRef(false);
+  const [error, setError] = useState(null);
 
-  const handleLogin = async () => {
+  // Get environment variables
+  const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID || '';
+  const APP_URL = import.meta.env.VITE_APP_URL || window.location.origin;
+
+  // Redirect to admin if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/admin', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleLogin = () => {
     try {
+      setError(null);
       setLoginAttempted(true);
-      navigateToAdmin.current = false; // Reset the navigation flag on new login attempt
-      await loginWithGitHub();
+      
+      // Generate a random state string for CSRF protection
+      const state = Math.random().toString(36).substring(2);
+      sessionStorage.setItem('oauth_state', state);
+      
+      // Redirect to GitHub OAuth page - must match exactly with GitHub OAuth App settings
+      const redirectUri = 'https://rajg2023.github.io/RajConsultingPortfolio/admin';
+      const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&state=${state}&scope=user:email`;
+      
+      window.location.href = githubAuthUrl;
     } catch (error) {
       console.error('Login failed:', error);
+      setError('Failed to initiate GitHub login. Please try again.');
       setLoginAttempted(false);
     }
   };
 
-  useEffect(() => {
-    // Only attempt to navigate if we've tried to log in and are now authenticated
-    if (loginAttempted && isAuthenticated && !navigateToAdmin.current) {
-      navigateToAdmin.current = true;
-      // Prefer routing to the admin page for consistent UX
-      navigate('/admin', { replace: true });
-      // For backward compatibility, also notify parent if provided
-      if (setActiveSection) {
-        setActiveSection('admin');
-      }
-    }
-  }, [isAuthenticated, setActiveSection, loginAttempted, navigate]);
-
-  // If already authenticated when visiting login page, redirect to admin
-  useEffect(() => {
-    if (isAuthenticated && !loginAttempted) {
-      navigate('/admin', { replace: true });
-    }
-  }, [isAuthenticated, loginAttempted, navigate]);
-  
-
-  return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500 rounded-full opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500 rounded-full opacity-10 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-500 rounded-full opacity-5 animate-ping"></div>
-      </div>
-
-      <div className="relative bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md mx-4 backdrop-blur-lg">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-4">
-            <Shield className="text-white" size={32} />
-          </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Portfolio Admin</h1>
-          <p className="text-gray-600">Secure GitHub OAuth authentication</p>
+  // Show loading state
+  if (isLoading || loginAttempted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Authenticating with GitHub...</p>
         </div>
+      </div>
+    );
+  }
 
-        {/* OAuth Notice */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
-          <div className="flex items-start space-x-3">
-            <Lock className="text-blue-500 flex-shrink-0 mt-1" size={18} />
-            <div>
-              <h3 className="font-semibold text-blue-900 text-sm">OAuth Authentication</h3>
-              <p className="text-blue-700 text-sm mt-1">
-                Authenticate with your GitHub account to access the admin panel.
-              </p>
+  // Show error message if authentication failed
+  if (authError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+        <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-md text-center">
+          <div className="flex justify-center mb-4">
+            <AlertCircle className="h-12 w-12 text-red-500" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Authentication Failed</h2>
+          <p className="text-gray-600 mb-6">
+            {authError === 'User not authorized' 
+              ? 'Your GitHub account is not authorized to access the admin panel.'
+              : 'An error occurred during authentication. Please try again.'}
+          </p>
+          <button
+            onClick={handleLogin}
+            className="w-full flex items-center justify-center space-x-2 bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors"
+          >
+            <Github className="h-5 w-5" />
+            <span>Try Again with GitHub</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Show the login form
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="px-8 py-10">
+          <div className="text-center mb-8">
+            <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-50 mb-4">
+              <Shield className="h-8 w-8 text-blue-600" />
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Portal</h1>
+            <p className="text-gray-600">Sign in with GitHub to continue</p>
+          </div>
+
+          {error && (
+            <div className="mb-6 p-3 bg-red-50 text-red-700 rounded-lg text-sm">
+              {error}
+            </div>
+          )}
+
+          <div className="space-y-6">
+            <button
+              onClick={handleLogin}
+              disabled={isLoading}
+              className="w-full flex items-center justify-center space-x-3 bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              <Github className="h-5 w-5" />
+              <span>Continue with GitHub</span>
+            </button>
+
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-3 bg-white text-gray-500">Secure Access</span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Secure Authentication</h3>
+                  <p className="text-sm text-gray-500">Uses GitHub OAuth for secure, passwordless login</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Users className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-gray-900">Authorized Access Only</h3>
+                  <p className="text-sm text-gray-500">Only approved GitHub accounts can access the admin panel</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Login Button */}
-        <button
-          onClick={handleLogin}
-          disabled={isLoading}
-          className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-200 ${
-            isLoading
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black transform hover:scale-[1.02] active:scale-[0.98]'
-          }`}
-        >
-          {isLoading ? (
-            <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white inline-block mr-2"></div>
-              Processing OAuth...
-            </>
-          ) : (
-            <>
-              <GithubIcon className="inline-block mr-2" size={20} />
-              Continue with GitHub
-            </>
-          )}
-        </button>
-
-        {/* Features List */}
-        <div className="mt-8 pt-6 border-t border-gray-200">
-          <h4 className="text-sm font-semibold text-gray-900 mb-3">Admin Features</h4>
-          <div className="space-y-2">
-            {[
-              'Edit all portfolio sections',
-              'Real-time content updates',
-              'Secure GitHub OAuth authentication',
-              'Session-based access control'
-            ].map((feature, index) => (
-              <div key={index} className="flex items-center space-x-2 text-sm text-gray-600">
-                <CheckCircle className="text-green-500" size={16} />
-                <span>{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Authorized Users */}
-        <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-          <div className="flex items-center space-x-2 text-gray-600 mb-2">
-            <Users size={16} />
-            <span className="text-sm font-medium">Authorized Access</span>
-          </div>
-          <p className="text-xs text-gray-500">
-            Only authorized GitHub accounts can access this admin panel.
-          </p>
-        </div>
-
-        {/* Security Info */}
-        <div className="mt-6 text-center">
-          <div className="flex items-center justify-center space-x-2 text-gray-500">
-            <Shield size={16} />
-            <span className="text-sm">Secure OAuth - GitHub Authentication</span>
-          </div>
-          <p className="text-xs text-gray-400 mt-1">
-            Your credentials are never stored locally
-          </p>
-        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

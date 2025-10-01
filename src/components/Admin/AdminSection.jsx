@@ -5,7 +5,7 @@ import AdminDashboard from './AdminDashboard';
 
 const AdminSection = ({ setActiveSection }) => {
   const { user, isAuthenticated, isLoading, logout } = useAuth();
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(true);
 
   const handleLogout = () => {
     console.log('🔴 Logout button clicked from AdminSection');
