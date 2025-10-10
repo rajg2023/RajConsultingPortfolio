@@ -1,66 +1,174 @@
 import React from 'react';
-import { CheckCircle } from 'lucide-react';
-import { usePublishedContent } from '../../hooks/usePublishedContent';
+import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 
-const AboutMe = () => {
-  const { content, isLoading } = usePublishedContent();
-  const about = content?.about;
+// Skeleton loading component
+const SkeletonLoader = () => (
+  <div className="w-full max-w-4xl mx-auto p-6 space-y-6 animate-pulse">
+    <div className="h-10 bg-gray-200 rounded w-3/4 mx-auto"></div>
+    <div className="h-6 bg-gray-200 rounded w-1/2 mx-auto"></div>
+    <div className="h-4 bg-gray-200 rounded w-full"></div>
+    <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+    <div className="h-4 bg-gray-200 rounded w-4/6"></div>
+    
+    <div className="space-y-4 mt-8">
+      {[1, 2, 3, 4, 5].map((item) => (
+        <div key={item} className="flex items-center">
+          <div className="h-6 w-6 bg-gray-200 rounded-full mr-2"></div>
+          <div className="h-4 bg-gray-200 rounded w-48"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
-  const specializations = about?.specializations || ['QA & Testing', 'SDET Solutions', 'Data Analytics'];
-  const achievements = (about?.achievements || ['50+ Projects Delivered', '40% Efficiency Gains', '15+ Certifications']).map((t) => ({ icon: '🏆', text: t }));
+const AboutMe = ({ resumeData, isLoading, error }) => {
+  if (isLoading) {
+    return <SkeletonLoader />;
+  }
+
+  if (error) {
+    return (
+      <div className="text-center p-8">
+        <div className="text-red-500 mb-4">Error loading profile information</div>
+        <button 
+          onClick={() => window.location.reload()}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
+
+  if (!resumeData) {
+    return (
+      <div className="text-center p-8">
+        <p>No profile data available</p>
+      </div>
+    );
+  }
+
+  // Default data in case resumeData is not provided
+  const defaultData = {
+    name: 'Raj Gohil',
+    title: 'Quality Assurance Consultant',
+    summary: 'Experienced QA professional with a strong background in manual and automated testing, test automation frameworks, and quality assurance best practices. Passionate about delivering high-quality software solutions and improving testing processes.',
+    contact: {
+      email: 'rajgohil@example.com',
+      phone: '+1 (555) 123-4567',
+      location: 'Toronto, Canada',
+      linkedin: 'https://linkedin.com/in/rajgohil',
+      github: 'rajgohil'
+    }
+  };
+
+  // Use provided resumeData or fall back to default data
+  const { 
+    name = defaultData.name, 
+    title = defaultData.title, 
+    summary = defaultData.summary, 
+    contact = defaultData.contact 
+  } = resumeData || {};
 
   return (
-    <div className="p-8">
-      <div className="flex flex-col lg:flex-row gap-12">
-        <div className="lg:w-1/3 flex flex-col items-center text-center">
-          {about?.avatar ? (
-            <img src={about.avatar} alt={about.name || 'Avatar'} className="w-40 h-40 rounded-full object-cover mb-6 border-4 border-white shadow" />
-          ) : (
-            <div className="w-40 h-40 bg-blue-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mb-6">
-              {(about?.name || 'User').split(' ').map(w => w[0]).slice(0,2).join('')}
+    <div className="w-full py-2 sm:py-4">
+      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 max-w-[1800px] mx-auto px-3 sm:px-5">
+        {/* Left Column - Profile Image and Contact Info */}
+        <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-start">
+          <div className="relative w-36 sm:w-40 md:w-48 lg:w-full max-w-xs mb-3 sm:mb-4">
+            <div className="pb-[100%] relative">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 p-1">
+                <div className="h-full w-full rounded-full bg-white p-0.5">
+                  <img 
+                    src="/images/ProfilePic.jpg" 
+                    alt={name}
+                    className="h-full w-full rounded-full object-cover"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=random';
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-          )}
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{about?.name || 'Your Name'}</h1>
-          <p className="text-blue-600 font-medium mb-8">{about?.title || 'Independent Consultant'}</p>
-          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
-            <a href={content?.contact?.email ? `mailto:${content.contact.email}` : '#'} className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
-              Get in Touch
-            </a>
-            <a href="#services" className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors duration-200">
-              View Services
-            </a>
+          </div>
+          
+          {/* Contact Info */}
+          <div className="w-full space-y-1.5 sm:space-y-2">
+            {contact.email && (
+              <div className="flex items-center p-2 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                <div className="p-1 bg-blue-50 rounded-md mr-2">
+                  <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-500" />
+                </div>
+                <a href={`mailto:${contact.email}`} className="hover:text-blue-500 transition-colors text-xs sm:text-sm font-medium truncate">
+                  {contact.email}
+                </a>
+              </div>
+            )}
+            
+            {contact.phone && (
+              <div className="flex items-center p-2 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                <div className="p-1 bg-blue-50 rounded-md mr-2">
+                  <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-500" />
+                </div>
+                <a href={`tel:${contact.phone.replace(/\D/g, '')}`} className="hover:text-blue-500 transition-colors text-xs sm:text-sm font-medium">
+                  {contact.phone}
+                </a>
+              </div>
+            )}
+            
+            {contact.location && (
+              <div className="flex items-center p-2 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                <div className="p-1 bg-blue-50 rounded-md mr-2">
+                  <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-500" />
+                </div>
+                <span className="text-xs sm:text-sm font-medium">{contact.location}</span>
+              </div>
+            )}
+            
+            {contact.linkedin && (
+              <div className="flex items-center p-2 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                <div className="p-1 bg-blue-50 rounded-md mr-2">
+                  <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-500" />
+                </div>
+                <a 
+                  href={contact.linkedin.startsWith('http') ? contact.linkedin : `https://${contact.linkedin}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-500 transition-colors text-xs sm:text-sm font-medium truncate"
+                >
+                  {contact.linkedin.replace(/^https?:\/\//, '')}
+                </a>
+              </div>
+            )}
+            
+            {contact.github && (
+              <div className="flex items-center p-2 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors duration-200">
+                <div className="p-1 bg-blue-50 rounded-md mr-2">
+                  <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-500" />
+                </div>
+                <a 
+                  href={contact.github.startsWith('http') ? contact.github : `https://github.com/${contact.github}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-500 transition-colors text-xs sm:text-sm font-medium truncate"
+                >
+                  {contact.github.replace(/^https?:\/\//, '')}
+                </a>
+              </div>
+            )}
           </div>
         </div>
-
-        <div className="lg:w-2/3 space-y-8">
-          <div className="space-y-4">
-            <p className="text-gray-700 leading-relaxed">{about?.bio || 'Add your bio in the Admin panel.'}</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Specializations</h3>
-              <div className="space-y-3">
-                {specializations.map((skill, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="text-blue-500 w-5 h-5" />
-                    <span className="text-gray-700">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Key Achievements</h3>
-              <div className="space-y-3">
-                {achievements.map((achievement, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <span className="text-xl">{achievement.icon}</span>
-                    <span className="text-gray-700">{achievement.text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+        
+        {/* Right Column - Name, Title, and Summary */}
+        <div className="w-full lg:w-3/5 mt-4 lg:mt-0 lg:pl-4">
+          <div className="space-y-2 sm:space-y-3 md:space-y-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">{name}</h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-600 font-medium">{title}</h2>
+            <div className="h-1.5 w-20 sm:w-24 bg-gradient-to-r from-blue-400 to-purple-500 my-3 sm:my-4 rounded-full"></div>
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              {summary}
+            </p>
           </div>
         </div>
       </div>
@@ -68,4 +176,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default React.memo(AboutMe);

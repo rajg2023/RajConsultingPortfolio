@@ -256,18 +256,8 @@ const ContactSection = () => {
   return (
     <section className="min-h-screen flex items-center py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Let's Work Together</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to start your project or have questions about my services? I'd love to hear from you.
-            Choose the best way to get in touch below.
-          </p>
-        </div>
-
         {/* Contact Method Selector */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {contactNames.map((contactName) => {
             const contact = contactMethods[contactName];
             const ContactIconComponent = contact.icon;

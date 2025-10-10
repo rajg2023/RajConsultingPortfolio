@@ -1,0 +1,124 @@
+{
+  "name": "Rajiv Giri",
+  "title": "Independent Digital and Technology Solutions Professional",
+  "contact": {
+    "email": "rajivgiri2025@gmail.com",
+    "phone": "(123) 456-7890",
+    "location": "Cincinnati, OH",
+    "linkedin": "linkedin.com/in/girirajiv",
+    "github": "github.com/rajg2023"
+  },
+  "summary": "Digital and Technology Solutions professional with 9+ years in data-intensive environments, including 3+ years of hands-on IT experience built upon a foundation of 6+ years in pharmaceutical operations. Skilled in data analysis, application support, and maintaining data accuracy in regulated environments.",
+  "skills": {
+    "technical": [
+      "Data Analysis & Visualization",
+      "Application Support & Testing",
+      "SQL & Database Management",
+      "Microsoft Power Platform",
+      "Data Cleansing & Manipulation",
+      "ETL Processes",
+      "Jira & Confluence",
+      "Process Mapping (Visio)",
+      "Security GRC",
+      "OFSAA Configuration"
+    ],
+    "soft": [
+      "Problem Solving",
+      "Team Leadership",
+      "Client Communication",
+      "Mentoring",
+      "Process Improvement"
+    ],
+    "languages": [
+      "English (Full Professional)",
+      "Nepali (Full Professional)",
+      "Hindi (Full Professional)",
+      "Dzongkha (Limited Working)",
+      "Sanskrit (Limited Working)"
+    ]
+  },
+  "experience": [
+    {
+      "position": "Senior Analyst (Technology)",
+      "company": "Protiviti (placed by Robert Half)",
+      "period": "May 2022 - January 2024",
+      "location": "Cincinnati, OH",
+      "responsibilities": [
+        "Led client engagements across various industries, focusing on business processes and technical requirements",
+        "Mentored junior team members and ensured quality through reviews and feedback",
+        "Security GRC: Resolved security issues, validated TVM dashboard data, and provided data-driven recommendations",
+        "OFSAA: Created/maintained RTMs for 500+ KDEs and validated data integrity post-configuration",
+        "CRM Implementation: Collaborated on business needs analysis and successful CRM launches"
+      ]
+    },
+    {
+      "position": "Technical Application Support Consultant (POS 3rd/4th level Support)",
+      "company": "Flooid (formerly PCMS Datafit)",
+      "period": "October 2017 - July 2018",
+      "location": "Cincinnati, KY",
+      "responsibilities": [
+        "Provided application support for Vision Commerce Suite POS system",
+        "Triaged, diagnosed, and reproduced application defects using error logs, SQL queries, and code review",
+        "Tested and deployed patches/releases across environments",
+        "Administered virtual machine servers and Beanstore applications"
+      ]
+    },
+    {
+      "position": "Data Analyst (Technology)",
+      "company": "Thrive Impact Sourcing (now Ingage Partners)",
+      "period": "July 2016 - February 2017",
+      "location": "Cincinnati, KY",
+      "responsibilities": [
+        "Performed data warehouse integration testing post-ETL",
+        "Identified and documented data quality issues",
+        "Revised company data dictionary definitions",
+        "Created process flowcharts using Visio to document data flows"
+      ]
+    },
+    {
+      "position": "Certified Pharmacy Technician",
+      "company": "Humana",
+      "period": "2009 - 2015",
+      "location": "Cincinnati, OH",
+      "responsibilities": [
+        "Performed high-volume data entry and validation of patient information",
+        "Participated in system migration from MS DOS to web-based application",
+        "Developed SIG short codes that increased productivity by 20%",
+        "Assisted an average of 30 customers daily with prescription needs"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Arts, Humanities",
+      "institution": "University of North Bengal",
+      "period": "2004 - 2007"
+    },
+    {
+      "degree": "Professional Certificate, Google Data Analytics",
+      "institution": "Google",
+      "period": "2025"
+    },
+    {
+      "degree": "Java Software Development Bootcamp",
+      "institution": "MAX Technical Training (formerly Cinci Code IT)",
+      "period": "2017"
+    }
+  ],
+  "certifications": [
+    "Database Foundations: Intro to Databases - LinkedIn Learning",
+    "Introduction to Prompt Engineering for Generative AI (2023) - Google Data Analytics"
+  ],
+  "projects": [
+    {
+      "name": "Desktop POS and Web Applications",
+      "description": "Developed desktop POS and web applications using Java, .NET, SQL, Azure, and Heroku",
+      "technologies": ["Java", ".NET", "SQL", "Azure", "Heroku"]
+    },
+    {
+      "name": "Data Warehouse Integration Testing",
+      "description": "Performed data warehouse integration testing post-ETL, identifying and documenting data discrepancies",
+      "technologies": ["ETL", "SQL", "Data Validation"]
+    }
+  ]
+}

@@ -138,20 +138,11 @@ const ExperienceSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">My Journey & Experience</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From career transition to building IT skills - here's my journey into Quality Assurance
-            and software testing, including my goals for the future.
-          </p>
-        </div>
+    <section className="py-16 bg-gray-50 px-0 sm:px-0">
+      <div className="w-full max-w-none mx-0 px-4 sm:px-6 lg:px-8">
 
         {/* Year Selector */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-8 px-4 sm:px-6">
           {yearButtons.map((year) => {
             const experience = experiences[year];
             const YearIconComponent = experience.icon;
@@ -171,17 +162,17 @@ const ExperienceSection = () => {
         </div>
 
         {/* Selected Year Experience */}
-        <div className={`bg-white rounded-2xl shadow-lg border-2 ${currentExperience.border} overflow-hidden`}>
+        <div className={`bg-white rounded-none sm:rounded-2xl shadow-lg border-2 ${currentExperience.border} overflow-hidden`}>
 
           {/* Experience Header */}
-          <div className={`${currentExperience.icon_bg} px-8 py-6 border-b border-gray-200`}>
+          <div className={`${currentExperience.icon_bg} px-6 py-4 border-b ${currentExperience.border}`}>
             <div className="flex items-center">
-              <div className={`p-4 rounded-xl ${currentExperience.icon_bg} ${currentExperience.icon_text} mr-6`}>
-                <IconComponent size={32} />
+              <div className={`p-3 rounded-lg ${currentExperience.icon_bg} ${currentExperience.icon_text} mr-4`}>
+                <IconComponent size={28} />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{currentExperience.title}</h3>
-                <p className="text-gray-600 text-lg">{currentExperience.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900">{currentExperience.title}</h3>
+                <p className="text-gray-600">{currentExperience.description}</p>
               </div>
             </div>
           </div>

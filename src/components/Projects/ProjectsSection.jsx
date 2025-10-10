@@ -1,11 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { TestTube, Code, BarChart3, CheckCircle, Star, Calendar, Github, ExternalLink } from 'lucide-react';
-import { usePublishedContent } from '../../hooks/usePublishedContent';
 
 const ProjectsSection = () => {
-  const { content } = usePublishedContent();
-  // Fallback demo projects if no published content
-  const demoProjects = {
+  const projects = {
     'QA Testing Project': {
       title: 'E-commerce Website Testing',
       description: 'Manual testing of an online shopping website including user registration, product search, cart functionality, and checkout process.',
@@ -76,37 +73,7 @@ const ProjectsSection = () => {
       border: 'border-purple-200'
     }
   };
-
-  const fromPublished = useMemo(() => {
-    const list = content?.projects || [];
-    if (!list.length) return null;
-    // Map to the shape used by the UI
-    const mapped = {};
-    list.forEach((p, idx) => {
-      const key = p.title || `Project ${idx + 1}`;
-      mapped[key] = {
-        title: p.title || `Project ${idx + 1}`,
-        description: p.summary || '',
-        icon: Code,
-        color: 'blue',
-        details: (p.summary ? p.summary.split('\n') : []).slice(0, 6),
-        technologies: p.tech || [],
-        duration: p.duration || '—',
-        status: p.status || '—',
-        learnings: p.learnings || '',
-        icon_bg: 'bg-blue-50',
-        icon_text: 'text-blue-600',
-        border: 'border-blue-200',
-        image: p.image,
-        url: p.url,
-        repo: p.repo
-      };
-    });
-    return mapped;
-  }, [content]);
-
-  const projects = fromPublished || demoProjects;
-  const [activeProject, setActiveProject] = useState(Object.keys(projects)[0]);
+  const [activeProject, setActiveProject] = useState('QA Testing Project');
   const projectNames = Object.keys(projects);
   const currentProject = projects[activeProject];
   const IconComponent = currentProject.icon;
@@ -117,24 +84,13 @@ const ProjectsSection = () => {
       green: active ? 'bg-green-500 text-white shadow-lg' : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100',
       purple: active ? 'bg-purple-500 text-white shadow-lg' : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100'
     };
-    return colorMap[color];
+    return colorMap[color] || '';
   };
-
   return (
-    <section className="min-h-screen flex items-center py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">My Learning Projects</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Here are some projects I've worked on while learning QA, automation, and data analysis.
-            Each project helped me build practical skills and gain hands-on experience.
-          </p>
-        </div>
-
+    <section className="py-16 bg-gray-50 px-0 sm:px-0">
+      <div className="w-full max-w-none mx-0 px-4 sm:px-6 lg:px-8">
         {/* Project Selector */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-8 px-4 sm:px-6">
           {projectNames.map((projectName) => {
             const project = projects[projectName];
             const ProjectIconComponent = project.icon;
@@ -154,17 +110,17 @@ const ProjectsSection = () => {
         </div>
 
         {/* Selected Project Details */}
-        <div className={`bg-white rounded-2xl shadow-lg border-2 ${currentProject.border} overflow-hidden`}>
+        <div className={`bg-white rounded-none sm:rounded-2xl shadow-lg border-2 ${currentProject.border} overflow-hidden`}>
 
           {/* Project Header */}
-          <div className={`${currentProject.icon_bg} px-8 py-6 border-b border-gray-200`}>
+          <div className={`${currentProject.icon_bg} px-6 py-4 border-b ${currentProject.border}`}>
             <div className="flex items-center">
-              <div className={`p-4 rounded-xl ${currentProject.icon_bg} ${currentProject.icon_text} mr-6`}>
-                <IconComponent size={32} />
+              <div className={`p-3 rounded-lg ${currentProject.icon_bg} ${currentProject.icon_text} mr-4`}>
+                <IconComponent size={28} />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{currentProject.title}</h3>
-                <p className="text-gray-600 text-lg">{currentProject.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900">{currentProject.title}</h3>
+                <p className="text-gray-600">{currentProject.description}</p>
               </div>
             </div>
           </div>

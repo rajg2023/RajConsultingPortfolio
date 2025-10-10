@@ -112,10 +112,12 @@ const SkillsSection = () => {
     return colorMap[color] || colorMap.blue;
   };
 
-  // Helper function to get progress bar color based on skill level and active category
+  // Helper function to get progress bar color based on skill level
   const getProgressColor = (level) => {
-    // Use the active category's color for all progress bars
-    return `bg-${currentCategory.color}-500`;
+    if (level >= 80) return 'bg-green-500';
+    if (level >= 60) return 'bg-blue-500';
+    if (level >= 40) return 'bg-yellow-500';
+    return 'bg-red-500';
   };
 
   return (
@@ -141,29 +143,15 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Content */}
-        <div className="bg-white rounded-none sm:rounded-2xl shadow-lg border-2 overflow-hidden" style={{ borderColor: `var(--color-${currentCategory.color}-200)` }}>
+        <div className={`bg-white rounded-none sm:rounded-2xl shadow-lg border-2 ${currentCategory.border} overflow-hidden`}>
           {/* Category Header */}
-          <div 
-            className={`px-6 py-4 border-b`} 
-            style={{ 
-              backgroundColor: `var(--color-${currentCategory.color}-50)`,
-              borderColor: `var(--color-${currentCategory.color}-200)`
-            }}
-          >
+          <div className={`${currentCategory.icon_bg} px-6 py-4 border-b ${currentCategory.border}`}>
             <div className="flex items-center">
-              <div 
-                className={`p-3 rounded-lg mr-4`}
-                style={{
-                  backgroundColor: `var(--color-${currentCategory.color}-50)`,
-                  color: `var(--color-${currentCategory.color}-600)`
-                }}
-              >
+              <div className={`p-3 rounded-lg ${currentCategory.icon_bg} ${currentCategory.icon_text} mr-4`}>
                 <CategoryIcon size={28} />
               </div>
               <div>
-                <h3 className="text-2xl font-bold" style={{ color: `var(--color-${currentCategory.color}-900)` }}>
-                  {currentCategory.name} Skills
-                </h3>
+                <h3 className="text-2xl font-bold text-gray-900">{currentCategory.name} Skills</h3>
                 <p className="text-gray-600">{currentCategory.description}</p>
               </div>
             </div>
@@ -186,13 +174,10 @@ const SkillsSection = () => {
                       </span>
                     )}
                   </div>
-                  <div className="w-full bg-gray-100 rounded-full h-2 mb-2 overflow-hidden">
+                  <div className="w-full bg-gray-100 rounded-full h-2 mb-2">
                     <div 
-                      className={`h-full rounded-full transition-all duration-500`}
-                      style={{ 
-                        width: `${skill.level}%`,
-                        backgroundColor: `var(--color-${currentCategory.color}-500)`
-                      }}
+                      className={`h-2 rounded-full ${getProgressColor(skill.level)} transition-all duration-500`}
+                      style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>
                   <div className="text-sm text-gray-500 flex justify-between">

@@ -2,21 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';  // Import Tailwind CSS
-import { AuthProvider } from './contexts/AuthContext';
-import { BrowserRouter } from 'react-router-dom';
+
+import { BrowserRouter as Router } from 'react-router-dom';
 
 /* ReactDOM.createRoot(document.getElementById('root')).render(
  <React.StrictMode>
    <App />
  </React.StrictMode>
 );  */
-const basename = process.env.NODE_ENV === 'production' 
+/* const basename = process.env.NODE_ENV === 'production' 
   ? '/RajConsultingPortfolio'  // Your GitHub repo name
-  : '';
+  : ''; */
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename={basename}> {/*  This is the ONLY BrowserRouter */}
+    <Router>
       <App />
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>
 );

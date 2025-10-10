@@ -84,25 +84,16 @@ const EducationSection = () => {
     const colorMap = {
       blue: active ? 'bg-blue-500 text-white shadow-lg' : 'bg-blue-50 text-blue-600 border border-blue-200 hover:bg-blue-100',
       green: active ? 'bg-green-500 text-white shadow-lg' : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100',
-      purple: active ? 'bg-purple-500 text-white shadow-lg' : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100'
+      purple: active ? 'bg-purple-500 text-white shadow-lg' : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100',
     };
-    return colorMap[color];
+    return colorMap[color] || '';
   };
 
   return (
-    <section className="min-h-screen flex items-center py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Education & Training</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            My educational journey from formal academics to specialized IT training, building the foundation for a successful QA career.
-          </p>
-        </div>
-
-        {/* Education Selector */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+    <section className="py-16 bg-gray-50 px-0 sm:px-0">
+      <div className="w-full max-w-none mx-0 px-4 sm:px-6 lg:px-8">
+        {/* Education Type Selector */}
+        <div className="flex flex-wrap justify-center gap-4 mb-8 px-4 sm:px-6">
           {educationNames.map((educationName) => {
             const educationItem = education[educationName];
             const EducationIconComponent = educationItem.icon;
@@ -122,17 +113,17 @@ const EducationSection = () => {
         </div>
 
         {/* Selected Education Details */}
-        <div className={`bg-white rounded-2xl shadow-lg border-2 ${currentEducation.border} overflow-hidden`}>
+        <div className={`bg-white rounded-none sm:rounded-2xl shadow-lg border-2 ${currentEducation.border} overflow-hidden`}>
           
           {/* Education Header */}
-          <div className={`${currentEducation.icon_bg} px-8 py-6 border-b border-gray-200`}>
+          <div className={`${currentEducation.icon_bg} px-6 py-4 border-b ${currentEducation.border}`}>
             <div className="flex items-center">
-              <div className={`p-4 rounded-xl ${currentEducation.icon_bg} ${currentEducation.icon_text} mr-6`}>
-                <IconComponent size={32} />
+              <div className={`p-3 rounded-lg ${currentEducation.icon_bg} ${currentEducation.icon_text} mr-4`}>
+                <IconComponent size={28} />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{currentEducation.title}</h3>
-                <p className="text-gray-600 text-lg">{currentEducation.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900">{currentEducation.title}</h3>
+                <p className="text-gray-600">{currentEducation.description}</p>
               </div>
             </div>
           </div>

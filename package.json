@@ -7,11 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "process-resume": "node scripts/processResume.js"
   },
   "dependencies": {
     "@octokit/oauth-app": "^8.0.2",
     "lucide-react": "^0.544.0",
+    "pdf-parse": "^2.1.2",
+    "pdf2json": "^3.2.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.3"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { useContentManager } from '../../hooks/useContentManager';
+
 import AdminToolbar from './AdminToolbar';
 import AdminAboutEditor from './editors/AdminAboutEditor';
 import AdminProjectsEditor from './editors/AdminProjectsEditor';
