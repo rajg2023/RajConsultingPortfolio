@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Download, Eye } from 'lucide-react';
+import { Download, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const RESUME_DATA = [
@@ -54,23 +54,58 @@ const RESUME_DATA = [
 ];
 
 const ResumeCard = ({ resume, isSelected, onSelect }) => {
-  const handleClick = (e) => {
-    e.stopPropagation();
-    onSelect(resume);
-  };
-
   const color = useMemo(() => {
-    const colors = ['teal', 'blue', 'indigo', 'purple', 'pink', 'red', 'orange'];
-    const colorName = colors[resume.title.length % colors.length];
-    
-    return {
-      bg: `bg-${colorName}-50`,
-      text: `text-${colorName}-700`,
-      border: `border-${colorName}-200`,
-      hover: `hover:bg-${colorName}-100`,
-      active: `bg-${colorName}-100 border-${colorName}-300 shadow-inner`,
-      icon: `text-${colorName}-600`
+    const colorMap = {
+      'QA': { 
+        bg: 'bg-blue-50', 
+        border: 'border-blue-200', 
+        text: 'text-blue-700', 
+        hover: 'hover:bg-blue-100',
+        selected: 'ring-2 ring-offset-1 ring-blue-500 bg-blue-100'
+      },
+      'SDET': { 
+        bg: 'bg-green-50', 
+        border: 'border-green-200', 
+        text: 'text-green-700', 
+        hover: 'hover:bg-green-100',
+        selected: 'ring-2 ring-offset-1 ring-green-500 bg-green-100'
+      },
+      'Business': { 
+        bg: 'bg-purple-50', 
+        border: 'border-purple-200', 
+        text: 'text-purple-700', 
+        hover: 'hover:bg-purple-100',
+        selected: 'ring-2 ring-offset-1 ring-purple-500 bg-purple-100'
+      },
+      'Support': { 
+        bg: 'bg-pink-50', 
+        border: 'border-pink-200', 
+        text: 'text-pink-700', 
+        hover: 'hover:bg-pink-100',
+        selected: 'ring-2 ring-offset-1 ring-pink-500 bg-pink-100'
+      },
+      'Consultant': { 
+        bg: 'bg-indigo-50', 
+        border: 'border-indigo-200', 
+        text: 'text-indigo-700', 
+        hover: 'hover:bg-indigo-100',
+        selected: 'ring-2 ring-offset-1 ring-indigo-500 bg-indigo-100'
+      },
+      'Data': { 
+        bg: 'bg-cyan-50', 
+        border: 'border-cyan-200', 
+        text: 'text-cyan-700', 
+        hover: 'hover:bg-cyan-100',
+        selected: 'ring-2 ring-offset-1 ring-cyan-500 bg-cyan-100'
+      }
     };
+    
+    // Find the first matching color based on the title
+    const [colorKey] = Object.entries(colorMap).find(([key]) => 
+      resume.title.toLowerCase().includes(key.toLowerCase())
+    ) || [];
+    
+    return colorMap[colorKey] || colorMap['QA'];
   }, [resume.title]);
 
   return (
@@ -79,15 +114,14 @@ const ResumeCard = ({ resume, isSelected, onSelect }) => {
         e.stopPropagation();
         onSelect(resume);
       }}
-      onDoubleClick={() => handlePreview(resume)}
-      className={`flex items-center h-8 px-3 rounded-md border ${color.bg} ${color.border} ${color.text} ${color.hover} font-medium text-sm transition-all duration-150 whitespace-nowrap ${isSelected ? 'ring-2 ring-offset-1 ring-indigo-500' : ''}`}
-      initial={{ opacity: 0, x: -5 }}
-      animate={{ opacity: 1, x: 0 }}
-      whileHover={{ scale: 1.02 }}
+      className={`px-4 py-2 rounded-md border ${color.bg} ${color.border} ${color.text} ${isSelected ? color.selected : ''} ${color.hover} font-medium text-sm transition-all duration-150`}
+      initial={{ opacity: 0, y: 5 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
-      title="Click to select, double-click for more options"
+      title={`View ${resume.title} resume`}
     >
-      <span className="whitespace-nowrap">{resume.title}</span>
+      {resume.title}
     </motion.button>
   );
 };
@@ -136,80 +170,6 @@ const DocumentResume = () => {
     }
   }, []);
 
-  const handlePreview = useCallback((resume) => {
-    try {
-      // For DOCX files, we'll show a message that preview isn't available
-      // and suggest downloading instead
-      const previewWindow = window.open('', '_blank', 'noopener,noreferrer');
-      if (previewWindow) {
-        previewWindow.document.write(`
-          <html>
-            <head>
-              <title>Preview Not Available</title>
-              <style>
-                body { 
-                  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 100vh;
-                  margin: 0;
-                  background-color: #f9fafb;
-                  color: #1f2937;
-                }
-                .container {
-                  text-align: center;
-                  max-width: 400px;
-                  padding: 2rem;
-                  background: white;
-                  border-radius: 0.5rem;
-                  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-                }
-                h2 { 
-                  color: #1f2937;
-                  margin-bottom: 1rem;
-                }
-                p {
-                  color: #6b7280;
-                  margin-bottom: 1.5rem;
-                }
-                .btn {
-                  display: inline-flex;
-                  align-items: center;
-                  padding: 0.5rem 1rem;
-                  background-color: #4f46e5;
-                  color: white;
-                  border-radius: 0.375rem;
-                  text-decoration: none;
-                  font-weight: 500;
-                  transition: background-color 0.2s;
-                }
-                .btn:hover {
-                  background-color: #4338ca;
-                }
-              </style>
-            </head>
-            <body>
-              <div class="container">
-                <h2>Preview Not Available</h2>
-                <p>For the best experience, please download the resume to view it in full.</p>
-                <a href="/${resume.file}" download="${resume.file.split('/').pop()}" class="btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  Download Resume
-                </a>
-              </div>
-            </body>
-          </html>
-        `);
-        previewWindow.document.close();
-      }
-    } catch (err) {
-      console.error('Preview error:', err);
-      setError('Failed to open preview. Please try again.');
-    }
-  }, []);
 
   if (error) {
     return (
@@ -228,55 +188,64 @@ const DocumentResume = () => {
     );
   }
 
+  // Get the HTML file path by replacing .docx with .html
+  const getHtmlFilePath = (filePath) => {
+    return filePath.replace(/\.docx$/, '.html');
+  };
+
   return (
-    <div className="space-y-4">
-      <div className="px-2 sm:px-4">
-        <div className="max-w-full overflow-x-auto py-1">
-          <div className="flex flex-nowrap gap-1.5 px-1">
-            {RESUME_DATA.map((resume) => (
-              <ResumeCard 
-                key={resume.id} 
-                resume={resume} 
-                isSelected={selectedResume?.id === resume.id}
-                onSelect={handleResumeSelect}
-              />
-            ))}
-          </div>
+    <div className="w-full h-full flex flex-col">
+      {/* <h2 className="text-2xl font-bold text-gray-900 mb-6 px-4">My Resumes</h2> */}
+      
+      {/* Role Selection Buttons */}
+      <div className="mb-6 px-4 flex-shrink-0">
+        <div className="flex flex-wrap gap-2">
+          {RESUME_DATA.map((resume) => (
+            <ResumeCard 
+              key={resume.id}
+              resume={resume}
+              isSelected={selectedResume?.id === resume.id}
+              onSelect={handleResumeSelect}
+            />
+          ))}
         </div>
       </div>
 
+      {/* Resume Preview */}
       {selectedResume && (
-        <div className="mt-4 border rounded-lg overflow-hidden bg-white shadow-sm">
-          <div className="p-4 border-b flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-gray-50">
-            <h3 className="text-lg font-medium text-gray-900">{selectedResume.title}</h3>
-            <div className="flex flex-wrap gap-2 w-full sm:w-auto">
-              <a
-                href={`/${selectedResume.file}`}
-                download={selectedResume.file.split('/').pop()}
-                className="px-3 py-1.5 text-sm font-medium rounded-md border border-transparent bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 flex items-center space-x-1 flex-1 sm:flex-none justify-center"
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className="flex-1 flex flex-col bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-full"
+          style={{ minHeight: '600px' }}
+        >
+          {/* Preview Header */}
+          <div className="px-6 py-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+            <h3 className="text-xl font-semibold text-gray-900">{selectedResume.title}</h3>
+            <div className="flex space-x-2">
+              <button
+                onClick={() => handleDownload(selectedResume)}
+                className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                <Download className="h-4 w-4" />
-                <span>Download</span>
-              </a>
+                <Download className="h-3.5 w-3.5 mr-1.5" />
+                Download Word
+              </button>
             </div>
           </div>
-          <div className="p-6">
-            <p className="text-gray-700 mb-4">{selectedResume.description}</p>
-            <div className="flex flex-wrap gap-2 mt-4">
-              {selectedResume.tags.map((tag, index) => (
-                <span 
-                  key={index}
-                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="mt-4 text-sm text-gray-500">
-              Last updated: {selectedResume.lastUpdated}
-            </div>
+          
+          {/* HTML Preview */}
+          <div className="flex-1 overflow-hidden flex flex-col" style={{ minHeight: 0 }}>
+            <iframe 
+              src={`/${getHtmlFilePath(selectedResume.file)}`}
+              title={`${selectedResume.title} Preview`}
+              className="flex-1 w-full h-full border-0"
+              style={{ minHeight: '500px' }}
+              sandbox="allow-same-origin allow-scripts"
+              loading="lazy"
+            />
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajiv Giri - Data Analyst</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-light: #EEF2FF;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #FAFAFA;
+            padding: 2rem;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), #6366F1);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .header h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .contact-item i {
+            color: var(--secondary);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 100%;
+        }
+        
+        .sidebar {
+            background-color: var(--light-gray);
+            padding: 2rem 1.5rem;
+        }
+        
+        .main {
+            padding: 2rem 2.5rem;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-title i {
+            color: var(--primary);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .company {
+            font-weight: 500;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .date {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        
+        .job-description {
+            margin-top: 0.75rem;
+        }
+        
+        .job-description ul {
+            list-style-type: none;
+        }
+        
+        .job-description li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .job-description li:before {
+            content: '•';
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .education-item {
+            margin-bottom: 1.25rem;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .degree {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .school {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .progress-container {
+            margin-top: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #E5E7EB;
+            border-radius: 4px;
+            margin-top: 0.25rem;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            color: var(--primary);
+            transition: color 0.2s;
+        }
+        
+        .social-link:hover {
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .main, .sidebar {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<div align=center>
+
+<table class=TableGrid border=0 cellspacing=0 cellpadding=0 width=0
+ style='width:466.05pt;border-collapse:collapse'>
+ <tr style='height:28.35pt'>
+  <td width=274 valign=top style='width:205.45pt;padding:0in 0in 0in 0in;
+  height:28.35pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;vertical-align:baseline'><span style='font-size:28.0pt;font-family:
+  "Times New Roman",serif;color:#2E74B5;text-transform:uppercase'>RAJIV GIRI</span></p>
+  </td>
+  <td width=347 valign=top style='width:260.6pt;padding:0in 0in 0in 0in;
+  height:28.35pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal;vertical-align:baseline'><span
+  style='font-size:14.0pt;font-family:"Times New Roman",serif;color:#2E74B5'>Cincinnati,
+  OH</span></p>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal;vertical-align:baseline'><span
+  class=MsoHyperlink><span style='font-size:14.0pt;font-family:"Times New Roman",serif'><a
+  href="mailto:513.834.3371%20|%20rajivgiri2025@gmail.com">513.834.3371 |
+  rajivgiri2025@gmail.com</a></span></span></p>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal;vertical-align:baseline'><u><span
+  style='font-size:14.0pt;font-family:"Times New Roman",serif;color:#2E74B5'><a
+  href="https://rajg2023.github.io/careerportfolio/"><span style='color:#2E74B5'>Portfolio</span></a></span></u><span
+  style='font-size:14.0pt;font-family:"Times New Roman",serif;color:#2E74B5'> |
+  <u><a href="https://www.linkedin.com/in/girirajiv/" target="_blank"><span
+  style='color:#2E74B5'>LinkedIn</span></a></u> | <u><a
+  href="https://github.com/rajg2023" target="_blank"><span style='color:#2E74B5'>GitHub</span></a></u></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=my-2 style='margin-top:0in'><strong><span style='color:#2E74B5;
+letter-spacing:.05pt'>Professional Summary</span></strong><span
+style='letter-spacing:.05pt'><br>
+Analytical Data Analyst proficient in ETL testing, data validation, pipeline
+mapping, and discrepancy analysis. Skilled in SQL, Power BI, Tableau, process
+documentation, and stakeholder collaboration. Experienced in enhancing data
+quality and enabling data-driven decision-making in regulated environments.</span></p>
+
+<p class=my-2 style='margin-top:0in'><strong><span style='color:#2E74B5;
+letter-spacing:.05pt'>Core Competencies &amp; Skills</span></strong><span
+style='letter-spacing:.05pt'><br>
+SQL | R | Python | Big Query Excel | Google Sheets | ETL Testing | Data
+Validation | Data Mapping | Power BI | Tableau | Documentation | Process
+Improvement | Data Quality Assessment | SDLC/STLC | Agile/Scrum | Jira |
+Confluence</span></p>
+
+<p class=my-2 style='margin-top:0in'><b><span style='color:#2E74B5;letter-spacing:
+.05pt'>Core Soft Skills</span></b><span style='letter-spacing:.05pt'><br>
+Cross-functional collaboration | Effective communication | Critical thinking |
+Attention to detail | Time management | Leadership and mentoring | Problem
+solving | Eagerness to learn<b> </b></span></p>
+
+<p class=my-2 style='margin:0in;margin-bottom:.0001pt'><b><span
+style='color:#2E74B5;letter-spacing:.05pt'>Professional Experience</span></b></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><span
+style='font-size:12.0pt;font-family:Symbol;letter-spacing:.05pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+letter-spacing:.05pt'>Conducted ETL testing, data quality analysis, and mapping
+for large-scale data warehouse integrations.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><span
+style='font-size:12.0pt;font-family:Symbol;letter-spacing:.05pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+letter-spacing:.05pt'>Leveraged SQL for data extraction, validation, and
+discrepancy resolution.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><span
+style='font-size:12.0pt;font-family:Symbol;letter-spacing:.05pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+letter-spacing:.05pt'>Visualized and automated workflows with Smartsheet,
+enhancing process clarity.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><span
+style='font-size:12.0pt;font-family:Symbol;letter-spacing:.05pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+letter-spacing:.05pt'>Documented pipelines, led root cause analyses, and
+mentored junior analysts.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><span
+style='font-size:12.0pt;font-family:Symbol;letter-spacing:.05pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+letter-spacing:.05pt'>Completed hands-on training developing visualization on
+Tableau/Power BI.</span></p>
+
+<p class=my-2 style='margin:0in;margin-bottom:.0001pt'><span style='letter-spacing:
+.05pt'>&nbsp;</span></p>
+
+<p class=my-2 style='margin-top:0in'><strong><span style='color:#2E74B5;
+letter-spacing:.05pt'>Employment History</span></strong><span style='letter-spacing:
+.05pt'><br>
+Protiviti (Robert Half) � Senior Analyst, Technology � 2022 to 2024<br>
+PCMS/Flooid � Technical Support Consultant � 2017 to 2018<br>
+Ingage Partners/Thrive � Data Analyst � 2016 to 2017<br>
+Humana/Kroger � Certified Pharmacy Technician � 2009 to 2015</span></p>
+
+<p class=my-2 style='margin-top:0in'><strong><span style='color:#2E74B5;
+letter-spacing:.05pt'>Education &amp; Certifications</span></strong><span
+style='letter-spacing:.05pt'><br>
+Bachelor of Arts � University of North Bengal (2007)<br>
+Google Data Analytics Professional Certificate � Coursera (2025)<br>
+Java Bootcamp � MAX Technical Training<br>
+IT Support &amp; QA Testing � Per Scholas</span></p>
+
+</div>
+
+</body>
+
+</html>
+

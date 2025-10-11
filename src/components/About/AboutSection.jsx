@@ -106,10 +106,14 @@ const AboutSection = ({ resumeData, isLoading, error }) => {
           </div>
 
           {/* Tab Content */}
-          <div className="p-6">
+          <div className={`p-6 min-h-[500px] ${activeTab === 'Document Resume' ? 'flex flex-col' : ''}`}>
             {activeTab === 'About Me' && <AboutMe resumeData={resumeData} isLoading={isLoading} error={error} />}
             {activeTab === 'Video Resume' && <VideoResume />}
-            {activeTab === 'Document Resume' && <DocumentResume />}
+            {activeTab === 'Document Resume' && (
+              <div className="flex-1">
+                <DocumentResume />
+              </div>
+            )}
             {activeTab === 'AI Chat' && <AIChat />}
           </div>
         </div>
