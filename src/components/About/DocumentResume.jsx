@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Download, ExternalLink } from 'lucide-react';
+import { Download, ExternalLink, Maximize2, Minimize2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import './DocumentResume.css'; // We'll create this file next
 
 const RESUME_DATA = [
   {
@@ -196,11 +197,7 @@ const DocumentResume = () => {
 
   // Get the HTML file path
   const getHtmlFilePath = (resume) => {
-    // In production, we need to prepend the base URL
-    if (import.meta.env.PROD) {
-      return `/RajConsultingPortfolio${resume.htmlFile}`;
-    }
-    // In development, use the path as is
+    // Use the path as is - the public path is already handled by Vite
     return resume.htmlFile;
   };
 
@@ -245,16 +242,35 @@ const DocumentResume = () => {
             </div>
           </div>
           
-          {/* HTML Preview */}
-          <div className="flex-1 overflow-hidden flex flex-col" style={{ minHeight: 0 }}>
-            <iframe 
-              src={getHtmlFilePath(selectedResume)}
-              title={`${selectedResume.title} Preview`}
-              className="flex-1 w-full h-full border-0"
-              style={{ minHeight: '500px' }}
-              sandbox="allow-same-origin allow-scripts"
-              loading="lazy"
-            />
+          {/* Auto-resizing Resume Preview */}
+          <div className="resume-preview-container">
+            <div className="resume-frame-container">
+              <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+                <iframe 
+                  src={getHtmlFilePath(selectedResume)}
+                  title={`${selectedResume.title} Preview`}
+                  className="resume-iframe"
+                  sandbox="allow-scripts allow-forms allow-popups"
+                  loading="lazy"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    border: 'none',
+                    minHeight: '800px',
+                    transform: 'scale(1)'
+                  }}
+                  onLoad={(e) => {
+                    // This helps with some rendering issues
+                    const iframe = e.target;
+                    if (iframe.contentDocument) {
+                      iframe.contentDocument.body.style.margin = '0';
+                      iframe.contentDocument.body.style.padding = '0';
+                    }
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </motion.div>
       )}

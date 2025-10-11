@@ -1,161 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajiv Giri - Application Support Engineer</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #fff;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume - Application Support Engineer</title>
+<style>
+    :root {
+        --primary: #eb461d;  /* teal-500 */
+        --secondary: #eb461d; /* teal-600 */
+        --bg: #F0FDFA;      /* teal-50 */
+        --text: #1F2937;    /* gray-800 */
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        margin: 0;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+    }
+    header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+    header p {
+        margin: 0.5rem 0 0;
+        font-size: 1.2rem;
+    }
+    section {
+        max-width: 1000px;
+        margin: auto;
+        padding: 2rem;
+    }
+    h2 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--secondary);
+        padding-bottom: 0.3rem;
+    }
+    .card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .skill {
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+    @media(max-width: 768px) {
+        section {
+            padding: 1rem;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #ec4899;
-            padding-bottom: 1rem;
-        }
-        h1, h2, h3 {
-            color: #1f2937;
-        }
-        .section {
-            margin-bottom: 2rem;
-        }
-        .section-title {
-            color: #ec4899;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-        .skill-tag {
-            background-color: #fce7f3;
-            color: #9d174d;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-        }
-        .experience-item, .education-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #f3f4f6;
-        }
-        .job-title, .degree {
-            font-weight: 600;
-            font-size: 1.125rem;
-            margin: 0.25rem 0;
-        }
-        .company, .school {
-            font-weight: 500;
-            color: #4b5563;
-            margin: 0.25rem 0;
-        }
-        .date {
-            color: #6b7280;
-            font-style: italic;
-            font-size: 0.875rem;
-        }
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: #ec4899;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 1rem;
-            transition: background-color 0.2s;
-        }
-        .download-btn:hover {
-            background-color: #db2777;
-        }
-        .download-btn svg {
-            margin-right: 0.5rem;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-  
 
-    <div class="section">
-        <h2 class="section-title">Professional Summary</h2>
-        <p>Dedicated Application Support Engineer with 4+ years of experience in providing exceptional technical support and troubleshooting for enterprise applications. Skilled in incident management, problem resolution, and ensuring high system availability.</p>
+<header>
+    <h1>Application Support Engineer</h1>
+    <p>Experienced in troubleshooting, incident resolution & server/application support</p>
+</header>
+
+<section>
+    <div class="card">
+        <h2>Professional Summary</h2>
+        <p>Experienced Application Support Engineer skilled in technical troubleshooting, incident resolution, and application/server support. Proficient in SQL, log analysis, patch management, and cross-functional communication. Successfully maintained uptime and prevented downtime in fast-paced production environments.</p>
     </div>
 
-    <div class="section">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills">
-            <span class="skill-tag">Troubleshooting</span>
-            <span class="skill-tag">Incident Management</span>
-            <span class="skill-tag">Customer Support</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Linux/Unix</span>
-            <span class="skill-tag">Windows Server</span>
-            <span class="skill-tag">ITIL Framework</span>
-            <span class="skill-tag">JIRA</span>
-            <span class="skill-tag">ServiceNow</span>
-            <span class="skill-tag">API Support</span>
+    <div class="card">
+        <h2>Core Competencies & Skills</h2>
+        <div class="skills-container">
+            <span class="skill">Technical Troubleshooting</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Log Analysis</span>
+            <span class="skill">POS Support</span>
+            <span class="skill">Application Servers</span>
+            <span class="skill">Incident Management</span>
+            <span class="skill">Root Cause Analysis</span>
+            <span class="skill">Patch/Release Management</span>
+            <span class="skill">SDLC</span>
+            <span class="skill">Agile/Scrum</span>
+            <span class="skill">Jira</span>
+            <span class="skill">Confluence</span>
         </div>
     </div>
 
-    <div class="section">
-        <h2 class="section-title">Professional Experience</h2>
-        
-        <div class="experience-item">
-            <h3 class="job-title">Senior Application Support Engineer</h3>
-            <p class="company">TechSupport Pro</p>
-            <p class="date">March 2020 - Present</p>
-            <ul>
-                <li>Provide L2 and L3 support for critical business applications, maintaining 99.9% uptime</li>
-                <li>Investigate and resolve complex technical issues, reducing average resolution time by 40%</li>
-                <li>Develop and maintain knowledge base articles and technical documentation</li>
-                <li>Collaborate with development teams to identify and implement permanent fixes</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <h3 class="job-title">Application Support Analyst</h3>
-            <p class="company">Enterprise Systems Corp</p>
-            <p class="date">June 2018 - February 2020</p>
-            <ul>
-                <li>Provided first-line support for enterprise applications, handling 50+ tickets weekly</li>
-                <li>Performed root cause analysis for recurring issues and implemented preventive measures</li>
-                <li>Assisted in the deployment of application updates and patches</li>
-                <li>Conducted training sessions for junior support staff</li>
-            </ul>
+    <div class="card">
+        <h2>Core Soft Skills</h2>
+        <div class="skills-container">
+            <span class="skill">Cross-functional collaboration</span>
+            <span class="skill">Effective communication</span>
+            <span class="skill">Critical thinking</span>
+            <span class="skill">Attention to detail</span>
+            <span class="skill">Time management</span>
+            <span class="skill">Leadership and mentoring</span>
+            <span class="skill">Problem solving</span>
+            <span class="skill">Eagerness to learn</span>
         </div>
     </div>
 
-    <div class="section">
-        <h2 class="section-title">Education</h2>
-        <div class="education-item">
-            <h3 class="degree">Bachelor of Science in Information Technology</h3>
-            <p class="school">State Technical University</p>
-            <p class="date">Graduated: May 2018</p>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Certifications</h2>
+    <div class="card">
+        <h2>Professional Experience</h2>
         <ul>
-            <li>ITIL v4 Foundation</li>
-            <li>Microsoft Certified: Azure Administrator Associate</li>
-            <li>CompTIA IT Fundamentals+</li>
+            <li>Facilitated resolution of complex Tier 3/4 technical issues across POS systems and application servers running on Windows and Linux, leveraging SQL queries, error log analysis, and effective cross-team communication.</li>
+            <li>Retested, managed, and coordinated deployment of software patches following defect resolution to ensure successful application updates with minimal downtime.</li>
+            <li>Communicated complex technical solutions clearly and effectively to diverse stakeholders, including technical teams and end users.</li>
+            <li>Conducted detailed defect analysis and manual testing on web, desktop, and retail platform applications to validate fixes and identify recurring issues.</li>
+            <li>Utilized SQL scripting and log analysis to reproduce defects, perform root cause investigations, and recommend optimized solutions to improve system stability.</li>
         </ul>
     </div>
+</section>
 
-    
 </body>
 </html>
-
