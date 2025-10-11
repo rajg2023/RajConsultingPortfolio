@@ -149,14 +149,16 @@ const ServicesSection = () => {
                     Tools I Use
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {currentService.tools.map((tool, index) => (
+                    {currentService?.tools?.map((tool, index) => (
                       <span
                         key={index}
                         className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium"
                       >
                         {tool}
                       </span>
-                    ))}
+                    )) || (
+                      <span className="text-gray-500 text-sm">No tools specified</span>
+                    )}
                   </div>
                 </div>
 

@@ -80,7 +80,7 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 p-1">
                 <div className="h-full w-full rounded-full bg-white p-0.5">
                   <img 
-                    src="/images/ProfilePic.jpg" 
+                    src="/RajConsultingPortfolio/images/ProfilePic.jpg" 
                     alt={name}
                     className="h-full w-full rounded-full object-cover"
                     onError={(e) => {
