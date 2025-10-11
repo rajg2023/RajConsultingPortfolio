@@ -66,21 +66,21 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
   const { 
     name = defaultData.name, 
     title = defaultData.title, 
-    summary = defaultData.summary, 
+    summary = defaultData.summary,
     contact = defaultData.contact 
   } = resumeData || {};
 
   return (
     <div className="w-full py-2 sm:py-4">
-      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 max-w-[1800px] mx-auto px-3 sm:px-5">
-        {/* Left Column - Profile Image and Contact Info */}
-        <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-start">
+      <div className="flex flex-col lg:flex-row gap-6 max-w-[1800px] mx-auto px-3 sm:px-5">
+        {/* Left Column - Profile Image and Contact Info - Reduced width */}
+        <div className="w-full lg:w-1/4 flex flex-col items-center lg:items-start">
           <div className="relative w-36 sm:w-40 md:w-48 lg:w-full max-w-xs mb-3 sm:mb-4">
             <div className="pb-[100%] relative">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 p-1">
                 <div className="h-full w-full rounded-full bg-white p-0.5">
                   <img 
-                    src="/RajConsultingPortfolio/images/ProfilePic.jpg" 
+                    src="/images/ProfilePic.jpg" 
                     alt={name}
                     className="h-full w-full rounded-full object-cover"
                     onError={(e) => {
@@ -100,7 +100,7 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
                 <div className="p-1 bg-blue-50 rounded-md mr-2">
                   <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-500" />
                 </div>
-                <a href={`mailto:${contact.email}`} className="hover:text-blue-500 transition-colors text-xs sm:text-sm font-medium truncate">
+                <a href={`mailto:${contact.email}`} className="hover:text-blue-500 transition-colors text-xs sm:text-sm font-medium">
                   {contact.email}
                 </a>
               </div>
@@ -160,8 +160,8 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
           </div>
         </div>
         
-        {/* Right Column - Name, Title, and Summary */}
-        <div className="w-full lg:w-3/5 mt-4 lg:mt-0 lg:pl-4">
+        {/* Right Column - Name, Title, and Summary - Expanded width */}
+        <div className="w-full lg:w-3/4 mt-4 lg:mt-0 lg:pl-8">
           <div className="space-y-2 sm:space-y-3 md:space-y-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">{name}</h1>
             <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-600 font-medium">{title}</h2>
