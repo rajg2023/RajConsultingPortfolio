@@ -23,7 +23,7 @@ const RESUME_DATA = [
     id: 'bsa',
     title: 'Business Systems Analyst',
     description: 'Bridging the gap between business needs and technical solutions with strong analytical skills.',
-    file: 'resume/Rajiv_Giri_ Business_Systems_Analyst.docx',
+    file: 'resume/Rajiv_Giri_Business_Systems_Analyst.docx',
     lastUpdated: 'October 2023',
     tags: ['Requirements Gathering', 'Process Improvement', 'Documentation']
   },
