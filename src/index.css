@@ -3,6 +3,11 @@
 /* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
+  /* Standard property with better browser support */
+  -webkit-text-size-adjust: none; /* Prevents iOS text size adjust after orientation change */
+          text-size-adjust: none; /* Standard property */
+  -moz-text-size-adjust: none; /* Firefox */
+  -ms-text-size-adjust: none; /* IE/Edge */
 }
 
 /* Optional: Offset for sticky header */
