@@ -2,7 +2,8 @@ import React, { useState, lazy, Suspense, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom';
-import { User, Play, FileText, MessageCircle } from 'lucide-react';
+import { User, FileText, MessageCircle } from 'lucide-react';
+import ResumeSelector from '../components/Resume/ResumeSelector';
 
 // Lazy load components - only load when needed
 const AboutSection = lazy(() => import('../components/About/AboutSection'));
@@ -89,6 +90,8 @@ const HomePage = () => {
     switch(activeSection) {
       case 'home':
         return <AboutSection resumeData={resumeData} isLoading={loading} error={error} />;
+      case 'resume':
+        return <ResumeSelector />;
       case 'skills':
         return resumeData ? <SkillsSection skills={resumeData.skills} /> : null;
       case 'services':
@@ -108,6 +111,7 @@ const HomePage = () => {
   // Tabs configuration
   const tabs = [
     { id: 'home', name: 'About Me', icon: User },
+    { id: 'resume', name: 'Resume', icon: FileText },
     { id: 'skills', name: 'Skills', icon: FileText },
     { id: 'services', name: 'Services', icon: FileText },
     { id: 'projects', name: 'Projects', icon: FileText },

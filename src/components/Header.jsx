@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Star, Briefcase, FolderOpen, Clock, GraduationCap, Mail, Menu, X } from 'lucide-react';
+import { User, Star, Briefcase, FolderOpen, Clock, GraduationCap, Mail, Menu, X, FileText } from 'lucide-react';
 
 const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeData = null }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,6 +34,9 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
       indigo: isActive 
         ? 'bg-indigo-500 text-white shadow-lg' 
         : 'bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100',
+      teal: isActive
+        ? 'bg-teal-500 text-white shadow-lg'
+        : 'bg-teal-50 text-teal-600 border border-teal-200 hover:bg-teal-100',
       gray: isActive 
         ? 'bg-gray-500 text-white shadow-lg' 
         : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100',

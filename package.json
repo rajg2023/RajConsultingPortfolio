@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@octokit/oauth-app": "^8.0.2",
+    "framer-motion": "^12.23.24",
     "lucide-react": "^0.544.0",
     "pdf-parse": "^2.1.2",
     "pdf2json": "^3.2.2",
