@@ -7,7 +7,8 @@ const resumeData = [
     id: 'qa',
     title: 'Quality Assurance Engineer',
     description: 'Expert in manual and automated testing, test planning, and quality assurance best practices.',
-    file: 'resume/Rajiv_Giri_QA_Resume.docx',
+    previewFile: 'resume/Rajiv_Giri_QA_Resume.html',
+    downloadFile: 'resume/Rajiv_Giri_QA_Resume.docx',
     lastUpdated: 'October 2023',
     tags: ['Manual Testing', 'Test Automation', 'Quality Assurance']
   },
@@ -15,7 +16,8 @@ const resumeData = [
     id: 'sdet',
     title: 'SDET (Software Development Engineer in Test)',
     description: 'Skilled in building robust test automation frameworks and CI/CD integration.',
-    file: 'resume/Rajiv_Giri_SDET_Resume.docx',
+    previewFile: 'resume/Rajiv_Giri_SDET_Resume.html',
+    downloadFile: 'resume/Rajiv_Giri_SDET_Resume.docx',
     lastUpdated: 'October 2023',
     tags: ['Test Automation', 'Selenium', 'Java', 'Python', 'CI/CD']
   },
@@ -23,7 +25,8 @@ const resumeData = [
     id: 'bsa',
     title: 'Business Systems Analyst',
     description: 'Bridging the gap between business needs and technical solutions with strong analytical skills.',
-    file: 'resume/Rajiv_Giri_Business_Systems_Analyst.docx',
+    previewFile: 'resume/Rajiv_Giri_Business_Systems_Analyst.html',
+    downloadFile: 'resume/Rajiv_Giri_Business_Systems_Analyst.docx',
     lastUpdated: 'October 2023',
     tags: ['Requirements Gathering', 'Process Improvement', 'Documentation']
   },
@@ -31,7 +34,8 @@ const resumeData = [
     id: 'support',
     title: 'Application Support Engineer',
     description: 'Providing exceptional technical support and troubleshooting for enterprise applications.',
-    file: 'resume/Rajiv_Giri_Application_Support_Engineer_Resume.docx',
+    previewFile: 'resume/Rajiv_Giri_Application_Support_Engineer_Resume.html',
+    downloadFile: 'resume/Rajiv_Giri_Application_Support_Engineer_Resume.docx',
     lastUpdated: 'October 2023',
     tags: ['Troubleshooting', 'Customer Support', 'Incident Management']
   },
@@ -39,7 +43,8 @@ const resumeData = [
     id: 'consultant',
     title: 'Technical Consultant',
     description: 'Delivering expert technical guidance and solutions to optimize business processes.',
-    file: 'resume/Rajiv_Giri_Technical_Consultant.docx',
+    previewFile: 'resume/Rajiv_Giri_Technical_Consultant.html',
+    downloadFile: 'resume/Rajiv_Giri_Technical_Consultant.docx',
     lastUpdated: 'October 2023',
     tags: ['Solution Design', 'Technical Leadership', 'Client Consulting']
   },
@@ -47,7 +52,8 @@ const resumeData = [
     id: 'data-analyst',
     title: 'Data Analyst',
     description: 'Transforming complex data into actionable insights and business intelligence.',
-    file: 'resume/Rajiv_Giri_Data_Analyst_Resume.docx',
+    previewFile: 'resume/Rajiv_Giri_Data_Analyst_Resume.html',
+    downloadFile: 'resume/Rajiv_Giri_Data_Analyst_Resume.docx',
     lastUpdated: 'October 2023',
     tags: ['Data Analysis', 'SQL', 'Visualization', 'Reporting']
   }
@@ -59,8 +65,8 @@ const ResumeCard = ({ resume }) => {
   const handleDownload = (e) => {
     e.stopPropagation();
     const link = document.createElement('a');
-    link.href = `${process.env.PUBLIC_URL}/${resume.file}`;
-    link.download = resume.file.split('/').pop();
+    link.href = `${process.env.PUBLIC_URL || ''}/${resume.downloadFile}`;
+    link.download = resume.downloadFile.split('/').pop();
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -68,7 +74,8 @@ const ResumeCard = ({ resume }) => {
 
   const handlePreview = (e) => {
     e.stopPropagation();
-    window.open(`${process.env.PUBLIC_URL}/${resume.file}`, '_blank');
+    const previewUrl = `${process.env.PUBLIC_URL || ''}/${resume.previewFile}`;
+    window.open(previewUrl, '_blank');
   };
 
   const colorVariants = {
