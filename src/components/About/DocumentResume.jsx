@@ -8,6 +8,7 @@ const RESUME_DATA = [
     title: 'Quality Assurance Engineer',
     description: 'Expert in manual and automated testing, test planning, and quality assurance best practices.',
     file: 'resume/Rajiv_Giri_QA_Resume.docx',
+    htmlFile: 'resume/Rajiv_Giri_QA_Resume.html',
     lastUpdated: 'October 2023',
     tags: ['Manual Testing', 'Test Automation', 'Quality Assurance']
   },
@@ -16,6 +17,7 @@ const RESUME_DATA = [
     title: 'SDET (Software Development Engineer in Test)',
     description: 'Skilled in building robust test automation frameworks and CI/CD integration.',
     file: 'resume/Rajiv_Giri_SDET_Resume.docx',
+    htmlFile: 'resume/Rajiv_Giri_SDET_Resume.html',
     lastUpdated: 'October 2023',
     tags: ['Test Automation', 'Selenium', 'Java', 'Python', 'CI/CD']
   },
@@ -24,6 +26,7 @@ const RESUME_DATA = [
     title: 'Business Systems Analyst',
     description: 'Bridging the gap between business needs and technical solutions with strong analytical skills.',
     file: 'resume/Rajiv_Giri_Business_Systems_Analyst.docx',
+    htmlFile: 'resume/Rajiv_Giri_Business_Systems_Analyst.html',
     lastUpdated: 'October 2023',
     tags: ['Requirements Gathering', 'Process Improvement', 'Documentation']
   },
@@ -32,6 +35,7 @@ const RESUME_DATA = [
     title: 'Application Support Engineer',
     description: 'Providing exceptional technical support and troubleshooting for enterprise applications.',
     file: 'resume/Rajiv_Giri_Application_Support_Engineer_Resume.docx',
+    htmlFile: 'resume/Rajiv_Giri_Application_Support_Engineer_Resume.html',
     lastUpdated: 'October 2023',
     tags: ['Troubleshooting', 'Customer Support', 'Incident Management']
   },
@@ -40,6 +44,7 @@ const RESUME_DATA = [
     title: 'Technical Consultant',
     description: 'Delivering expert technical guidance and solutions to optimize business processes.',
     file: 'resume/Rajiv_Giri_Technical_Consultant.docx',
+    htmlFile: 'resume/Rajiv_Giri_Technical_Consultant.html',
     lastUpdated: 'October 2023',
     tags: ['Solution Design', 'Technical Leadership', 'Client Consulting']
   },
@@ -48,6 +53,7 @@ const RESUME_DATA = [
     title: 'Data Analyst',
     description: 'Transforming complex data into actionable insights and business intelligence.',
     file: 'resume/Rajiv_Giri_Data_Analyst_Resume.docx',
+    htmlFile: 'resume/Rajiv_Giri_Data_Analyst_Resume.html',
     lastUpdated: 'October 2023',
     tags: ['Data Analysis', 'SQL', 'Visualization', 'Reporting']
   }
@@ -150,7 +156,7 @@ const DocumentResume = () => {
   const handleDownload = useCallback((resume) => {
     try {
       const link = document.createElement('a');
-      // Direct path since files are in the public directory
+      // Use the .docx file for downloads
       const filePath = `/${resume.file}`;
       
       if (!filePath) {
@@ -188,9 +194,10 @@ const DocumentResume = () => {
     );
   }
 
-  // Get the HTML file path by replacing .docx with .html
-  const getHtmlFilePath = (filePath) => {
-    return filePath.replace(/\.docx$/, '.html');
+  // Get the HTML file path
+  const getHtmlFilePath = (resume) => {
+    // Use the htmlFile property if it exists, otherwise fall back to replacing .docx with .html
+    return resume.htmlFile || resume.file.replace(/\.docx$/, '.html');
   };
 
   return (
@@ -237,7 +244,7 @@ const DocumentResume = () => {
           {/* HTML Preview */}
           <div className="flex-1 overflow-hidden flex flex-col" style={{ minHeight: 0 }}>
             <iframe 
-              src={`/${getHtmlFilePath(selectedResume.file)}`}
+              src={`/${getHtmlFilePath(selectedResume)}`}
               title={`${selectedResume.title} Preview`}
               className="flex-1 w-full h-full border-0"
               style={{ minHeight: '500px' }}
