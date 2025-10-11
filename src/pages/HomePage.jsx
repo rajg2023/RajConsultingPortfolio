@@ -36,8 +36,8 @@ const HomePage = () => {
   useEffect(() => {
     const fetchResumeData = async () => {
       try {
-        // Use absolute path to content.json in the public directory
-        const response = await fetch(`${window.location.origin}/content.json`);
+        // Use absolute path to resume.json in the public/content directory
+        const response = await fetch(`${window.location.origin}/content/resume.json`);
         if (!response.ok) {
           throw new Error('Failed to load resume data');
         }
