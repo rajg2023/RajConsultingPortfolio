@@ -62,17 +62,9 @@ const resumeData = [
 const ResumeCard = ({ resume }) => {
   const [isHovered, setIsHovered] = useState(false);
   
-  const getBaseUrl = () => {
-    // For GitHub Pages, we need to include the repository name in the path
-    return process.env.NODE_ENV === 'production' 
-      ? '/RajConsultingPortfolio' 
-      : '';
-  };
-
   const handleDownload = (e) => {
     e.stopPropagation();
-    const baseUrl = getBaseUrl();
-    const filePath = `${baseUrl}/${resume.downloadFile}`;
+    const filePath = `${process.env.PUBLIC_URL || ''}/${resume.downloadFile}`;
     const link = document.createElement('a');
     link.href = filePath;
     link.download = resume.downloadFile.split('/').pop();
@@ -83,8 +75,7 @@ const ResumeCard = ({ resume }) => {
 
   const handlePreview = (e) => {
     e.stopPropagation();
-    const baseUrl = getBaseUrl();
-    const previewUrl = `${baseUrl}/${resume.previewFile}`;
+    const previewUrl = `${process.env.PUBLIC_URL || ''}/${resume.previewFile}`;
     window.open(previewUrl, '_blank');
   };
 
