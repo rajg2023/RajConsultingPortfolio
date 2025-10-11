@@ -1,22 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';  // Import Tailwind CSS
 
-import { BrowserRouter as Router } from 'react-router-dom';
-
-/* ReactDOM.createRoot(document.getElementById('root')).render(
- <React.StrictMode>
-   <App />
- </React.StrictMode>
-);  */
-/* const basename = process.env.NODE_ENV === 'production' 
-  ? '/RajConsultingPortfolio'  // Your GitHub repo name
-  : ''; */
+// Use HashRouter for GitHub Pages compatibility
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
+    <HashRouter>
       <App />
-    </Router>
+    </HashRouter>
   </React.StrictMode>
 );
