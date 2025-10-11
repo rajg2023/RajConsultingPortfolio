@@ -35,7 +35,8 @@ const HomePage = () => {
   useEffect(() => {
     const fetchResumeData = async () => {
       try {
-        const response = await fetch('/content/resume.json');
+        // Use relative path for GitHub Pages
+        const response = await fetch('content/resume.json');
         if (!response.ok) {
           throw new Error('Failed to load resume data');
         }
