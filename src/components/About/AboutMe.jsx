@@ -80,12 +80,18 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 p-1">
                 <div className="h-full w-full rounded-full bg-white p-0.5">
                   <img 
-                    src="/images/ProfilePic.jpg" 
+                    src={`${import.meta.env.BASE_URL || ''}images/ProfilePic.jpg`}
                     alt={name}
                     className="h-full w-full rounded-full object-cover"
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=random';
+                      // Try with direct path if the first one fails
+                      e.target.src = '/RajConsultingPortfolio/images/ProfilePic.jpg';
+                      
+                      // If that fails, use the fallback
+                      e.target.onerror = () => {
+                        e.target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=random';
+                      };
                     }}
                   />
                 </div>

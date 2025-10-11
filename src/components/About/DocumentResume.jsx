@@ -3,7 +3,7 @@ import { Download, FileText, Eye } from 'lucide-react';
 
 const DocumentResume = () => {
   const handleDownload = (format) => {
-    const filePath = `/resume/Word Resume2.${format.toLowerCase()}`;
+    const filePath = `${import.meta.env.BASE_URL || ''}resume/Word Resume2.${format.toLowerCase()}`;
     const link = document.createElement('a');
     link.href = filePath;
     link.download = `Raj_Govindarajan_Resume.${format.toLowerCase()}`;
@@ -13,7 +13,7 @@ const DocumentResume = () => {
   };
 
   const handlePreview = () => {
-    window.open('/resume/Word Resume2.pdf', '_blank');
+    window.open(`${import.meta.env.BASE_URL || ''}resume/Word Resume2.pdf`, '_blank');
   };
 
   return (
