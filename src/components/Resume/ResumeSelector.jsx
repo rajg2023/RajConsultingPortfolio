@@ -64,7 +64,8 @@ const ResumeCard = ({ resume }) => {
   
   const handleDownload = (e) => {
     e.stopPropagation();
-    const baseUrl = process.env.NODE_ENV === 'production' ? '/RajConsultingPortfolio' : '';
+    const isProduction = window.location.hostname === 'rajg2023.github.io';
+    const baseUrl = isProduction ? '/RajConsultingPortfolio' : '';
     const link = document.createElement('a');
     link.href = `${baseUrl}/${resume.downloadFile}`;
     link.download = resume.downloadFile.split('/').pop();
@@ -75,7 +76,8 @@ const ResumeCard = ({ resume }) => {
 
   const handlePreview = (e) => {
     e.stopPropagation();
-    const baseUrl = process.env.NODE_ENV === 'production' ? '/RajConsultingPortfolio' : '';
+    const isProduction = window.location.hostname === 'rajg2023.github.io';
+    const baseUrl = isProduction ? '/RajConsultingPortfolio' : '';
     const previewUrl = `${baseUrl}/${resume.previewFile}`;
     window.open(previewUrl, '_blank');
   };
