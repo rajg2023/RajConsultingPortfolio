@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Download, FileText, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
+import ResumePathTester from './ResumePathTester';
 
 const resumeData = [
   {
@@ -66,20 +67,67 @@ const ResumeCard = ({ resume }) => {
     e.stopPropagation();
     const isProduction = window.location.hostname === 'rajg2023.github.io';
     const baseUrl = isProduction ? '/RajConsultingPortfolio' : '';
-    const link = document.createElement('a');
-    link.href = `${baseUrl}/${resume.downloadFile}`;
-    link.download = resume.downloadFile.split('/').pop();
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const fullUrl = `${baseUrl}/${resume.downloadFile}`;
+    
+    console.log('Download Debug:', {
+      isProduction,
+      baseUrl,
+      downloadFile: resume.downloadFile,
+      fullUrl,
+      hostname: window.location.hostname
+    });
+    
+    // Test if the file exists by making a HEAD request
+    fetch(fullUrl, { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          console.log('File exists, proceeding with download');
+          const link = document.createElement('a');
+          link.href = fullUrl;
+          link.download = resume.downloadFile.split('/').pop();
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } else {
+          console.error('File not found:', response.status, fullUrl);
+          alert(`File not found: ${fullUrl}`);
+        }
+      })
+      .catch(error => {
+        console.error('Error checking file:', error);
+        alert(`Error checking file: ${error.message}`);
+      });
   };
 
   const handlePreview = (e) => {
     e.stopPropagation();
     const isProduction = window.location.hostname === 'rajg2023.github.io';
     const baseUrl = isProduction ? '/RajConsultingPortfolio' : '';
-    const previewUrl = `${baseUrl}/${resume.previewFile}`;
-    window.open(previewUrl, '_blank');
+    const fullUrl = `${baseUrl}/${resume.previewFile}`;
+    
+    console.log('Preview Debug:', {
+      isProduction,
+      baseUrl,
+      previewFile: resume.previewFile,
+      fullUrl,
+      hostname: window.location.hostname
+    });
+    
+    // Test if the file exists by making a HEAD request
+    fetch(fullUrl, { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          console.log('File exists, opening preview');
+          window.open(fullUrl, '_blank');
+        } else {
+          console.error('File not found:', response.status, fullUrl);
+          alert(`File not found: ${fullUrl}`);
+        }
+      })
+      .catch(error => {
+        console.error('Error checking file:', error);
+        alert(`Error checking file: ${error.message}`);
+      });
   };
 
   const colorVariants = {
@@ -180,7 +228,10 @@ const ResumeSelector = () => {
             Browse and download my professional resumes tailored for different roles
           </p>
         </div>
-        
+
+        {/* Debug component - remove in production */}
+        <ResumePathTester />
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {resumeData.map((resume) => (
             <ResumeCard key={resume.id} resume={resume} />
