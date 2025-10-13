@@ -13,7 +13,6 @@ const ProjectsSection = lazy(() => import('../components/Projects/ProjectsSectio
 const ExperienceSection = lazy(() => import('../components/Experience/ExperienceSection'));
 const EducationSection = lazy(() => import('../components/Education/EducationSection'));
 const ContactSection = lazy(() => import('../components/Contact/ContactSection'));
-const DocumentResume = lazy(() => import('../components/About/DocumentResume'));
 
 // Loading component
 const LoadingSpinner = () => (
@@ -91,8 +90,6 @@ const HomePage = () => {
     switch(activeSection) {
       case 'home':
         return <AboutSection resumeData={resumeData} isLoading={loading} error={error} />;
-      case 'resume':
-        return <ResumeSelector />;
       case 'skills':
         return resumeData ? <SkillsSection skills={resumeData.skills} /> : null;
       case 'services':
@@ -112,7 +109,6 @@ const HomePage = () => {
   // Tabs configuration
   const tabs = [
     { id: 'home', name: 'About Me', icon: User },
-    { id: 'resume', name: 'Resume', icon: FileText },
     { id: 'skills', name: 'Skills', icon: FileText },
     { id: 'services', name: 'Services', icon: FileText },
     { id: 'projects', name: 'Projects', icon: FileText },

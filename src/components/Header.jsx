@@ -6,7 +6,6 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
 
   const navigationItems = [
     { id: 'home', name: 'Home', icon: User, color: 'blue' },
-    { id: 'resume', name: 'Resume', icon: FileText, color: 'teal' },
     { id: 'skills', name: 'Skills', icon: Star, color: 'green' },
     { id: 'services', name: 'Services', icon: Briefcase, color: 'purple' },
     { id: 'projects', name: 'Projects', icon: FolderOpen, color: 'orange' },
@@ -35,9 +34,6 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
       indigo: isActive 
         ? 'bg-indigo-500 text-white shadow-lg' 
         : 'bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100',
-      teal: isActive
-        ? 'bg-teal-500 text-white shadow-lg'
-        : 'bg-teal-50 text-teal-600 border border-teal-200 hover:bg-teal-100',
       gray: isActive 
         ? 'bg-gray-500 text-white shadow-lg' 
         : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100',
