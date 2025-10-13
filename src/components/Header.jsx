@@ -6,6 +6,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
 
   const navigationItems = [
     { id: 'home', name: 'Home', icon: User, color: 'blue' },
+    { id: 'resume', name: 'Resume', icon: FileText, color: 'teal' },
     { id: 'skills', name: 'Skills', icon: Star, color: 'green' },
     { id: 'services', name: 'Services', icon: Briefcase, color: 'purple' },
     { id: 'projects', name: 'Projects', icon: FolderOpen, color: 'orange' },
