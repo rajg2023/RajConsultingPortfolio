@@ -195,10 +195,11 @@ const DocumentResume = () => {
     );
   }
 
-  // Get the HTML file path
+  // Get the HTML file path with correct base URL
   const getHtmlFilePath = (resume) => {
-    // Use the path as is - the public path is already handled by Vite
-    return resume.htmlFile;
+    const isProduction = window.location.hostname === 'rajg2023.github.io';
+    const baseUrl = isProduction ? '/RajConsultingPortfolio' : '';
+    return `${baseUrl}${resume.htmlFile}`;
   };
 
   return (
