@@ -157,8 +157,10 @@ const DocumentResume = () => {
   const handleDownload = useCallback((resume) => {
     try {
       const link = document.createElement('a');
-      // Use the .docx file for downloads
-      const filePath = `/${resume.file}`;
+      // Use the correct base URL for both development and production
+      const isProduction = window.location.hostname === 'rajg2023.github.io';
+      const baseUrl = isProduction ? '/RajConsultingPortfolio' : '';
+      const filePath = `${baseUrl}/${resume.file}`;
       
       if (!filePath) {
         throw new Error('File path is undefined');
