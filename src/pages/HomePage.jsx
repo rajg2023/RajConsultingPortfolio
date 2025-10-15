@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense, useEffect } from 'react';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom';
 import { User, FileText, MessageCircle } from 'lucide-react';

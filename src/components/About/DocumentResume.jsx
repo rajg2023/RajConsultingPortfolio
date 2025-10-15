@@ -205,77 +205,84 @@ const DocumentResume = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col">
-      {/* <h2 className="text-2xl font-bold text-gray-900 mb-6 px-4">My Resumes</h2> */}
-      
-      {/* Role Selection Buttons */}
-      <div className="mb-6 px-4 flex-shrink-0">
-        <div className="flex flex-wrap gap-2">
-          {RESUME_DATA.map((resume) => (
-            <ResumeCard 
-              key={resume.id}
-              resume={resume}
-              isSelected={selectedResume?.id === resume.id}
-              onSelect={handleResumeSelect}
-            />
-          ))}
+    <div className="w-full h-full flex flex-col items-center">
+      {/* Role Selection Buttons - Now in a single row */}
+      <div className="w-full px-6 py-4">
+        <div className="flex justify-center">
+          <div className="flex flex-nowrap gap-2 max-w-full">
+            {RESUME_DATA.map((resume) => (
+              <ResumeCard 
+                key={resume.id}
+                resume={resume}
+                isSelected={selectedResume?.id === resume.id}
+                onSelect={handleResumeSelect}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Resume Preview */}
       {selectedResume && (
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex-1 flex flex-col bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-full"
-          style={{ minHeight: '600px' }}
-        >
-          {/* Preview Header */}
-          <div className="px-6 py-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
-            <h3 className="text-xl font-semibold text-gray-900">{selectedResume.title}</h3>
-            <div className="flex space-x-2">
-              <button
-                onClick={() => handleDownload(selectedResume)}
-                className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                <Download className="h-3.5 w-3.5 mr-1.5" />
-                Download Word
-              </button>
-            </div>
-          </div>
-          
-          {/* Auto-resizing Resume Preview */}
-          <div className="resume-preview-container">
-            <div className="resume-frame-container">
-              <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
-                <iframe 
+        <div className="w-full px-6">
+          <div className="max-w-[90rem] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+              className="resume-preview-container bg-white rounded-lg shadow-sm border border-gray-200"
+            >
+              {/* Resume header with colorful action buttons */}
+              <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 p-4 text-white">
+                <div className="container mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <h2 className="text-xl font-bold text-white">{selectedResume.title}</h2>
+                    <p className="text-blue-100 text-sm">Professional Resume</p>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <button
+                      onClick={() => handleDownload(selectedResume)}
+                      className="flex items-center px-4 py-2 bg-white text-blue-700 rounded-md font-medium hover:bg-blue-50 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      Download CV
+                    </button>
+                    <a
+                      href={getHtmlFilePath(selectedResume)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-4 py-2 bg-yellow-400 text-gray-900 rounded-md font-medium hover:bg-yellow-300 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Preview in New Tab
+                    </a>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-200"></div>
+              </div>
+
+              {/* Resume content */}
+              <div className="resume-frame-container">
+                <iframe
                   src={getHtmlFilePath(selectedResume)}
                   title={`${selectedResume.title} Preview`}
                   className="resume-iframe"
                   sandbox="allow-scripts allow-forms allow-popups"
                   loading="lazy"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    border: 'none',
-                    minHeight: '800px',
-                    transform: 'scale(1)'
-                  }}
+                  scrolling="no"
                   onLoad={(e) => {
-                    // This helps with some rendering issues
                     const iframe = e.target;
                     if (iframe.contentDocument) {
                       iframe.contentDocument.body.style.margin = '0';
                       iframe.contentDocument.body.style.padding = '0';
+                      iframe.contentDocument.body.style.overflow = 'hidden';
                     }
+                    iframe.style.height = '1400px';
                   }}
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       )}
     </div>
   );
