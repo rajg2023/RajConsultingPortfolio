@@ -183,12 +183,7 @@ const SkillsSection = () => {
                         <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
                         {skill.years && <p className="text-sm text-gray-500">{skill.years} of experience</p>}
                       </div>
-                      {skill.certified && (
-                        <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full flex items-center">
-                          <CheckCircle className="w-3 h-3 mr-1" />
-                          Certified
-                        </span>
-                      )}
+                      
                     </div>
                     <div className="w-full bg-gray-100 rounded-full h-2 mb-2 overflow-hidden">
                       <div 

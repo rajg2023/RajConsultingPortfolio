@@ -71,7 +71,7 @@ const TechnicalSkills = () => {
         labels: ['Java', 'C#', 'Python', 'SQL', 'JavaScript', 'XML', 'HTML', 'CSS', 'R'],
         datasets: [{
           label: 'Expertise Level',
-          data: [9, 8, 9, 8, 7, 6, 8, 8, 5],
+          data: [6, 6, 5, 7, 7, 6, 8, 8, 5],
           backgroundColor: 'rgba(79, 70, 229, 0.2)',
           borderColor: 'rgba(79, 70, 229, 1)',
           borderWidth: 2,
@@ -108,7 +108,7 @@ const TechnicalSkills = () => {
       data: {
         labels: ['Spring Boot', '.NET', 'Django', 'Flask', 'JUnit', 'TestNG', 'Maven', 'Selenium', 'Appium'],
         datasets: [{
-          data: [7, 8, 6, 5, 8, 7, 6, 9, 5],
+          data: [6, 5, 6, 5, 6, 4, 6, 5, 5],
           backgroundColor: [
             'rgba(126, 34, 206, 0.7)',
             'rgba(107, 33, 168, 0.7)',
@@ -144,9 +144,9 @@ const TechnicalSkills = () => {
     testing: {
       type: 'polarArea',
       data: {
-        labels: ['Selenium', 'HP QC/QTP', 'Jira', 'Confluence', 'Smartsheet', 'Power BI', 'Tableau', 'Postman', 'BugZilla', 'Jupyter'],
+        labels: ['Selenium', 'HP QC/QTP', 'Jira', 'Confluence', 'Smartsheet', 'Excel', 'Power BI', 'Tableau', 'Postman', 'BugZilla', 'Jupyter'],
         datasets: [{
-          data: [9, 7, 8, 7, 6, 5, 6, 8, 6, 7],
+          data: [6, 5, 8, 7, 6, 7, 5, 6, 6, 6, 6],
           backgroundColor: [
             'rgba(236, 72, 153, 0.7)',
             'rgba(219, 39, 119, 0.7)',
