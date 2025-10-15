@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Code, TestTube, BarChart3, Users, Settings, CheckCircle } from 'lucide-react';
+
+// Lazy load the TechnicalSkills component
+const TechnicalSkills = lazy(() => import('./TechnicalSkills'));
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('Technical');
@@ -52,18 +55,16 @@ const SkillsSection = () => {
     }
   ];
 
-  // Skills data
   const skillsData = {
     'Technical': [
-      { name: 'JavaScript', level: 90, years: '8 years', certified: true },
-      { name: 'React', level: 85, years: '5 years', certified: true },
-      { name: 'Node.js', level: 80, years: '6 years', certified: true },
-      { name: 'TypeScript', level: 85, years: '4 years', certified: true },
-      { name: 'Python', level: 80, years: '7 years', certified: false },
-      { name: 'SQL', level: 90, years: '8 years', certified: true }
+      { name: 'Java', level: 90, years: '8 years', certified: true },
+      { name: 'Python', level: 85, years: '5 years', certified: true },
+      { name: 'JavaScript', level: 90, years: '6 years', certified: true },
+      { name: 'TypeScript', level: 80, years: '4 years', certified: true },
+      { name: 'SQL', level: 90, years: '8 years', certified: true },
+      { name: 'Bash/Shell', level: 80, years: '5 years', certified: false }
     ],
     'Testing & QA': [
-      { name: 'Jest', level: 90, years: '5 years', certified: true },
       { name: 'Cypress', level: 85, years: '3 years', certified: false },
       { name: 'Selenium', level: 80, years: '4 years', certified: true },
       { name: 'JUnit', level: 75, years: '5 years', certified: false },
@@ -110,12 +111,6 @@ const SkillsSection = () => {
       gray: isActive ? 'bg-gray-500 text-white shadow-lg' : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100'
     };
     return colorMap[color] || colorMap.blue;
-  };
-
-  // Helper function to get progress bar color based on skill level and active category
-  const getProgressColor = (level) => {
-    // Use the active category's color for all progress bars
-    return `bg-${currentCategory.color}-500`;
   };
 
   return (
@@ -169,54 +164,64 @@ const SkillsSection = () => {
             </div>
           </div>
           
-          {/* Skills Grid */}
+          {/* Skills Content */}
           <div className="p-6">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {skillsToShow.map((skill, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow duration-200 border border-gray-100">
-                  <div className="flex justify-between items-start mb-3">
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
-                      {skill.years && <p className="text-sm text-gray-500">{skill.years} of experience</p>}
-                    </div>
-                    {skill.certified && (
-                      <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full flex items-center">
-                        <CheckCircle className="w-3 h-3 mr-1" />
-                        Certified
-                      </span>
-                    )}
-                  </div>
-                  <div className="w-full bg-gray-100 rounded-full h-2 mb-2 overflow-hidden">
-                    <div 
-                      className={`h-full rounded-full transition-all duration-500`}
-                      style={{ 
-                        width: `${skill.level}%`,
-                        backgroundColor: `var(--color-${currentCategory.color}-500)`
-                      }}
-                    ></div>
-                  </div>
-                  <div className="text-sm text-gray-500 flex justify-between">
-                    <span>Proficiency</span>
-                    <span className="font-medium">{skill.level}%</span>
-                  </div>
+            {activeCategory === 'Technical' ? (
+              <Suspense fallback={
+                <div className="flex justify-center items-center h-64">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
                 </div>
-              ))}
+              }>
+                <TechnicalSkills />
+              </Suspense>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {skillsToShow.map((skill, index) => (
+                  <div key={index} className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow duration-200 border border-gray-100">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
+                        {skill.years && <p className="text-sm text-gray-500">{skill.years} of experience</p>}
+                      </div>
+                      {skill.certified && (
+                        <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full flex items-center">
+                          <CheckCircle className="w-3 h-3 mr-1" />
+                          Certified
+                        </span>
+                      )}
+                    </div>
+                    <div className="w-full bg-gray-100 rounded-full h-2 mb-2 overflow-hidden">
+                      <div 
+                        className={`h-full rounded-full transition-all duration-500`}
+                        style={{ 
+                          width: `${skill.level}%`,
+                          backgroundColor: `var(--color-${currentCategory.color}-500)`
+                        }}
+                      ></div>
+                    </div>
+                    <div className="text-sm text-gray-500 flex justify-between">
+                      <span>Proficiency</span>
+                      <span className="font-medium">{skill.level}%</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          
+          {/* Stats */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-gray-50 border-t">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">30+</div>
+              <div className="text-gray-600">Technical Skills</div>
             </div>
-            
-            {/* Stats */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">30+</div>
-                <div className="text-gray-600">Technical Skills</div>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-2">10+</div>
-                <div className="text-gray-600">Years Experience</div>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-                <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
-                <div className="text-gray-600">Projects Completed</div>
-              </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-2">9+</div>
+              <div className="text-gray-600">Years Experience</div>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
+              <div className="text-3xl font-bold text-orange-600 mb-2">10+</div>
+              <div className="text-gray-600">Clients Engagement</div>
             </div>
           </div>
         </div>
