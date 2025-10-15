@@ -8,92 +8,165 @@ const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('Technical');
 
   const skillCategories = [
-    { 
-      name: 'Technical', 
-      icon: Code, 
+    {
+      name: 'Technical',
+      icon: Code,
       color: 'blue',
       icon_bg: 'bg-blue-50',
       icon_text: 'text-blue-600',
       border: 'border-blue-200',
-      description: 'Programming languages and technical skills'
+      description: 'Work and Hands on experience with technical skills'
     },
-    { 
-      name: 'Testing & QA', 
-      icon: TestTube, 
+    {
+      name: 'Domain/Compliance & Processes',
+      icon: Code,
       color: 'green',
       icon_bg: 'bg-green-50',
       icon_text: 'text-green-600',
       border: 'border-green-200',
-      description: 'Quality assurance and testing expertise'
+      description: 'Domain/Compliance & Processes knowledge'
     },
-    { 
-      name: 'Data Analytics', 
-      icon: BarChart3, 
-      color: 'purple',
-      icon_bg: 'bg-purple-50',
-      icon_text: 'text-purple-600',
-      border: 'border-purple-200',
-      description: 'Data analysis and visualization skills'
-    },
-    { 
-      name: 'Leadership', 
-      icon: Users, 
+    {
+      name: 'Leadership',
+      icon: Users,
       color: 'orange',
       icon_bg: 'bg-orange-50',
       icon_text: 'text-orange-600',
       border: 'border-orange-200',
       description: 'Team and project leadership abilities'
     },
-    { 
-      name: 'Tools & Platforms', 
-      icon: Settings, 
-      color: 'gray',
-      icon_bg: 'bg-gray-50',
-      icon_text: 'text-gray-600',
-      border: 'border-gray-200',
-      description: 'Development tools and platforms'
+    {
+      name: 'Other Tools & Platforms',
+      icon: Settings,
+      color: 'purple',
+      icon_bg: 'bg-purple-50',
+      icon_text: 'text-purple-600',
+      border: 'border-purple-200',
+      description: 'Other tools and platforms knowledge from work and hands on experience'
     }
   ];
 
   const skillsData = {
-    'Technical': [
-      { name: 'Java', level: 90, years: '8 years', certified: true },
-      { name: 'Python', level: 85, years: '5 years', certified: true },
-      { name: 'JavaScript', level: 90, years: '6 years', certified: true },
-      { name: 'TypeScript', level: 80, years: '4 years', certified: true },
-      { name: 'SQL', level: 90, years: '8 years', certified: true },
-      { name: 'Bash/Shell', level: 80, years: '5 years', certified: false }
-    ],
-    'Testing & QA': [
-      { name: 'Cypress', level: 85, years: '3 years', certified: false },
-      { name: 'Selenium', level: 80, years: '4 years', certified: true },
-      { name: 'JUnit', level: 75, years: '5 years', certified: false },
-      { name: 'TestNG', level: 80, years: '4 years', certified: true },
-      { name: 'Postman', level: 85, years: '5 years', certified: true }
-    ],
-    'Data Analytics': [
-      { name: 'SQL', level: 90, years: '8 years', certified: true },
-      { name: 'Tableau', level: 85, years: '4 years', certified: true },
-      { name: 'Power BI', level: 80, years: '3 years', certified: false },
-      { name: 'Python', level: 80, years: '5 years', certified: false },
-      { name: 'Excel', level: 90, years: '10 years', certified: true },
-      { name: 'R', level: 70, years: '2 years', certified: false }
+    'Domain/Compliance & Processes': [
+      // Compliance & Regulations
+      { name: 'HIPAA Compliance', level: 70 },
+      { name: 'PHI Protection', level: 75 },
+      { name: 'GRC (Governance, Risk & Compliance)', level: 65 },
+      { name: 'Security GRC', level: 70 },
+
+      // Healthcare & Retail Systems
+      { name: 'EHR Systems', level: 65 },
+      { name: 'Retail POS Systems', level: 60 },
+
+      // Testing Methodologies
+      { name: 'Agile/Scrum', level: 80 },
+      { name: 'SDLC', level: 85 },
+      { name: 'STLC', level: 85 },
+      { name: 'UAT (User Acceptance Testing)', level: 80 },
+      { name: 'Integration Testing', level: 75 },
+
+      // Data Management
+      { name: 'ETL Testing', level: 70 },
+      { name: 'Data Mapping', level: 75 },
+      { name: 'Data Lineage', level: 70 },
+      { name: 'Data Validation', level: 80 },
+      { name: 'KDEs (Key Data Elements)', level: 65 },
+
+      // Documentation
+      { name: 'FSD (Functional Specification Document)', level: 75 },
+      { name: 'TDD (Technical Design Document)', level: 70 },
+      { name: 'RTM (Requirement Traceability Matrix)', level: 80 },
+      { name: 'T2T (Table-to-Table) Mapping', level: 70 },
+
+      // System Operations
+      { name: 'System Migration', level: 75 },
+      { name: 'Patch/Release Management', level: 70 },
+      { name: 'TVM (Threat Vulnerability Management)', level: 65 },
+      { name: 'Defect Reproduction', level: 80 },
+      { name: 'Log Analysis', level: 75 }
     ],
     'Leadership': [
-      { name: 'Team Leadership', level: 90, years: '8 years', certified: true },
-      { name: 'Project Management', level: 85, years: '6 years', certified: true },
-      { name: 'Agile/Scrum', level: 90, years: '7 years', certified: true },
-      { name: 'Mentoring', level: 85, years: '5 years', certified: false },
-      { name: 'Public Speaking', level: 80, years: '4 years', certified: false },
-      { name: 'Strategic Planning', level: 85, years: '6 years', certified: false }
+      { name: 'Team Leadership', level: 10 },
+      { name: 'Mentoring & Coaching', level: 55 },
+      { name: 'Strategic Planning', level: 40 },
+      { name: 'Decision Making', level: 10 },
+
+      // Communication & Collaboration
+      { name: 'Cross-functional Collaboration', level: 90 },
+      { name: 'Effective Communication', level: 90 },
+      { name: 'Public Speaking', level: 75 },
+      { name: 'Organizing Meetings', level: 85 },
+
+      // Professional Skills
+      { name: 'Critical Thinking', level: 80 },
+      { name: 'Problem Solving', level: 80 },
+      { name: 'Attention to Detail', level: 80 },
+      { name: 'Time Management', level: 88 },
+
+      // Personal Development
+      { name: 'Eagerness to Learn', level: 95 },
+      { name: 'Adaptability', level: 90 },
+      { name: 'Initiative', level: 88 },
+      { name: 'Project Management', level: 30 },
+      { name: 'Agile/Scrum', level: 60 },
+      { name: 'Mentoring', level: 50 },
+      { name: 'Public Speaking', level: 70 },
+      { name: 'Organaizating Meetings', level: 60 },
+      { name: 'Organaizating Meetings', level: 60 },
+      { name: 'Strategic Planning', level: 40 }
     ],
-    'Tools & Platforms': [
-      { name: 'Git', level: 95, years: '8 years', certified: true },
-      { name: 'Docker', level: 85, years: '4 years', certified: true },
-      { name: 'AWS', level: 80, years: '3 years', certified: true },
-      { name: 'Azure', level: 75, years: '2 years', certified: false },
-      { name: 'Jenkins', level: 85, years: '5 years', certified: false },
-      { name: 'Kubernetes', level: 70, years: '2 years', certified: false }
+    'Other Tools & Platforms': [
+      // Version Control & Development
+      { name: 'Git', level: 70 },
+      { name: 'GitHub', level: 75 },
+      { name: 'GitBash', level: 70 },
+
+      // Cloud & Virtualization
+      { name: 'AWS', level: 30 },
+      { name: 'Azure', level: 30 },
+      { name: 'Heroku', level: 40 },
+      { name: 'Google Workspace', level: 65 },
+      { name: 'Big Query', level: 35 },
+      { name: 'VirtualBox', level: 60 },
+      { name: 'VMWare', level: 50 },
+
+      // Development Tools
+      { name: 'VS Code', level: 80 },
+      { name: 'Eclipse', level: 70 },
+      { name: 'NetBeans', level: 60 },
+
+      // AI & ML Tools
+      { name: 'ChatGPT', level: 75 },
+      { name: 'Gemini', level: 70 },
+      { name: 'Claude', level: 70 },
+      { name: 'Perplexity', level: 75 },
+      { name: 'CoPilot', level: 70 },
+      { name: 'Llama', level: 60 },
+      { name: 'DALL·E', level: 65 },
+      { name: 'HuggingFace', level: 60 },
+      { name: 'Bard', level: 70 },
+      { name: 'OpenAI', level: 75 },
+      { name: 'Other LLMs', level: 70 },
+
+      // System & Network
+      { name: 'Docker', level: 40 },
+      { name: 'Kubernetes', level: 10 },
+      { name: 'Jenkins', level: 20 },
+      { name: 'WinSCP', level: 65 },
+      { name: 'PuTTY', level: 70 },
+      { name: 'AnyConnect', level: 60 },
+      { name: 'WindSurf', level: 55 },
+
+      // Office & Productivity
+      { name: 'Microsoft Office Suite', level: 85 },
+
+      // Hardware
+      { name: 'CPUs', level: 75 },
+      { name: 'SSDs', level: 80 },
+      { name: 'RAM', level: 80 },
+      { name: 'Adapters', level: 70 },
+      { name: 'I/O Panels', level: 65 },
+      { name: 'PSU', level: 70 }
     ]
   };
 
@@ -121,7 +194,7 @@ const SkillsSection = () => {
           {skillCategories.map((category) => {
             const Icon = category.icon;
             const isActive = activeCategory === category.name;
-            
+
             return (
               <button
                 key={category.name}
@@ -138,15 +211,15 @@ const SkillsSection = () => {
         {/* Skills Content */}
         <div className="bg-white rounded-none sm:rounded-2xl shadow-lg border-2 overflow-hidden" style={{ borderColor: `var(--color-${currentCategory.color}-200)` }}>
           {/* Category Header */}
-          <div 
-            className={`px-6 py-4 border-b`} 
-            style={{ 
+          <div
+            className={`px-6 py-4 border-b`}
+            style={{
               backgroundColor: `var(--color-${currentCategory.color}-50)`,
               borderColor: `var(--color-${currentCategory.color}-200)`
             }}
           >
             <div className="flex items-center">
-              <div 
+              <div
                 className={`p-3 rounded-lg mr-4`}
                 style={{
                   backgroundColor: `var(--color-${currentCategory.color}-50)`,
@@ -163,7 +236,7 @@ const SkillsSection = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Skills Content */}
           <div className="p-6">
             {activeCategory === 'Technical' ? (
@@ -183,12 +256,11 @@ const SkillsSection = () => {
                         <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
                         {skill.years && <p className="text-sm text-gray-500">{skill.years} of experience</p>}
                       </div>
-                      
                     </div>
                     <div className="w-full bg-gray-100 rounded-full h-2 mb-2 overflow-hidden">
-                      <div 
+                      <div
                         className={`h-full rounded-full transition-all duration-500`}
-                        style={{ 
+                        style={{
                           width: `${skill.level}%`,
                           backgroundColor: `var(--color-${currentCategory.color}-500)`
                         }}
@@ -203,7 +275,7 @@ const SkillsSection = () => {
               </div>
             )}
           </div>
-          
+
           {/* Stats */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-gray-50 border-t">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
