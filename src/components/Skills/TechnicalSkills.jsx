@@ -183,10 +183,10 @@ const TechnicalSkills = () => {
     databases: {
       type: 'bar',
       data: {
-        labels: ['Oracle', 'SQL Server', 'MySQL', 'DB2', 'Teradata', 'Derby', 'Squirrel', 'NoSQL', 'Snowflake'],
+        labels: ['Excel','Oracle', 'SQL Server', 'MySQL', 'DB2', 'Teradata', 'Derby', 'Squirrel', 'NoSQL', 'Snowflake', 'R', 'DataBricks'],
         datasets: [{
           label: 'Expertise Level',
-          data: [8, 8, 9, 6, 5, 4, 5, 7, 6],
+          data: [8, 4, 7, 6, 6, 5, 4, 5, 3, 6, 3, 2],
           backgroundColor: 'rgba(37, 99, 235, 0.7)',
           borderColor: 'rgba(37, 99, 235, 1)',
           borderWidth: 1
