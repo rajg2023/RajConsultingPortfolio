@@ -6,6 +6,7 @@ import {
   Headphones,
   Terminal,
   BarChart3,
+  Brain,
 } from 'lucide-react';
 
 import QualityAssuranceEngineer from './QualityAssuranceEngineer';
@@ -14,6 +15,10 @@ import BusinessSystemsAnalyst from './BusinessSystemsAnalyst';
 import ApplicationSupportEngineer from './ApplicationSupportEngineer';
 import TechnicalConsultant from './TechnicalConsultant';
 import DataAnalyst from './DataAnalyst';
+import AIConsultant from './AIConsultant';
+
+
+
 
 const ServicesSection = () => {
   const [activeService, setActiveService] = useState('Quality Assurance Engineer');
@@ -50,6 +55,11 @@ const ServicesSection = () => {
       color: 'cyan',
       component: DataAnalyst,
     },
+    'AI Consultant': {
+      icon: Brain,
+      color: 'indigo',
+      component: AIConsultant,
+    },
   };
 
   const serviceNames = Object.keys(services);
@@ -65,6 +75,7 @@ const ServicesSection = () => {
       purple: ['bg-purple-50 text-purple-700 border-purple-200', 'bg-purple-600 text-white'],
       red: ['bg-red-50 text-red-700 border-red-200', 'bg-red-600 text-white'],
       cyan: ['bg-cyan-50 text-cyan-700 border-cyan-200', 'bg-cyan-600 text-white'],
+      indigo: ['bg-indigo-50 text-indigo-700 border-indigo-200', 'bg-indigo-600 text-white'],
     };
     return active
       ? `${c[color][1]} shadow-md transform scale-105`
@@ -75,20 +86,7 @@ const ServicesSection = () => {
     <section className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-white to-blue-50 flex flex-col">
       <div className="flex-1 w-full px-6 lg:px-20 py-16">
         <div className="max-w-[1800px] mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-extrabold text-gray-900 mb-6">
-              My{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Professional Services
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Explore what I offer — comprehensive, evolving technical and analytical solutions 
-              designed with reliability, curiosity, and the drive to master new challenges.
-            </p>
-          </div>
-
+          {/* Header */}          
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-6 mb-20">
             {serviceNames.map((name) => {

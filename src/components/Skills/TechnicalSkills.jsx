@@ -15,7 +15,7 @@ import {
   BarElement,
   Title,
 } from 'chart.js';
-import { Radar, Pie, PolarArea, Bar, Doughnut, Line } from 'react-chartjs-2';
+import { Radar, Pie, PolarArea, Bar, Doughnut, Line, Scatter } from 'react-chartjs-2';
 
 // Register Chart.js components
 ChartJS.register(
@@ -38,7 +38,7 @@ const TechnicalSkills = () => {
   // Vanta.js effect
   useEffect(() => {
     let vantaEffect = null;
-    
+
     if (vantaRef.current) {
       vantaEffect = GLOBE({
         el: vantaRef.current,
@@ -65,6 +65,68 @@ const TechnicalSkills = () => {
 
   // Chart data and options
   const chartData = {
+    aiSkills: {
+  type: 'scatter',
+  data: {
+    datasets: [{
+      label: 'AI/ML Skills',
+      data: [
+        { x: 1, y: 3, label: 'Machine Learning' },
+        { x: 2, y: 2, label: 'Deep Learning' },
+        { x: 3, y: 4, label: 'Computer Vision' },
+        { x: 4, y: 5, label: 'LLM Integration' },
+        { x: 5, y: 7, label: 'Data Analysis' },
+        { x: 6, y: 6, label: 'Model Deployment' }
+      ],
+      backgroundColor: 'rgba(196, 230, 4, 0.7)',
+      borderColor: 'rgba(183, 214, 7, 0.81)',
+      borderWidth: 2,
+      pointRadius: 8,
+      pointHoverRadius: 10
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    aspectRatio: 1,
+    scales: {
+      x: {
+        type: 'linear',
+        position: 'bottom',
+        min: 0,
+        max: 7,
+        title: {
+          display: true,
+          text: 'Skill Categories'
+        }
+      },
+      y: {
+        min: 0,
+        max: 10,
+        title: {
+          display: true,
+          text: 'Expertise Level'
+        }
+      }
+    },
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.raw.label + ': ' + context.parsed.y;
+          }
+        }
+      },
+      legend: {
+        position: 'right',
+        labels: {
+          boxWidth: 12,
+          padding: 15
+        }
+      }
+    }
+  }
+},
     languages: {
       type: 'radar',
       data: {
@@ -80,6 +142,9 @@ const TechnicalSkills = () => {
         }]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
         scales: {
           r: {
             angleLines: { display: true },
@@ -94,11 +159,6 @@ const TechnicalSkills = () => {
               boxWidth: 12,
               padding: 15
             }
-          }
-        },
-        layout: {
-          padding: {
-            right: 20
           }
         }
       }
@@ -125,6 +185,9 @@ const TechnicalSkills = () => {
         }]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
         plugins: {
           legend: {
             position: 'right',
@@ -132,11 +195,6 @@ const TechnicalSkills = () => {
               boxWidth: 12,
               padding: 15
             }
-          }
-        },
-        layout: {
-          padding: {
-            right: 20
           }
         }
       }
@@ -164,6 +222,9 @@ const TechnicalSkills = () => {
         }]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
         plugins: {
           legend: {
             position: 'right',
@@ -172,18 +233,13 @@ const TechnicalSkills = () => {
               padding: 15
             }
           }
-        },
-        layout: {
-          padding: {
-            right: 20
-          }
         }
       }
     },
     databases: {
       type: 'bar',
       data: {
-        labels: ['Excel','Oracle', 'SQL Server', 'MySQL', 'DB2', 'Teradata', 'Derby', 'Squirrel', 'NoSQL', 'Snowflake', 'R', 'DataBricks'],
+        labels: ['Excel', 'Oracle', 'SQL Server', 'MySQL', 'DB2', 'Teradata', 'Derby', 'Squirrel', 'NoSQL', 'Snowflake', 'R', 'DataBricks'],
         datasets: [{
           label: 'Expertise Level',
           data: [8, 4, 7, 6, 6, 5, 4, 5, 3, 6, 3, 2],
@@ -193,6 +249,9 @@ const TechnicalSkills = () => {
         }]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
         scales: {
           y: {
             beginAtZero: true,
@@ -206,11 +265,6 @@ const TechnicalSkills = () => {
               boxWidth: 12,
               padding: 15
             }
-          }
-        },
-        layout: {
-          padding: {
-            right: 20
           }
         }
       }
@@ -236,6 +290,9 @@ const TechnicalSkills = () => {
         }]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
         plugins: {
           legend: {
             position: 'right',
@@ -243,11 +300,6 @@ const TechnicalSkills = () => {
               boxWidth: 12,
               padding: 15
             }
-          }
-        },
-        layout: {
-          padding: {
-            right: 20
           }
         }
       }
@@ -268,6 +320,9 @@ const TechnicalSkills = () => {
         }]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
         scales: {
           y: {
             beginAtZero: true,
@@ -282,11 +337,6 @@ const TechnicalSkills = () => {
               padding: 15
             }
           }
-        },
-        layout: {
-          padding: {
-            right: 20
-          }
         }
       }
     }
@@ -298,16 +348,18 @@ const TechnicalSkills = () => {
     polarArea: PolarArea,
     bar: Bar,
     doughnut: Doughnut,
-    line: Line
+    line: Line,
+    scatter: Scatter
   };
 
   const charts = [
-    { id: 'languages', title: 'Programming Languages', color: 'indigo-700' },
-    { id: 'frameworks', title: 'Frameworks & Testing', color: 'purple-700' },
-    { id: 'testing', title: 'Testing & Analysis Tools', color: 'pink-700' },
-    { id: 'databases', title: 'Databases', color: 'blue-700' },
-    { id: 'servers', title: 'Servers & OS', color: 'green-700' },
-    { id: 'networking', title: 'Networking', color: 'yellow-600' }
+    { id: 'aiSkills', title: 'AI/ML Skills', color: 'text-teal-700' },
+    { id: 'languages', title: 'Programming Languages', color: 'text-indigo-700' },
+    { id: 'frameworks', title: 'Frameworks & Testing', color: 'text-purple-700' },
+    { id: 'testing', title: 'Testing & Analysis Tools', color: 'text-pink-700' },
+    { id: 'databases', title: 'Databases', color: 'text-blue-700' },
+    { id: 'servers', title: 'Servers & OS', color: 'text-green-700' },
+    { id: 'networking', title: 'Networking', color: 'text-yellow-600' }
   ];
 
   return (
@@ -318,19 +370,15 @@ const TechnicalSkills = () => {
           {charts.map(({ id, title, color }) => {
             const ChartComponent = chartComponents[chartData[id].type];
             return (
-              <div 
-                key={id} 
+              <div
+                key={id}
                 className="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <h2 className={`text-2xl font-bold text-center mb-6 text-${color}`}>{title}</h2>
-                <div className="h-80 w-full">
-                  <ChartComponent 
-                    data={chartData[id].data} 
-                    options={{
-                      ...chartData[id].options,
-                      responsive: true,
-                      maintainAspectRatio: false
-                    }} 
+                <h2 className={`text-2xl font-bold text-center mb-6 ${color}`}>{title}</h2>
+                <div className="h-80 w-full">  {/* Fixed height container */}
+                  <ChartComponent
+                    data={chartData[id].data}
+                    options={chartData[id].options}
                   />
                 </div>
               </div>

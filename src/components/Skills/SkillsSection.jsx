@@ -1,8 +1,9 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { Code, TestTube, BarChart3, Users, Settings, CheckCircle } from 'lucide-react';
+import { Code, TestTube, BarChart3, Users, Settings, CheckCircle, Brain } from 'lucide-react';
 
-// Lazy load the TechnicalSkills component
+// Lazy load components
 const TechnicalSkills = lazy(() => import('./TechnicalSkills'));
+const AISkills = lazy(() => import('./AISkills'));
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('Technical');
@@ -16,6 +17,15 @@ const SkillsSection = () => {
       icon_text: 'text-blue-600',
       border: 'border-blue-200',
       description: 'Work and Hands on experience with technical skills'
+    },
+    {
+      name: 'AI/LLMs',
+      icon: Brain,
+      color: 'indigo',
+      icon_bg: 'bg-indigo-50',
+      icon_text: 'text-indigo-600',
+      border: 'border-indigo-200',
+      description: 'AI and Large Language Models expertise'
     },
     {
       name: 'Domain/Compliance & Processes',
@@ -184,7 +194,8 @@ const SkillsSection = () => {
       green: isActive ? 'bg-green-500 text-white shadow-lg' : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100',
       purple: isActive ? 'bg-purple-500 text-white shadow-lg' : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100',
       orange: isActive ? 'bg-orange-500 text-white shadow-lg' : 'bg-orange-50 text-orange-600 border border-orange-200 hover:bg-orange-100',
-      gray: isActive ? 'bg-gray-500 text-white shadow-lg' : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100'
+      gray: isActive ? 'bg-gray-500 text-white shadow-lg' : 'bg-gray-50 text-gray-600 border border-gray-200 hover:bg-gray-100',
+      indigo: isActive ? 'bg-indigo-500 text-white shadow-lg' : 'bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100'
     };
     return colorMap[color] || colorMap.blue;
   };
@@ -250,6 +261,14 @@ const SkillsSection = () => {
               }>
                 <TechnicalSkills />
               </Suspense>
+            ) : activeCategory === 'AI/LLMs' ? (
+              <Suspense fallback={
+                <div className="flex justify-center items-center h-64">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+                </div>
+              }>
+                <AISkills />
+              </Suspense>
             ) : (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {skillsToShow.map((skill, index) => (
@@ -257,7 +276,6 @@ const SkillsSection = () => {
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
-                        {skill.years && <p className="text-sm text-gray-500">{skill.years} of experience</p>}
                       </div>
                     </div>
                     <div className="w-full bg-gray-100 rounded-full h-2 mb-2 overflow-hidden">
@@ -282,7 +300,7 @@ const SkillsSection = () => {
           {/* Stats */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-gray-50 border-t">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">30+</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
               <div className="text-gray-600">Technical Skills</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
@@ -290,7 +308,7 @@ const SkillsSection = () => {
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">10+</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">30+</div>
               <div className="text-gray-600">Clients Engagement</div>
             </div>
           </div>
