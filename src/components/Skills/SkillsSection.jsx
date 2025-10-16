@@ -57,6 +57,8 @@ const SkillsSection = () => {
       // Healthcare & Retail Systems
       { name: 'EHR Systems', level: 65 },
       { name: 'Retail POS Systems', level: 60 },
+      { name: 'Banking Systems', level: 55 },
+      { name: 'CRM Systems', level: 70 },
 
       // Testing Methodologies
       { name: 'Agile/Scrum', level: 80 },
@@ -86,10 +88,10 @@ const SkillsSection = () => {
       { name: 'Log Analysis', level: 75 }
     ],
     'Leadership': [
-      { name: 'Team Leadership', level: 10 },
+      { name: 'Team Leadership', level: 20 },
       { name: 'Mentoring & Coaching', level: 55 },
       { name: 'Strategic Planning', level: 40 },
-      { name: 'Decision Making', level: 10 },
+      { name: 'Decision Making', level: 30 },
 
       // Communication & Collaboration
       { name: 'Cross-functional Collaboration', level: 90 },
@@ -112,8 +114,7 @@ const SkillsSection = () => {
       { name: 'Mentoring', level: 50 },
       { name: 'Public Speaking', level: 70 },
       { name: 'Organaizating Meetings', level: 60 },
-      { name: 'Organaizating Meetings', level: 60 },
-      { name: 'Strategic Planning', level: 40 }
+      { name: 'Organaizating Meetings', level: 60 }
     ],
     'Other Tools & Platforms': [
       // Version Control & Development
@@ -159,14 +160,16 @@ const SkillsSection = () => {
 
       // Office & Productivity
       { name: 'Microsoft Office Suite', level: 85 },
+      { name: 'Microsoft Windows', level: 85 },
+      { name: 'Linux', level: 85 },
+      { name: 'MacOS', level: 85 },
 
       // Hardware
       { name: 'CPUs', level: 75 },
       { name: 'SSDs', level: 80 },
       { name: 'RAM', level: 80 },
-      { name: 'Adapters', level: 70 },
-      { name: 'I/O Panels', level: 65 },
-      { name: 'PSU', level: 70 }
+      { name: 'VRam', level: 70 }
+      
     ]
   };
 

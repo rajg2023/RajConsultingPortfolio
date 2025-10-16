@@ -1,0 +1,152 @@
+{
+  "languages": {
+    "title": "Programming Languages",
+    "type": "bar",
+    "data": {
+      "labels": [
+        "Java",
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "SQL",
+        "Bash/Shell"
+      ],
+      "datasets": [
+        {
+          "label": "Years of Experience",
+          "data": [
+            8,
+            5,
+            6,
+            4,
+            7,
+            5
+          ],
+          "backgroundColor": [
+            "rgba(78, 121, 167, 0.8)",
+            "rgba(242, 142, 43, 0.8)",
+            "rgba(117, 117, 117, 0.8)",
+            "rgba(65, 168, 95, 0.8)",
+            "rgba(237, 201, 72, 0.8)",
+            "rgba(232, 119, 34, 0.8)"
+          ],
+          "borderColor": [
+            "rgba(78, 121, 167, 1)",
+            "rgba(242, 142, 43, 1)",
+            "rgba(117, 117, 117, 1)",
+            "rgba(65, 168, 95, 1)",
+            "rgba(237, 201, 72, 1)",
+            "rgba(232, 119, 34, 1)"
+          ],
+          "borderWidth": 1,
+          "borderRadius": 4
+        }
+      ]
+    },
+    "options": {
+      "responsive": true,
+      "scales": {
+        "y": {
+          "beginAtZero": true,
+          "title": {
+            "display": true,
+            "text": "Years"
+          }
+        }
+      }
+    }
+  },
+  "testing": {
+    "title": "Testing Tools",
+    "type": "pie",
+    "data": {
+      "labels": [
+        "Selenium",
+        "JUnit/TestNG",
+        "Jest",
+        "Cypress",
+        "Playwright",
+        "JMeter"
+      ],
+      "datasets": [
+        {
+          "data": [
+            90,
+            90,
+            85,
+            80,
+            80,
+            75
+          ],
+          "backgroundColor": [
+            "rgba(255, 99, 132, 0.8)",
+            "rgba(54, 162, 235, 0.8)",
+            "rgba(255, 206, 86, 0.8)",
+            "rgba(75, 192, 192, 0.8)",
+            "rgba(153, 102, 255, 0.8)",
+            "rgba(255, 159, 64, 0.8)"
+          ],
+          "borderWidth": 1
+        }
+      ]
+    },
+    "options": {
+      "responsive": true,
+      "plugins": {
+        "legend": {
+          "position": "right"
+        },
+        "tooltip": {
+          "callbacks": {
+            "label": "function(context) { return `${context.label}: ${context.raw}%`; }"
+          }
+        }
+      }
+    }
+  },
+  "overview": {
+    "title": "Skills Overview",
+    "type": "radar",
+    "data": {
+      "labels": [
+        "Backend",
+        "Frontend",
+        "Testing",
+        "DevOps",
+        "Cloud",
+        "Database"
+      ],
+      "datasets": [
+        {
+          "label": "Proficiency %",
+          "data": [
+            85,
+            80,
+            90,
+            80,
+            75,
+            85
+          ],
+          "backgroundColor": "rgba(54, 162, 235, 0.2)",
+          "borderColor": "rgba(54, 162, 235, 1)",
+          "pointBackgroundColor": "rgba(54, 162, 235, 1)",
+          "pointBorderColor": "#fff",
+          "pointHoverBackgroundColor": "#fff",
+          "pointHoverBorderColor": "rgba(54, 162, 235, 1)"
+        }
+      ]
+    },
+    "options": {
+      "responsive": true,
+      "scales": {
+        "r": {
+          "angleLines": {
+            "display": true
+          },
+          "suggestedMin": 0,
+          "suggestedMax": 100
+        }
+      }
+    }
+  }
+}
