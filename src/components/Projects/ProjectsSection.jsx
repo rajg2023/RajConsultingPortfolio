@@ -3,89 +3,206 @@ import { TestTube, Code, BarChart3, CheckCircle, Star, Calendar, Github, Externa
 
 const ProjectsSection = () => {
   const projects = {
-    'QA Testing Project': {
-      title: 'E-commerce Website Testing',
-      description: 'Manual testing of an online shopping website including user registration, product search, cart functionality, and checkout process.',
-      icon: TestTube,
+    'Google Analytics Case Study': {
+      title: 'Bellabeat Case Study (Google Data Analytics Capstone)',
+      description:
+        'Analyzed Fitbit fitness tracker data to uncover trends in user activity and sleep patterns using SQL, Excel, R, BigQuery, and Tableau.',
+      icon: BarChart3,
       color: 'blue',
       details: [
-        'Created 50+ test cases for different user scenarios',
-        'Found and documented 15+ UI/UX issues',
-        'Tested cross-browser compatibility (Chrome, Firefox, Safari)',
-        'Performed mobile responsiveness testing on 3+ devices',
-        'Executed regression testing after bug fixes',
-        'Validated user registration and login flows',
-        'Tested payment gateway integration',
-        'Performed usability testing and provided UX feedback'
+        'Collected, cleaned, and analyzed Fitbit datasets for trends in activity and rest.',
+        'Used SQL, Excel, BigQuery, and R to process and visualize data.',
+        'Identified weekend activity dips and correlation between exercise and sleep quality.',
+        'Delivered insights to enhance Bellabeat’s user engagement and retention strategies.',
+        'Created Tableau dashboards and visualizations with R ggplot2 for presentation.',
+        'Formulated business recommendations for targeted marketing.',
+        'Ensured data consistency by validating inputs and handling missing records.',
+        'Prepared final presentation summarizing trends and business recommendations.'
       ],
-      technologies: ['Manual Testing', 'Test Cases', 'Bug Reports', 'Chrome DevTools', 'Cross-browser Testing'],
-      duration: '2 weeks',
+      technologies: ['SQL', 'Excel', 'R (ggplot2)', 'BigQuery', 'Tableau'],
+      duration: '2025',
       status: 'Completed',
-      learnings: 'Gained hands-on experience with systematic testing approaches and learned how to document bugs effectively.',
+      learnings:
+        'Gained hands-on experience with end-to-end data analytics workflow, from cleaning and analyzing to deriving actionable insights aligned with business objectives.',
       icon_bg: 'bg-blue-50',
       icon_text: 'text-blue-600',
       border: 'border-blue-200'
     },
-    'Automation Project': {
-      title: 'Selenium WebDriver Automation',
-      description: 'First automation project using Selenium WebDriver with Python to automate login and form submission processes.',
-      icon: Code,
+
+    'Security GRC Project': {
+      title: 'Security GRC Issue and Exception Analysis',
+      description:
+        'Supported Security Governance, Risk, and Compliance (GRC) operations by analyzing and resolving issues and exceptions raised by business stakeholders.',
+      icon: TestTube,
       color: 'green',
       details: [
-        'Automated login functionality with multiple test data sets',
-        'Created reusable functions for common web actions',
-        'Implemented basic Page Object Model structure',
-        'Set up test execution with pytest framework',
-        'Added screenshot capture for failed tests',
-        'Created data-driven tests using CSV files',
-        'Implemented basic reporting with HTML output',
-        'Set up Chrome WebDriver configuration'
+        'Worked with Security GRC team to evaluate stakeholder-submitted Issues and Exceptions.',
+        'Validated cybersecurity data across Threat Vulnerability Management dashboards.',
+        'Ensured precision in documentation of exceptions and approvals.',
+        'Contributed to streamlining security data approval processes.',
+        'Provided management with consistent data insights supporting remediation efforts.',
+        'Managed Jira/Confluence cases with accurate documentation tracking.',
+        'Verified alignment of cases with organizational security standards.',
+        'Collaborated with IT teams to enhance processing efficiency and quality controls.'
       ],
-      technologies: ['Selenium WebDriver', 'Python', 'pytest', 'Chrome Driver', 'Page Object Model'],
-      duration: '3 weeks',
-      status: 'In Progress',
-      learnings: 'Learning the fundamentals of test automation and understanding how to structure maintainable test code.',
+      technologies: ['Threat Vulnerability Management (TVM)', 'Jira', 'Confluence', 'Security GRC', 'Case Processing'],
+      duration: 'May 2023 - Jan 2024',
+      status: 'Completed',
+      learnings:
+        'Developed a robust understanding of security compliance operations, issue tracking, and governance processes within enterprise GRC systems.',
       icon_bg: 'bg-green-50',
       icon_text: 'text-green-600',
       border: 'border-green-200'
     },
-    'Data Analysis Project': {
-      title: 'Test Results Analytics Dashboard',
-      description: 'Using Excel and Tableau to analyze test execution data, create charts for bug trends, and present testing metrics.',
-      icon: BarChart3,
+
+    'Bank Configuration Project': {
+      title: 'OFSAA Data Configuration Analysis (Banking Domain)',
+      description:
+        'Supported the configuration and testing of data integrity within Oracle Financial Services Analytical Applications (OFSAA).',
+      icon: Code,
       color: 'purple',
       details: [
-        'Analyzed 200+ test execution records from multiple projects',
-        'Created bug trend analysis charts and graphs',
-        'Built interactive dashboard for test coverage metrics',
-        'Generated weekly testing progress reports',
-        'Identified patterns in defect distribution by modules',
-        'Created KPI indicators for testing effectiveness',
-        'Designed visual reports for stakeholder presentations',
-        'Set up automated data refresh for live dashboards'
+        'Created and maintained RTM for over 500 Key Data Elements (KDEs) using T2T mappings.',
+        'Converted FSD and TDD documents and migrated them into Confluence.',
+        'Validated backend data integrity through SQL queries and database verification.',
+        'Interacted with business teams for requirement clarification and handover layouts.',
+        'Identified discrepancies between data dictionaries and technical builds.',
+        'Ensured compliance with financial data governance standards.',
+        'Collaborated in automation of configuration testing workflows.',
+        'Maintained synchronization between technical design and business requirements.'
       ],
-      technologies: ['Excel', 'Tableau Public', 'Data Visualization', 'Pivot Tables', 'Interactive Charts'],
-      duration: '2 weeks',
+      technologies: ['OFSAA', 'SQL', 'FSD', 'TDD', 'Jira', 'Confluence', 'RDBMS'],
+      duration: 'Oct 2022 - Mar 2023',
       status: 'Completed',
-      learnings: 'Learned how to turn raw testing data into meaningful insights and create visual reports for better decision-making.',
+      learnings:
+        'Enhanced knowledge of enterprise data management, system documentation, and traceability in compliance-driven financial environments.',
       icon_bg: 'bg-purple-50',
       icon_text: 'text-purple-600',
       border: 'border-purple-200'
+    },
+
+    'CRM Implementation Project': {
+      title: 'CRM Solution Implementation',
+      description:
+        'Worked as a Solution Implementation Manager, coordinating cross-functional teams to ensure seamless CRM deployment across customer operations.',
+      icon: TestTube,
+      color: 'green',
+      details: [
+        'Collaborated with Sales, Customer Success, and Training teams to implement CRM solutions.',
+        'Used Smartsheet for project management, communication, and task tracking.',
+        'Monitored launch milestones ensuring on-time delivery and data migration success.',
+        'Facilitated stakeholder meetings to streamline implementation phases.',
+        'Identified workflow gaps and proposed improvements in CRM onboarding steps.',
+        'Assisted client teams during pilot phase and go-live preparation.',
+        'Documented implementation best practices for future CRM rollouts.'
+      ],
+      technologies: ['CRM Systems', 'Smartsheet', 'Project Management', 'Workflow Optimization'],
+      duration: 'May 2022 - Sep 2022',
+      status: 'Completed',
+      learnings:
+        'Learned to manage end-to-end solution deployment, strengthen interdepartmental collaboration, and measure success through operational performance metrics.',
+      icon_bg: 'bg-green-50',
+      icon_text: 'text-green-600',
+      border: 'border-green-200'
+    },
+
+    'POS Support Project': {
+      title: 'POS Maintenance and Support – Retail',
+      description:
+        'Provided advanced support for retail Point-of-Sale (POS) systems, conducting troubleshooting, defect replication, and system optimization.',
+      icon: Code,
+      color: 'blue',
+      details: [
+        'Investigated and reproduced application issues using SQL queries and testing scripts.',
+        'Performed deep code reviews and analyzed application failure logs.',
+        'Tested code patches and validated updates in staging environments.',
+        'Collaborated with developers for defect root cause analysis and patch validation.',
+        'Documented technical findings using Jira and Confluence.',
+        'Ensured deployment readiness through regression and defect verification testing.',
+        'Supported clients with issue resolution and stability improvements.'
+      ],
+      technologies: ['POS Systems', 'SQL', 'Jira', 'Confluence', 'Application Debugging'],
+      duration: 'Oct 2017 - Jul 2018',
+      status: 'Completed',
+      learnings:
+        'Strengthened practical debugging, defect analysis, and client communication skills through real-time issue resolution and technical troubleshooting.',
+      icon_bg: 'bg-blue-50',
+      icon_text: 'text-blue-600',
+      border: 'border-blue-200'
+    },
+
+    'Java Capstone Project': {
+      title: 'Big Box Web Application (Java Capstone)',
+      description:
+        'Developed a dynamic web application as the final project of Java Bootcamp, implementing the DAO Factory Pattern using PL/SQL backend.',
+      icon: Code,
+      color: 'purple',
+      details: [
+        'Developed a dynamic Java web application with servlets, JSP, and HTML front-end.',
+        'Implemented DAO Factory pattern integrating PL/SQL with Java.',
+        'Created modules for users, divisions, stores, and sales with validation.',
+        'Built secure user authentication and session management features.',
+        'Documented system flow and data interactions between layers.',
+        'Followed Agile iterations for incremental development.',
+        'Uploaded code and documentation to GitHub repository.'
+      ],
+      technologies: ['Java', 'Servlets', 'JSP', 'DAO Factory Pattern', 'PL/SQL', 'HTML', 'CSS'],
+      duration: 'Mar 2017 - Jun 2017',
+      status: 'Completed',
+      learnings:
+        'Built foundational Java web application experience integrating data and UI layers through clean architecture and best practices.',
+      repo: 'https://github.com/rajg2023/Big-Box-Web-Application-Java',
+      icon_bg: 'bg-purple-50',
+      icon_text: 'text-purple-600',
+      border: 'border-purple-200'
+    },
+
+    'Java Desktop POS App': {
+      title: 'Desktop POS Application (Java Swing)',
+      description:
+        'Created a standalone POS desktop application using Java Swing and PostgreSQL database to simulate retail transactions.',
+      icon: Code,
+      color: 'green',
+      details: [
+        'Designed UI using Java Swing and JFrame components.',
+        'Built local application requiring no servers, using embedded database.',
+        'Implemented transaction recording and receipt generation.',
+        'Used PGAdmin for managing data and user entries.',
+        'Created JAR executable for easy installation and use.',
+        'Followed modular coding principles for maintainability.'
+      ],
+      technologies: ['Java 8', 'Swing GUI', 'JFrame', 'PostgreSQL', 'PGAdmin'],
+      duration: 'Jul 2018 - Oct 2018',
+      status: 'Completed',
+      learnings:
+        'Improved application development and data management skills through standalone Java software creation with complete UI and DB interaction.',
+      repo: 'https://github.com/rajg2023/Desktop-POS-APP',
+      icon_bg: 'bg-green-50',
+      icon_text: 'text-green-600',
+      border: 'border-green-200'
     }
   };
-  const [activeProject, setActiveProject] = useState('QA Testing Project');
+
+  const [activeProject, setActiveProject] = useState('Google Analytics Case Study');
   const projectNames = Object.keys(projects);
   const currentProject = projects[activeProject];
   const IconComponent = currentProject.icon;
 
   const getColorClasses = (color, active) => {
     const colorMap = {
-      blue: active ? 'bg-blue-500 text-white shadow-lg' : 'bg-blue-50 text-blue-600 border border-blue-200 hover:bg-blue-100',
-      green: active ? 'bg-green-500 text-white shadow-lg' : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100',
-      purple: active ? 'bg-purple-500 text-white shadow-lg' : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100'
+      blue: active
+        ? 'bg-blue-500 text-white shadow-lg'
+        : 'bg-blue-50 text-blue-600 border border-blue-200 hover:bg-blue-100',
+      green: active
+        ? 'bg-green-500 text-white shadow-lg'
+        : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100',
+      purple: active
+        ? 'bg-purple-500 text-white shadow-lg'
+        : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100'
     };
     return colorMap[color] || '';
   };
+
   return (
     <section className="py-16 bg-gray-50 px-0 sm:px-0">
       <div className="w-full max-w-none mx-0 px-4 sm:px-6 lg:px-8">
@@ -100,7 +217,10 @@ const ProjectsSection = () => {
               <button
                 key={projectName}
                 onClick={() => setActiveProject(projectName)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${getColorClasses(project.color, isActive)}`}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${getColorClasses(
+                  project.color,
+                  isActive
+                )}`}
               >
                 <ProjectIconComponent size={18} />
                 <span>{projectName}</span>
@@ -110,8 +230,9 @@ const ProjectsSection = () => {
         </div>
 
         {/* Selected Project Details */}
-        <div className={`bg-white rounded-none sm:rounded-2xl shadow-lg border-2 ${currentProject.border} overflow-hidden`}>
-
+        <div
+          className={`bg-white rounded-none sm:rounded-2xl shadow-lg border-2 ${currentProject.border} overflow-hidden`}
+        >
           {/* Project Header */}
           <div className={`${currentProject.icon_bg} px-6 py-4 border-b ${currentProject.border}`}>
             <div className="flex items-center">
@@ -127,7 +248,6 @@ const ProjectsSection = () => {
 
           <div className="p-8">
             <div className="grid lg:grid-cols-2 gap-8">
-
               {/* Project Details */}
               <div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
@@ -146,8 +266,7 @@ const ProjectsSection = () => {
 
               {/* Project Info & Learnings */}
               <div className="space-y-6">
-
-                {/* Technologies Used */}
+                {/* Technologies */}
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
                     <Code className="text-blue-600 mr-2" size={20} />
@@ -165,7 +284,7 @@ const ProjectsSection = () => {
                   </div>
                 </div>
 
-                {/* Project Details */}
+                {/* Duration */}
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
                     <Calendar className="text-purple-600 mr-2" size={20} />
@@ -178,15 +297,18 @@ const ProjectsSection = () => {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Status:</span>
-                      <span className={`font-medium ${currentProject.status === 'Completed' ? 'text-green-600' : 'text-yellow-600'
-                        }`}>
+                      <span
+                        className={`font-medium ${
+                          currentProject.status === 'Completed' ? 'text-green-600' : 'text-yellow-600'
+                        }`}
+                      >
                         {currentProject.status}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Key Learnings */}
+                {/* Learnings */}
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
                     <Star className="text-yellow-500 mr-2" size={20} />
@@ -197,33 +319,41 @@ const ProjectsSection = () => {
                   </div>
                 </div>
 
-                {/* Project Links */}
+                {/* Links */}
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                   <h4 className="font-semibold text-blue-900 mb-2">Want to See More?</h4>
                   <p className="text-blue-700 mb-4 text-sm">
-                    Check out the code and documentation for this project, or let's discuss how similar work could help your team.
+                    Explore code, documentation, or live demos for each project below.
                   </p>
                   <div className="flex space-x-3">
                     {currentProject.repo && (
-                      <a href={currentProject.repo} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center">
+                      <a
+                        href={currentProject.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center"
+                      >
                         <Github size={16} className="mr-2" />
                         View Code
                       </a>
                     )}
                     {currentProject.url && (
-                      <a href={currentProject.url} target="_blank" rel="noreferrer" className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors font-medium flex items-center">
+                      <a
+                        href={currentProject.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors font-medium flex items-center"
+                      >
                         <ExternalLink size={16} className="mr-2" />
                         Live Demo
                       </a>
                     )}
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
