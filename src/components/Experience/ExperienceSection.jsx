@@ -69,7 +69,7 @@ const ExperienceSection = () => {
       border: 'border-blue-200'
     },
 
-    '2017 - 2018': {
+    '2018 - 2017': {
       title: 'Technical Application Support Consultant',
       description:
         'Provided advanced POS application support for Vision Commerce Suite, diagnosing issues, coordinating releases, and maintaining system performance through code reviews and data analysis.',
@@ -110,7 +110,7 @@ const ExperienceSection = () => {
       border: 'border-green-200'
     },
 
-    '2016 - 2017': {
+    '2017 - 2016': {
       title: 'Data Analyst (Technology)',
       description:
         'Supported technology-driven client engagement focusing on data quality improvement, integration testing, and compliance documentation.',
@@ -158,7 +158,7 @@ const ExperienceSection = () => {
       border: 'border-purple-200'
     },
 
-    '2009 - 2015': {
+    '2015 - 2009': {
       title: 'Certified Pharmacy Technician',
       description:
         'Performed data-centric roles ensuring accuracy of patient and prescription records, supporting digital migrations and improving process efficiency.',
