@@ -92,7 +92,7 @@ const ExperienceSection = () => {
         {
           type: 'Release Management',
           title: 'Software Deployment & System Administration',
-          organization: 'Flooid (Think Different IT)',
+          
           duration: 'Oct 2017 - Jul 2018',
           location: 'Cincinnati Area, KY',
           achievements: [
