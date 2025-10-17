@@ -353,6 +353,27 @@ const ProjectsSection = () => {
               </div>
             </div>
           </div>
+          
+          {/* GitHub Note Section */}
+          <div className="px-8 pb-8 pt-4 border-t border-gray-100">
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 flex items-center justify-between">
+              <div className="flex items-center">
+                <Github className="h-5 w-5 text-gray-700 mr-2" />
+                <p className="text-gray-700">
+                  Want to see more of my work? Check out my GitHub for additional projects and code samples.
+                </p>
+              </div>
+              <a 
+                href="https://github.com/rajg2023" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <Github className="h-4 w-4 mr-2" />
+                View on GitHub
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
