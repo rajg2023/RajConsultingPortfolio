@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/generate-build-info.js",
+    "predev": "node scripts/generate-build-info.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
