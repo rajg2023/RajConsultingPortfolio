@@ -172,9 +172,10 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">{name}</h1>
             <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-600 font-medium">{title}</h2>
             <div className="h-1.5 w-20 sm:w-24 bg-gradient-to-r from-blue-400 to-purple-500 my-3 sm:my-4 rounded-full"></div>
-            <div className="text-gray-700 text-base sm:text-lg leading-relaxed whitespace-pre-line">
-              {summary}
-            </div>
+            <div 
+              className="text-gray-700 text-base sm:text-lg leading-relaxed whitespace-pre-line"
+              dangerouslySetInnerHTML={{ __html: summary }}
+            />
           </div>
         </div>
       </div>
