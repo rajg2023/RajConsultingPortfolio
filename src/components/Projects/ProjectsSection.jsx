@@ -3,8 +3,8 @@ import { TestTube, Code, BarChart3, CheckCircle, Star, Calendar, Github, Externa
 
 const ProjectsSection = () => {
   const projects = {
-    'Google Analytics Case Study': {
-      title: 'Bellabeat Case Study (Google Data Analytics Capstone)',
+    'Google Analytics': {
+      title: 'Google Data Analytics Capstone',
       description:
         'Analyzed Fitbit fitness tracker data to uncover trends in user activity and sleep patterns using SQL, Excel, R, BigQuery, and Tableau.',
       icon: BarChart3,
@@ -181,7 +181,7 @@ const ProjectsSection = () => {
     }
   };
 
-  const [activeProject, setActiveProject] = useState('Google Analytics Case Study');
+  const [activeProject, setActiveProject] = useState('Google Analytics');
   const projectNames = Object.keys(projects);
   const currentProject = projects[activeProject];
   const IconComponent = currentProject.icon;

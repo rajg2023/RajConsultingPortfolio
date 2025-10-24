@@ -3,8 +3,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Send,
-  MessageCircle,
   Calendar,
   CheckCircle,
   ExternalLink,
@@ -14,84 +12,9 @@ import {
 } from 'lucide-react';
 
 const ContactSection = () => {
-  const [activeContact, setActiveContact] = useState('Contact Form');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [activeContact, setActiveContact] = useState('Direct Contact');
 
   const contactMethods = {
-
-
-    
-    'Contact Form': {
-      title: 'Send Me a Message',
-      description: 'Use the form below to get in touch. I\'ll respond within 24 hours to discuss your project needs.',
-      icon: MessageCircle,
-      color: 'blue',
-      content: (
-        <div className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Your full name"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="your.email@example.com"
-              />
-            </div>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
-            <input
-              type="text"
-              required
-              value={formData.subject}
-              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="What's this about?"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-            <textarea
-              rows={6}
-              required
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Tell me about your project, questions, or how I can help..."
-            />
-          </div>
-          <div className="flex items-center space-x-4">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center font-medium">
-              <Send size={20} className="mr-2" />
-              Send Message
-            </button>
-            <span className="text-gray-500 text-sm">I'll respond within 24 - 72 hours, depending on the urgency and availability.</span>
-          </div>
-        </div>
-      ),
-      icon_bg: 'bg-blue-50',
-      icon_text: 'text-blue-600',
-      border: 'border-blue-200'
-    },
     'Direct Contact': {
       title: 'Get In Touch Directly',
       description: 'Prefer direct communication? Here are the best ways to reach me for immediate assistance.',
@@ -123,14 +46,24 @@ const ContactSection = () => {
           <div className="border-t border-gray-200 pt-8">
             <h4 className="text-lg font-semibold text-gray-900 mb-6 text-center">Find Me Online</h4>
             <div className="flex justify-center space-x-8">
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors flex flex-col items-center">
-                <div className="bg-blue-100 p-3 rounded-full mb-2">
+              <a 
+                href="https://www.linkedin.com/in/girirajiv/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600 transition-colors flex flex-col items-center"
+              >
+                <div className="bg-blue-100 p-3 rounded-full mb-2 hover:bg-blue-200 transition-colors">
                   <Linkedin size={24} className="text-blue-600" />
                 </div>
                 <span className="text-sm">LinkedIn</span>
               </a>
-              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors flex flex-col items-center">
-                <div className="bg-gray-100 p-3 rounded-full mb-2">
+              <a 
+                href="https://github.com/rajg2023" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900 transition-colors flex flex-col items-center"
+              >
+                <div className="bg-gray-100 p-3 rounded-full mb-2 hover:bg-gray-200 transition-colors">
                   <Github size={24} className="text-gray-600" />
                 </div>
                 <span className="text-sm">GitHub</span>
@@ -173,12 +106,12 @@ const ContactSection = () => {
             </div>
             <h4 className="text-2xl font-semibold text-gray-900 mb-4">Let's Schedule a Call</h4>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              I offer free 30-minute consultation calls to understand your needs and discuss how I can contribute to your project success.
+              I offer free 15 to60 minutes consultation calls to understand your needs and discuss how I can contribute to your project success.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center p-6 border border-purple-200 rounded-lg hover:bg-purple-50 transition-colors cursor-pointer">
+            <div className="text-center p-6 border border-blue-300 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer">
               <div className="text-purple-600 font-semibold mb-2">Quick Chat</div>
               <div className="text-gray-600 text-sm mb-3">15 minutes</div>
               <div className="text-gray-700">Brief discussion about your needs</div>
@@ -189,15 +122,15 @@ const ContactSection = () => {
               <div className="text-gray-700">Detailed project discussion</div>
               <div className="text-purple-600 text-sm font-medium mt-2">Most Popular</div>
             </div>
-            <div className="text-center p-6 border border-purple-200 rounded-lg hover:bg-purple-50 transition-colors cursor-pointer">
+            <div className="text-center p-6 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors cursor-pointer">
               <div className="text-purple-600 font-semibold mb-2">Deep Dive</div>
               <div className="text-gray-600 text-sm mb-3">60 minutes</div>
               <div className="text-gray-700">Comprehensive planning session</div>
             </div>
           </div>
 
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-            <h4 className="font-semibold text-purple-900 mb-3">What We'll Discuss:</h4>
+          <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+            <h4 className="font-semibold text-green-900 mb-3">What We'll Discuss:</h4>
             <div className="grid md:grid-cols-2 gap-3">
               <div className="flex items-center text-purple-700">
                 <CheckCircle size={16} className="mr-2 text-purple-600" />
@@ -219,11 +152,14 @@ const ContactSection = () => {
           </div>
 
           <div className="text-center">
-            <button className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors flex items-center mx-auto font-medium">
+            <button 
+              onClick={() => setActiveContact('Direct Contact')}
+              className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors flex items-center mx-auto font-medium"
+            >
               <Calendar size={20} className="mr-2" />
-              Schedule Free Consultation
+              Call or Email to Schedule Free Consultation
             </button>
-            <p className="text-gray-500 text-sm mt-3">No commitment required • Completely free</p>
+            <p className="text-gray-500 text-sm mt-3">No commitment required • First 16 to 60 minutes consultation completely free. I'll respond within 24 - 72 hours, depending on the urgency and availability.</p>
           </div>
         </div>
       ),

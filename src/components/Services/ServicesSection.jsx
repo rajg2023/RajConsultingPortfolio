@@ -21,11 +21,11 @@ import AIConsultant from './AIConsultant';
 
 
 const ServicesSection = () => {
-  const [activeService, setActiveService] = useState('Quality Assurance Engineer');
+  const [activeService, setActiveService] = useState('QA Engineer');
 
   // Service metadata for tab rendering
   const services = {
-    'Quality Assurance Engineer': {
+    'QA Engineer': {
       icon: CheckCircle,
       color: 'blue',
       component: QualityAssuranceEngineer,
