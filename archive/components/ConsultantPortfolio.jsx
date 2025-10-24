@@ -44,7 +44,7 @@ const ConsultantPortfolio = () => {
           <div className="w-40 h-40 bg-blue-500 rounded-full flex items-center justify-center text-white text-6xl font-bold mb-6">
             JD
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">John Doe</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Rajiv Giri</h1>
           <p className="text-blue-600 font-medium mb-8">Independent Consultant</p>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
@@ -63,13 +63,10 @@ const ConsultantPortfolio = () => {
           {/* About Text */}
           <div className="space-y-4">
             <p className="text-gray-700 leading-relaxed">
-              With over 10 years of experience in technology and business consulting, I help organizations 
-              optimize their processes, implement cutting-edge solutions, and drive digital transformation.
+              
             </p>
             <p className="text-gray-700 leading-relaxed">
-              My expertise spans QA analysis, software development, data analytics, and strategic planning. I 
-              take a holistic approach to problem-solving, combining technical skills with business acumen to 
-              deliver measurable results.
+              
             </p>
           </div>
 

@@ -89,7 +89,7 @@ const Legal = () => {
                 </div>
             <div className="prose max-w-none">
               <p className="mb-4">
-                RajConsulting ("us", "we", or "our") operates the {window.location.hostname} website (the "Service").
+                RajTechConsulting ("us", "we", or "our") operates the {window.location.hostname} website (the "Service").
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-4">Information Collection And Use</h3>
@@ -104,7 +104,7 @@ const Legal = () => {
               </p>
 
               <h4 className="text-lg font-semibold mt-6 mb-4">Use of Data</h4>
-              <p className="mb-2">RajConsulting uses the collected data for various purposes:</p>
+              <p className="mb-2">RajTechConsulting uses the collected data for various purposes:</p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li>To provide and maintain our Service</li>
                 <li>To notify you about changes to our Service</li>
@@ -138,7 +138,7 @@ const Legal = () => {
 
               <h3 className="text-xl font-semibold mt-6 mb-4">2. Use License</h3>
               <p className="mb-4">
-                Permission is granted to temporarily access the materials on RajConsulting's website for personal, non-commercial transitory viewing only.
+                Permission is granted to temporarily access the materials on RajTechConsulting's website for personal, non-commercial transitory viewing only.
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-4">3. User Responsibilities</h3>
@@ -165,7 +165,7 @@ const Legal = () => {
                 </div>
             <div className="prose max-w-none">
               <p className="mb-4">
-                This Data Collection Policy explains how RajConsulting collects, uses, and protects your information.
+                This Data Collection Policy explains how RajTechConsulting collects, uses, and protects your information.
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-4">1. Information We Collect</h3>

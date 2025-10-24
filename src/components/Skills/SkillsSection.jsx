@@ -100,14 +100,14 @@ const SkillsSection = () => {
     'Leadership': [
       { name: 'Team Leadership', level: 20 },
       { name: 'Mentoring & Coaching', level: 55 },
-      { name: 'Strategic Planning', level: 40 },
+      { name: 'Strategic Planning', level: 30 },
       { name: 'Decision Making', level: 30 },
 
       // Communication & Collaboration
       { name: 'Cross-functional Collaboration', level: 90 },
       { name: 'Effective Communication', level: 90 },
-      { name: 'Public Speaking', level: 75 },
-      { name: 'Organizing Meetings', level: 85 },
+      { name: 'Public Speaking', level: 70 },
+      
 
       // Professional Skills
       { name: 'Critical Thinking', level: 80 },
@@ -122,9 +122,7 @@ const SkillsSection = () => {
       { name: 'Project Management', level: 30 },
       { name: 'Agile/Scrum', level: 60 },
       { name: 'Mentoring', level: 50 },
-      { name: 'Public Speaking', level: 70 },
-      { name: 'Organaizating Meetings', level: 60 },
-      { name: 'Organaizating Meetings', level: 60 }
+      { name: 'Organizing Meetings', level: 60 }
     ],
     'Other Tools & Platforms': [
       // Version Control & Development

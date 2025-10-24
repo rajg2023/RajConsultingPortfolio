@@ -5,7 +5,7 @@ const AIChat = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi! I'm John's AI assistant. Ask me anything about his experience, skills, or projects!",
+      text: "Hi! I'm Raj's AI assistant. Ask me anything about his experience, skills, or projects!",
       sender: 'ai'
     }
   ]);
@@ -24,7 +24,7 @@ const AIChat = () => {
       setTimeout(() => {
         const aiResponse = {
           id: messages.length + 2,
-          text: "Thanks for your question! John has extensive experience in that area. Would you like me to provide more specific details?",
+          text: "Thanks for your question! Raj has extensive experience in that area. Would you like me to provide more specific details?",
           sender: 'ai'
         };
         setMessages(prev => [...prev, aiResponse]);
@@ -41,7 +41,7 @@ const AIChat = () => {
           <Bot className="text-blue-600 mr-3" size={32} />
           <div>
             <h2 className="text-3xl font-bold text-gray-900">AI Chat Assistant</h2>
-            <p className="text-gray-600">Ask me anything about John's professional background</p>
+            <p className="text-gray-600">Ask me anything about Raj's professional background</p>
           </div>
         </div>
 
@@ -83,7 +83,7 @@ const AIChat = () => {
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="Ask about John's experience..."
+                placeholder="Ask about Raj's experience..."
                 className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
               <button

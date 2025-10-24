@@ -50,15 +50,15 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
 
   // Default data in case resumeData is not provided
   const defaultData = {
-    name: 'Raj Gohil',
-    title: 'Quality Assurance Consultant',
-    summary: 'Experienced QA professional with a strong background in manual and automated testing, test automation frameworks, and quality assurance best practices. Passionate about delivering high-quality software solutions and improving testing processes.',
+    name: '',
+    title: '',
+    summary: '',
     contact: {
-      email: 'rajgohil@example.com',
-      phone: '+1 (555) 123-4567',
-      location: 'Toronto, Canada',
-      linkedin: 'https://linkedin.com/in/rajgohil',
-      github: 'rajgohil'
+      email: '',
+      phone: '',
+      location: '',
+      linkedin: '',
+      github: ''
     }
   };
 
@@ -90,7 +90,7 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
                       
                       // If that fails, use the fallback
                       e.target.onerror = () => {
-                        e.target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=random';
+                        e.target.src = 'images/ProfilePic.jpg';
                       };
                     }}
                   />

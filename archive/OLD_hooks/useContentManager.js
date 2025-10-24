@@ -19,8 +19,8 @@ const defaultContent = {
     name: 'Raj G',
     title: 'QA/SDET Consultant',
     bio: 'With over 10 years of experience in technology and business consulting, I help organizations optimize their processes, implement cutting-edge solutions, and drive digital transformation.',
-    email: 'raj@consulting.com',
-    phone: '555-123-4567',
+    email: '',
+    phone: '',
     location: 'Available Remote/Hybrid',
     specializations: ['QA Testing', 'SDET Solutions', 'Data Analytics'],
     achievements: ['50+ Projects Delivered', '40% Efficiency Gains', '15+ Certifications']
@@ -31,8 +31,8 @@ const defaultContent = {
   experience: [],
   education: [],
   contact: {
-    email: 'raj@consulting.com',
-    phone: '555-123-4567',
+    email: '',
+    phone: '',
     location: 'Available Remote/Hybrid',
     linkedin: 'linkedin.com/in/rajg2023',
     github: 'github.com/rajg2023',

@@ -197,12 +197,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Contact
 
-**John Doe** - Independent QA Consultant
+**Name** - Your Name
 
-- **Email:** john.doe@email.com
-- **Phone:** (555) 123-4567
-- **LinkedIn:** [linkedin.com/in/johndoe](https://linkedin.com/in/johndoe)
-- **GitHub:** [github.com/johndoe](https://github.com/johndoe)
+- **Email:** youremail.domain
+- **Phone:** (###)###-####.
+- **LinkedIn:** [linkedin.com/in/yourusername](https://linkedin.com/in/yourusername)
+- **GitHub:** [github.com/yourusername](https://github.com/yourusername)
 
 **Project Link:** [https://github.com/yourusername/consultant-portfolio](https://github.com/yourusername/consultant-portfolio)
 

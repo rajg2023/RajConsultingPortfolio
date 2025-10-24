@@ -23,6 +23,9 @@ const ContactSection = () => {
   });
 
   const contactMethods = {
+
+
+    
     'Contact Form': {
       title: 'Send Me a Message',
       description: 'Use the form below to get in touch. I\'ll respond within 24 hours to discuss your project needs.',
@@ -81,7 +84,7 @@ const ContactSection = () => {
               <Send size={20} className="mr-2" />
               Send Message
             </button>
-            <span className="text-gray-500 text-sm">I'll respond within 24 hours</span>
+            <span className="text-gray-500 text-sm">I'll respond within 24 - 72 hours, depending on the urgency and availability.</span>
           </div>
         </div>
       ),
@@ -102,22 +105,18 @@ const ContactSection = () => {
                 <Mail className="text-green-600" size={24} />
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Email Me</h4>
-              <p className="text-gray-600 mb-3">john.doe@email.com</p>
-              <button className="text-green-600 hover:text-green-700 font-medium flex items-center mx-auto">
-                <ExternalLink size={16} className="mr-1" />
-                Send Email
-              </button>
+              <p><strong>Direct Email:</strong> rajivgiri2025@gmail.com</p>
+              <p><strong>Admin Email:</strong> admin@rajtechconsulting.com</p>
+              <p><strong>Consulting Email:</strong> consulting@rajtechconsulting.com</p>
+              
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
               <div className="bg-green-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Phone className="text-green-600" size={24} />
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Call Me</h4>
-              <p className="text-gray-600 mb-3">(555) 123-4567</p>
-              <button className="text-green-600 hover:text-green-700 font-medium flex items-center mx-auto">
-                <ExternalLink size={16} className="mr-1" />
-                Call Now
-              </button>
+              <p className="text-gray-600 mb-3">(513) 834-3371</p>
+              
             </div>
           </div>
 
@@ -136,12 +135,6 @@ const ContactSection = () => {
                 </div>
                 <span className="text-sm">GitHub</span>
               </a>
-              <a href="#" className="text-gray-600 hover:text-blue-400 transition-colors flex flex-col items-center">
-                <div className="bg-blue-100 p-3 rounded-full mb-2">
-                  <Twitter size={24} className="text-blue-400" />
-                </div>
-                <span className="text-sm">Twitter</span>
-              </a>
             </div>
           </div>
 
@@ -153,7 +146,7 @@ const ContactSection = () => {
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <span className="text-green-700 font-medium">Email:</span>
-                <span className="text-green-600 ml-2">Within 24 hours</span>
+                <span className="text-green-600 ml-2">Within 24 to 72 hours, depending on the urgency and availability.</span>
               </div>
               <div>
                 <span className="text-green-700 font-medium">Phone:</span>

@@ -67,7 +67,7 @@ const ConsultantPortfolio = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left Column - Profile */}
             <div className="lg:w-1/3 space-y-6">
-              <h1 className="text-3xl font-bold text-gray-900">John Doe</h1>
+              <h1 className="text-3xl font-bold text-gray-900">Rajiv Giri</h1>
               <p className="text-blue-600 font-medium">Independent Consultant</p>
               
               <div className="flex flex-col sm:flex-row lg:flex-col gap-4 w-full">

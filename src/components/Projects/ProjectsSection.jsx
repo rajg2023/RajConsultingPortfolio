@@ -370,7 +370,7 @@ const ProjectsSection = () => {
                 className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
               >
                 <Github className="h-4 w-4 mr-2" />
-                View on GitHub
+                View it on GitHub
               </a>
             </div>
           </div>
