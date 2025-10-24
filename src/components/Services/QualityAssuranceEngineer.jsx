@@ -22,7 +22,7 @@ const QualityAssuranceEngineer = () => (
         a modern QA workflow.
       </p>
       <div className="flex flex-wrap gap-4">
-        {['Selenium', 'Cypress', 'Postman', 'JMeter', 'Playwright'].map((tool, i) => (
+        {['Selenium', 'JUnit', 'Postman', 'Appium', 'QTP', 'UFT'].map((tool, i) => (
           <span
             key={i}
             className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 px-4 py-2 rounded-full text-base font-medium shadow-sm"

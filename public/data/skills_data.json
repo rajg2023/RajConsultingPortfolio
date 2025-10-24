@@ -63,10 +63,9 @@
       "labels": [
         "Selenium",
         "JUnit/TestNG",
-        "Jest",
-        "Cypress",
-        "Playwright",
-        "JMeter"
+        "Appium",
+        "QTP",
+        "UFT"
       ],
       "datasets": [
         {

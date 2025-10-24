@@ -166,9 +166,9 @@ const TechnicalSkills = () => {
     frameworks: {
       type: 'pie',
       data: {
-        labels: ['Spring Boot', '.NET', 'Django', 'Flask', 'JUnit', 'TestNG', 'Maven', 'Selenium', 'Appium'],
+        labels: ['Spring Boot', 'RestAssured', 'React', 'Tailwind CSS', 'Lucid React', 'Vite', 'JUnit', 'TestNG', 'Maven', 'Selenium', 'Appium'],
         datasets: [{
-          data: [6, 5, 6, 5, 6, 4, 6, 5, 5],
+          data: [6, 5, 6, 5, 6, 4, 6, 5, 5,5,4],
           backgroundColor: [
             'rgba(126, 34, 206, 0.7)',
             'rgba(107, 33, 168, 0.7)',
@@ -178,7 +178,9 @@ const TechnicalSkills = () => {
             'rgba(109, 40, 217, 0.7)',
             'rgba(124, 58, 237, 0.7)',
             'rgba(139, 92, 246, 0.7)',
-            'rgba(165, 180, 252, 0.7)'
+            'rgba(107, 33, 150, 0.7)',
+            'rgba(107, 7, 243, 0.7)',
+            'rgba(139, 92, 246, 0.7)'
           ],
           borderColor: 'rgba(255, 255, 255, 1)',
           borderWidth: 1

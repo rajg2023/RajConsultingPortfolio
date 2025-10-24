@@ -17,7 +17,7 @@ const SDET = () => (
     <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-md">
       <h3 className="text-2xl font-bold text-gray-900 mb-4">Automation Frameworks & Tools</h3>
       <div className="flex flex-wrap gap-4">
-        {['Selenium', 'Cypress', 'Playwright', 'RestAssured', 'Jenkins', 'GitHub Actions'].map((tool, i) => (
+        {['Selenium', 'Appium', 'JUnit', 'RestAssured', 'GitHub Actions'].map((tool, i) => (
           <span key={i} className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium shadow-sm">
             {tool}
           </span>

@@ -5,11 +5,11 @@ from collections import defaultdict
 # Skills data extracted from the resume
 skills_data = {
     'Programming': ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL', 'Bash/Shell'],
-    'Testing Tools': ['Selenium', 'JUnit', 'TestNG', 'Jest', 'Cypress', 'Playwright'],
+    'Testing Tools': ['Selenium', 'JUnit', 'Appium', 'QTP', 'UFT'],
     'CI/CD': ['Jenkins', 'GitHub Actions', 'Docker', 'Kubernetes'],
-    'Frameworks': ['Spring Boot', 'React', 'Node.js', 'Express'],
-    'Tools': ['Git', 'Jira', 'Postman', 'JMeter', 'Splunk'],
-    'Cloud': ['AWS', 'Azure', 'GCP'],
+    'Frameworks': ['Spring Boot', 'React', 'Tailwind CSS', 'Lucid React', 'Vite'],
+    'Tools': ['Git', 'Jira', 'Postman', 'Confluence', 'Tableau', 'Power BI', 'Salesforce', 'Smartsheet', 'Excel'],
+    'Cloud': ['Heroku', 'AWS', 'Azure', 'GCP'],
     'Databases': ['MySQL', 'MongoDB', 'PostgreSQL', 'DynamoDB']
 }
 
