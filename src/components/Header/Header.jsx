@@ -7,7 +7,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
   const navigationItems = [
     { id: 'home', name: 'Home', icon: User, color: 'blue' },
     { id: 'skills', name: 'Skills', icon: Star, color: 'green' },
-    { id: 'services', name: 'Services', icon: Briefcase, color: 'purple' },
+    { id: 'services', name: 'Services', icon: Briefcase, color: 'purple', isNew: true },
     { id: 'projects', name: 'Projects', icon: FolderOpen, color: 'orange' },
     { id: 'experience', name: 'Experience', icon: Clock, color: 'red' },
     { id: 'education', name: 'Education', icon: GraduationCap, color: 'indigo' },
@@ -73,15 +73,21 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
                 : `bg-${item.color}-50 text-${item.color}-600 border border-${item.color}-200 hover:bg-${item.color}-100`;
               
               return (
-                <button
-                  key={item.id}
-                  onClick={() => handleClick(item.id)}
-                  disabled={disabledNav}
-                  className={`${colorClasses} px-4 py-2 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 flex items-center space-x-2`}
-                >
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span>{item.name}</span>
-                </button>
+                <div key={item.id} className="relative">
+                  <button
+                    onClick={() => handleClick(item.id)}
+                    disabled={disabledNav}
+                    className={`${colorClasses} px-4 py-2 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 flex items-center space-x-2`}
+                  >
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <span>{item.name}</span>
+                  </button>
+                  {item.isNew && (
+                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                      NEW
+                    </span>
+                  )}
+                </div>
               );
             })}
           </nav>
