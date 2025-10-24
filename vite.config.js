@@ -7,8 +7,8 @@ export default defineConfig(({ mode }) => {
   // Load environment variables
   const env = loadEnv(mode, process.cwd(), '');
   
-  // Set base URL for GitHub Pages - this should match your repository name
-  const base = mode === 'production' ? '/RajConsultingPortfolio/' : '/';
+  // For custom domain, use root path
+  const base = '/';
   
   return {
     plugins: [react()],

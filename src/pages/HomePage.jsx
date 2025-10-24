@@ -35,8 +35,8 @@ const HomePage = () => {
   useEffect(() => {
     const fetchResumeData = async () => {
       try {
-        // Use Vite's import.meta.url to get the correct path
-        const response = await fetch(new URL('../../public/content/resume.json', import.meta.url));
+        // Use root-relative path for custom domain
+        const response = await fetch('/content/resume.json');
         if (!response.ok) {
           throw new Error('Failed to load resume data');
         }
