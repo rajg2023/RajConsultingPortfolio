@@ -35,9 +35,8 @@ const HomePage = () => {
   useEffect(() => {
     const fetchResumeData = async () => {
       try {
-        // Use path relative to public directory
-        const basePath = process.env.NODE_ENV === 'production' ? '/RajConsultingPortfolio' : '';
-        const response = await fetch(`${basePath}/content/resume.json`);
+        // Use Vite's import.meta.url to get the correct path
+        const response = await fetch(new URL('../../public/content/resume.json', import.meta.url));
         if (!response.ok) {
           throw new Error('Failed to load resume data');
         }
