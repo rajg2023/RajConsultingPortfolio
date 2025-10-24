@@ -29,16 +29,19 @@ const ServicesSection = () => {
       icon: CheckCircle,
       color: 'blue',
       component: QualityAssuranceEngineer,
+      
     },
     SDET: {
       icon: Code,
       color: 'green',
       component: SDET,
+      
     },
     'Business Systems Analyst': {
       icon: ClipboardCheck,
       color: 'amber',
       component: BusinessSystemsAnalyst,
+      isNew: true,  // Mark as new service
     },
     'Application Support Engineer': {
       icon: Headphones,
@@ -59,6 +62,7 @@ const ServicesSection = () => {
       icon: Brain,
       color: 'indigo',
       component: AIConsultant,
+      isNew: true,  // Mark as new service
     },
   };
 
@@ -94,17 +98,23 @@ const ServicesSection = () => {
               const Icon = s.icon;
               const active = activeService === name;
               return (
-                <button
-                  key={name}
-                  onClick={() => setActiveService(name)}
-                  className={`flex items-center space-x-3 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 ${colorMap(
-                    s.color,
-                    active
-                  )}`}
-                >
-                  <Icon size={22} />
-                  <span>{name}</span>
-                </button>
+                <div key={name} className="relative">
+                  <button
+                    onClick={() => setActiveService(name)}
+                    className={`flex items-center space-x-3 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 ${colorMap(
+                      s.color,
+                      active
+                    )} ${active ? 'shadow-lg' : 'shadow-sm'}`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span>{name}</span>
+                  </button>
+                  {s.isNew && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                      NEW
+                    </span>
+                  )}
+                </div>
               );
             })}
           </div>

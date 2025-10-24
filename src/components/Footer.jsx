@@ -18,7 +18,7 @@ const Footer = ({ setActiveSection }) => {
             
             {/* Centered copyright */}
             <div className="text-xs text-gray-200">
-              © {currentYear} RajTechConsulting. All Rights Reserved
+              © {currentYear} Raj Technology Consulting (RTC). All Rights Reserved
             </div>
             
             {/* Empty div to balance the flex layout */}

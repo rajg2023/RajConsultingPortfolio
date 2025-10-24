@@ -59,7 +59,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
           {/* Logo/Name */}
           <div className="flex-shrink-0 flex items-center">
             <h1 className="text-lg sm:text-xl font-bold text-gray-900">
-              {resumeData?.name || 'WIP{Raj-Consulting-Portfolio}'}
+              {resumeData?.name || 'WIP{Raj Technology Consulting (RTC)}'}
             </h1>
           </div>
 

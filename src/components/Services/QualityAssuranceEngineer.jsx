@@ -1,52 +1,109 @@
 import React from 'react';
-import { CheckCircle, Workflow, Code, TrendingUp } from 'lucide-react';
+import { CheckCircle, Workflow, Code, TrendingUp, ShieldCheck, Zap, Layers, Target, ClipboardCheck, AlertCircle } from 'lucide-react';
 
 const QualityAssuranceEngineer = () => (
   <div className="space-y-8">
-    {/* Introduction */}
-    <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">What is Software QA Testing?</h2>
-      <p className="text-gray-700 leading-relaxed">
-        Quality Assurance Testing ensures that software meets its functional and performance 
-        expectations before release. It focuses on detecting issues early, improving user 
-        experience, and maintaining system reliability.
-      </p>
+    {/* Hero Section */}
+    <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-2xl p-8 w-full">
+      <div className="max-w-6xl mx-auto text-center">
+        <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <ClipboardCheck className="text-blue-600" size={28} />
+        </div>
+        <h1 className="text-3xl font-bold text-gray-900 mb-4">QA Engineer</h1>
+        <p className="text-gray-700 text-lg">
+          Ensuring software quality through comprehensive testing methodologies and attention to detail.
+        </p>
+      </div>
     </div>
 
-    {/* Manual vs Automation */}
-    <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-md">
-      <h3 className="text-2xl font-bold text-gray-900 mb-4">Manual and Automation Testing</h3>
-      <p className="text-gray-700 mb-4">
-        Manual testing involves hands‑on verification of application behavior, while automation 
-        testing uses scripts and tools to accelerate testing cycles. Both are essential parts of 
-        a modern QA workflow.
-      </p>
-      <div className="flex flex-wrap gap-4">
-        {['Selenium', 'JUnit', 'Postman', 'Appium', 'QTP', 'UFT'].map((tool, i) => (
-          <span
-            key={i}
-            className="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 px-4 py-2 rounded-full text-base font-medium shadow-sm"
-          >
-            {tool}
-          </span>
+    {/* Key Services */}
+    <div className="grid md:grid-cols-2 gap-6">
+      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+          <Zap className="text-blue-600" size={20} />
+        </div>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">Test Automation</h3>
+        <p className="text-gray-600">
+          Implementing robust test automation frameworks to accelerate testing cycles and improve coverage.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {['Selenium', 'JUnit', 'TestNG', 'Appium'].map((tool, i) => (
+            <span key={i} className="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">
+              {tool}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+        <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+          <Layers className="text-blue-600" size={20} />
+        </div>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">Test Management</h3>
+        <p className="text-gray-600">
+          Comprehensive test planning, case design, and execution strategies for complete coverage.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {['TestRail', 'JIRA', 'Zephyr', 'QTP'].map((tool, i) => (
+            <span key={i} className="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">
+              {tool}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* STLC Process */}
+    <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+      <div className="flex items-center mb-6">
+        <Workflow className="text-blue-600 mr-3" size={26} />
+        <h2 className="text-2xl font-bold text-gray-900">Software Testing Lifecycle (STLC)</h2>
+      </div>
+      
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { 
+            icon: <Target size={20} className="text-blue-600" />,
+            title: 'Requirement Analysis',
+            desc: 'Thorough review of business and technical requirements to ensure testability.'
+          },
+          { 
+            icon: <ClipboardCheck size={20} className="text-blue-600" />,
+            title: 'Test Planning',
+            desc: 'Comprehensive test strategy and resource planning for optimal coverage.'
+          },
+          { 
+            icon: <Code size={20} className="text-blue-600" />,
+            title: 'Test Design',
+            desc: 'Creation of detailed test cases and automation scripts.'
+          },
+          { 
+            icon: <Zap size={20} className="text-blue-600" />,
+            title: 'Test Execution',
+            desc: 'Rigorous testing across multiple environments and platforms.'
+          },
+          { 
+            icon: <AlertCircle size={20} className="text-blue-600" />,
+            title: 'Defect Management',
+            desc: 'Comprehensive tracking and resolution of identified issues.'
+          },
+          { 
+            icon: <CheckCircle size={20} className="text-blue-600" />,
+            title: 'Closure',
+            desc: 'Final evaluation and test summary reporting.'
+          }
+        ].map((step, index) => (
+          <div key={index} className="border border-gray-100 rounded-xl p-5 hover:shadow-md transition-shadow">
+            <div className="flex items-center mb-3">
+              <div className="bg-blue-50 p-2 rounded-lg mr-3">
+                {step.icon}
+              </div>
+              <h3 className="font-semibold text-gray-900">{step.title}</h3>
+            </div>
+            <p className="text-gray-600 text-sm">{step.desc}</p>
+          </div>
         ))}
       </div>
-    </div>
-
-    {/* STLC Overview */}
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-8">
-      <div className="flex items-center mb-4">
-        <Workflow className="text-blue-600 mr-3" size={26} />
-        <h3 className="text-2xl font-bold text-gray-900">Software Testing Lifecycle (STLC)</h3>
-      </div>
-      <ul className="list-disc list-inside text-gray-700 space-y-1">
-        <li><strong>1. Requirement Analysis</strong> – Review business and technical needs.</li>
-        <li><strong>2. Test Planning</strong> – Define scope, types, and timelines.</li>
-        <li><strong>3. Test Case Design</strong> – Prepare detailed steps and expected results.</li>
-        <li><strong>4. Test Execution</strong> – Run tests, compare outputs, and report defects.</li>
-        <li><strong>5. Defect Tracking</strong> – Analyze, retest, and validate fixes.</li>
-        <li><strong>6. Closure</strong> – Evaluate coverage and prepare release notes.</li>
-      </ul>
     </div>
 
     {/* Trust Section */}
