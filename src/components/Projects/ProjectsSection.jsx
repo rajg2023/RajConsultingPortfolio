@@ -151,7 +151,6 @@ const ProjectsSection = () => {
       status: 'Completed',
       learnings:
         'Built foundational Java web application experience integrating data and UI layers through clean architecture and best practices.',
-      repo: 'https://github.com/rajg2023/Big-Box-Web-Application-Java',
       icon_bg: 'bg-purple-50',
       icon_text: 'text-purple-600',
       border: 'border-purple-200'
@@ -176,7 +175,6 @@ const ProjectsSection = () => {
       status: 'Completed',
       learnings:
         'Improved application development and data management skills through standalone Java software creation with complete UI and DB interaction.',
-      repo: 'https://github.com/rajg2023/Desktop-POS-APP',
       icon_bg: 'bg-green-50',
       icon_text: 'text-green-600',
       border: 'border-green-200'
