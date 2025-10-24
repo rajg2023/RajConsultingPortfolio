@@ -35,9 +35,9 @@ const HomePage = () => {
   useEffect(() => {
     const fetchResumeData = async () => {
       try {
-        // Use relative path that works in both dev and production
-        const baseUrl = process.env.NODE_ENV === 'production' ? '/RajConsultingPortfolio' : '';
-        const response = await fetch(`${baseUrl}/content/resume.json`);
+        // Use path relative to public directory
+        const basePath = process.env.NODE_ENV === 'production' ? '/RajConsultingPortfolio' : '';
+        const response = await fetch(`${basePath}/content/resume.json`);
         if (!response.ok) {
           throw new Error('Failed to load resume data');
         }
