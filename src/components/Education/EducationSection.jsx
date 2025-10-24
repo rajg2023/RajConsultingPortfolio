@@ -202,9 +202,7 @@ const EducationSection = () => {
                   <p className="text-blue-700 mb-4 text-sm">
                     I believe in lifelong learning and staying current with industry trends and best practices.
                   </p>
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                    Let's Discuss
-                  </button>
+                  
                 </div>
               </div>
             </div>
