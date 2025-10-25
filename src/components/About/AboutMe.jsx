@@ -97,19 +97,19 @@ const AboutMe = ({ resumeData, isLoading, error }) => {
                 </div>
               </div>
             </div>
-            
+
             {/* Introduction */}
             <div className="text-center w-full mt-2">
-  <h2 className="text-xl font-semibold">
-    <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 bg-clip-text text-transparent 
+              <h2 className="text-xl font-semibold">
+                <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 bg-clip-text text-transparent 
                      bg-300% animate-gradient">
-      Hi, I'm {name || 'Rajiv Giri'}
-    </span>
-  </h2>
-  <p className="text-gray-500 dark:text-gray-400 text-sm mt-1 italic">
-    Nice to meet you! 👋
-  </p>
-</div>
+                  Hi, I'm {name || 'Rajiv Giri'}
+                </span>
+              </h2>
+              <p className="text-gray-500 dark:text-gray-400 text-sm mt-1 italic">
+                Nice to e-meet you! 👋
+              </p>
+            </div>
           </div>
           
           {/* Contact Info */}

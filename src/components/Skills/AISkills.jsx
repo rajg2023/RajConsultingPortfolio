@@ -45,9 +45,19 @@ const AISkills = () => {
 
     },
     {
-    name: 'Meta LLaMA',
-    description: 'Collection of large language models by Meta, available in various sizes for different computational needs.',
-    useCase: 'Research, experimentation, and applications requiring open-weight models.',
+      name: 'Windsurf',
+      description: 'AI-powered development environment that enhances coding with intelligent assistance and real-time collaboration features.',
+      useCase: 'Code development, pair programming, and team collaboration with AI assistance.',
+    },
+    {
+      name: 'VSCode',
+      description: 'Popular code editor with extensive AI extensions like GitHub Copilot and Codeium for intelligent code completion.',
+      useCase: 'Software development with AI-powered code suggestions and extensions.',
+    },
+    {
+      name: 'Meta LLaMA',
+      description: 'Collection of large language models by Meta, available in various sizes for different computational needs.',
+      useCase: 'Research, experimentation, and applications requiring open-weight models.',
     
     },
     {

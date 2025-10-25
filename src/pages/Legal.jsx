@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const Legal = () => {
   const [activeSection, setActiveSection] = useState('privacy');
@@ -35,45 +36,90 @@ const Legal = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       )
+    },
+    ai: {
+      id: 'ai',
+      title: 'AI Disclosure',
+      color: 'indigo',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      )
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 px-4 sm:px-6 lg:px-8">
-      {/* Back to Home Button - Top */}
-      <div className="mb-8">
-        <Link 
-          to="/" 
-          className="inline-flex items-center bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg transition-colors duration-200"
-        >
-          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Home
-        </Link>
-      </div>
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center mb-12 px-4">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Legal Information</h1>
-          <p className="text-lg text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
-          
-          {/* Navigation Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-8 mb-8 w-full">
-            {Object.values(sections).map((section) => (
-              <button
-                key={section.id}
-                onClick={() => setActiveSection(section.id)}
-                className={`flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-                  activeSection === section.id
-                    ? `bg-${section.color}-600 text-white shadow-md`
-                    : `bg-${section.color}-100 text-${section.color}-700 hover:bg-${section.color}-200`
-                }`}
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      {/* Legal Page Header */}
+      <header className="bg-white shadow-sm sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <Link to="/" className="text-xl font-bold text-gray-900 hover:text-indigo-600 transition-colors">
+              Raj Tech Consulting
+            </Link>
+            <nav className="flex items-center space-x-1 sm:space-x-4">
+              {Object.values(sections).map((section) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveSection(section.id);
+                    document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2"
+                  style={{
+                    backgroundColor: activeSection === section.id 
+                      ? ({
+                          purple: '#f3e8ff',
+                          blue: '#dbeafe',
+                          green: '#dcfce7',
+                          indigo: '#e0e7ff'
+                        }[section.color] || '#f3f4f6')
+                      : ({
+                          purple: '#f5f3ff',
+                          blue: '#eff6ff',
+                          green: '#f0fdf4',
+                          indigo: '#eef2ff'
+                        }[section.color] || '#f9fafb'),
+                    color: activeSection === section.id 
+                      ? ({
+                          purple: '#6b21a8',
+                          blue: '#1d4ed8',
+                          green: '#166534',
+                          indigo: '#4338ca'
+                        }[section.color] || '#111827')
+                      : ({
+                          purple: '#7c3aed',
+                          blue: '#3b82f6',
+                          green: '#10b981',
+                          indigo: '#6366f1'
+                        }[section.color] || '#4b5563')
+                  }}
+                >
+                  <span className="w-5 h-5">{section.icon}</span>
+                  {section.title}
+                </a>
+              ))}
+              <Link 
+                to="/" 
+                className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors flex items-center gap-2"
+                style={{
+                  backgroundColor: '#f9fafb',
+                  color: '#4b5563'
+                }}
               >
-                <span className="mr-2">{section.icon}</span>
-                {section.title}
-              </button>
-            ))}
+                Back to Home
+              </Link>
+            </nav>
           </div>
+        </div>
+      </header>
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="text-center mb-12 px-4 pt-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Legal Information</h1>
+          <p className="text-lg text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
         </div>
 
         <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 w-full">
@@ -87,7 +133,7 @@ const Legal = () => {
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900">Privacy Policy</h2>
                 </div>
-            <div className="prose max-w-none">
+            <div id="privacy" className="prose max-w-none">
               <p className="mb-4">
                 RajTechConsulting ("us", "we", or "our") operates the {window.location.hostname} website (the "Service").
               </p>
@@ -126,9 +172,43 @@ const Legal = () => {
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900">Terms of Service</h2>
                 </div>
-            <div className="prose max-w-none">
-              <p className="mb-4">
-                Please read these Terms of Service ("Terms") carefully before using the {window.location.hostname} website.
+                <div id="terms" className="prose max-w-none">
+                  <h3 className="text-xl font-semibold mt-6 mb-4">AI & Open-Source Compliance</h3>
+                  <p className="mb-4">
+                    <strong>Raj Tech Consulting</strong> employs a <strong>VibeCoding</strong> approach — combining human creativity with ethical AI assistance — to efficiently develop digital projects. All generated code, assets, and written content are original works or adapted under valid licenses, ensuring full compliance with applicable third-party terms and intellectual property laws.
+                  </p>
+
+                  <h3 className="text-xl font-semibold mt-8 mb-4">General Information & Project Terms</h3>
+                  <ul className="list-disc pl-6 space-y-4 mb-6">
+                    <li>
+                      Raj Tech Consulting utilizes artificial intelligence technologies, internet search engines, open-source tools, and frameworks for project completion. By engaging Raj Tech Consulting, you acknowledge and agree to the privacy, usage, and licensing terms of such third-party and open-source solutions.
+                    </li>
+                    <li>
+                      Use of any proprietary, commercial, or non-open-source software must be arranged and paid for by the client. Raj Tech Consulting is not responsible or liable for licensing or costs of such tools unless agreed otherwise in writing.
+                    </li>
+                    <li>
+                      Project development is generally carried out on test data and non-production environments. Deployment on client production infrastructure is not included unless explicitly contracted. Clients are responsible for ensuring production-readiness and deployment requirements.
+                    </li>
+                    <li>
+                      Clients must review and approve delivered project samples or prototypes. Payment is generally contingent upon client satisfaction with the sample work. If a client does not approve or wish to continue with a sample, payment is not required unless prior written communication establishes other terms.
+                    </li>
+                    <li>
+                      Project work samples not approved by the client do not entitle Raj Tech Consulting to payment, unless explicitly communicated and agreed to in advance.
+                    </li>
+                    <li>
+                      Clients typically initiate contact via email or phone, as this Site does not provide a contact form. Any personal data collected through emails or phone calls will be processed only with the client's consent and for the purpose of responding to inquiries or providing services.
+                    </li>
+                    <li>
+                      Raj Tech Consulting is not responsible or liable for data collection by third-party services associated with this Site (such as web hosting, analytics, email providers, voice/text services) which may use cookies or collect personal data. Clients and visitors should review relevant third-party privacy policies.
+                    </li>
+                  </ul>
+                  <p className="mb-4">
+                    For further clarification or to discuss specific project terms, please reach out via email or phone.
+                  </p>
+
+                  <h3 className="text-xl font-semibold mt-8 mb-4">Terms of Service</h3>
+                  <p className="mb-4">
+                    Please read these Terms of Service ("Terms") carefully before using the {window.location.hostname} website.
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-4">1. Acceptance of Terms</h3>
@@ -198,8 +278,44 @@ const Legal = () => {
               </div>
             </div>
           )}
-        </div>
 
+          {/* AI Disclosure Section */}
+          {activeSection === 'ai' && (
+            <div className={`border-t-4 border-${sections.ai.color}-500`}>
+              <div className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className={`p-3 rounded-lg mr-4 bg-${sections.ai.color}-50 text-${sections.ai.color}-600`}>
+                    {sections.ai.icon}
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900">Portfolio AI Disclosure</h2>
+                </div>
+                <div className="prose max-w-none">
+                  <p className="mb-4">
+                    <strong>Raj Tech Consulting – Technology and AI Usage Disclosure</strong>
+                  </p>
+                  <p className="mb-4">
+                    This website and all showcased client projects were <strong>VibeCoded</strong> using Windsurf and Visual Studio Code, 
+                    refined with AI-assisted tools such as Perplexity AI, OpenAI models (ChatGPT), Google Gemini, 
+                    Anthropic Claude, Meta LLaMA, GitHub Copilot, Hugging Face models, and other open-source frameworks.
+                  </p>
+                  <p className="mb-4">
+                    All integrations comply with the respective open-source and commercial platform terms of service. 
+                    Each project represents original customization, design, and technical problem-solving by Raj Tech Consulting. 
+                    AI tools are used to accelerate ideation, code drafting, and testing but all outputs are reviewed, 
+                    modified, and deployed with human oversight.
+                  </p>
+                  <p className="mb-4">
+                    This website acts exclusively as a personal portfolio and independent consulting showcase for Raj Tech Consulting. 
+                    The displayed projects represent consulting capabilities and do not imply endorsement or ongoing client partnerships.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="mt-auto">
+        <Footer />
       </div>
     </div>
   );
