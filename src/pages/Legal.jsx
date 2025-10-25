@@ -135,7 +135,7 @@ const Legal = () => {
                 </div>
             <div id="privacy" className="prose max-w-none">
               <p className="mb-4">
-                I, Rajiv Giri, operate the {window.location.hostname} website (the "Service").
+                I, Rajiv Giri, operate the this website as a personal "Service" and not as "Company".
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-4">Information Collection And Use</h3>
@@ -245,7 +245,7 @@ const Legal = () => {
                 </div>
             <div className="prose max-w-none">
               <p className="mb-4">
-                This Data Collection Policy explains how RajTechConsulting collects, uses, and protects your information.
+                This Data Collection Policy explains how this website collects, uses, and protects your information.
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-4">1. Information We Collect</h3>
@@ -291,7 +291,7 @@ const Legal = () => {
                 </div>
                 <div className="prose max-w-none">
                   <p className="mb-4">
-                    <strong>Raj Tech Consulting – Technology and AI Usage Disclosure</strong>
+                    <strong>Technology and AI Usage Disclosure</strong>
                   </p>
                   <p className="mb-4">
                     This website and all showcased client projects were <strong>VibeCoded</strong> using Windsurf and Visual Studio Code, 
