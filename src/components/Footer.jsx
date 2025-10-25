@@ -43,7 +43,7 @@ const Footer = () => {
             
             {/* Centered copyright */}
             <div className="text-xs text-gray-200 whitespace-nowrap">
-              © {currentYear} Raj Technology Consulting (RTC). All Rights Reserved
+              © {currentYear} Rajiv Giri. All Rights Reserved
             </div>
             
             {/* Right-aligned build info */}
