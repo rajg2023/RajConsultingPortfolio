@@ -56,7 +56,7 @@ const Legal = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <Link to="/" className="text-xl font-bold text-gray-900 hover:text-indigo-600 transition-colors">
-              Raj Tech Consulting
+              Rajiv Giri - Independent Technology Consulting
             </Link>
             <nav className="flex items-center space-x-1 sm:space-x-4">
               {Object.values(sections).map((section) => (
@@ -135,7 +135,7 @@ const Legal = () => {
                 </div>
             <div id="privacy" className="prose max-w-none">
               <p className="mb-4">
-                RajTechConsulting ("us", "we", or "our") operates the {window.location.hostname} website (the "Service").
+                I, Rajiv Giri, operate the {window.location.hostname} website (the "Service").
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-4">Information Collection And Use</h3>
@@ -146,11 +146,11 @@ const Legal = () => {
               <h4 className="text-lg font-medium mt-4 mb-2">Types of Data Collected</h4>
               <h5 className="font-medium mt-3 mb-1">Personal Data</h5>
               <p className="mb-4">
-                While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data").
+                While using my Service, I may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data").
               </p>
 
               <h4 className="text-lg font-semibold mt-6 mb-4">Use of Data</h4>
-              <p className="mb-2">RajTechConsulting uses the collected data for various purposes:</p>
+              <p className="mb-2">This website uses the collected data for various purposes:</p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li>To provide and maintain our Service</li>
                 <li>To notify you about changes to our Service</li>
@@ -175,16 +175,16 @@ const Legal = () => {
                 <div id="terms" className="prose max-w-none">
                   <h3 className="text-xl font-semibold mt-6 mb-4">AI & Open-Source Compliance</h3>
                   <p className="mb-4">
-                    <strong>Raj Tech Consulting</strong> employs a <strong>VibeCoding</strong> approach — combining human creativity with ethical AI assistance — to efficiently develop digital projects. All generated code, assets, and written content are original works or adapted under valid licenses, ensuring full compliance with applicable third-party terms and intellectual property laws.
+                    I, <strong>Rajiv Giri</strong> use a <strong>VibeCoding</strong> approach — combining human creativity with ethical AI assistance — to efficiently develop digital projects. All generated code, assets, and written content are original works or adapted under valid licenses, ensuring full compliance with applicable third-party terms and intellectual property laws.
                   </p>
 
                   <h3 className="text-xl font-semibold mt-8 mb-4">General Information & Project Terms</h3>
                   <ul className="list-disc pl-6 space-y-4 mb-6">
                     <li>
-                      Raj Tech Consulting utilizes artificial intelligence technologies, internet search engines, open-source tools, and frameworks for project completion. By engaging Raj Tech Consulting, you acknowledge and agree to the privacy, usage, and licensing terms of such third-party and open-source solutions.
+                      I utilize artificial intelligence technologies, internet search engines, open-source tools, and frameworks for project completion. By engaging with me, you acknowledge and agree to the privacy, usage, and licensing terms of such third-party and open-source solutions.
                     </li>
                     <li>
-                      Use of any proprietary, commercial, or non-open-source software must be arranged and paid for by the client. Raj Tech Consulting is not responsible or liable for licensing or costs of such tools unless agreed otherwise in writing.
+                      Use of any proprietary, commercial, or non-open-source software must be arranged and paid for by the client. I am not responsible or liable for licensing or costs of such tools unless agreed otherwise in writing.
                     </li>
                     <li>
                       Project development is generally carried out on test data and non-production environments. Deployment on client production infrastructure is not included unless explicitly contracted. Clients are responsible for ensuring production-readiness and deployment requirements.
@@ -193,13 +193,13 @@ const Legal = () => {
                       Clients must review and approve delivered project samples or prototypes. Payment is generally contingent upon client satisfaction with the sample work. If a client does not approve or wish to continue with a sample, payment is not required unless prior written communication establishes other terms.
                     </li>
                     <li>
-                      Project work samples not approved by the client do not entitle Raj Tech Consulting to payment, unless explicitly communicated and agreed to in advance.
+                      Project work samples not approved by the client do not entitle me to payment, unless explicitly communicated and agreed to in advance.
                     </li>
                     <li>
                       Clients typically initiate contact via email or phone, as this Site does not provide a contact form. Any personal data collected through emails or phone calls will be processed only with the client's consent and for the purpose of responding to inquiries or providing services.
                     </li>
                     <li>
-                      Raj Tech Consulting is not responsible or liable for data collection by third-party services associated with this Site (such as web hosting, analytics, email providers, voice/text services) which may use cookies or collect personal data. Clients and visitors should review relevant third-party privacy policies.
+                      I am not responsible or liable for data collection by third-party services associated with this Site (such as web hosting, analytics, email providers, voice/text services) which may use cookies or collect personal data. Clients and visitors should review relevant third-party privacy policies.
                     </li>
                   </ul>
                   <p className="mb-4">
@@ -218,7 +218,7 @@ const Legal = () => {
 
               <h3 className="text-xl font-semibold mt-6 mb-4">2. Use License</h3>
               <p className="mb-4">
-                Permission is granted to temporarily access the materials on RajTechConsulting's website for personal, non-commercial transitory viewing only.
+                Permission is granted to temporarily access the materials on this website for personal, non-commercial transitory viewing only.
               </p>
 
               <h3 className="text-xl font-semibold mt-6 mb-4">3. User Responsibilities</h3>
@@ -300,12 +300,12 @@ const Legal = () => {
                   </p>
                   <p className="mb-4">
                     All integrations comply with the respective open-source and commercial platform terms of service. 
-                    Each project represents original customization, design, and technical problem-solving by Raj Tech Consulting. 
+                    Each project represents original customization, design, and technical problem-solving by me. 
                     AI tools are used to accelerate ideation, code drafting, and testing but all outputs are reviewed, 
                     modified, and deployed with human oversight.
                   </p>
                   <p className="mb-4">
-                    This website acts exclusively as a personal portfolio and independent consulting showcase for Raj Tech Consulting. 
+                    This website acts exclusively as a personal portfolio and independent consulting showcase for me. 
                     The displayed projects represent consulting capabilities and do not imply endorsement or ongoing client partnerships.
                   </p>
                 </div>
