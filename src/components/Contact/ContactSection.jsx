@@ -22,6 +22,11 @@ const ContactSection = () => {
       color: 'green',
       content: (
         <div className="space-y-8">
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+            <p className="text-blue-700">
+              To hire me for your next project, please contact me using the contact information provided in the "Direct Contact" section. All services are provided by Rajiv Giri as an independent consultant and not as "Company". Please refer to Legal section for more information. I can be reached at below provided email and phone number for more inquiries.
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="text-center p-6 bg-gray-50 rounded-lg">
               <div className="bg-green-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
