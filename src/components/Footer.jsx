@@ -27,7 +27,7 @@ const Footer = () => {
                 <p className="text-sm text-yellow-100">
                   <strong className="font-medium">Work in Progress Notice</strong>
                   <br />
-                  Parts of this website and certain pages may be undergoing active development or updates. Features, text, images, or components displayed may not represent the final version. Raj Tech Consulting reserves the right to modify, update, or remove content as work progresses.
+                  Parts of this website and certain pages may be undergoing active development or updates. Features, text, images, or components displayed may not represent the final version. It reserves the right to modify, update, or remove content as work progresses.
                 </p>
               </div>
             </div>

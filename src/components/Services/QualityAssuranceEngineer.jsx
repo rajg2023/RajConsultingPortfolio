@@ -22,9 +22,9 @@ const QualityAssuranceEngineer = () => (
         <div className="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
           <Zap className="text-blue-600" size={20} />
         </div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Test Automation</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">Manual and Test Automation</h3>
         <p className="text-gray-600">
-          Implementing robust test automation frameworks to accelerate testing cycles and improve coverage.
+          Implementing robust manual and test automation frameworks to accelerate testing cycles and improve coverage.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {['Selenium', 'JUnit', 'TestNG', 'Appium'].map((tool, i) => (
@@ -44,7 +44,7 @@ const QualityAssuranceEngineer = () => (
           Comprehensive test planning, case design, and execution strategies for complete coverage.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['TestRail', 'JIRA', 'Zephyr', 'QTP'].map((tool, i) => (
+          {['JIRA', 'UFT', 'QTP'].map((tool, i) => (
             <span key={i} className="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">
               {tool}
             </span>
