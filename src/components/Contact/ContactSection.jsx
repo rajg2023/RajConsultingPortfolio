@@ -34,8 +34,7 @@ const ContactSection = () => {
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Email Me</h4>
               <p><strong>Direct Email:</strong> rajivgiri2025@gmail.com</p>
-              <p><strong>Admin Email:</strong> admin@rajtechconsulting.com</p>
-              <p><strong>Consulting Email:</strong> consulting@rajtechconsulting.com</p>
+              
               
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
@@ -111,7 +110,7 @@ const ContactSection = () => {
             </div>
             <h4 className="text-2xl font-semibold text-gray-900 mb-4">Let's Schedule a Call</h4>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              I offer free 15 to60 minutes consultation calls to understand your needs and discuss how I can contribute to your project success.
+              I offer free 15 to 60 minutes consultation calls to understand your needs and discuss how I can contribute to your project success.
             </p>
           </div>
 
@@ -164,7 +163,7 @@ const ContactSection = () => {
               <Calendar size={20} className="mr-2" />
               Call or Email to Schedule Free Consultation
             </button>
-            <p className="text-gray-500 text-sm mt-3">No commitment required • First 16 to 60 minutes consultation completely free. I'll respond within 24 - 72 hours, depending on the urgency and availability.</p>
+            <p className="text-gray-500 text-sm mt-3">No commitment required • First 15 to 60 minutes consultation completely free. I'll respond within 24 - 72 hours, depending on the urgency and availability.</p>
           </div>
         </div>
       ),
