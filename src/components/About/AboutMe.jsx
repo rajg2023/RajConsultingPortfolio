@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, CheckCircle, XCircleIcon } from 'lucide-react';
 
 // Skeleton loading component
 const SkeletonLoader = () => (
@@ -41,11 +41,26 @@ const AboutMe = () => {
 
   // Specializations
   const specializations = [
-    'Google Data Analytics Professional',
-    'Data/Application Analyst',
+    'Google Data Analytics',
+    'Data Analyst',
+    'Quality Analyst',
+    'Application Analyst',
     'Application Engineer',
-    'Software/Data Engineer',
+    'Software Engineer',
+    'Data Engineer',
     'Business Systems Analyst'
+  ];
+
+  // Specializations
+  const unspecializations = [
+    'Cyber Security',
+    'DevOps',
+    'AI/ML',
+    'Legal Services',
+    'Network Security',
+    'Ethical Hacking',
+    'Virtual Reality',
+    'And more...'
   ];
 
   // Local content instead of using resumeData
@@ -142,35 +157,12 @@ const AboutMe = () => {
             </div>
           </div>
 
-          {/* Contact Information */}
-          <div className="pt-6 border-t border-gray-200 text-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 text-left">Contact Information</h3>
-            <div className="space-y-2">
-              {contactInfo.map((item, index) => (
-                item.link ? (
-                  <a
-                    key={index}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center hover:text-blue-600 hover:underline"
-                  >
-                    {item.icon}
-                    <span className="ml-2">{item.text}</span>
-                  </a>
-                ) : (
-                  <p key={index} className="flex items-center">
-                    {item.icon}
-                    <span className="ml-2">{item.text}</span>
-                  </p>
-                )
-              ))}
-            </div>
-          </div>
+          
+          <br></br>
 
           {/* Specializations */}
           <div className="pt-6 border-t border-gray-200 text-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 text-left">Specializations</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4 text-left">Ask Me About</h3>
             <div className="space-y-3">
               {specializations.map((skill, index) => (
                 <div key={index} className="flex items-center">
@@ -180,17 +172,29 @@ const AboutMe = () => {
               ))}
             </div>
           </div>
-        </div>
-
+          <br></br>
+          {/* Not Specialized in */}
+          <div className="pt-6 border-t border-gray-200 text-center">
+            <h3 className="text-xl font-bold text-gray-900 mb-4 text-left">Don't Ask Me About</h3>
+            <div className="space-y-3">
+              {unspecializations.map((skill, index) => (
+                <div key={index} className="flex items-center">
+                  <XCircleIcon className="text-red-500 w-5 h-5 mr-2" />
+                  <span>{skill}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          </div>
         {/* Right Column - Main Content */}
         {/* Right Column - Heading */}
         <div className="lg:w-2/3 space-y-8">
           <h1 className="text-3xl font-bold text-center text-gray-900 lg:hidden">About Me</h1>
-          <div class="space-y-2 sm:space-y-3 md:space-y-4">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight"></h1>
-            <h2 class="text-xl sm:text-2xl md:text-3xl text-blue-600 font-medium">Independent Digital and Technology Solutions Professional</h2>
-            <div class="h-1.5 w-20 sm:w-24 bg-gradient-to-r from-blue-400 to-purple-500 my-3 sm:my-4 rounded-full"></div>
-            </div>
+          <div className="space-y-2 sm:space-y-3 md:space-y-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight"></h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-600 font-medium">Independent Digital and Technology Solutions Professional</h2>
+            <div className="h-1.5 w-20 sm:w-24 bg-gradient-to-r from-blue-400 to-purple-500 my-3 sm:my-4 rounded-full"></div>
+          </div>
 
           {/* Business Status Card */}
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">

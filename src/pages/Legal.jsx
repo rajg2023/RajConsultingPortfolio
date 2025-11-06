@@ -1,10 +1,34 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 
-const Legal = () => {
-  const [activeSection, setActiveSection] = useState('privacy');
-  
+const Legal = ({ defaultSection = 'privacy' }) => {
+  const [activeSection, setActiveSection] = useState(defaultSection);
+  const navigate = useNavigate();
+  // Add this useEffect hook right after the state declarations
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash && sections[hash]) {
+        setActiveSection(hash);
+      }
+    };
+
+    // Handle initial load
+    handleHashChange();
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', handleHashChange);
+    return () => window.removeEventListener('popstate', handleHashChange);
+  }, []); // Empty dependency array means this runs once on mount
+
+  // Update URL when section changes
+  const handleSectionChange = (sectionId) => {
+    setActiveSection(sectionId);
+    // Update URL without page reload
+    navigate(`/legal#${sectionId}`, { replace: true });
+  };
+
   // Section configurations with different colors
   const sections = {
     privacy: {
@@ -78,8 +102,8 @@ const Legal = () => {
             <Link to="/" className="text-xl font-bold text-gray-900 hover:text-indigo-600 transition-colors">
               Rajiv Giri - Independent Technology Consulting
             </Link>
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors flex items-center gap-2"
             >
               Back to Home
@@ -92,7 +116,7 @@ const Legal = () => {
         <div className="text-center mb-8 px-4 pt-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Legal Information</h1>
           <p className="text-lg text-gray-600 mb-6">Last updated: {new Date().toLocaleDateString()}</p>
-          
+
           {/* Update Notice Banner */}
           <div className="max-w-2x2 mx-auto bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md shadow-sm mb-8">
             <div className="flex items-start">
@@ -108,7 +132,7 @@ const Legal = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Navigation Tabs */}
           <nav className="flex flex-wrap justify-center gap-2 mb-8">
             {Object.values(sections).map((section) => {
@@ -122,17 +146,16 @@ const Legal = () => {
                 pink: { bg: '#fdf2f8', text: '#ec4899', hover: '#fce7f3', activeBg: '#fbcfe8', activeText: '#9d174d' }
               };
               const colors = colorMap[section.color] || { bg: '#f9fafb', text: '#4b5563', hover: '#f3f4f6', activeBg: '#e5e7eb', activeText: '#111827' };
-              
+
               return (
                 <button
                   key={section.id}
-                  onClick={() => setActiveSection(section.id)}
-                  className="px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+                  onClick={() => handleSectionChange(section.id)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${isActive ? `bg-${colors.activeBg} text-${colors.activeText}` : `bg-${colors.bg} text-${colors.text} hover:bg-${colors.hover}`
+                    }`}
                   style={{
                     backgroundColor: isActive ? colors.activeBg : colors.bg,
                     color: isActive ? colors.activeText : colors.text,
-                    border: '1px solid',
-                    borderColor: isActive ? colors.activeText : 'transparent',
                     ':hover': {
                       backgroundColor: isActive ? colors.activeBg : colors.hover,
                     }
@@ -159,41 +182,41 @@ const Legal = () => {
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900">Privacy Policy</h2>
                 </div>
-            <div id="privacy" className="prose max-w-none">
-              <p className="mb-4">
-                I, Rajiv Giri, operate the this website as a personal "Service" and not as "Company". I am new to managing website legal compliance and am continually 
-                learning to improve my policies and practices. As such, I reserve the right to correct, update, or modify this Privacy Policy and other legal pages 
-                whenever necessary. Updates may be made based on new knowledge, government regulations, client or employer feedback, or legal requirements.
-                I am committed to complying with applicable federal, state, and local privacy and data protection laws. 
-              </p>
-              <p>
-              <strong>However,</strong> please understand that despite reasonable security measures, no website or online service can be completely immune to data breaches,
-                 hacking attempts, or other malicious attacks that may result in unauthorized access or theft of data.Therefore, I cannot be held responsible 
-                 for any loss, damage, or unauthorized disclosure of data resulting from such attacks or breaches beyond my control. Users of this website are
-                  encouraged to exercise caution and follow best practices when sharing sensitive information online.</p>
-                  
+                <div id="privacy" className="prose max-w-none">
+                  <p className="mb-4">
+                    I, Rajiv Giri, operate the this website as a personal "Service" and not as "Company". I am new to managing website legal compliance and am continually
+                    learning to improve my policies and practices. As such, I reserve the right to correct, update, or modify this Privacy Policy and other legal pages
+                    whenever necessary. Updates may be made based on new knowledge, government regulations, client or employer feedback, or legal requirements.
+                    I am committed to complying with applicable federal, state, and local privacy and data protection laws.
+                  </p>
+                  <p>
+                    <strong>However,</strong> please understand that despite reasonable security measures, no website or online service can be completely immune to data breaches,
+                    hacking attempts, or other malicious attacks that may result in unauthorized access or theft of data.Therefore, I cannot be held responsible
+                    for any loss, damage, or unauthorized disclosure of data resulting from such attacks or breaches beyond my control. Users of this website are
+                    encouraged to exercise caution and follow best practices when sharing sensitive information online.</p>
 
-              <h3 className="text-xl font-semibold mt-6 mb-4">Information Collection And Use</h3>
-              <p className="mb-4">
-                We collect several different types of information for various purposes to provide and improve our Service to you.
-              </p>
 
-              <h4 className="text-lg font-medium mt-4 mb-2">Types of Data Collected</h4>
-              <h5 className="font-medium mt-3 mb-1">Personal Data</h5>
-              <p className="mb-4">
-                While using my Service, I may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data").
-              </p>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">Information Collection And Use</h3>
+                  <p className="mb-4">
+                    I may collect several different types of information for various purposes to provide and improve our Service to you.
+                  </p>
 
-              <h4 className="text-lg font-semibold mt-6 mb-4">Use of Data</h4>
-              <p className="mb-2">This website uses the collected data for various purposes:</p>
-              <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>To provide and maintain our Service</li>
-                <li>To notify you about changes to our Service</li>
-                <li>To allow you to participate in interactive features</li>
-                <li>To provide customer support</li>
-                <li>To gather analysis for improving our Service</li>
-              </ul>
-            </div>
+                  <h4 className="text-lg font-medium mt-4 mb-2">Types of Data Collected</h4>
+                  <h5 className="font-medium mt-3 mb-1">Personal Data</h5>
+                  <p className="mb-4">
+                    While using my Service, I may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data").
+                  </p>
+
+                  <h4 className="text-lg font-semibold mt-6 mb-4">Use of Data</h4>
+                  <p className="mb-2">This website uses the collected data for various purposes:</p>
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li>To provide and maintain our Service</li>
+                    <li>To notify you about changes to our Service</li>
+                    <li>To allow you to participate in interactive features</li>
+                    <li>To provide customer support</li>
+                    <li>To gather analysis for improving our Service</li>
+                  </ul>
+                </div>
               </div>
             </div>
           )}
@@ -244,27 +267,27 @@ const Legal = () => {
                   <h3 className="text-xl font-semibold mt-8 mb-4">Terms of Service</h3>
                   <p className="mb-4">
                     Please read these Terms of Service ("Terms") carefully before using the {window.location.hostname} website.
-              </p>
+                  </p>
 
-              <h3 className="text-xl font-semibold mt-6 mb-4">1. Acceptance of Terms</h3>
-              <p className="mb-4">
-                By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the Service.
-              </p>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">1. Acceptance of Terms</h3>
+                  <p className="mb-4">
+                    By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the Service.
+                  </p>
 
-              <h3 className="text-xl font-semibold mt-6 mb-4">2. Use License</h3>
-              <p className="mb-4">
-                Permission is granted to temporarily access the materials on this website for personal, non-commercial transitory viewing only.
-              </p>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">2. Use License</h3>
+                  <p className="mb-4">
+                    Permission is granted to temporarily access the materials on this website for personal, non-commercial transitory viewing only.
+                  </p>
 
-              <h3 className="text-xl font-semibold mt-6 mb-4">3. User Responsibilities</h3>
-              <p className="mb-2">As a user of the Service, you agree to:</p>
-              <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>Provide accurate and complete information</li>
-                <li>Maintain the security of your account credentials</li>
-                <li>Not engage in any activity that disrupts the Service</li>
-                <li>Comply with all applicable laws and regulations</li>
-              </ul>
-            </div>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">3. User Responsibilities</h3>
+                  <p className="mb-2">As a user of the Service, you agree to:</p>
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li>Provide accurate and complete information</li>
+                    <li>Maintain the security of your account credentials</li>
+                    <li>Not engage in any activity that disrupts the Service</li>
+                    <li>Comply with all applicable laws and regulations</li>
+                  </ul>
+                </div>
               </div>
             </div>
           )}
@@ -278,46 +301,46 @@ const Legal = () => {
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900">Data Collection Policy</h2>
                 </div>
-            <div className="prose max-w-none">
-              <p className="mb-4">
-                Currently, our website does not collect any personal information through forms,
-                cookies, or analytics tools. Your browsing experience is private, and no data is stored or tracked during your visit.
-              </p>
-              <p className="mb-4">
-                <strong>However,</strong> when you communicate with us via email (such as Gmail) or phone, 
-                the information you share—like your contact details—may be collected and processed by the respective service providers.
-                Also, please be aware that third-party applications and services integrated with our website might collect certain data through their own mechanisms.
-                This could include browser and device information, usage data, or other technical details.
-                Please refer to the privacy policies of these third-party services for more information on how they handle your data.
-              </p>
+                <div className="prose max-w-none">
+                  <p className="mb-4">
+                    Currently, this website does not collect any personal information through forms,
+                    cookies, or analytics tools.
+                  </p>
+                  <p className="mb-4">
+                    <strong>However,</strong> when you communicate with us via email (such as Gmail) or phone,
+                    the information you share—like your contact details—may be collected and processed by the respective service providers.
+                    Also, please be aware that third-party applications, browsers, and other services integrated with our website might collect certain data through their own mechanisms.
+                    This could include browser and device information, usage data, or other technical details.
+                    Please refer to the privacy policies of these third-party services for more information on how they handle your data.
+                  </p>
 
-              <h3 className="text-xl font-semibold mt-6 mb-4">1. Information We Collect</h3>
-              <p className="mb-2">I may collect the following types of information:</p>
-              <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>Personal identification information</li>
-                <li>Browser and device information</li>
-                <li>Usage data and analytics</li>
-                <li>Cookies and tracking technologies</li>
-              </ul>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">1. Information We Collect</h3>
+                  <p className="mb-2">I may collect the following types of information:</p>
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li>Personal identification information</li>
+                    <li>Browser and device information</li>
+                    <li>Usage data and analytics</li>
+                    <li>Cookies and tracking technologies</li>
+                  </ul>
 
-              <h3 className="text-xl font-semibold mt-6 mb-4">2. How We Use Your Data</h3>
-              <p className="mb-2">I use the collected data for various purposes:</p>
-              <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>To provide and maintain our Service</li>
-                <li>To notify you about changes</li>
-                <li>To provide customer support</li>
-                <li>To gather analysis for improvements</li>
-              </ul>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">2. How We Use Your Data</h3>
+                  <p className="mb-2">I use the collected data for various purposes:</p>
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li>To provide and maintain our Service</li>
+                    <li>To notify you about changes</li>
+                    <li>To provide customer support</li>
+                    <li>To gather analysis for improvements</li>
+                  </ul>
 
-              <h3 className="text-xl font-semibold mt-6 mb-4">3. Your Data Protection Rights</h3>
-              <p className="mb-2">You may have the following rights regarding your data:</p>
-              <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>The right to access, update, or delete your information</li>
-                <li>The right of rectification</li>
-                <li>The right to object</li>
-                <li>The right to data portability</li>
-              </ul>
-            </div>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">3. Your Data Protection Rights</h3>
+                  <p className="mb-2">You may have the following rights regarding your data:</p>
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li>The right to access, update, or delete your information</li>
+                    <li>The right of rectification</li>
+                    <li>The right to object</li>
+                    <li>The right to data portability</li>
+                  </ul>
+                </div>
               </div>
             </div>
           )}
@@ -358,7 +381,7 @@ const Legal = () => {
                     <li>Secure authentication practices</li>
                   </ul>
                   <p className="mb-4">
-                    I encourage clients to provide remote access via secure VPN or remote access services such as Cisco AnyConnect or similar solutions. These tools offer encrypted, authenticated connections that reduce the risk of data interception and minimize the need to store sensitive information on local devices.
+                    I encourage clients to provide remote access via secure VPN or remote access services such as Remote Desktop, AnyConnect or similar solutions. These tools offer encrypted, authenticated connections that reduce the risk of data interception and minimize the need to store sensitive information on local devices.
                   </p>
 
                   <h3 className="text-xl font-semibold mt-6 mb-4">3. Security Limitations and Liability</h3>
@@ -382,7 +405,7 @@ const Legal = () => {
                     <li>Cooperating fully to mitigate harm</li>
                     <li>Taking immediate steps to prevent further unauthorized access</li>
                   </ul>
-                  
+
                 </div>
               </div>
             </div>
@@ -426,7 +449,7 @@ const Legal = () => {
             </div>
           )}
         </div>
-        
+
         {activeSection === 'thirdParty' && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
@@ -454,7 +477,7 @@ const Legal = () => {
                       <li><strong>Payment Processors</strong> when handling transactions</li>
                       <li><strong>Development Tools</strong> like APIs, version control platforms (GitHub), continuous integration/continuous deployment (CI/CD) tools, and databases</li>
                     </ul>
-                    
+
                     <p className="mb-4">
                       These third-party providers may collect and process certain technical information during their normal operations, including:
                     </p>
@@ -464,18 +487,18 @@ const Legal = () => {
                       <li>Device type and operating system</li>
                       <li>Usage statistics, logs, or communications data</li>
                     </ul>
-                    
+
                     <p className="mb-4">
                       Because these data collection activities are performed by third parties, I do <strong>not</strong> have direct control over them. However, these providers are required to comply with their own privacy policies and data protection regulations.
                     </p>
-                    
+
                     <h4 className="text-lg font-semibold mt-6 mb-3">What This Means for You:</h4>
                     <ul className="list-disc pl-6 mb-4 space-y-2">
                       <li>Your information may be collected or processed by these third parties according to their terms.</li>
                       <li>I encourage you to review their privacy policies to understand how your data is managed and protected.</li>
                       <li>Reviewing these policies will help you make informed decisions about your privacy and data security when interacting with this website.</li>
                     </ul>
-                    
+
                     <h4 className="text-lg font-semibold mt-6 mb-3">My Commitment to Transparency:</h4>
                     <p className="mb-4">
                       I believe in open communication about how data is collected and used. This disclosure is part of my ongoing effort to ensure you have a clear understanding of third-party data practices associated with this site.
@@ -486,7 +509,7 @@ const Legal = () => {
             </div>
           </div>
         )}
-        
+
         <div className="max-w-x1 mx-auto px-4 sm:px-6 lg:px-8 my-8 mb-12">
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-md">
             <div className="flex">

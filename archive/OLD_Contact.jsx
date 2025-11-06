@@ -50,8 +50,7 @@ const Contact = () => {
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-600">
         <div>
           <p><strong>Direct Email:</strong> rajivgiri2025@gmail.com</p>
-          <p><strong>Admin Email:</strong> admin@rajtechconsulting.com</p>
-          <p><strong>Consulting Email:</strong> consulting@rajtechconsulting.com</p>
+          
           <p><strong>Phone:</strong> +1 (513) 834-3371</p>
           <p><strong>Location:</strong> Cincinnati, OH</p>
         </div>
