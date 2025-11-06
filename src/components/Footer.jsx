@@ -36,14 +36,17 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Left-aligned links */}
             <div className="flex flex-wrap gap-4 text-xs text-gray-100">
-              <Link to="/legal#privacy" className="hover:text-gray-200 transition-colors">Privacy Policy</Link>
-              <Link to="/legal#terms" className="hover:text-gray-200 transition-colors">Terms</Link>
-              <Link to="/legal#data" className="hover:text-gray-200 transition-colors">Data Collection</Link>
+              <Link to="/legal/privacy" className="hover:text-gray-200 transition-colors">Privacy Policy</Link>
+              <Link to="/legal/terms" className="hover:text-gray-200 transition-colors">Terms</Link>
+              <Link to="/legal/data" className="hover:text-gray-200 transition-colors">Data Collection</Link>
+              <Link to="/legal/ai" className="hover:text-gray-200 transition-colors">AI Disclosure</Link>
+              <Link to="/legal/security" className="hover:text-gray-200 transition-colors">Data Security</Link>
+              <Link to="/legal/thirdParty" className="hover:text-gray-200 transition-colors">Third-Party Services</Link>
             </div>
             
             {/* Centered copyright */}
             <div className="text-xs text-gray-200 whitespace-nowrap">
-              © {currentYear} Rajiv Giri. All Rights Reserved
+              © {currentYear} Rajiv Giri. All Rights Reserved.
             </div>
             
             {/* Right-aligned build info */}

@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 
 const Legal = ({ defaultSection = 'privacy' }) => {
   const [activeSection, setActiveSection] = useState(defaultSection);
   const navigate = useNavigate();
-  // Add this useEffect hook right after the state declarations
+  const location = useLocation();
+
+  // Handle URL changes and set active section
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.substring(1);
-      if (hash && sections[hash]) {
-        setActiveSection(hash);
-      }
-    };
-
-    // Handle initial load
-    handleHashChange();
-
-    // Handle back/forward navigation
-    window.addEventListener('popstate', handleHashChange);
-    return () => window.removeEventListener('popstate', handleHashChange);
-  }, []); // Empty dependency array means this runs once on mount
+    const pathParts = location.pathname.split('/');
+    const sectionFromUrl = pathParts[pathParts.length - 1];
+    
+    // If we're at /legal with no section, use defaultSection
+    if (sectionFromUrl === 'legal') {
+      setActiveSection(defaultSection);
+      // Optionally redirect to the default section
+      navigate(`/legal/${defaultSection}`, { replace: true });
+    } 
+    // If we have a valid section in the URL, use it
+    else if (sectionFromUrl && sections[sectionFromUrl]) {
+      setActiveSection(sectionFromUrl);
+    } else {
+      // If the section is not valid, redirect to default
+      navigate(`/legal/${defaultSection}`, { replace: true });
+    }
+  }, [location.pathname, defaultSection, navigate]);
 
   // Update URL when section changes
   const handleSectionChange = (sectionId) => {
     setActiveSection(sectionId);
     // Update URL without page reload
-    navigate(`/legal#${sectionId}`, { replace: true });
+    navigate(`/legal/${sectionId}`, { replace: true });
   };
 
   // Section configurations with different colors
@@ -104,7 +109,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
             </Link>
             <Link
               to="/"
-              className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors flex items-center gap-2"
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:bg-blue-300 hover:text-blue-900 transition-colors flex items-center gap-2"
             >
               Back to Home
             </Link>
@@ -184,7 +189,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                 </div>
                 <div id="privacy" className="prose max-w-none">
                   <p className="mb-4">
-                    I, Rajiv Giri, operate the this website as a personal "Service" and not as "Company". I am new to managing website legal compliance and am continually
+                    I, <strong>Rajiv Giri</strong>, operate the this website as a personal "Service" and not as "Company". I am new to managing website legal compliance and am continually
                     learning to improve my policies and practices. As such, I reserve the right to correct, update, or modify this Privacy Policy and other legal pages
                     whenever necessary. Updates may be made based on new knowledge, government regulations, client or employer feedback, or legal requirements.
                     I am committed to complying with applicable federal, state, and local privacy and data protection laws.
@@ -521,7 +526,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
               <div className="ml-3">
                 <h4 className="text-sm font-medium text-blue-800">Legal Information Inquiries</h4>
                 <div className="mt-2 text-sm text-blue-700">
-                  <p>For any questions or concerns regarding legal information, please consult a qualified legal professional or refer to official government websites for accurate guidance.</p>
+                  <p>For any questions, concerns or inquiries regarding legal information, please consult a qualified legal professional or refer to official government websites for accurate guidance.</p>
                   <p className="mt-2">If you believe any legal information on this page requires updating, please contact me.</p>
                 </div>
               </div>
