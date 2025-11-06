@@ -23,7 +23,7 @@ const AISkills = () => {
       name: 'Hugging Face',
       description: 'Open-source hub with thousands of pre-trained models for NLP, computer vision, and more.',
       useCase: 'Model hosting, fine-tuning, and deployment for various AI tasks.',
-      
+
     },
 
     {
@@ -58,7 +58,7 @@ const AISkills = () => {
       name: 'Meta LLaMA',
       description: 'Collection of large language models by Meta, available in various sizes for different computational needs.',
       useCase: 'Research, experimentation, and applications requiring open-weight models.',
-    
+
     },
     {
       name: 'Claude AI',
@@ -136,10 +136,25 @@ const AISkills = () => {
 
       {/* Main content */}
       <div className="relative z-10 py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        
+
         {/* AI/LLM Platforms Section */}
         <div className="mb-16">
           <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">AI/LLM Platforms & Tools</h2>
+          {/* Add the disclaimer component here */}
+          <div className="mb-8 p-4 bg-blue-50 border-l-4 border-blue-500 text-blue-700 rounded">
+            <div className="flex items-start">
+              <Info className="w-5 h-5 mt-0.5 mr-2 flex-shrink-0" />
+              <div>
+                <p className="font-medium">Note about AI/LLM Tools:</p>
+                <p className="text-sm">
+                  The AI/LLM platforms and tools listed below are showcased as part of my technical skills and experience.
+                  This is not an endorsement of any specific tool or model. Each tool is subject to its respective company's
+                  terms of service and usage policies. For more information about any of these tools or to discuss how they
+                  might be implemented in your project, please feel free to reach out to me.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {aiPlatforms.map((platform, index) => (
               <a
