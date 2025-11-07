@@ -319,9 +319,9 @@ const ProjectsSection = () => {
 
                 {/* Links */}
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                  <h4 className="font-semibold text-blue-900 mb-2">Want to See More?</h4>
+                  <h4 className="font-semibold text-blue-900 mb-2">Want to See or learn More about this projects?</h4>
                   <p className="text-blue-700 mb-4 text-sm">
-                    Explore code, documentation, or live demos for each project below.
+                    Explore code, documentation, or live demos for each non-employer related hands-on experience projects on my GitHub. For Employer related projects (always maintaining employer-client confidentiality), please contact me for brief overview of the project.
                   </p>
                   <div className="flex space-x-3">
                     {currentProject.repo && (
