@@ -167,13 +167,13 @@ const ExperienceSection = () => {
       experiences: [
         {
           type: 'Pharmacy Operations',
-          title: 'Certified Pharmacy Technician - Mail Order',
+          title: 'Certified Pharmacy Data Entry Technician - Mail Order',
           
           duration: 'Jan 2012 - Apr 2015',
           location: 'Cincinnati, KY',
           achievements: [
             'Validated and entered high volumes of patient data with accuracy and confidentiality.',
-            'Created SIG short codes increasing productivity by 20% and reducing errors by 10%.',
+            'Acted as UAT for SIG short codes increasing productivity by 20% and reducing errors by 10%.',
             'Supported migration from legacy AS/400 system to web-based platform.',
             'Ensured operational completeness and customer service efficiency.'
           ]
