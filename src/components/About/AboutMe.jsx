@@ -65,33 +65,42 @@ const AboutMe = () => {
 
   // Local content instead of using resumeData
   const aboutContent = {
-    title: "Google Data Analytics Professional | Data/Application Analyst | Application Engineer | Software/Data Engineer | Business Systems Analyst",
-    businessStatus: "I am actively seeking full-time, temporary, and contract opportunities. While I remain primarily committed to my full-time role, I operate as an independent contractor specializing in digital and technology solutions. I am not a registered business entity; rather, I provide my expertise directly to clients on a project basis. I occasionally take on freelance projects based on availability, always respecting my primary employer’s priorities and maintaining client confidentiality. My focus is on delivering personalized, high-quality service tailored to each client’s specific needs.",
-    intro: "I am a Digital and Technology Solutions professional with 9+ years in data-intensive environments, whose 3+ years of hands-on IT experience are built upon a foundation of 6+ years in pharmaceutical operations, where I developed important skills in data entry, validation, and process optimization within a highly regulated healthcare setting. These skills helped me succeed in IT, providing a strong foundation for data analysis, application support, and maintaining data accuracy.",
-    focus: "My primary focus is on data/application analyst/testing roles, using analytical skills and attention to detail for data quality and application reliability. I'm also interested in exploring related areas like AI and software development. As a Senior Analyst at my previous employer, I worked on a variety of client projects, developing a strong understanding of business processes, technical requirements, and client needs.",
+    title: "Digital and Technology Solutions specialist | Data/Application Analyst | Application Engineer | Software/Data Engineer | Business Systems Analyst",
+    businessStatus: "I am actively seeking full-time, temporary, and contract opportunities. While I remain primarily committed to my full-time role, but sometimes, I also operate as an independent contractor during gaps and holidays specializing in digital and technology solutions. I am not a registered business entity; rather, I provide my expertise directly to clients on a project basis. I occasionally take on freelance projects based on availability, always respecting my primary employer’s priorities and maintaining client confidentiality. My focus is on delivering personalized, high-quality service tailored to each client’s specific needs.",
+    intro: "I am a Digital and Technology Solutions specialist with over 9 years of experience in regulated healthcare operations and IT, combining industry discipline with hands-on technical expertise. Passionate about data accuracy, system reliability, and process optimization, I consistently drive improvements in data integrity, application performance, and team collaboration.",
+    focus: "With 6+ years in pharmaceutical operations and 3+ years in IT, I have developed a solid foundation in data validation, analysis, application support, quality assurance, and software development. As a Senior Analyst, I have contributed to diverse client projects by enhancing business processes, mentoring team members, and ensuring high-quality deliverables.",
+    certification: "",
     highlights: [
       {
-        title: "Application Support (POS)",
-        description: "Provided 3rd/4th level support for Vision Commerce Suite, triaging, diagnosing, and reproducing application defects via error logs, SQL queries, and code review. Tested and deployed patches/releases."
-      },
-      {
-        title: "Data Analysis & Testing (ETL)",
-        description: "Performed data warehouse integration testing post-ETL, identifying/documenting data discrepancies. Analyzed data quality issues, contributing to improved data accuracy/reliability. Created process flowcharts (Visio) to document data flows."
+        title: "Google Data Analytics Professional Certificate",
+        description: "Completed the Google Data Analytics Professional Certificate from Coursera, mastering data cleaning, analysis, visualization, and decision-making using spreadsheets, SQL, R, and Tableau."
       },
       {
         title: "Security GRC",
-        description: "Resolved security issues/exceptions, validated data on TVM dashboards, ensuring data accuracy for case processing and providing data-driven recommendations."
+        description: "Assisted clients in resolving security issues/exceptions, validated data from TVM dashboards, ensured data accuracy for case processing, and provided data-driven recommendations."
       },
       {
         title: "OFSAA",
-        description: "Created/maintained RTMs for 500+ KDEs using data mappings, layouts, and data repositories. Validated data integrity/accuracy after OFSAA configuration."
+        description: "Built and maintained RTMs for 500+ KDEs, verified data mappings, and ensured configuration integrity."
       },
       {
         title: "CRM Implementation",
-        description: "Collaborated on business needs analysis, process mapping, and successful CRM launches."
+        description: "Requirement gathering, data automation, cleansing, visualization, reporting, and successful CRM launches."
+      },
+      {
+        title: "Application Support (POS)",
+        description: "POS application support, QA, patch management, code review, application and server management; collaborating with project teams to triage and resolve issues through log and code analysis primarily in Dev and QA environments."
+      },
+      {
+        title: "Data Analysis & Testing (ETL)",
+        description: "ETL testing, data QA, data warehouse validation, stored procedure and SQL troubleshooting, log collection, and process mapping (Visio). Completed multiple opensource trainings and hands-on projects in data QA, analysis and analytics independently."
+      },
+      {
+        title: "Software Development & Deployment",
+        description: "Completed and deployed desktop, Android, and web applications using Java, .NET, Python, AI models, JavaScript, SQL, Heroku, Docker,  GitHub, and Azure independently."
       }
     ],
-    closing: "My healthcare background and IT experience have cultivated a strong commitment to data accuracy, security, and privacy. I excel at collaborating and using analytical problem-solving to drive business growth. I approach challenges proactively and collaboratively.\n\nI am looking to work on Data Analytics, Data/Application Analysis, Application Engineering, Software/Data Engineering, Business Systems Analysis projects. I'm also open to AI/software engineering opportunities.\n\nLet's connect and explore how I can contribute to your project/team!\n\nThank you for visiting my portfolio."
+    closing: "I thrive at the intersection of data, technology, and problem-solving, leveraging analytical precision and a collaborative spirit to achieve measurable business outcomes.\n\nLet’s connect to explore how I can contribute to your team or project!\n\nThank you for visiting my profile,\nRajiv"
   };
 
   // Default data in case resumeData is not provided
@@ -157,7 +166,7 @@ const AboutMe = () => {
             </div>
           </div>
 
-          
+
           <br></br>
 
           {/* Specializations */}
@@ -185,14 +194,14 @@ const AboutMe = () => {
               ))}
             </div>
           </div>
-          </div>
+        </div>
         {/* Right Column - Main Content */}
         {/* Right Column - Heading */}
         <div className="lg:w-2/3 space-y-8">
           <h1 className="text-3xl font-bold text-center text-gray-900 lg:hidden">About Me</h1>
           <div className="space-y-2 sm:space-y-3 md:space-y-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight"></h1>
-            <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-600 font-medium">Independent Digital and Technology Solutions Professional</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-blue-600 font-medium">Digital and Technology Professional Seeking Full-Time Opportunities | Independent Freelance Consultant</h2>
             <div className="h-1.5 w-20 sm:w-24 bg-gradient-to-r from-blue-400 to-purple-500 my-3 sm:my-4 rounded-full"></div>
           </div>
 
