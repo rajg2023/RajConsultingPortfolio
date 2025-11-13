@@ -131,24 +131,20 @@ const AboutMe = () => {
         {/* Left Column - Profile */}
         <div className="w-full lg:w-1/4 flex flex-col items-center [&>*]:text-left">
           <div className="relative w-36 sm:w-40 md:w-48 lg:w-full max-w-xs mb-3 sm:mb-4">
-            <div className="pb-[100%] relative">
+            <div className="pb-[180%] relative">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 p-1">
                 <div className="h-full w-full rounded-full bg-white p-0.5">
-                  <img
-                    src={`${import.meta.env.BASE_URL || ''}images/ProfilePic.jpg`}
-                    alt={name}
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="h-full w-full rounded-full object-cover"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      // Try with direct path if the first one fails
-                      e.target.src = '/RajConsultingPortfolio/images/ProfilePic.jpg';
-
-                      // If that fails, use the fallback
-                      e.target.onerror = () => {
-                        e.target.src = 'images/ProfilePic.jpg';
-                      };
-                    }}
-                  />
+                    poster={`${import.meta.env.BASE_URL || ''}images/ProfilePic1.jpg`}
+                  >
+                    <source src="/videos/TestProfile1.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
@@ -169,29 +165,34 @@ const AboutMe = () => {
 
           <br></br>
 
-          {/* Specializations */}
-          <div className="pt-6 border-t border-gray-200 text-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 text-left">Ask Me About</h3>
-            <div className="space-y-3">
-              {specializations.map((skill, index) => (
-                <div key={index} className="flex items-center">
-                  <CheckCircle className="text-blue-500 w-5 h-5 mr-2" />
-                  <span>{skill}</span>
+          {/* Container for both sections */}
+          <div className="w-full mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Specializations */}
+              <div className="border border-gray-200 rounded-lg p-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 text-left">Ask Me</h3>
+                <div className="space-y-3">
+                  {specializations.map((skill, index) => (
+                    <div key={index} className="flex items-center">
+                      <CheckCircle className="text-blue-500 w-5 h-5 mr-2 flex-shrink-0" />
+                      <span className="text-sm">{skill}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-          <br></br>
-          {/* Not Specialized in */}
-          <div className="pt-6 border-t border-gray-200 text-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 text-left">Don't Ask Me About</h3>
-            <div className="space-y-3">
-              {unspecializations.map((skill, index) => (
-                <div key={index} className="flex items-center">
-                  <XCircleIcon className="text-red-500 w-5 h-5 mr-2" />
-                  <span>{skill}</span>
+              </div>
+
+              {/* Not Specialized in */}
+              <div className="border border-gray-200 rounded-lg p-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 text-left">Don't Ask Me</h3>
+                <div className="space-y-3">
+                  {unspecializations.map((skill, index) => (
+                    <div key={index} className="flex items-center">
+                      <XCircleIcon className="text-red-500 w-5 h-5 mr-2 flex-shrink-0" />
+                      <span className="text-sm">{skill}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
