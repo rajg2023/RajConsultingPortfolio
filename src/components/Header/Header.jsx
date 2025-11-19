@@ -53,12 +53,32 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 w-full">
-      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
-          <div className="flex justify-between h-14 items-center">
+    <>
+      <header className="relative bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 shadow-lg sticky top-0 z-50 w-full overflow-hidden">
+        {/* Night sky background */}
+        <div className="absolute inset-0">
+          {/* Deep space gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900"></div>
+          
+          {/* Subtle stars in header */}
+          <div className="absolute inset-0 opacity-50">
+            {/* Small stars */}
+            <div className="absolute top-2 left-6 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0s', animationDuration: '2.5s'}}></div>
+            <div className="absolute top-4 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.2s', animationDuration: '3s'}}></div>
+            <div className="absolute top-3 right-8 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.8s', animationDuration: '2.8s'}}></div>
+            <div className="absolute top-6 right-1/5 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.5s', animationDuration: '3.2s'}}></div>
+            <div className="absolute top-1 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '2s', animationDuration: '2.2s'}}></div>
+            
+            {/* Medium stars */}
+            <div className="absolute top-3 left-12 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{animationDelay: '0.3s', animationDuration: '3.5s'}}></div>
+            <div className="absolute top-5 right-16 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{animationDelay: '1.8s', animationDuration: '3s'}}></div>
+          </div>
+        </div>
+        <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
+            <div className="flex justify-between h-14 items-center">
           {/* Logo/Name */}
           <div className="flex-shrink-0 flex items-center">
-            <h1 className="text-lg sm:text-xl font-bold text-gray-900">
+            <h1 className="text-lg sm:text-xl font-bold text-white">
               {resumeData?.name || 'WIP{Raj Technology Consulting (RTC)}'}
             </h1>
           </div>
@@ -68,9 +88,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
             {navigationItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
-              const colorClasses = isActive 
-                ? `bg-${item.color}-500 text-white shadow-lg` 
-                : `bg-${item.color}-50 text-${item.color}-600 border border-${item.color}-200 hover:bg-${item.color}-100`;
+              const colorClasses = getColorClasses(item.color, isActive);
               
               return (
                 <div key={item.id} className="relative">
@@ -139,6 +157,41 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
         </div>
       )}
     </header>
+    
+    {/* Animated Gradient Divider & Progress Indicator */}
+    {/* <div className="relative h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-purple-500/20 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-pulse opacity-30"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-slide-x"></div>
+    </div> */}
+    
+    {/* Progress Indicator */}
+    {/* <div className="bg-gray-50 border-b border-gray-100">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
+        <div className="flex items-center justify-between py-2">
+          <div className="flex items-center space-x-2 text-xs text-gray-500">
+            <span>Current Section:</span>
+            <span className="font-medium text-gray-700 capitalize">
+              {navigationItems.find(item => item.id === activeSection)?.name || 'Home'}
+            </span>
+          </div>
+          <div className="flex items-center space-x-1">
+            {navigationItems.map((item, index) => {
+              const isActive = activeSection === item.id;
+              const isCompleted = navigationItems.findIndex(nav => nav.id === activeSection) > index;
+              return (
+                <div
+                  key={item.id}
+                  className={`h-1 w-8 rounded-full transition-all duration-300 ${
+                    isActive ? 'bg-blue-500 shadow-sm' : isCompleted ? 'bg-green-400' : 'bg-gray-200'
+                  }`}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div> */}
+    </>
   );
 };
 

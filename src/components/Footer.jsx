@@ -12,8 +12,31 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gray-900 text-white w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8 pt-6 pb-2">
+    <footer className="relative bg-gradient-to-t from-slate-950 via-indigo-950 to-slate-900 text-white w-full overflow-hidden">
+      {/* Night sky background */}
+      <div className="absolute inset-0">
+        {/* Deep space gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-indigo-950 to-slate-900"></div>
+        
+        {/* Subtle stars in footer */}
+        <div className="absolute inset-0 opacity-60">
+          {/* Small stars */}
+          <div className="absolute top-4 left-8 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
+          <div className="absolute top-8 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1s', animationDuration: '2.5s'}}></div>
+          <div className="absolute top-6 right-12 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '2s', animationDuration: '3.5s'}}></div>
+          <div className="absolute top-12 right-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.5s', animationDuration: '2.8s'}}></div>
+          <div className="absolute top-2 left-1/2 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.5s', animationDuration: '3.2s'}}></div>
+          
+          {/* Medium stars */}
+          <div className="absolute top-8 left-16 w-2 h-2 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '0.3s', animationDuration: '4s'}}></div>
+          <div className="absolute top-4 right-20 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{animationDelay: '1.8s', animationDuration: '3.5s'}}></div>
+          
+          {/* Subtle nebula */}
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-indigo-500/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s', animationDuration: '6s'}}></div>
+        </div>
+      </div>
+      
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-6 pb-2">
         <div className="max-w-7x2 mx-auto">
           {/* Work in Progress Notice */}
           <div className="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 mb-4 rounded-r">

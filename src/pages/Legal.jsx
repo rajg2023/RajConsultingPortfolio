@@ -101,18 +101,39 @@ const Legal = ({ defaultSection = 'privacy' }) => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Sticky Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <Link to="/" className="text-xl font-bold text-gray-900 hover:text-indigo-600 transition-colors">
-              Rajiv Giri - Independent Technology Consulting
+      <header className="relative bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 shadow-lg sticky top-0 z-10 overflow-hidden">
+        {/* Night sky background */}
+        <div className="absolute inset-0">
+          {/* Deep space gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900"></div>
+          
+          {/* Subtle stars in header */}
+          <div className="absolute inset-0 opacity-50">
+            {/* Small stars */}
+            <div className="absolute top-2 left-6 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0s', animationDuration: '2.5s'}}></div>
+            <div className="absolute top-4 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.2s', animationDuration: '3s'}}></div>
+            <div className="absolute top-3 right-8 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.8s', animationDuration: '2.8s'}}></div>
+            <div className="absolute top-6 right-1/5 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.5s', animationDuration: '3.2s'}}></div>
+            <div className="absolute top-1 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '2s', animationDuration: '2.2s'}}></div>
+            
+            {/* Medium stars */}
+            <div className="absolute top-3 left-12 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{animationDelay: '0.3s', animationDuration: '3.5s'}}></div>
+            <div className="absolute top-5 right-16 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{animationDelay: '1.8s', animationDuration: '3s'}}></div>
+          </div>
+        </div>
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center py-4">
+            <Link to="/" className="text-xl font-bold text-white hover:text-indigo-300 transition-colors">
+              Logo Here
             </Link>
             <Link
               to="/"
-              className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:bg-blue-300 hover:text-blue-900 transition-colors flex items-center gap-2"
+              className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
             >
               Back to Home
             </Link>
+            </div>
           </div>
         </div>
       </header>
@@ -156,17 +177,18 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                 <button
                   key={section.id}
                   onClick={() => handleSectionChange(section.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${isActive ? `bg-${colors.activeBg} text-${colors.activeText}` : `bg-${colors.bg} text-${colors.text} hover:bg-${colors.hover}`
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 border ${
+                    isActive 
+                      ? `bg-opacity-20 border-opacity-50 shadow-lg` 
+                      : `bg-opacity-10 border-opacity-30 hover:bg-opacity-20`
                     }`}
                   style={{
                     backgroundColor: isActive ? colors.activeBg : colors.bg,
+                    borderColor: isActive ? colors.activeText : colors.text,
                     color: isActive ? colors.activeText : colors.text,
-                    ':hover': {
-                      backgroundColor: isActive ? colors.activeBg : colors.hover,
-                    }
                   }}
                 >
-                  <span className="w-5 h-5" style={{ color: isActive ? colors.activeText : colors.text }}>
+                  <span className="w-5 h-5">
                     {section.icon}
                   </span>
                   {section.title}
@@ -176,7 +198,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
           </nav>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 w-full">
+        <div className="bg-slate-800/500 backdrop-blur-sm border border-white/10 rounded-xl shadow-lg overflow-hidden transition-all duration-300 w-full">
           {/* Active Section Content */}
           {activeSection === 'privacy' && (
             <div className={`border-t-4 border-${sections.privacy.color}-500`}>
@@ -453,19 +475,15 @@ const Legal = ({ defaultSection = 'privacy' }) => {
               </div>
             </div>
           )}
-        </div>
+        
 
         {activeSection === 'thirdParty' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
-              <div className="border-t-4 border-pink-500">
+          <div className={`border-t-4 border-${sections.thirdParty.color}-500`}>
                 <div className="p-8">
                   <div className="flex items-center mb-6">
-                    <div className="p-3 rounded-lg mr-4 bg-pink-50 text-pink-600">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                      </svg>
-                    </div>
+                    <div className={`p-3 rounded-lg mr-4 bg-${sections.thirdParty.color}-50 text-${sections.thirdParty.color}-600`}>
+                    {sections.thirdParty.icon}
+                  </div>
                     <h2 className="text-2xl font-bold text-gray-900">Third-Party Services and Development Tools</h2>
                   </div>
                   <div className="prose max-w-none">
@@ -510,13 +528,12 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              
           </div>
         )}
-
+        </div>
         <div className="max-w-x1 mx-auto px-4 sm:px-6 lg:px-8 my-8 mb-12">
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-md">
+          <div className="bg-yellow-500/20 border-l-4 border-blue-500/500 p-4 rounded-md backdrop-blur-sm">
             <div className="flex">
               <div className="flex-shrink-0">
                 <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
@@ -524,8 +541,8 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                 </svg>
               </div>
               <div className="ml-3">
-                <h4 className="text-sm font-medium text-blue-800">Legal Information Inquiries</h4>
-                <div className="mt-2 text-sm text-blue-700">
+                <h4 className="text-sm font-medium text-blue-500">Legal Information Inquiries</h4>
+                <div className="mt-2 text-sm text-blue-500">
                   <p>For any questions, concerns or inquiries regarding legal information, please consult a qualified legal professional or refer to official government websites for accurate guidance.</p>
                   <p className="mt-2">If you believe any legal information on this page requires updating, please contact me.</p>
                 </div>
