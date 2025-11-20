@@ -114,48 +114,59 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-3 rounded-full text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg backdrop-blur-sm border border-white/20 transition-all duration-200"
               aria-expanded={isMobileMenuOpen}
+              style={{
+                width: '44px',
+                height: '44px'
+              }}
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">{isMobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
               {isMobileMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
+                <X className="block h-5 w-5" aria-hidden="true" />
               ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
+                <Menu className="block h-5 w-5" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden">
-          <div className="pt-2 pb-3 space-y-1 px-4 sm:px-6">
-            {navigationItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeSection === item.id;
-              const colorClasses = isActive 
-                ? `bg-${item.color}-50 border-l-4 border-${item.color}-500 text-${item.color}-700` 
-                : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800';
-              
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleMobileNavClick(item.id)}
-                  disabled={disabledNav}
-                  className={`${colorClasses} block w-full text-left pl-3 pr-4 py-3 text-base font-medium transition-colors duration-200`}
-                >
-                  <div className="flex items-center space-x-3">
-                    <Icon className="h-5 w-5" />
-                    <span>{item.name}</span>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+      {/* Mobile menu panel */}
+      <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+        isMobileMenuOpen ? 'max-h-96' : 'max-h-0'
+      }`}>
+        <div className="px-4 pt-2 pb-4 space-y-2 bg-slate-900/95 backdrop-blur-sm border-t border-white/10">
+          {navigationItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.id;
+            
+            return (
+              <button
+                key={item.id}
+                onClick={() => {
+                  handleMobileNavClick(item.id);
+                  setIsMobileMenuOpen(false);
+                }}
+                disabled={disabledNav}
+                className={`w-full text-left px-4 py-3 rounded-md text-base font-medium ${
+                  isActive 
+                    ? 'bg-indigo-600 text-white' 
+                    : 'text-white hover:bg-white/10'
+                } transition-colors flex items-center gap-3`}
+              >
+                <Icon className="h-5 w-5 flex-shrink-0" />
+                <span className="truncate">{item.name}</span>
+                {item.isNew && (
+                  <span className="ml-auto bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
+                    NEW
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
-      )}
+      </div>
     </header>
     
     {/* Animated Gradient Divider & Progress Indicator */}

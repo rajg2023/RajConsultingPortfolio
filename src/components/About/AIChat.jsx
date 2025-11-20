@@ -5,7 +5,7 @@ const AIChat = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi! I'm Raj's AI assistant. Ask me anything about his experience, skills, or projects!",
+      text: "Hi! I'm Raj's AI assistant ViRe. Ask me anything about his experience, skills, or projects!",
       sender: 'ai'
     }
   ]);
