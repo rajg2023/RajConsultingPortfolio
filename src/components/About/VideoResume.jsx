@@ -492,11 +492,7 @@ const VideoResume = () => {
                 </div>
               </div>
 
-              <div className="flex-1 px-4">
-                <h3 className="text-sm font-medium text-white truncate">
-                  {currentVideo.title} • {currentVideoIndex + 1} of {videos.length}
-                </h3>
-              </div>
+              
 
               <div className="flex items-center space-x-1">
                 <button
@@ -534,10 +530,13 @@ const VideoResume = () => {
 
           {showControls && (
             <div className="absolute top-4 right-4 bg-black/70 text-white/80 text-xs px-2 py-1 rounded-md backdrop-blur-sm">
-              <span className="font-mono">Space</span> Play/Pause •
-              <span className="font-mono ml-1">F</span> Fullscreen •
-              <span className="font-mono ml-1">M</span> Mute
+               <div className="flex-1 px-4">
+                <h3 className="text-sm font-medium text-white truncate">
+                  {currentVideo.title} • {currentVideoIndex + 1} of {videos.length}
+                </h3>
+              </div>
             </div>
+            
           )}
         </div>
 
