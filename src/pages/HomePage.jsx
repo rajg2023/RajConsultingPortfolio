@@ -246,7 +246,7 @@ const HomePage = () => {
         <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
           <div className="flex items-center justify-between py-3">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <span className="font-medium">Current Section:</span>
+              <span className="font-medium"></span>
               <span className="font-semibold text-gray-800 capitalize bg-white px-3 py-1 rounded-full shadow-sm">
                 {navigationItems.find(item => item.id === activeSection)?.name || 'Home'}
               </span>

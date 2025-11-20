@@ -54,11 +54,11 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
 
   return (
     <>
-      <header className="relative bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 shadow-lg sticky top-0 z-50 w-screen left-0 right-0">
+      <header className="relative bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 shadow-lg sticky top-0 z-50 w-full overflow-x-clip">
         {/* Night sky background */}
-        <div className="absolute inset-0 w-screen">
+        <div className="absolute inset-0 w-full">
           {/* Deep space gradient */}
-          <div className="absolute inset-0 w-screen bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900"></div>
+          <div className="absolute inset-0 w-full bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900"></div>
           
           {/* Subtle stars in header */}
           <div className="absolute inset-0 opacity-50">
@@ -74,17 +74,17 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
             <div className="absolute top-5 right-16 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{animationDelay: '1.8s', animationDuration: '3s'}}></div>
           </div>
         </div>
-        <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
-            <div className="flex flex-nowrap justify-between h-16 items-center overflow-x-auto overflow-y-hidden">
-          {/* Logo/Name */}
-          <div className="flex-shrink-0 flex items-center">
-            <h1 className="text-lg sm:text-xl font-bold text-white">
+        <div className="w-full max-w-[100%] mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+            <div className="flex justify-between h-16 items-center w-full">
+          {/* Logo/Name - Truncate on small screens */}
+          <div className="flex-shrink-0 flex items-center max-w-[calc(100%-44px)] sm:max-w-[calc(100%-50px)]">
+            <h1 className="text-sm sm:text-base md:text-lg font-bold text-white truncate pr-1">
               {resumeData?.name || 'WIP{Raj Technology Consulting (RTC)}'}
             </h1>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-2 flex-nowrap min-w-0">
+          {/* Desktop Navigation - Shows on 1024px and above */}
+          <nav className="hidden lg:flex space-x-2 flex-nowrap">
             {navigationItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
@@ -95,9 +95,9 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
                   <button
                     onClick={() => handleClick(item.id)}
                     disabled={disabledNav}
-                    className={`${colorClasses} px-4 py-2 text-sm sm:text-base font-medium rounded-lg transition-all duration-200 flex items-center space-x-2`}
+                    className={`${colorClasses} px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center space-x-2`}
                   >
-                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <Icon className="h-4 w-4" />
                     <span>{item.name}</span>
                   </button>
                   {item.isNew && (
@@ -110,8 +110,8 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
             })}
           </nav>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex-shrink-0">
+          {/* Mobile menu button - Shows below 1024px */}
+          <div className="lg:hidden flex-shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="inline-flex items-center justify-center p-3 rounded-full text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg backdrop-blur-sm border border-white/20 transition-all duration-200"
