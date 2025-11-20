@@ -54,11 +54,11 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
 
   return (
     <>
-      <header className="relative bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 shadow-lg sticky top-0 z-50 w-full overflow-hidden">
+      <header className="relative bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 shadow-lg sticky top-0 z-50 w-screen left-0 right-0">
         {/* Night sky background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 w-screen">
           {/* Deep space gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900"></div>
+          <div className="absolute inset-0 w-screen bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900"></div>
           
           {/* Subtle stars in header */}
           <div className="absolute inset-0 opacity-50">
@@ -75,7 +75,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
           </div>
         </div>
         <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
-            <div className="flex justify-between h-14 items-center">
+            <div className="flex flex-nowrap justify-between h-16 items-center overflow-x-auto overflow-y-hidden">
           {/* Logo/Name */}
           <div className="flex-shrink-0 flex items-center">
             <h1 className="text-lg sm:text-xl font-bold text-white">
@@ -84,7 +84,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-2">
+          <nav className="hidden md:flex space-x-2 flex-nowrap min-w-0">
             {navigationItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
@@ -111,7 +111,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
           </nav>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="inline-flex items-center justify-center p-3 rounded-full text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg backdrop-blur-sm border border-white/20 transition-all duration-200"

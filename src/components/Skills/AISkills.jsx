@@ -61,6 +61,16 @@ const AISkills = () => {
 
     },
     {
+      name: 'Google AI Studio',
+      description: 'Comprehensive AI development platform by Google for building, training, and deploying machine learning models.',
+      useCase: 'End-to-end ML model development, from data preparation to deployment and monitoring.',
+    },
+    {
+      name: 'Cursor',
+      description: 'AI-powered code editor with built-in AI assistance for writing, debugging, and optimizing code.',
+      useCase: 'Software development with AI pair programming and code completion.',
+    },
+    {
       name: 'Claude AI',
       description: 'AI assistant focused on helpful, harmless, and honest interactions with strong reasoning capabilities.',
       useCase: 'Content analysis, summarization, and ethical AI applications.',
@@ -147,8 +157,8 @@ const AISkills = () => {
               <div>
                 <p className="font-medium">Note about AI/LLM Tools:</p>
                 <p className="text-sm">
-                  The AI/LLM platforms and tools listed below are showcased as part of my technical skills and experience.
-                  This is not an endorsement of any specific tool or model. Each tool is subject to its respective company's
+                  The AI/LLM platforms and tools listed below are showcased as part of my technical skills and experience. AI/LLM platforms and tools
+                  will be added upon completion of learning.This is not an endorsement of any specific tool or model. Each tool is subject to its respective company's
                   terms of service and usage policies. For more information about any of these tools or to discuss how they
                   might be implemented in your project, please feel free to reach out to me.
                 </p>
