@@ -54,7 +54,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
 
   return (
     <>
-      <header className="relative bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 shadow-lg sticky top-0 z-50 w-full overflow-x-clip">
+      <header className="relative bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 shadow-lg sticky top-0 z-50 w-full overflow-visible">
         {/* Night sky background */}
         <div className="absolute inset-0 w-full">
           {/* Deep space gradient */}
@@ -74,12 +74,12 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
             <div className="absolute top-5 right-16 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{animationDelay: '1.8s', animationDuration: '3s'}}></div>
           </div>
         </div>
-        <div className="w-full max-w-[100%] mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
-            <div className="flex justify-between h-16 items-center w-full">
-          {/* Logo/Name - Truncate on small screens */}
-          <div className="flex-shrink-0 flex items-center max-w-[calc(100%-44px)] sm:max-w-[calc(100%-50px)]">
-            <h1 className="text-sm sm:text-base md:text-lg font-bold text-white truncate pr-1">
-              {resumeData?.name || 'WIP{Raj Technology Consulting (RTC)}'}
+        <div className="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 w-full relative">
+          {/* Logo/Name - Always visible */}
+          <div className="flex-shrink-0 z-10 bg-gradient-to-r from-slate-950 to-indigo-950/50 pr-4 -ml-2 rounded-r-lg">
+            <h1 className="text-base sm:text-lg font-bold text-white whitespace-nowrap overflow-visible">
+              {resumeData?.name || 'WIP[RTC]'}
             </h1>
           </div>
 
@@ -111,7 +111,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
           </nav>
 
           {/* Mobile menu button - Shows below 1024px */}
-          <div className="lg:hidden flex-shrink-0">
+          <div className="lg:hidden flex-shrink-0 ml-2 z-10">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="inline-flex items-center justify-center p-3 rounded-full text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg backdrop-blur-sm border border-white/20 transition-all duration-200"
