@@ -15,7 +15,7 @@ const RESUME_DATA = [
   },
   {
     id: 'sdet',
-    title: 'SDET (Software Development Engineer in Test)',
+    title: 'Software Development Engineer in Test',
     description: 'Skilled in developing automated test frameworks and ensuring software quality through code.',
     file: 'resume/Rajiv_Giri_SDET_Resume.docx',
     htmlFile: '/resume/Rajiv_Giri_SDET_Resume.html',
@@ -70,7 +70,7 @@ const ResumeCard = ({ resume, isSelected, onSelect }) => {
         hover: 'hover:bg-blue-100',
         selected: 'ring-2 ring-offset-1 ring-blue-500 bg-blue-100'
       },
-      'SDET': { 
+      'Software Development Engineer in Test': {
         bg: 'bg-green-50', 
         border: 'border-green-200', 
         text: 'text-green-700', 
