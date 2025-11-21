@@ -1,9 +1,11 @@
 // src/components/Footer.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useBuildInfo } from '../hooks/useBuildInfo';
 
 const Footer = () => {
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
   const { formattedDate, githubUsername, isLoading } = useBuildInfo();
 
@@ -66,6 +68,7 @@ const Footer = () => {
               <Link to="/legal/security" className="hover:text-gray-200 transition-colors">Data Security</Link>
               <Link to="/legal/thirdParty" className="hover:text-gray-200 transition-colors">Third-Party Services</Link>
               <Link to="/legal/professionalServicesPolicy" className="hover:text-gray-200 transition-colors">Professional Services</Link>
+              
             </div>
             
             {/* Centered copyright */}

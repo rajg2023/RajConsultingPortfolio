@@ -51,6 +51,8 @@ const App = () => {
             <Route path="/test-error" element={<TestError />} />
             <Route path="/RajConsultingPortfolio" element={<Navigate to="/" replace />} />
             <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="/contact" element={<Navigate to="/" replace />} />
+            
           </Routes>
         </Suspense>
       </ThemeProvider>

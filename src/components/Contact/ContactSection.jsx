@@ -12,7 +12,8 @@ import {
   Briefcase,
   UserPlus,
   Clock,
-  FileText
+  FileText,
+  PhoneCallIcon
 } from 'lucide-react';
 
 const ContactSection = () => {
@@ -101,7 +102,7 @@ const ContactSection = () => {
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
                 <span className="text-green-700 font-medium">Email:</span>
-                <span className="text-green-600 ml-2">Within 24 to 72 hours, depending on the urgency and availability.</span>
+                <span className="text-green-600 ml-2">I will try my best to response within 24 to 72 hours, depending on the urgency and availability.</span>
               </div>
               <div>
                 <span className="text-green-700 font-medium">Phone:</span>
@@ -198,25 +199,24 @@ const ContactSection = () => {
 
             <button
               onClick={() => {
-    if (isVerified) {
-      setDirectContactEnabled(true);
-      setActiveContact('Direct Contact');
-      // Reset verification for next time
-      setIsVerified(false);
-    }
-  }}
-  disabled={!isVerified}
-  className={`px-8 py-3 rounded-lg flex items-center mx-auto font-medium ${
-    isVerified
-      ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-  } transition-colors`}
->
-  <Calendar size={20} className="mr-2" />
-  Schedule a Call to Discuss
+                if (isVerified) {
+                  setDirectContactEnabled(true);
+                  setActiveContact('Direct Contact');
+                  // Reset verification for next time
+                  setIsVerified(false);
+                }
+              }}
+              disabled={!isVerified}
+              className={`px-8 py-3 rounded-lg flex items-center mx-auto font-medium ${isVerified
+                  ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                } transition-colors`}
+            >
+              <Calendar size={20} className="mr-2" />
+              Schedule a Call to Discuss
             </button>
             <p className="text-gray-500 text-sm mt-3">
-              No commitment required • Please send the detailed job description via email or phone. I'll respond within 24-48 hours.
+              No commitment required • Please send the detailed job description via email or phone. I'll try my best to respond within 24-48 hours.
             </p>
           </div>
         </div>
@@ -307,25 +307,24 @@ const ContactSection = () => {
 
             <button
               onClick={() => {
-    if (isVerified) {
-      setDirectContactEnabled(true);
-      setActiveContact('Direct Contact');
-      // Reset verification for next time
-      setIsVerified(false);
-    }
-  }}
-  disabled={!isVerified}
-  className={`px-8 py-3 rounded-lg flex items-center mx-auto font-medium ${
-    isVerified
-      ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-  } transition-colors`}
->
-  <Calendar size={20} className="mr-2" />
-  Schedule a Call to Discuss
+                if (isVerified) {
+                  setDirectContactEnabled(true);
+                  setActiveContact('Direct Contact');
+                  // Reset verification for next time
+                  setIsVerified(false);
+                }
+              }}
+              disabled={!isVerified}
+              className={`px-8 py-3 rounded-lg flex items-center mx-auto font-medium ${isVerified
+                  ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                } transition-colors`}
+            >
+              <Calendar size={20} className="mr-2" />
+              Schedule a Call to Discuss
             </button>
             <p className="text-gray-500 text-sm mt-3">
-              No commitment required • First 30 minutes consultation is free. I'll respond within 24-48 hours.
+              No commitment required • First 30 minutes consultation is free. I'll try my best to respond within 24-48 hours.
             </p>
           </div>
         </div>
@@ -333,8 +332,106 @@ const ContactSection = () => {
       icon_bg: 'bg-purple-50',
       icon_text: 'text-purple-600',
       border: 'border-purple-200'
+    },
+
+    'General Inquries': {
+      title: 'Have questions about website or general inquries',
+      description: 'Please reach out to the me and let me knwo how I can help.',
+      icon: PhoneCallIcon,
+      color: 'orange',
+      content: (
+        <div className="space-y-8">
+          <div className="text-center">
+            <div className="bg-orange-100 p-6 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+              <PhoneCallIcon className="text-orange-600" size={32} />
+            </div>
+            <h4 className="text-2xl font-semibold text-gray-900 mb-4">Please Contact</h4>
+          </div>
+
+
+          <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+            <h4 className="font-semibold text-green-900 mb-3">Please contact me if there is:</h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="flex items-center text-purple-700">
+                <CheckCircle size={16} className="mr-2 text-purple-600" />
+                Website feedback or suggestions
+              </div>
+              <div className="flex items-center text-purple-700">
+                <CheckCircle size={16} className="mr-2 text-purple-600" />
+                Technical issues, bugs or new requirements
+              </div>
+              <div className="flex items-center text-purple-700">
+                <CheckCircle size={16} className="mr-2 text-purple-600" />
+                Accessibility concerns
+              </div>
+              <div className="flex items-center text-purple-700">
+                <CheckCircle size={16} className="mr-2 text-purple-600" />
+                Content inaccuracies
+              </div>
+              <div className="flex items-center text-purple-700">
+                <CheckCircle size={16} className="mr-2 text-purple-600" />
+                Partnership or collaboration opportunities
+              </div>
+              <div className="flex items-center text-purple-700">
+                <CheckCircle size={16} className="mr-2 text-purple-600" />
+                Any other inquiries not covered in specific sections
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-4">
+              <input
+                id="verifyCheckbox"
+                type="checkbox"
+                checked={isVerified}
+                onChange={(e) => setIsVerified(e.target.checked)}
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+              />
+              <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
+                I agree to the{' '}
+                <a
+                  href="/legal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 hover:underline"
+                >
+                  Terms and Conditions
+                </a>
+              </label>
+            </div>
+
+            <button
+              onClick={() => {
+                if (isVerified) {
+                  setDirectContactEnabled(true);
+                  setActiveContact('Direct Contact');
+                  // Reset verification for next time
+                  setIsVerified(false);
+                }
+              }}
+              disabled={!isVerified}
+              className={`px-8 py-3 rounded-lg flex items-center mx-auto font-medium ${isVerified
+                  ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                } transition-colors`}
+            >
+              <Calendar size={20} className="mr-2" />
+              Contact Me
+            </button>
+            <p className="text-gray-500 text-sm mt-3">
+              I'll try my best to respond within 24-48 hours.
+            </p>
+          </div>
+        </div>
+      ),
+      icon_bg: 'bg-orange-50',
+      icon_text: 'text-orange-600',
+      border: 'border-orange-200'
     }
   };
+
+
 
   const contactNames = Object.keys(contactMethods);
   const currentContact = contactMethods[activeContact];
@@ -345,7 +442,8 @@ const ContactSection = () => {
       blue: active ? 'bg-blue-500 text-white shadow-lg' : 'bg-blue-50 text-blue-600 border border-blue-200 hover:bg-blue-100',
       green: active ? 'bg-green-500 text-white shadow-lg' : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100',
       purple: active ? 'bg-purple-500 text-white shadow-lg' : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100',
-      indigo: active ? 'bg-indigo-500 text-white shadow-lg' : 'bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100'
+      indigo: active ? 'bg-indigo-500 text-white shadow-lg' : 'bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100',
+      orange: active ? 'bg-orange-500 text-white shadow-lg' : 'bg-orange-50 text-orange-600 border border-orange-200 hover:bg-orange-100'
     };
     return colorMap[color];
   };
@@ -366,10 +464,10 @@ const ContactSection = () => {
                 key={contactName}
                 onClick={() => handleTabClick(contactName)}
                 className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${isActive
-                    ? getColorClasses(contact.color, true)
-                    : isDisabled
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : getColorClasses(contact.color, false)
+                  ? getColorClasses(contact.color, true)
+                  : isDisabled
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    : getColorClasses(contact.color, false)
                   }`}
                 disabled={isDisabled}
               >

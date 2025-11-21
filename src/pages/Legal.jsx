@@ -9,6 +9,10 @@ const Legal = ({ defaultSection = 'privacy' }) => {
 
   // Handle URL changes and set active section
   useEffect(() => {
+    window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Adds smooth scrolling
+    });
     const pathParts = location.pathname.split('/');
     const sectionFromUrl = pathParts[pathParts.length - 1];
 
