@@ -168,6 +168,8 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
         </div>
       </div>
     </header>
+    
+    
     </>
   );
 };

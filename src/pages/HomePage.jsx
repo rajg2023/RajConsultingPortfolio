@@ -28,7 +28,7 @@ const HomePage = ({ activeSection, setActiveSection }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const location = useLocation();
-  
+
   // Fetch resume data
   useEffect(() => {
     const fetchResumeData = async () => {
@@ -50,7 +50,7 @@ const HomePage = ({ activeSection, setActiveSection }) => {
 
     fetchResumeData();
   }, []);
-  
+
   // Handle direct navigation to sections
   useEffect(() => {
     const target = location.state?.section;
@@ -70,7 +70,7 @@ const HomePage = ({ activeSection, setActiveSection }) => {
           <div className="text-red-500 text-4xl mb-4">⚠️</div>
           <h2 className="text-xl font-semibold text-gray-800 mb-2">Error Loading Content</h2>
           <p className="text-gray-600 mb-4">{error}</p>
-          <button 
+          <button
             onClick={() => window.location.reload()}
             className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
           >
@@ -83,10 +83,10 @@ const HomePage = ({ activeSection, setActiveSection }) => {
 
   const renderSection = () => {
     if (!resumeData && !loading && !error) return null;
-     
+
     const section = activeSection || 'home'; // Default to 'home' if undefined
-    
-    switch(section) {
+
+    switch (section) {
       case 'home':
         return <AboutSection resumeData={resumeData} isLoading={loading} error={error} />;
       case 'skills':
@@ -129,45 +129,45 @@ const HomePage = ({ activeSection, setActiveSection }) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      
-      
+
+
       {/* Dynamic Quote/Motto Banner */}
       <div className="relative bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 text-white overflow-hidden">
         {/* Night sky background with stars */}
         <div className="absolute inset-0">
           {/* Deep space gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950"></div>
-          
+
           {/* Twinkling stars */}
           <div className="absolute inset-0">
             {/* Small stars */}
-            <div className="absolute top-8 left-12 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0s', animationDuration: '2s'}}></div>
-            <div className="absolute top-16 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.5s', animationDuration: '3s'}}></div>
-            <div className="absolute top-6 right-16 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1s', animationDuration: '2.5s'}}></div>
-            <div className="absolute top-20 right-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.5s', animationDuration: '2s'}}></div>
-            <div className="absolute top-12 left-1/2 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '2s', animationDuration: '3s'}}></div>
-            <div className="absolute bottom-20 left-20 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.3s', animationDuration: '2.8s'}}></div>
-            <div className="absolute bottom-12 right-24 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.2s', animationDuration: '2.2s'}}></div>
-            <div className="absolute bottom-16 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.8s', animationDuration: '3.2s'}}></div>
-            
+            <div className="absolute top-8 left-12 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0s', animationDuration: '2s' }}></div>
+            <div className="absolute top-16 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '3s' }}></div>
+            <div className="absolute top-6 right-16 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1s', animationDuration: '2.5s' }}></div>
+            <div className="absolute top-20 right-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '2s' }}></div>
+            <div className="absolute top-12 left-1/2 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2s', animationDuration: '3s' }}></div>
+            <div className="absolute bottom-20 left-20 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.3s', animationDuration: '2.8s' }}></div>
+            <div className="absolute bottom-12 right-24 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.2s', animationDuration: '2.2s' }}></div>
+            <div className="absolute bottom-16 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.8s', animationDuration: '3.2s' }}></div>
+
             {/* Medium stars */}
-            <div className="absolute top-4 left-8 w-2 h-2 bg-white/80 rounded-full animate-pulse" style={{animationDelay: '0.2s', animationDuration: '2.5s'}}></div>
-            <div className="absolute top-24 right-12 w-2 h-2 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '1.8s', animationDuration: '2s'}}></div>
-            <div className="absolute bottom-8 left-16 w-2 h-2 bg-white/90 rounded-full animate-pulse" style={{animationDelay: '0.6s', animationDuration: '3s'}}></div>
-            
+            <div className="absolute top-4 left-8 w-2 h-2 bg-white/80 rounded-full animate-pulse" style={{ animationDelay: '0.2s', animationDuration: '2.5s' }}></div>
+            <div className="absolute top-24 right-12 w-2 h-2 bg-white/70 rounded-full animate-pulse" style={{ animationDelay: '1.8s', animationDuration: '2s' }}></div>
+            <div className="absolute bottom-8 left-16 w-2 h-2 bg-white/90 rounded-full animate-pulse" style={{ animationDelay: '0.6s', animationDuration: '3s' }}></div>
+
             {/* Large bright star */}
-            <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white rounded-full animate-pulse shadow-lg shadow-white/50" style={{animationDelay: '0.4s', animationDuration: '2.3s'}}></div>
-            
+            <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white rounded-full animate-pulse shadow-lg shadow-white/50" style={{ animationDelay: '0.4s', animationDuration: '2.3s' }}></div>
+
             {/* Shooting star effect */}
-            <div className="absolute top-10 left-10 w-20 h-0.5 bg-gradient-to-r from-white/60 to-transparent animate-slide-x" style={{animationDelay: '3s', animationDuration: '4s'}}></div>
-            <div className="absolute bottom-16 right-20 w-16 h-0.5 bg-gradient-to-l from-white/40 to-transparent animate-slide-x" style={{animationDelay: '5s', animationDuration: '3s'}}></div>
-            
+            <div className="absolute top-10 left-10 w-20 h-0.5 bg-gradient-to-r from-white/60 to-transparent animate-slide-x" style={{ animationDelay: '3s', animationDuration: '4s' }}></div>
+            <div className="absolute bottom-16 right-20 w-16 h-0.5 bg-gradient-to-l from-white/40 to-transparent animate-slide-x" style={{ animationDelay: '5s', animationDuration: '3s' }}></div>
+
             {/* Nebula effect */}
-            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
-            <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s', animationDuration: '5s'}}></div>
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+            <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
           </div>
         </div>
-        
+
         {/* Quote content */}
         <div className="relative z-10 w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 py-8">
           <div className="text-center">
@@ -175,11 +175,11 @@ const HomePage = ({ activeSection, setActiveSection }) => {
             <div className="flex justify-center mb-4">
               <div className="p-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                 <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
             </div>
-            
+
             {/* Dynamic quote text */}
             <div className="mb-6">
               <p className="text-xl md:text-2xl lg:text-3xl font-light italic text-white/90 leading-relaxed">
@@ -196,79 +196,104 @@ const HomePage = ({ activeSection, setActiveSection }) => {
                     "Simplicity is the ultimate sophistication in design.",
                     "Future-proof solutions for today's challenges."
                   ];
-                  
+
                   // Use activeSection to select motto, or rotate based on time
                   const mottoIndex = navigationItems.findIndex(item => item.id === activeSection) % mottoes.length;
-                  
+
                   return mottoes[mottoIndex];
                 })()}
               </p>
             </div>
-            
+
             {/* Simple divider instead of author attribution */}
             <div className="flex items-center justify-center mb-6">
               <div className="h-px bg-white/30 w-16"></div>
               <div className="mx-3 text-white/50 text-sm">✦</div>
               <div className="h-px bg-white/30 w-16"></div>
             </div>
-            
-            {/* Section context */}
-            <div className="mt-6 flex items-center justify-center space-x-4">
-              <div className="flex items-center space-x-2 text-xs text-white/60 uppercase tracking-wide">
-                <span>Currently exploring:</span>
-                <span className="font-semibold text-white/80">
-                  {navigationItems.find(item => item.id === activeSection)?.name || 'Home'}
-                </span>
-              </div>
-            </div>
+
+
           </div>
         </div>
-        
+
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-gray-500 to-transparent"></div>
       </div>
-      
-       {/* Main Content */}
+      {/* Progress Indicator */}
+      {/* Progress Dots - Full width on mobile, auto width on larger screens */}
+
+
+
+      {/* Progress Indicator - Simplified */}
+      <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-indigo-50 border-b border-gray-100 shadow-sm">
+
+        <div className="py-4">
+          {/* Centered Page Title with Progress Indicator */}
+          {/* Simple Title Bar */}
+          {/* Simple Title Bar */}
+<div className={`backdrop-blur-sm border-b border-gray-200 shadow-sm sticky top-0 z-20 ${
+  activeSection === 'home' ? 'bg-blue-50/80' :
+  activeSection === 'skills' ? 'bg-green-50/80' :
+  activeSection === 'services' ? 'bg-purple-50/80' :
+  activeSection === 'projects' ? 'bg-orange-50/80' :
+  activeSection === 'experience' ? 'bg-cyan-50/80' :
+  activeSection === 'education' ? 'bg-emerald-50/80' :
+  activeSection === 'contact' ? 'bg-rose-50/80' :
+  'bg-white/80'
+}`}>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <div className="flex items-center justify-center">
+      <h2 className={`text-lg font-semibold flex items-center space-x-2 ${
+        activeSection === 'home' ? 'text-blue-800' :
+        activeSection === 'skills' ? 'text-green-800' :
+        activeSection === 'services' ? 'text-purple-800' :
+        activeSection === 'projects' ? 'text-orange-800' :
+        activeSection === 'experience' ? 'text-cyan-800' :
+        activeSection === 'education' ? 'text-emerald-800' :
+        activeSection === 'contact' ? 'text-rose-800' :
+        'text-gray-800'
+      }`}>
+        <span className={`w-2.5 h-2.5 rounded-full animate-pulse ${
+          activeSection === 'home' ? 'bg-blue-500' :
+          activeSection === 'skills' ? 'bg-green-500' :
+          activeSection === 'services' ? 'bg-purple-500' :
+          activeSection === 'projects' ? 'bg-orange-500' :
+          activeSection === 'experience' ? 'bg-cyan-500' :
+          activeSection === 'education' ? 'bg-emerald-500' :
+          activeSection === 'contact' ? 'bg-rose-500' :
+          'bg-blue-500'
+        }`}></span>
+        <span>{navigationItems.find(item => item.id === activeSection)?.name || 'Home'}</span>
+      </h2>
+    </div>
+  </div>
+</div>
+          <div className="relative">
+            {/* Progress Bar Background */}
+            <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 transition-all duration-500"
+                style={{
+                  width: `${((navigationItems.findIndex(item => item.id === activeSection) + 1) / navigationItems.length) * 100}%`
+                }}
+              ></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      {/* Main Content */}
       <main className="flex-grow">
         <Suspense fallback={<LoadingSpinner />}>
           {renderSection()}
         </Suspense>
       </main>
-      
-      {/* Animated Gradient Divider & Progress Indicator */}
-      <div className="relative h-2 bg-gradient-to-r from-transparent via-blue-500/20 to-purple-500/20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-pulse opacity-30"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-slide-x"></div>
-      </div>
-      
-      {/* Progress Indicator */}
-      <div className="bg-gray-50 border-b border-gray-100 shadow-sm">
-        <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
-          <div className="flex items-center justify-between py-3">
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <span className="font-medium"></span>
-              <span className="font-semibold text-gray-800 capitalize bg-white px-3 py-1 rounded-full shadow-sm">
-                {navigationItems.find(item => item.id === activeSection)?.name || 'Home'}
-              </span>
-            </div>
-            <div className="flex items-center space-x-2">
-              {navigationItems.map((item, index) => {
-                const isActive = activeSection === item.id;
-                const isCompleted = navigationItems.findIndex(nav => nav.id === activeSection) > index;
-                return (
-                  <div
-                    key={item.id}
-                    className={`h-2 w-10 rounded-full transition-all duration-300 ${
-                      isActive ? 'bg-blue-500 shadow-md scale-110' : isCompleted ? 'bg-green-400' : 'bg-gray-200'
-                    }`}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-    
+
+
+
     </div>
   );
 };

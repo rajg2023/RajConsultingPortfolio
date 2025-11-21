@@ -139,12 +139,23 @@ const Legal = ({ defaultSection = 'privacy' }) => {
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
-              <Link to="/" className="text-xl font-bold text-white hover:text-indigo-300 transition-colors">
-                WIP[RTC]
+              <Link
+                to="/"
+                className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/', { replace: true });
+                }}
+              >
+                <span className="font-bold">WIP[RTC]</span>
               </Link>
               <Link
                 to="/"
                 className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/', { replace: true });
+                }}
               >
                 Back to Home
               </Link>
@@ -156,7 +167,15 @@ const Legal = ({ defaultSection = 'privacy' }) => {
         {/* Page Title and Update Notice */}
         <div className="text-center mb-8 px-4 pt-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Legal Information</h1>
-          <p className="text-lg text-gray-600 mb-6">Last updated: {new Date().toLocaleDateString()}</p>
+          <p className="text-lg text-gray-600 mb-6">Last updated: {new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+          })}</p>
 
           {/* Update Notice Banner */}
           <div className="max-w-2x2 mx-auto bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md shadow-sm mb-8">
@@ -591,6 +610,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                   <p className="mb-4">
                     I believe in open communication about how data is collected and used. This disclosure is part of my ongoing effort to ensure you have a clear understanding of third-party data practices associated with this site.
                   </p>
+                  
                 </div>
               </div>
 
@@ -640,33 +660,45 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                     if the proposed work conflicts with my professional standards or existing commitments.
                   </p>
 
-                  <p className="text-sm text-gray-600 mt-8">
-                    Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </p>
                 </div>
               </div>
             </div>
           )}
 
         </div>
-        <div className="max-w-x1 mx-auto px-4 sm:px-6 lg:px-8 my-8 mb-12">
-          <div className="bg-yellow-500/20 border-l-4 border-blue-500/500 p-4 rounded-md backdrop-blur-sm">
-            <div className="flex">
-              <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <div className="ml-3">
-                <h4 className="text-sm font-medium text-blue-500">Legal Information Inquiries</h4>
-                <div className="mt-2 text-sm text-blue-500">
-                  <p>For any questions, concerns or inquiries regarding legal information, please consult a qualified legal professional or refer to official government websites for accurate guidance.</p>
-                  <p className="mt-2">If you believe any legal information on this page requires updating, please contact me.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-4x2 mx-auto px-4 sm:px-6 lg:px-8 my-12">
+  <div className="bg-blue-50/80 border-l-4 border-blue-600 p-6 rounded-lg shadow-sm backdrop-blur-sm">
+    <div className="flex">
+      <div className="flex-shrink-0">
+        <svg 
+          className="h-6 w-6 text-blue-600" 
+          viewBox="0 0 20 20" 
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path 
+            fillRule="evenodd" 
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" 
+            clipRule="evenodd" 
+          />
+        </svg>
+      </div>
+      <div className="ml-4">
+        <h4 className="text-base font-semibold text-gray-900">Legal Information Notice</h4>
+        <div className="mt-2 text-sm text-gray-900 space-y-3">
+          <p>
+            The information provided on this page is for general informational purposes only and does not constitute legal advice. For specific legal concerns, please consult with a qualified attorney or refer to official government resources.
+          </p>
+          <p>
+            While I strive to keep this information accurate and up-to-date, I cannot guarantee its completeness or applicability to your specific situation. If you identify any inaccuracies or require updates to the legal information presented, please don't hesitate to contact me.
+          </p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
       </div>
     </div>
   );

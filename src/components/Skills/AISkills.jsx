@@ -157,7 +157,7 @@ const AISkills = () => {
               <div>
                 <p className="font-medium">Note about AI/LLM Tools:</p>
                 <p className="text-sm">
-                  The AI/LLM platforms and tools listed below are showcased as part of my technical skills and experience. AI/LLM platforms and tools
+                  The AI/LLM platforms and tools listed below are showcased as part of my technical skills and experience. Additional AI/LLM platforms and tools
                   will be added upon completion of learning.This is not an endorsement of any specific tool or model. Each tool is subject to its respective company's
                   terms of service and usage policies. For more information about any of these tools or to discuss how they
                   might be implemented in your project, please feel free to reach out to me.
