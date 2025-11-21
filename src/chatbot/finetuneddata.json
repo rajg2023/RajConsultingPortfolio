@@ -1,0 +1,467 @@
+[
+  {
+    "instruction": "Who is Rajiv Giri?",
+    "input": "",
+    "output": "Rajiv Giri is a Digital and Technology Solutions specialist with over 9 years of experience in regulated healthcare operations and IT. He combines industry discipline with hands-on technical expertise, focusing on data accuracy, system reliability, and process optimization. He has 6+ years in pharmaceutical operations and 3+ years in IT, with skills in data validation, analysis, application support, quality assurance, and software development. He is actively seeking full-time, temporary, and contract opportunities while operating as an independent contractor during gaps and holidays."
+  },
+  {
+    "instruction": "What services does Rajiv Giri offer?",
+    "input": "",
+    "output": "Rajiv Giri offers services as a Quality Assurance Engineer, SDET (Software Development Engineer in Test), Business Systems Analyst, Application Support Engineer, Technical Consultant, Data Analyst, and AI Consultant. His services include comprehensive testing methodologies, test automation frameworks, business analysis, application support, technical consulting, data analysis, and AI/LLM consulting."
+  },
+  {
+    "instruction": "What are Rajiv's technical skills?",
+    "input": "",
+    "output": "Rajiv has over 50 technical skills across multiple domains. His technical expertise includes AI/ML platforms (OpenAI, ChatGPT, Hugging Face, Google Gemini, GitHub Copilot), programming languages, frameworks & testing tools (Selenium, JUnit, TestNG, Appium), databases, servers & OS, networking, and various other tools like Git, GitHub, AWS, Azure, Docker, VS Code, and Microsoft Office Suite. He also has domain knowledge in HIPAA Compliance, GRC, EHR Systems, Retail POS Systems, Banking Systems, and CRM Systems."
+  },
+  {
+    "instruction": "What projects has Rajiv worked on?",
+    "input": "",
+    "output": "Rajiv has worked on several key projects including: Google Data Analytics Capstone where he analyzed Fitbit data using SQL, Excel, R, BigQuery, and Tableau; Security GRC Issue and Exception Analysis supporting cybersecurity operations; OFSAA Data Configuration Analysis in the banking domain; CRM Solution Implementation managing cross-functional teams; POS Maintenance and Support for retail systems; Java Capstone Project developing a web application with DAO Factory Pattern; and a Desktop POS Application using Java Swing and PostgreSQL."
+  },
+  {
+    "instruction": "What is Rajiv's educational background?",
+    "input": "",
+    "output": "Rajiv holds a Bachelor of Arts in Humanities from the University of North Bengal (2004-2007). He completed intensive IT training including a Java Software Development Bootcamp at Cinci Code IT, QA Assurance Testing program at Per Scholas, and CompTIA A+ and Network+ technical support training (2016-2017). He also earned the Google Data Analytics Professional Certificate from Coursera in 2025."
+  },
+  {
+    "instruction": "What is Rajiv's work experience?",
+    "input": "",
+    "output": "Rajiv has 9+ years of experience. From 2024-2022, he worked as a Senior Analyst (Technology) contributing to client engagements in security GRC, data configuration analysis, and CRM implementation. From 2018-2017, he was a Technical Application Support Consultant providing POS application support. From 2017-2016, he worked as a Data Analyst focusing on data quality improvement and integration testing. From 2015-2009, he was a Certified Pharmacy Technician performing data-centric roles in pharmacy operations."
+  },
+  {
+    "instruction": "How can someone contact Rajiv Giri?",
+    "input": "",
+    "output": "Rajiv can be contacted directly via email at rajivgiri2025@gmail.com or by phone at (513) 834-3371. He also offers free consultation calls ranging from 15 to 60 minutes to discuss project requirements. Response times are typically within 24-72 hours for emails and phone calls are available Monday-Friday, 9AM-6PM. He can also be found online through LinkedIn and GitHub."
+  },
+  {
+    "instruction": "What certifications does Rajiv hold?",
+    "input": "",
+    "output": "Rajiv holds the Google Data Analytics Professional Certificate from Coursera (earned in 2025), which covers data cleaning, visualization, statistical analysis, SQL, Tableau, and R programming. He also has CompTIA A+ and Network+ certifications from his technical support training, and a QA Testing Certificate from Per Scholas."
+  },
+  {
+    "instruction": "What areas does Rajiv specialize in?",
+    "input": "",
+    "output": "Rajiv specializes in Quality Assurance Engineering, Software Development Engineer in Test (SDET), Business Systems Analysis, Application Support Engineering, Technical Consulting, Data Analysis, and AI/LLM Consulting. His core competencies include data accuracy, system reliability, process optimization, test automation, business analysis, application troubleshooting, and AI implementation."
+  },
+  {
+    "instruction": "Is Rajiv available for freelance work?",
+    "input": "",
+    "output": "Yes, Rajiv is actively seeking full-time, temporary, and contract opportunities. While he remains primarily committed to his full-time role, he also operates as an independent contractor during gaps and holidays, specializing in digital and technology solutions. He occasionally takes on freelance projects based on availability, always respecting his primary employer's priorities and maintaining client confidentiality."
+  },
+  {
+    "instruction": "What tools and platforms is Rajiv proficient with?",
+    "input": "",
+    "output": "Rajiv is proficient with numerous tools and platforms including: Git/GitHub, VS Code, Eclipse, AWS, Azure, Heroku, Docker, Selenium, Appium, JUnit, TestNG, JIRA, Confluence, Smartsheet, SQL, Tableau, Power BI, R, Python, Java, .NET, JavaScript, and various AI/LLM platforms like OpenAI, ChatGPT, Claude, Gemini, and Hugging Face. He also has experience with system monitoring tools like New Relic, Datadog, Splunk, and Grafana."
+  },
+  {
+    "instruction": "What industries has Rajiv worked in?",
+    "input": "",
+    "output": "Rajiv has worked primarily in regulated healthcare operations and IT industries. He has experience in pharmaceutical operations, retail pharmacy, banking/financial services (specifically with Oracle Financial Services Analytical Applications), cybersecurity/security GRC, and general technology consulting across various client engagements spanning 30+ clients."
+  },
+  {
+    "instruction": "What are Rajiv's career highlights?",
+    "input": "",
+    "output": "Rajiv's career highlights include completing the Google Data Analytics Professional Certificate from Coursera, assisting clients in resolving security issues/exceptions and validating data from TVM dashboards, building and maintaining RTMs for 500+ KDEs in OFSAA projects, requirement gathering and successful CRM implementations, providing POS application support with QA and patch management, performing ETL testing and data warehouse validation, and completing and deploying desktop, Android, and web applications using multiple technologies like Java, .NET, Python, and cloud platforms."
+  },
+  {
+    "instruction": "What is Rajiv's approach to quality assurance?",
+    "input": "",
+    "output": "Rajiv's approach to quality assurance involves implementing robust manual and test automation frameworks to accelerate testing cycles and improve coverage. He focuses on comprehensive test planning, case design, and execution strategies for complete coverage. His methodology includes requirement analysis, test planning, test design, test execution, defect management, and closure. He emphasizes disciplined, well-structured testing processes and is committed to delivering dependable results while continuously learning and applying best practices."
+  },
+  {
+    "instruction": "What is Rajiv's approach to SDET?",
+    "input": "",
+    "output": "Rajiv's approach to SDET involves designing and implementing scalable test automation frameworks for web, mobile, and API testing. He focuses on seamless integration with CI/CD pipelines for continuous testing and deployment using tools like GitHub Actions, Jenkins, and CircleCI. His SDET workflow includes framework design, test automation, CI/CD integration, performance testing, quality gates, and code quality maintenance. He is dedicated to building robust test automation solutions that enable faster releases without compromising quality."
+  },
+  {
+    "instruction": "What is Rajiv's approach to business systems analysis?",
+    "input": "",
+    "output": "Rajiv's approach to business systems analysis involves bridging the gap between business needs and technical solutions through comprehensive analysis and strategic planning. He focuses on eliciting, analyzing, and documenting business and technical requirements with precision. His methodology includes process optimization using BPMN, UML, and flowcharts, stakeholder analysis, requirements elicitation, solution design, data analysis, stakeholder communication, and solution validation. He combines deep technical expertise with strong business acumen to deliver measurable value."
+  },
+  {
+    "instruction": "What is Rajiv's approach to application support?",
+    "input": "",
+    "output": "Rajiv's approach to application support involves ensuring optimal application performance and reliability through proactive monitoring and rapid issue resolution. He focuses on incident management with rapid response to production issues, system health monitoring using tools like New Relic and Datadog, and following a complete support lifecycle including incident detection, root cause analysis, troubleshooting, resolution and recovery, and prevention. He believes in a proactive approach that focuses on both rapid issue resolution and long-term system stability."
+  },
+  {
+    "instruction": "What is Rajiv's approach to technical consulting?",
+    "input": "",
+    "output": "Rajiv's approach to technical consulting involves guiding organizations through technology decisions with strategic insight and technical expertise. He develops comprehensive technology roadmaps aligned with business objectives, designs and optimizes cloud-native solutions for scalability and cost-efficiency, and follows a consulting framework that includes needs assessment, solution design, implementation, infrastructure design, performance optimization, and continuous improvement. He emphasizes a collaborative, transparent approach that delivers practical, scalable solutions aligned with current needs and future growth."
+  },
+  {
+    "instruction": "What is Rajiv's approach to data analysis?",
+    "input": "",
+    "output": "Rajiv's approach to data analysis involves transforming raw data into actionable insights that drive informed business decisions. He follows a structured, hypothesis-driven approach that includes data collection from various sources, data cleaning and preprocessing, exploratory analysis to identify patterns, statistical analysis to validate findings, data visualization using tools like Tableau and Power BI, and reporting with documented findings and recommendations. He combines technical skills with business acumen to deliver clear, actionable insights that drive real business value."
+  },
+  {
+    "instruction": "What is Rajiv's approach to AI consulting?",
+    "input": "",
+    "output": "Rajiv's approach to AI consulting involves guiding businesses in leveraging AI and large language models to solve complex problems and drive innovation. He develops comprehensive AI strategies and implements solutions aligned with business objectives, focusing on LLM integration, chatbots, automation, and AI agents. His approach emphasizes responsible AI with a focus on ethics, bias mitigation, privacy, and compliance. He follows an AI project workflow including prompt engineering, RAG systems, model fine-tuning, AI safety, performance analysis, and deployment. He maintains transparency about his learning progress while committing to continuous learning in this rapidly evolving field."
+  },
+  {
+    "instruction": "What programming languages and frameworks is Rajiv experienced with?",
+    "input": "",
+    "output": "Rajiv has experience with multiple programming languages and frameworks including Java, .NET, Python, JavaScript, SQL, R, and PL/SQL. For testing frameworks, he uses Selenium, JUnit, TestNG, and Appium. He has worked with web development technologies including HTML, CSS, JSP, and servlets. He has experience with database technologies and has completed projects using PostgreSQL and Oracle databases. Additionally, he has worked with AI/ML frameworks and platforms including those from OpenAI, Google, and Hugging Face."
+  },
+  {
+    "instruction": "What cloud platforms and infrastructure tools has Rajiv worked with?",
+    "input": "",
+    "output": "Rajiv has worked with major cloud platforms including AWS, Azure, and Google Cloud Platform. He has experience with containerization tools like Docker and has basic knowledge of Kubernetes. For deployment and CI/CD, he has used GitHub Actions, Jenkins, and CircleCI. He has experience with Heroku for application deployment and has worked with virtualization tools like VirtualBox and VMware. His cloud and infrastructure experience includes designing and optimizing cloud-native solutions for scalability, security, and cost-efficiency."
+  },
+  {
+    "instruction": "What data analysis and visualization tools is Rajiv proficient in?",
+    "input": "",
+    "output": "Rajiv is proficient in data analysis and visualization tools including SQL, Python, R (with ggplot2), Excel, Tableau, Power BI, Looker, and D3.js. He has experience with BigQuery for large-scale data analysis and has completed the Google Data Analytics Professional Certificate, mastering data cleaning, analysis, visualization, and decision-making using these tools. He creates clear, impactful visualizations that communicate complex data insights effectively and has applied statistical methods to validate findings and test hypotheses."
+  },
+  {
+    "instruction": "What testing methodologies and tools has Rajiv used?",
+    "input": "",
+    "output": "Rajiv has extensive experience with testing methodologies including the Software Testing Lifecycle (STLC), Manual Testing, Test Automation, ETL Testing, Integration Testing, and User Acceptance Testing (UAT). He uses testing tools such as Selenium, JUnit, TestNG, Appium, UFT, and QTP. For test management, he works with JIRA and has experience with requirement analysis, test planning, test design, test execution, and defect management. He has performed root cause analysis, log analysis, and has implemented quality gates throughout the development lifecycle."
+  },
+  {
+    "instruction": "What project management and collaboration tools does Rajiv use?",
+    "input": "",
+    "output": "Rajiv uses project management and collaboration tools including JIRA, Confluence, Smartsheet, GitHub, and Microsoft Office Suite. He has experience with Agile/Scrum methodologies and has used these tools for stakeholder communication, documentation, task tracking, and project coordination. He has created and maintained Requirement Traceability Matrices (RTMs), Functional Specification Documents (FSDs), and Technical Design Documents (TDDs) using these platforms. He also uses communication tools like Google Workspace and has experience organizing meetings and facilitating cross-functional collaboration."
+  },
+  {
+    "instruction": "What compliance and domain knowledge does Rajiv possess?",
+    "input": "",
+    "output": "Rajiv possesses significant compliance and domain knowledge including HIPAA Compliance (70% proficiency), PHI Protection (75% proficiency), GRC (Governance, Risk & Compliance) (65% proficiency), Security GRC (70% proficiency), and EHR Systems (65% proficiency). He also has knowledge of Retail POS Systems (60% proficiency), Banking Systems (55% proficiency), and CRM Systems (70% proficiency). His domain expertise spans healthcare operations, pharmaceutical operations, financial services, retail systems, and cybersecurity, with a strong foundation in regulated environments."
+  },
+  {
+    "instruction": "What leadership and soft skills does Rajiv have?",
+    "input": "",
+    "output": "Rajiv has developed leadership and soft skills including Cross-functional Collaboration (90% proficiency), Effective Communication (90% proficiency), Public Speaking (70% proficiency), Critical Thinking (80% proficiency), Problem Solving (80% proficiency), Attention to Detail (80% proficiency), Time Management (88% proficiency), Eagerness to Learn (95% proficiency), Adaptability (90% proficiency), Initiative (88% proficiency), Mentoring & Coaching (55% proficiency), and Strategic Planning (30% proficiency). He demonstrates strong team leadership qualities and has mentored junior team members while showing high levels of motivation and continuous learning orientation."
+  },
+  {
+    "instruction": "What was Rajiv's role in the Google Data Analytics project?",
+    "input": "",
+    "output": "In the Google Data Analytics Capstone project, Rajiv analyzed Fitbit fitness tracker data to uncover trends in user activity and sleep patterns. He collected, cleaned, and analyzed Fitbit datasets for trends in activity and rest, using SQL, Excel, BigQuery, and R to process and visualize data. He identified weekend activity dips and correlation between exercise and sleep quality, created Tableau dashboards and visualizations with R ggplot2, formulated business recommendations for targeted marketing, ensured data consistency by validating inputs and handling missing records, and prepared a final presentation summarizing trends and business recommendations. This project was completed in 2025 as part of his Google Data Analytics Professional Certificate."
+  },
+  {
+    "instruction": "What did Rajiv do in the Security GRC Project?",
+    "input": "",
+    "output": "In the Security GRC Issue and Exception Analysis project (May 2023 - Jan 2024), Rajiv supported Security Governance, Risk, and Compliance operations by analyzing and resolving issues and exceptions raised by business stakeholders. He worked with the Security GRC team to evaluate stakeholder-submitted Issues and Exceptions, validated cybersecurity data across Threat Vulnerability Management dashboards, ensured precision in documentation of exceptions and approvals, contributed to streamlining security data approval processes, provided management with consistent data insights supporting remediation efforts, managed Jira/Confluence cases with accurate documentation tracking, and verified alignment of cases with organizational security standards. He collaborated with IT teams to enhance processing efficiency and quality controls."
+  },
+  {
+    "instruction": "What was Rajiv's contribution to the Bank Configuration Project?",
+    "input": "",
+    "output": "In the OFSAA Data Configuration Analysis project (Banking Domain) from October 2022 to March 2023, Rajiv supported the configuration and testing of data integrity within Oracle Financial Services Analytical Applications (OFSAA). He created and maintained RTMs for over 500 Key Data Elements (KDEs) using T2T mappings, converted FSD and TDD documents and migrated them into Confluence, validated backend data integrity through SQL queries and database verification, interacted with business teams for requirement clarification and handover layouts, identified discrepancies between data dictionaries and technical builds, ensured compliance with financial data governance standards, collaborated in automation of configuration testing workflows, and maintained synchronization between technical design and business requirements."
+  },
+  {
+    "instruction": "What was Rajiv's role in the CRM Implementation Project?",
+    "input": "",
+    "output": "In the CRM Solution Implementation project (May 2022 - Sep 2022), Rajiv worked as a Solution Implementation Manager, coordinating cross-functional teams to ensure seamless CRM deployment across customer operations. He collaborated with Sales, Customer Success, and Training teams to implement CRM solutions, used Smartsheet for project management, communication, and task tracking, monitored launch milestones ensuring on-time delivery and data migration success, facilitated stakeholder meetings to streamline implementation phases, identified workflow gaps and proposed improvements in CRM onboarding steps, assisted client teams during pilot phase and go-live preparation, and documented implementation best practices for future CRM rollouts."
+  },
+  {
+    "instruction": "What did Rajiv accomplish in the POS Support Project?",
+    "input": "",
+    "output": "In the POS Maintenance and Support project for retail (October 2017 - July 2018), Rajiv provided advanced support for retail Point-of-Sale systems, conducting troubleshooting, defect replication, and system optimization. He investigated and reproduced application issues using SQL queries and testing scripts, performed deep code reviews and analyzed application failure logs, tested code patches and validated updates in staging environments, collaborated with developers for defect root cause analysis and patch validation, documented technical findings using Jira and Confluence, ensured deployment readiness through regression and defect verification testing, and supported clients with issue resolution and stability improvements."
+  },
+  {
+    "instruction": "What was Rajiv's Java Capstone Project about?",
+    "input": "",
+    "output": "Rajiv's Java Capstone Project involved developing a dynamic web application as the final project of his Java Bootcamp, implementing the DAO Factory Pattern using PL/SQL backend. He developed a dynamic Java web application with servlets, JSP, and HTML front-end, implemented the DAO Factory pattern integrating PL/SQL with Java, created modules for users, divisions, stores, and sales with validation, built secure user authentication and session management features, documented system flow and data interactions between layers, followed Agile iterations for incremental development, and uploaded code and documentation to GitHub repository. The project ran from March 2017 to June 2017."
+  },
+  {
+    "instruction": "What did Rajiv create in the Java Desktop POS App project?",
+    "input": "",
+    "output": "In the Desktop POS Application project (Java Swing) from July 2018 to October 2018, Rajiv created a standalone POS desktop application using Java Swing and PostgreSQL database to simulate retail transactions. He designed the UI using Java Swing and JFrame components, built a local application requiring no servers using an embedded database, implemented transaction recording and receipt generation, used PGAdmin for managing data and user entries, created a JAR executable for easy installation and use, and followed modular coding principles for maintainability. This project helped him improve application development and data management skills through standalone Java software creation with complete UI and DB interaction."
+  },
+  {
+    "instruction": "What were Rajiv's responsibilities as a Senior Analyst?",
+    "input": "",
+    "output": "As a Senior Analyst (Technology) from 2024-2022, Rajiv contributed to diverse client engagements across industries with focus on technical analysis, business processes, and client needs. His responsibilities included Security GRC Issue & Exception Analysis (May 2023 - Jan 2024) where he resolved stakeholder-raised Issues and Exceptions within Security GRC systems and verified data accuracy on Security Bugs and Threat Vulnerability Management dashboards. He also performed Data Configuration Analysis (Oct 2022 - Mar 2023) maintaining RTMs for 500+ KDEs using complex T2T data mappings. Additionally, he handled Project Management (May 2022 - Sep 2022) for CRM Solution Implementation Management, collaborating across Sales, Client Success, and Training teams. He delivered high-quality analyst work, mentored junior team members, and identified process improvements."
+  },
+  {
+    "instruction": "What did Rajiv do as a Technical Application Support Consultant?",
+    "input": "",
+    "output": "As a Technical Application Support Consultant from 2018-2017, Rajiv provided advanced POS application support for Vision Commerce Suite, diagnosing issues, coordinating releases, and maintaining system performance through code reviews and data analysis. His responsibilities included Application Support (Oct 2017 - Jul 2018) for POS Troubleshooting & Root Cause Analysis, where he triaged, diagnosed, and reproduced POS system defects through SQL data analysis, reviewed source code and logs to identify root causes, and collaborated internally to resolve critical software issues. He also handled Release Management (Oct 2017 - Jul 2018) for Software Deployment & System Administration, coordinating testing and deployment of releases from non-prod to production, managing VM servers and application servers for Beanstore systems, and ensuring high system uptime and stability through proactive maintenance."
+  },
+  {
+    "instruction": "What was Rajiv's role as a Data Analyst?",
+    "input": "",
+    "output": "As a Data Analyst (Technology) from 2017-2016, Rajiv supported technology-driven client engagement focusing on data quality improvement, integration testing, and compliance documentation. His responsibilities included Data Analysis (Jul 2016 - Feb 2017) performing integration testing of ETL-loaded data against warehouse targets, documenting discrepancies and collaborating with developers on fixes, and improving data quality and consistency within analytics platforms. He also handled Governance & Documentation (Jul 2016 - Feb 2017) by redefining corporate data dictionary for improved governance, using Visio to visualize ETL workflows and data flow processes, and creating comprehensive testing and validation documentation for internal stakeholders. This role established his discipline in data accuracy, process visualization, and thorough technical documentation."
+  },
+  {
+    "instruction": "What did Rajiv do as a Certified Pharmacy Technician?",
+    "input": "",
+    "output": "As a Certified Pharmacy Technician from 2015-2009, Rajiv performed data-centric roles ensuring accuracy of patient and prescription records, supporting digital migrations and improving process efficiency. From January 2012 to April 2015, as a Certified Pharmacy Data Entry Technician in mail order, he validated and entered high volumes of patient data with accuracy and confidentiality, acted as UAT for SIG short codes increasing productivity by 20% and reducing errors by 10%, supported migration from legacy AS/400 system to web-based platform, and ensured operational completeness and customer service efficiency. From February 2009 to January 2012, as a Certified Pharmacy Technician in retail pharmacy, he assisted pharmacists and customers in managing prescriptions and insurance data, validated data accuracy during system upgrades and migrations, supported migration from legacy AS/400 system to web-based platform, and handled daily transactions with exceptional attention to detail and compliance. This role cultivated his precision, analytical focus, and data management foundations essential for his transition into IT and QA fields."
+  },
+  {
+    "instruction": "What formal education does Rajiv have?",
+    "input": "",
+    "output": "Rajiv's formal education includes a Bachelor of Arts in Humanities from the University of North Bengal, which he completed from 2004 to 2007. This academic foundation built a strong analytical, research, and communication foundation for his technology-driven roles. During his studies, he gained multidisciplinary analytical skills, developed proficiency in critical thinking and problem-solving, completed research-based projects and academic writing assignments, improved time management through structured coursework and deadlines, collaborated in team-based projects focusing on human behavior and societal analysis, enhanced communication and logical reasoning through structured academic inquiry, built resilience and adaptability through independent study, and applied systematic methodologies to research topics and presentations. This education provided a foundation in analytical and structured thinking, enabling his transition into technology and data-driven work."
+  },
+  {
+    "instruction": "What IT training programs has Rajiv completed?",
+    "input": "",
+    "output": "Rajiv completed intensive non-degree IT training programs from 2016 to 2017 to develop his IT and software testing capabilities through hands-on learning. He completed a Java Software Development Bootcamp at Cinci Code IT (now MAX Technical Training) where he learned object-oriented programming fundamentals and Java syntax, and gained practical experience with front-end and back-end integration. He also undertook a QA Assurance Testing program at Per Scholas, focusing on SDLC and STLC processes, performing manual testing and documentation exercises for web apps. Additionally, he completed CompTIA A+ and Network+ technical support training, building skills in hardware and network troubleshooting and strengthening his understanding of technical operations and IT project workflows. These programs resulted in a Java Development Bootcamp certificate, QA Testing Certificate, and CompTIA A+ & Net+ Training credentials, providing him with strong problem-solving and practical testing experience for software-focused roles."
+  },
+  {
+    "instruction": "What certifications has Rajiv earned?",
+    "input": "",
+    "output": "Rajiv has earned several professional certifications. His key certification is the Google Data Analytics Professional Certificate from Coursera, which he earned in 2025. Through this certification, he mastered data cleaning, visualization, and statistical analysis techniques, applied SQL, Tableau, and R programming in real-world analytical scenarios, completed capstone projects focusing on business insights from data sets, enhanced his understanding of data-driven decision-making frameworks, explored predictive analytics, KPI reporting, and dashboard automation, and built transferable analytics skills for QA and testing data analysis integration. He also holds CompTIA A+ and Network+ certifications from his technical support training, and a QA Testing Certificate from Per Scholas. He remains committed to continuous learning and certification updates, believing in lifelong learning and staying current with industry trends and best practices."
+  },
+  {
+    "instruction": "How can someone schedule a meeting with Rajiv?",
+    "input": "",
+    "output": "Someone can schedule a meeting with Rajiv by booking a free consultation call to discuss project requirements. He offers three consultation options: Quick Chat (15 minutes) for brief discussions about needs, Consultation (30 minutes) for detailed project discussion, and Deep Dive (60 minutes) for comprehensive planning sessions, with the 30-minute option being the most popular. During these consultations, they discuss project goals and requirements, timeline and budget considerations, how Rajiv can contribute to success, and next steps and recommendations. To schedule, one can call or email him for a free consultation, with no commitment required and the first 15 to 60 minutes being completely free. He responds within 24-72 hours depending on urgency and availability."
+  },
+  {
+    "instruction": "What are Rajiv's direct contact details?",
+    "input": "",
+    "output": "Rajiv's direct contact details include his email address: rajivgiri2025@gmail.com, and his phone number: (513) 834-3371. He also provides his online presence through LinkedIn and GitHub profiles. For response times, he typically responds to emails within 24 to 72 hours, depending on the urgency and availability, and is available by phone Monday through Friday, 9AM-6PM. He emphasizes that to hire him for projects, interested parties should contact him using these direct contact methods, noting that all services are provided by Rajiv Giri as an independent consultant and not as a company."
+  },
+  {
+    "instruction": "What AI and LLM platforms is Rajiv familiar with?",
+    "input": "",
+    "output": "Rajiv is familiar with numerous AI and LLM platforms and tools, which he showcases as part of his technical skills and experience. These include OpenAI Models (including GPT-4, DALL-E, and Whisper for text generation, image creation, and speech recognition), ChatGPT (conversational AI assistant based on GPT architecture), Hugging Face (open-source hub with thousands of pre-trained models), Google Gemini (multimodal AI model), GitHub Copilot (AI pair programmer), Perplexity AI (AI-powered search engine), Windsurf (AI-powered development environment), VSCode (with AI extensions), Meta LLaMA (collection of large language models), and Claude AI (AI assistant focused on helpful, harmless, and honest interactions). He notes that this is not an endorsement of any specific tool and that each tool is subject to its respective company's terms of service and usage policies."
+  },
+  {
+    "instruction": "What documentation and resources has Rajiv created for AI/LLM work?",
+    "input": "",
+    "output": "Rajiv has created documentation and resources for AI/LLM work including guides on LLM Prompt Engineering (best practices for crafting effective prompts for various LLMs), RAG Implementation (guide to implementing Retrieval-Augmented Generation systems), API Integration (documentation for integrating with various AI/ML APIs), Vector Database Setup (guide to setting up and using vector databases), Model Fine-tuning (approaches to fine-tuning pre-trained models), and AI Safety & Ethics (guidelines for responsible AI development). He emphasizes that documentation for AI models and frameworks is frequently updated and recommends referring to each model's official documentation for the most current information, while offering assistance with specific implementations or particular models upon request."
+  },
+  {
+    "instruction": "What is Rajiv's experience with system migration?",
+    "input": "",
+    "output": "Rajiv has significant experience with system migration, particularly demonstrated in his work as a Certified Pharmacy Technician from 2009-2015. During this role, he supported migration from legacy AS/400 systems to web-based platforms in both mail order (2012-2015) and retail pharmacy (2009-2012) settings. He validated and entered high volumes of patient data with accuracy and confidentiality during these transitions, validated data accuracy during system upgrades and migrations, and handled daily transactions while ensuring smooth transitions between old and new systems. His experience with system migration also extends to his later IT roles where he maintained synchronization between technical design and business requirements in configuration projects and worked with various modern platforms and tools."
+  },
+  {
+    "instruction": "What is Rajiv's proficiency level with various tools and platforms?",
+    "input": "",
+    "output": "Rajiv has varying proficiency levels with different tools and platforms: Very High Proficiency (80-95%) includes Microsoft Office Suite (85%), Microsoft Windows (85%), Linux (85%), MacOS (85%), CPUs (75%), SSDs (80%), RAM (80%), VRam (70%), Effective Communication (90%), Cross-functional Collaboration (90%), Time Management (88%), Eagerness to Learn (95%), Adaptability (90%), Initiative (88%), Attention to Detail (80%), Critical Thinking (80%), Problem Solving (80%), Public Speaking (70%), and Mentoring (50%). High Proficiency (70-79%) includes Git (70%), GitHub (75%), GitBash (70%), VS Code (80%), Eclipse (70%), ChatGPT (75%), Gemini (70%), Claude (70%), Perplexity (75%), CoPilot (70%), Bard (70%), OpenAI (75%), Other LLMs (70%), DALL·E (65%), HuggingFace (60%), WinSCP (65%), PuTTY (70%), AnyConnect (60%), WindSurf (55%), HIPAA Compliance (70%), PHI Protection (75%), Security GRC (70%), CRM Systems (70%), Agile/Scrum (80%), SDLC (85%), STLC (85%), UAT (80%), Integration Testing (75%), Data Mapping (75%), Data Validation (80%), Defect Reproduction (80%), Log Analysis (75%), FSD (75%), RTM (80%), and System Migration (75%). Moderate Proficiency (60-69%) includes EHR Systems (65%), Retail POS Systems (60%), Banking Systems (55%), GRC (65%), KDEs (65%), TDD (70%), T2T Mapping (70%), Data Lineage (70%), Patch/Release Management (70%), TVM (65%), Big Query (35%), VMWare (50%), NetBeans (60%), Llama (60%), and Organizing Meetings (60%). Developing Proficiency (30-59%) includes AWS (30%), Azure (30%), Heroku (40%), Docker (40%), Kubernetes (10%), Jenkins (20%), and Project Management (30%)."
+  },
+  {
+    "instruction": "What don't you ask Rajiv about?",
+    "input": "",
+    "output": "According to his profile, there are certain areas you should not ask Rajiv about because he has limited experience or chooses not to focus on them. These areas include Cyber Security, DevOps, AI/ML (beyond his current learning stage), Legal Services, Network Security, Ethical Hacking, and Virtual Reality. He explicitly lists these as 'Don't Ask Me' topics, indicating he is not actively seeking work in these specialized fields or has limited expertise compared to his primary areas of focus."
+  },
+  {
+    "instruction": "What should you ask Rajiv about?",
+    "input": "",
+    "output": "You should ask Rajiv about areas where he has substantial experience and expertise. These include Google Data Analytics, Data Analyst roles, Quality Analyst positions, Application Analyst work, Application Engineer tasks, Software Engineer responsibilities, Data Engineer functions, and Business Systems Analyst roles. These are his core competencies where he has 9+ years of combined experience, formal training, certifications, and practical project work. He is actively seeking opportunities in these areas and has demonstrated proficiency through his work history, completed projects, and professional development."
+  },
+  {
+    "instruction": "What is Rajiv's approach to continuous learning?",
+    "input": "",
+    "output": "Rajiv has a strong commitment to continuous learning, which he demonstrates through multiple avenues. He believes in lifelong learning and staying current with industry trends and best practices. This is evidenced by his ongoing professional development including earning the Google Data Analytics Professional Certificate in 2025, maintaining his commitment to certification updates, and continuously enhancing his skills beyond formal employment through independent projects and training. He actively expands his expertise in emerging areas like AI and LLM consulting, acknowledging when he's in a learning phase while remaining transparent about his experience level. His eagerness to learn scores 95% in his skill assessments, showing it's a core strength. He stays engaged with open-source trainings, hands-on projects, and keeps updating his knowledge across 50+ technical skills spanning 9+ years of experience."
+  },
+  {
+    "instruction": "Where can you find Rajiv's project work examples?",
+    "input": "",
+    "output": "You can find examples of Rajiv's project work on his GitHub profile. For his non-employer related hands-on experience projects, he encourages people to explore code, documentation, or live demos on his GitHub repository. For employer-related projects, he maintains strict confidentiality but is willing to provide brief overviews upon direct contact. He specifically mentions 'View it on GitHub' links in his project descriptions, indicating his GitHub profile is the primary location for showcasing his technical work including the Java Capstone Project, Desktop POS Application, Google Data Analytics Capstone, and other independent development projects. His GitHub contains code samples, project documentation, and demonstrations of his work with Java, .NET, Python, AI models, JavaScript, SQL, and various deployment platforms like Heroku, Docker, AWS, and Azure."
+  },
+  {
+    "instruction": "What is Rajiv's business model?",
+    "input": "",
+    "output": "Rajiv operates as an independent freelance consultant under Raj Technology Consulting (RTC). He is not a registered business entity but provides his expertise directly to clients on a project basis. His business model involves taking on freelance projects based on availability while respecting his primary employer's priorities and maintaining client confidentiality. He provides personalized, high-quality service tailored to each client's specific needs. He offers various service packages including Quality Assurance Engineering, SDET, Business Systems Analysis, Application Support Engineering, Technical Consulting, Data Analysis, and AI Consulting. He also offers free initial consultation calls (15-60 minutes) to discuss project requirements before any commitment. His pricing and engagement terms would be discussed directly with clients based on project scope and requirements."
+  },
+  {
+    "instruction": "What legal disclosures does Rajiv provide?",
+    "input": "",
+    "output": "Rajiv provides several important legal disclosures on his website. He clearly states that all services are provided by Rajiv Giri as an independent consultant and not as a 'Company,' directing interested parties to refer to the Legal section for more information. He maintains that he is not a registered business entity but provides expertise directly to clients on a project basis. He emphasizes client confidentiality, noting that for employer-related projects, he always maintains employer-client confidentiality. He also includes standard legal sections on his website including Privacy Policy, Terms, Data Collection, AI Disclosure, and Data Security. Additionally, he provides a 'Work in Progress Notice' stating that parts of his website may be undergoing active development or updates, and that features, text, images, or components displayed may not represent the final version, reserving the right to modify, update, or remove content as work progresses. The website is copyrighted (© 2025 Rajiv Giri. All Rights Reserved.) with last updated timestamps."
+  },
+  {
+    "instruction": "Hi",
+    "input": "",
+    "output": "Hello! How can I assist you today?"
+},
+{
+    "instruction": "Hello",
+    "input": "",
+    "output": "Hi there! Ask me anything about Rajiv's skills or projects."
+},
+  {
+    "instruction": "Hey",
+    "input": "",
+    "output": "Hey! What can I do for you today?"
+  },
+  {
+    "instruction": "What is Rajiv's phone number?",
+    "input": "",
+    "output": "Rajiv's phone number is (513) 834-3371. He is available by phone Monday through Friday, 9AM-6PM."
+  },
+  {
+    "instruction": "What is Rajiv's email address?",
+    "input": "",
+    "output": "Rajiv's email address is rajivgiri2025@gmail.com. He typically responds to emails within 24 to 72 hours, depending on urgency and availability."
+  },
+  {
+    "instruction": "How can I reach Rajiv?",
+    "input": "",
+    "output": "You can reach Rajiv via email at rajivgiri2025@gmail.com or by phone at (513) 834-3371. He also offers free consultation calls (15-60 minutes) to discuss project requirements. Response times are typically within 24-72 hours for emails, and phone calls are available Monday-Friday, 9AM-6PM."
+  },
+  {
+    "instruction": "What is Rajiv's email?",
+    "input": "",
+    "output": "Rajiv's email address is rajivgiri2025@gmail.com. He typically responds within 24 to 72 hours depending on urgency and availability."
+  },
+  {
+    "instruction": "What is Rajiv's phone?",
+    "input": "",
+    "output": "Rajiv's phone number is (513) 834-3371. He is available Monday through Friday, 9AM-6PM."
+  },
+  {
+    "instruction": "Tell me about Rajiv's technical skills",
+    "input": "",
+    "output": "Rajiv has over 50 technical skills across multiple domains. His technical expertise includes AI/ML platforms (OpenAI, ChatGPT, Hugging Face, Google Gemini, GitHub Copilot), programming languages (Java, Python, JavaScript, .NET, SQL, R), frameworks & testing tools (Selenium, JUnit, TestNG, Appium), databases (PostgreSQL, Oracle), cloud platforms (AWS, Azure, Google Cloud), and various other tools like Git, GitHub, Docker, VS Code, and Microsoft Office Suite. He also has domain knowledge in HIPAA Compliance, GRC, EHR Systems, Retail POS Systems, Banking Systems, and CRM Systems."
+  },
+  {
+    "instruction": "List Rajiv's technical skills",
+    "input": "",
+    "output": "Rajiv has over 50 technical skills including: Programming languages (Java, Python, JavaScript, .NET, SQL, R, PL/SQL), AI/ML platforms (OpenAI, ChatGPT, Hugging Face, Google Gemini, GitHub Copilot), Testing frameworks (Selenium, JUnit, TestNG, Appium), Databases (PostgreSQL, Oracle), Cloud platforms (AWS, Azure, Google Cloud), Development tools (Git, GitHub, VS Code, Eclipse), Data tools (SQL, Tableau, Power BI, BigQuery, Excel, R), and domain knowledge in HIPAA Compliance, GRC, EHR Systems, Retail POS Systems, Banking Systems, and CRM Systems."
+  },
+  {
+    "instruction": "What are Rajiv's programming skills?",
+    "input": "",
+    "output": "Rajiv has experience with multiple programming languages including Java, .NET, Python, JavaScript, SQL, R, and PL/SQL. He has worked with web development technologies including HTML, CSS, JSP, and servlets. He has completed projects using Java (web applications, desktop applications), Python (data analysis, AI/ML), and has experience with database technologies including PostgreSQL and Oracle databases."
+  },
+  {
+    "instruction": "What programming languages does Rajiv know?",
+    "input": "",
+    "output": "Rajiv knows multiple programming languages including Java, .NET, Python, JavaScript, SQL, R, and PL/SQL. He has completed projects using these languages including web applications, desktop applications, data analysis, and AI/ML implementations."
+  },
+  {
+    "instruction": "What is Rajiv's hourly rate?",
+    "input": "",
+    "output": "Rajiv's pricing is discussed during consultation calls. He offers free initial consultation calls (15-60 minutes) to discuss project requirements and pricing based on project scope. His pricing and engagement terms are discussed directly with clients based on project requirements."
+  },
+  {
+    "instruction": "How much does Rajiv charge?",
+    "input": "",
+    "output": "Rajiv offers free initial consultation calls (15-60 minutes) to discuss project requirements and pricing. His pricing and engagement terms are discussed directly with clients based on project scope and requirements. He provides personalized, high-quality service tailored to each client's specific needs."
+  },
+  {
+    "instruction": "What are Rajiv's rates?",
+    "input": "",
+    "output": "Rajiv's pricing is discussed during free consultation calls (15-60 minutes). He offers three consultation options: Quick Chat (15 minutes), Consultation (30 minutes), and Deep Dive (60 minutes). Pricing and engagement terms are discussed directly with clients based on project scope and requirements."
+  },
+  {
+    "instruction": "What are Rajiv's business hours?",
+    "input": "",
+    "output": "Rajiv is available by phone Monday through Friday, 9AM-6PM. He typically responds to emails within 24 to 72 hours, depending on urgency and availability. He offers free consultation calls to discuss project requirements."
+  },
+  {
+    "instruction": "What are Rajiv's hours of operation?",
+    "input": "",
+    "output": "Rajiv is available by phone Monday through Friday, 9AM-6PM. Email responses are typically within 24 to 72 hours depending on urgency and availability. He offers free consultation calls (15-60 minutes) to discuss project requirements."
+  },
+  {
+    "instruction": "When is Rajiv available?",
+    "input": "",
+    "output": "Rajiv is available by phone Monday through Friday, 9AM-6PM. He typically responds to emails within 24 to 72 hours depending on urgency and availability. He offers free consultation calls (15-60 minutes) to discuss project requirements and can be reached at rajivgiri2025@gmail.com or (513) 834-3371."
+  },
+  {
+    "instruction": "What is Rajiv's availability?",
+    "input": "",
+    "output": "Rajiv is available by phone Monday through Friday, 9AM-6PM. He typically responds to emails within 24 to 72 hours depending on urgency and availability. He offers free consultation calls (15-60 minutes) and can be reached at rajivgiri2025@gmail.com or (513) 834-3371."
+  },
+  {
+    "instruction": "Tell me about Rajiv's education",
+    "input": "",
+    "output": "Rajiv holds a Bachelor of Arts in Humanities from the University of North Bengal (2004-2007). He completed intensive IT training including a Java Software Development Bootcamp at Cinci Code IT, QA Assurance Testing program at Per Scholas, and CompTIA A+ and Network+ technical support training (2016-2017). He also earned the Google Data Analytics Professional Certificate from Coursera in 2025."
+  },
+  {
+    "instruction": "What is Rajiv's degree?",
+    "input": "",
+    "output": "Rajiv holds a Bachelor of Arts in Humanities from the University of North Bengal, which he completed from 2004 to 2007. This academic foundation built a strong analytical, research, and communication foundation for his technology-driven roles."
+  },
+  {
+    "instruction": "Where did Rajiv go to school?",
+    "input": "",
+    "output": "Rajiv attended the University of North Bengal where he earned a Bachelor of Arts in Humanities (2004-2007). He also completed intensive IT training programs including a Java Software Development Bootcamp at Cinci Code IT, QA Assurance Testing program at Per Scholas, and CompTIA A+ and Network+ technical support training (2016-2017)."
+  },
+  {
+    "instruction": "What university did Rajiv attend?",
+    "input": "",
+    "output": "Rajiv attended the University of North Bengal where he earned a Bachelor of Arts in Humanities from 2004 to 2007."
+  },
+  {
+    "instruction": "Tell me about Rajiv's projects",
+    "input": "",
+    "output": "Rajiv has worked on several key projects including: Google Data Analytics Capstone where he analyzed Fitbit data using SQL, Excel, R, BigQuery, and Tableau; Security GRC Issue and Exception Analysis supporting cybersecurity operations; OFSAA Data Configuration Analysis in the banking domain; CRM Solution Implementation managing cross-functional teams; POS Maintenance and Support for retail systems; Java Capstone Project developing a web application with DAO Factory Pattern; and a Desktop POS Application using Java Swing and PostgreSQL."
+  },
+  {
+    "instruction": "What projects has Rajiv completed?",
+    "input": "",
+    "output": "Rajiv has completed several projects including: Google Data Analytics Capstone (analyzed Fitbit data using SQL, Excel, R, BigQuery, and Tableau), Security GRC Issue and Exception Analysis (cybersecurity operations), OFSAA Data Configuration Analysis (banking domain), CRM Solution Implementation (managed cross-functional teams), POS Maintenance and Support (retail systems), Java Capstone Project (web application with DAO Factory Pattern), and Desktop POS Application (Java Swing and PostgreSQL)."
+  },
+  {
+    "instruction": "Describe Rajiv's work experience",
+    "input": "",
+    "output": "Rajiv has 9+ years of experience. From 2024-2022, he worked as a Senior Analyst (Technology) contributing to client engagements in security GRC, data configuration analysis, and CRM implementation. From 2018-2017, he was a Technical Application Support Consultant providing POS application support. From 2017-2016, he worked as a Data Analyst focusing on data quality improvement and integration testing. From 2015-2009, he was a Certified Pharmacy Technician performing data-centric roles in pharmacy operations."
+  },
+  {
+    "instruction": "What is Rajiv's work history?",
+    "input": "",
+    "output": "Rajiv's work history includes: Senior Analyst (Technology) from 2024-2022 working on security GRC, data configuration analysis, and CRM implementation; Technical Application Support Consultant from 2018-2017 providing POS application support; Data Analyst from 2017-2016 focusing on data quality improvement and integration testing; and Certified Pharmacy Technician from 2015-2009 performing data-centric roles in pharmacy operations."
+  },
+  {
+    "instruction": "What companies has Rajiv worked for?",
+    "input": "",
+    "output": "Rajiv has worked with 30+ clients across various industries including healthcare, pharmaceutical operations, retail pharmacy, banking/financial services, cybersecurity, and general technology consulting. He has contributed to client engagements in security GRC, data configuration analysis, CRM implementation, POS application support, and data quality improvement."
+  },
+  {
+    "instruction": "Where has Rajiv worked?",
+    "input": "",
+    "output": "Rajiv has worked with 30+ clients across various industries. His roles have included Senior Analyst (Technology), Technical Application Support Consultant, Data Analyst, and Certified Pharmacy Technician. He has contributed to projects in healthcare, pharmaceutical operations, retail pharmacy, banking/financial services, cybersecurity, and general technology consulting."
+  },
+  {
+    "instruction": "What is Rajiv's LinkedIn?",
+    "input": "",
+    "output": "Rajiv can be found on LinkedIn. For his direct contact details, you can reach him at rajivgiri2025@gmail.com or (513) 834-3371. He also has a GitHub profile where you can find examples of his project work."
+  },
+  {
+    "instruction": "What is Rajiv's GitHub?",
+    "input": "",
+    "output": "Rajiv has a GitHub profile where you can find examples of his project work including the Java Capstone Project, Desktop POS Application, Google Data Analytics Capstone, and other independent development projects. His GitHub contains code samples, project documentation, and demonstrations of his work with Java, .NET, Python, AI models, JavaScript, SQL, and various deployment platforms."
+  },
+  {
+    "instruction": "Where can I see Rajiv's code?",
+    "input": "",
+    "output": "You can see Rajiv's code on his GitHub profile. He has uploaded code and documentation for projects including the Java Capstone Project, Desktop POS Application, Google Data Analytics Capstone, and other independent development projects. His GitHub contains code samples, project documentation, and demonstrations of his work with Java, .NET, Python, AI models, JavaScript, SQL, and various deployment platforms."
+  },
+  {
+    "instruction": "What is Rajiv's location?",
+    "input": "",
+    "output": "Rajiv is available for remote work and consultations. He can be contacted via email at rajivgiri2025@gmail.com or by phone at (513) 834-3371. He offers free consultation calls and is available Monday through Friday, 9AM-6PM by phone."
+  },
+  {
+    "instruction": "Where is Rajiv located?",
+    "input": "",
+    "output": "Rajiv is available for remote work and consultations. He can be reached at rajivgiri2025@gmail.com or (513) 834-3371. He is available by phone Monday through Friday, 9AM-6PM."
+  },
+  {
+    "instruction": "Does Rajiv work remotely?",
+    "input": "",
+    "output": "Rajiv is available for remote work and consultations. He can be contacted via email at rajivgiri2025@gmail.com or by phone at (513) 834-3371. He offers free consultation calls (15-60 minutes) to discuss project requirements."
+  },
+  {
+    "instruction": "What services does Rajiv provide?",
+    "input": "",
+    "output": "Rajiv provides services as a Quality Assurance Engineer, SDET (Software Development Engineer in Test), Business Systems Analyst, Application Support Engineer, Technical Consultant, Data Analyst, and AI Consultant. His services include comprehensive testing methodologies, test automation frameworks, business analysis, application support, technical consulting, data analysis, and AI/LLM consulting."
+  },
+  {
+    "instruction": "What can Rajiv help with?",
+    "input": "",
+    "output": "Rajiv can help with Quality Assurance Engineering, SDET (Software Development Engineer in Test), Business Systems Analysis, Application Support Engineering, Technical Consulting, Data Analysis, and AI/LLM Consulting. He offers comprehensive testing methodologies, test automation frameworks, business analysis, application support, technical consulting, data analysis, and AI implementation services."
+  },
+  {
+    "instruction": "What does Rajiv do?",
+    "input": "",
+    "output": "Rajiv is a Digital and Technology Solutions specialist with over 9 years of experience. He provides services as a Quality Assurance Engineer, SDET, Business Systems Analyst, Application Support Engineer, Technical Consultant, Data Analyst, and AI Consultant. He focuses on data accuracy, system reliability, and process optimization."
+  },
+  {
+    "instruction": "What is Rajiv's profession?",
+    "input": "",
+    "output": "Rajiv is a Digital and Technology Solutions specialist with over 9 years of experience in regulated healthcare operations and IT. He provides services as a Quality Assurance Engineer, SDET, Business Systems Analyst, Application Support Engineer, Technical Consultant, Data Analyst, and AI Consultant."
+  },
+  {
+    "instruction": "What is Rajiv's job?",
+    "input": "",
+    "output": "Rajiv is a Digital and Technology Solutions specialist. He provides services as a Quality Assurance Engineer, SDET (Software Development Engineer in Test), Business Systems Analyst, Application Support Engineer, Technical Consultant, Data Analyst, and AI Consultant. He has 9+ years of experience in regulated healthcare operations and IT."
+  }
+]

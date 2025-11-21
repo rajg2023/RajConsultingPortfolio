@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Send, Bot, User } from 'lucide-react';
 
+
+
 const AIChat = () => {
+  const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -11,28 +14,64 @@ const AIChat = () => {
   ]);
   const [inputText, setInputText] = useState('');
 
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (inputText.trim()) {
-      const newMessage = {
-        id: messages.length + 1,
-        text: inputText,
-        sender: 'user'
-      };
-      setMessages([...messages, newMessage]);
-      
-      setTimeout(() => {
-        const aiResponse = {
-          id: messages.length + 2,
-          text: "Thanks for your question! Raj has extensive experience in that area. Would you like me to provide more specific details?",
-          sender: 'ai'
-        };
-        setMessages(prev => [...prev, aiResponse]);
-      }, 1000);
-      
-      setInputText('');
-    }
+  const handleSendMessage = async (e) => {
+  e.preventDefault();
+  if (!inputText.trim()) return;
+
+  // Add user message to chat
+  const userMessage = {
+    id: messages.length + 1,
+    text: inputText,
+    sender: 'user'
   };
+  setMessages(prev => [...prev, userMessage]);
+  setInputText('');
+
+  try {
+    // Show typing indicator
+    const typingIndicator = {
+      id: messages.length + 2,
+      text: '...',
+      sender: 'ai'
+    };
+    setMessages(prev => [...prev, typingIndicator]);
+
+    // Call Flask backend
+    const response = await fetch('http://localhost:5000/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: inputText })
+    });
+      if (!response.ok) throw new Error('Network response was not ok');
+    
+    const data = await response.json();
+    
+    // Remove typing indicator and add actual response
+    setMessages(prev => {
+      const newMessages = [...prev];
+      newMessages[newMessages.length - 1] = {
+        id: messages.length + 2,
+        text: data.response,
+        sender: 'ai'
+      };
+      return newMessages;
+    });
+
+  } catch (error) {
+    console.error('Error:', error);
+    setMessages(prev => {
+      const newMessages = [...prev];
+      newMessages[newMessages.length - 1] = {
+        id: messages.length + 2,
+        text: "Sorry, I'm having trouble connecting to the server. Please try again later.",
+        sender: 'ai'
+      };
+      return newMessages;
+    });
+  }
+};
 
   return (
     <div className="p-8">

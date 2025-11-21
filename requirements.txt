@@ -1,0 +1,7 @@
+flask>=3.0.0
+torch>=2.2.0
+transformers>=4.35.0
+sentence-transformers>=2.2.2
+chromadb>=0.4.18
+numpy>=1.24.3
+
