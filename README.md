@@ -54,13 +54,17 @@ src/
 │ │ └── ExperienceSection.jsx # Career timeline
 │ ├── Education/
 │ │ └── EducationSection.jsx # Education and training
-│ ├── Admin/
-│ │ └── AdminSection.jsx # Content management panel
+│ ├── ~~Admin/~~
+│ │ └── ~~AdminSection.jsx # Content management panel~~
 │ └── Contact/
 │ └── ContactSection.jsx # Contact forms and information
 ├── pages/
 │ └── HomePage.jsx # Main page component
 └── App.jsx # Root application component
+├── components/ # Reusable UI components 
+├── pages/ # Page components 
+├── assets/ # Static assets 
+└── contexts/ # React contexts
 
 text
 
@@ -107,41 +111,41 @@ Navigate to `http://localhost:5173` to view the portfolio
 - **Downloadable Resume:** PDF and Word format options
 
 ### ⭐ Skills  
-- **5 Skill Categories:** Technical, Testing & QA, Data Analytics, Leadership, Tools & Platforms
+- **Skill Categories:** Display of lists of current and past skills
 - **50+ Skills Listed:** With proficiency levels and experience years
 - **Interactive Progress Bars:** Visual skill representation
 - **Certification Tracking:** Highlighted certified skills
 
 ### 🛠️ Services
-- **3 Service Areas:** QA & Testing, SDET (Automation), Data Analytics
+- **Service Areas:** Display of currrent and past services
 - **Beginner-Friendly Approach:** Honest about learning journey
 - **Detailed Descriptions:** What you can help with in each area
 
 ### 📁 Projects
-- **3 Learning Projects:** QA Testing, Automation, Data Analysis
+- **Projects:** Display of current and past project samples.
 - **Project Details:** Technologies used, duration, key learnings
 - **GitHub Integration:** Links to code repositories
 
 ### 💼 Experience  
-- **3-Year Timeline:** 2023, 2024, 2025 (Past, Present, Future)
-- **Career Journey:** From transition to current learning to future goals
+- **Timeline:** Display of current and past work experiences (Future, Present, Past)
+- **Career Journey:** From current to transition learning to future goals
 - **Transferable Skills:** Highlighting relevant experience
 
 ### 🎓 Education
-- **3 Education Categories:** Formal Education, IT Training, Certifications
+- **3 Education Categories:** Display of Formal Education, IT Training, Certifications
 - **Learning Outcomes:** Detailed achievements and skills gained
 - **Continuous Learning:** Ongoing education and professional development
 
-~~### ⚙️ Admin
-- **4 Admin Panels:** Profile Management, Content Management, Analytics, Settings
-- **Content Control:** Ability to update portfolio information
-- **Analytics Dashboard:** Mock statistics and performance metrics~~
+~~### ⚙️ Admin~~
+- ~~**4 Admin Panels:** Profile Management, Content Management, Analytics, Settings~~
+- ~~**Content Control:** Ability to update portfolio information~~
+- ~~**Analytics Dashboard:** Mock statistics and performance metrics~~
 
 
 ### 📞 Contact
-- **3 Contact Methods:** Direct Contact, Schedule Meeting
+- **Contact Methods:** Display of Direct Contact, Hire, Consulting and Freelance
 - **Multiple Channels:** Email, phone, social media links
-- **Professional Scheduling:** Consultation booking options
+
 
 ## 🎨 Design Features
 
@@ -187,6 +191,22 @@ Navigate to `http://localhost:5173` to view the portfolio
 - **Modern React:** Hooks and functional components
 - **Clean Code:** Modular architecture for maintainability
 
+## 📋 Project Status
+
+- **✅ Completed Features:**
+  - Responsive portfolio layout
+  - Skills visualization
+  - Project showcase
+  - Contact form with verification
+  - Legal documentation
+  - Professional services policy
+
+- **⏳ Future Improvements:**
+  - ~~🔧 Admin Panel~~ *(Design cancelled due to budget and time constraints - may be implemented in the future if needed)*
+  - Blog section for technical articles
+  - Dark/light mode toggle
+  - Performance optimizations
+
 ## 🤝 Contributing
 
 Contributions are welcome! If you have suggestions for improvements:
@@ -200,6 +220,13 @@ Contributions are welcome! If you have suggestions for improvements:
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+## 📝 Legal
+
+- [Privacy Policy](/legal/privacy)
+- [Terms of Service](/legal/terms)
+- [Professional Services Policy](/legal/professionalServicesPolicy)
+- [Third-Party Services](/legal/thirdParty)
 
 ## 📞 Contact
 
@@ -221,8 +248,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-<<<<<<< HEAD
-⭐ **If you found this portfolio template helpful, please consider giving it a star!** ⭐
-=======
-⭐ **If you found this portfolio template helpful, please consider giving it a star!** ⭐
->>>>>>> 7398e7d0aca183ed2f4a85d714ab1a1bc1351968
+

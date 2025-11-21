@@ -103,7 +103,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
       color: 'gray',
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       )
     }
@@ -171,47 +171,68 @@ const Legal = ({ defaultSection = 'privacy' }) => {
           </div>
 
           {/* Navigation Tabs */}
-          <nav className="flex flex-wrap justify-center gap-2 mb-8">
-            {Object.values(sections).map((section) => {
-              const isActive = activeSection === section.id;
-              const colorMap = {
-                purple: { bg: '#f5f3ff', text: '#7c3aed', hover: '#ede9fe', activeBg: '#f3e8ff', activeText: '#6b21a8' },
-                blue: { bg: '#eff6ff', text: '#3b82f6', hover: '#dbeafe', activeBg: '#dbeafe', activeText: '#1d4ed8' },
-                green: { bg: '#f0fdf4', text: '#10b981', hover: '#dcfce7', activeBg: '#dcfce7', activeText: '#166534' },
-                indigo: { bg: '#eef2ff', text: '#6366f1', hover: '#e0e7ff', activeBg: '#e0e7ff', activeText: '#4338ca' },
-                teal: { bg: '#f0fdfa', text: '#0d9488', hover: '#ccfbf1', activeBg: '#ccfbf1', activeText: '#0f766e' },
-                pink: { bg: '#fdf2f8', text: '#ec4899', hover: '#fce7f3', activeBg: '#fbcfe8', activeText: '#9d174d' }
-              };
-              const colors = colorMap[section.color] || { bg: '#f9fafb', text: '#4b5563', hover: '#f3f4f6', activeBg: '#e5e7eb', activeText: '#111827' };
+          <nav aria-label="Legal documentation sections">
+            <ul className="flex flex-wrap justify-center gap-2 mb-8">
+              {Object.values(sections).map((section) => {
+                const isActive = activeSection === section.id;
+                const colorMap = {
+                  purple: { bg: '#f5f3ff', text: '#7c3aed', hover: '#ede9fe', activeBg: '#f3e8ff', activeText: '#6b21a8' },
+                  blue: { bg: '#eff6ff', text: '#3b82f6', hover: '#dbeafe', activeBg: '#dbeafe', activeText: '#1d4ed8' },
+                  green: { bg: '#f0fdf4', text: '#10b981', hover: '#dcfce7', activeBg: '#dcfce7', activeText: '#166534' },
+                  indigo: { bg: '#eef2ff', text: '#6366f1', hover: '#e0e7ff', activeBg: '#e0e7ff', activeText: '#4338ca' },
+                  teal: { bg: '#f0fdfa', text: '#0d9488', hover: '#ccfbf1', activeBg: '#ccfbf1', activeText: '#0f766e' },
+                  pink: { bg: '#fdf2f8', text: '#ec4899', hover: '#fce7f3', activeBg: '#fbcfe8', activeText: '#9d174d' },
+                  gray: {bg: '#f9fafb', text: '#6b7280', hover: '#f3f4f6', activeBg: '#e5e7eb', activeText: '#4b5563'},
+                };
+                const colors = colorMap[section.color] || { bg: '#f9fafb', text: '#4b5563', hover: '#f3f4f6', activeBg: '#e5e7eb', activeText: '#111827' };
 
-              return (
-                <button
-                  key={section.id}
-                  onClick={() => handleSectionChange(section.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 border ${isActive
-                      ? `bg-opacity-20 border-opacity-50 shadow-lg`
-                      : `bg-opacity-10 border-opacity-30 hover:bg-opacity-20`
-                    }`}
-                  style={{
-                    backgroundColor: isActive ? colors.activeBg : colors.bg,
-                    borderColor: isActive ? colors.activeText : colors.text,
-                    color: isActive ? colors.activeText : colors.text,
-                  }}
-                >
-                  <span className="w-5 h-5">
-                    {section.icon}
-                  </span>
-                  {section.title}
-                </button>
-              );
-            })}
+                return (
+                  <li key={section.id} className="list-none">
+                    <button
+                      id={`${section.id}-tab`}
+                      aria-controls={`${section.id}-panel`}
+                      aria-selected={isActive}
+                      onClick={() => handleSectionChange(section.id)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleSectionChange(section.id);
+                        }
+                      }}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 border ${isActive ? 'bg-opacity-20 border-opacity-50 shadow-lg' : 'bg-opacity-10 border-opacity-30 hover:bg-opacity-20'
+                        }`}
+                      style={{
+                        backgroundColor: isActive ? colors.activeBg : colors.bg,
+                        borderColor: isActive ? colors.activeText : colors.text,
+                        color: isActive ? colors.activeText : colors.text,
+                      }}
+                      tabIndex="0"
+                    >
+                      <span className="sr-only">
+                        {section.title} {isActive ? '(current section)' : ''}
+                      </span>
+                      <span aria-hidden="true" className="w-5 h-5">
+                        {section.icon}
+                      </span>
+                      <span>{section.title}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
           </nav>
         </div>
 
         <div className="bg-slate-800/500 backdrop-blur-sm border border-white/10 rounded-xl shadow-lg overflow-hidden transition-all duration-300 w-full">
           {/* Active Section Content */}
           {activeSection === 'privacy' && (
-            <div className={`border-t-4 border-${sections.privacy.color}-500`}>
+            <div
+              id="privacy"
+              role="tabpanel"
+              tabIndex="0"
+              aria-labelledby="privacy-tab"
+              className={`border-t-4 border-${sections.privacy.color}-500`}
+            >
               <div className="p-8">
                 <div className="flex items-center mb-6">
                   <div className={`p-3 rounded-lg mr-4 bg-${sections.privacy.color}-50 text-${sections.privacy.color}-600`}>
@@ -259,7 +280,13 @@ const Legal = ({ defaultSection = 'privacy' }) => {
           )}
 
           {activeSection === 'terms' && (
-            <div className={`border-t-4 border-${sections.terms.color}-500`}>
+            <div
+              id="terms"
+              role="tabpanel"
+              tabIndex="0"
+              aria-labelledby="terms-tab"
+              className={`border-t-4 border-${sections.terms.color}-500`}
+            >
               <div className="p-8">
                 <div className="flex items-center mb-6">
                   <div className={`p-3 rounded-lg mr-4 bg-${sections.terms.color}-50 text-${sections.terms.color}-600`}>
@@ -330,7 +357,13 @@ const Legal = ({ defaultSection = 'privacy' }) => {
           )}
 
           {activeSection === 'data' && (
-            <div className={`border-t-4 border-${sections.data.color}-500`}>
+            <div
+              id="data"
+              role="tabpanel"
+              tabIndex="0"
+              aria-labelledby="data-tab"
+              className={`border-t-4 border-${sections.data.color}-500`}
+            >
               <div className="p-8">
                 <div className="flex items-center mb-6">
                   <div className={`p-3 rounded-lg mr-4 bg-${sections.data.color}-50 text-${sections.data.color}-600`}>
@@ -384,7 +417,13 @@ const Legal = ({ defaultSection = 'privacy' }) => {
 
           {/* Employer and Freelance Data Security and Liability Section */}
           {activeSection === 'security' && (
-            <div className={`border-t-4 border-${sections.security.color}-500`}>
+            <div
+              id="security"
+              role="tabpanel"
+              tabIndex="0"
+              aria-labelledby="security-tab"
+              className={`border-t-4 border-${sections.security.color}-500`}
+            >
               <div className="p-8">
                 <div className="flex items-center mb-6">
                   <div className={`p-3 rounded-lg mr-4 bg-${sections.security.color}-50 text-${sections.security.color}-600`}>
@@ -450,7 +489,13 @@ const Legal = ({ defaultSection = 'privacy' }) => {
 
           {/* AI Disclosure Section */}
           {activeSection === 'ai' && (
-            <div className={`border-t-4 border-${sections.ai.color}-500`}>
+            <div
+              id="ai"
+              role="tabpanel"
+              tabIndex="0"
+              aria-labelledby="ai-tab"
+              className={`border-t-4 border-${sections.ai.color}-500`}
+            >
               <div className="p-8">
                 <div className="flex items-center mb-6">
                   <div className={`p-3 rounded-lg mr-4 bg-${sections.ai.color}-50 text-${sections.ai.color}-600`}>
@@ -488,7 +533,13 @@ const Legal = ({ defaultSection = 'privacy' }) => {
 
 
           {activeSection === 'thirdParty' && (
-            <div className={`border-t-4 border-${sections.thirdParty.color}-500`}>
+            <div
+              id="thirdParty"
+              role="tabpanel"
+              tabIndex="0"
+              aria-labelledby="thirdParty-tab"
+              className={`border-t-4 border-${sections.thirdParty.color}-500`}
+            >
               <div className="p-8">
                 <div className="flex items-center mb-6">
                   <div className={`p-3 rounded-lg mr-4 bg-${sections.thirdParty.color}-50 text-${sections.thirdParty.color}-600`}>
@@ -543,7 +594,13 @@ const Legal = ({ defaultSection = 'privacy' }) => {
             </div>
           )}
           {activeSection === 'professionalServicesPolicy' && (
-            <div className={`border-t-4 border-${sections.professionalServicesPolicy.color}-500`}>
+            <div
+              id="professionalServicesPolicy"
+              role="tabpanel"
+              tabIndex="0"
+              aria-labelledby="professionalServicesPolicy-tab"
+              className={`border-t-4 border-${sections.professionalServicesPolicy.color}-500`}
+            >
               <div className="p-8">
                 <div className="flex items-center mb-6">
                   <div className={`p-3 rounded-lg mr-4 bg-${sections.professionalServicesPolicy.color}-50 text-${sections.professionalServicesPolicy.color}-600`}>

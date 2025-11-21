@@ -168,40 +168,6 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
         </div>
       </div>
     </header>
-    
-    {/* Animated Gradient Divider & Progress Indicator */}
-    {/* <div className="relative h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-purple-500/20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-pulse opacity-30"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-slide-x"></div>
-    </div> */}
-    
-    {/* Progress Indicator */}
-    {/* <div className="bg-gray-50 border-b border-gray-100">
-      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
-        <div className="flex items-center justify-between py-2">
-          <div className="flex items-center space-x-2 text-xs text-gray-500">
-            <span>Current Section:</span>
-            <span className="font-medium text-gray-700 capitalize">
-              {navigationItems.find(item => item.id === activeSection)?.name || 'Home'}
-            </span>
-          </div>
-          <div className="flex items-center space-x-1">
-            {navigationItems.map((item, index) => {
-              const isActive = activeSection === item.id;
-              const isCompleted = navigationItems.findIndex(nav => nav.id === activeSection) > index;
-              return (
-                <div
-                  key={item.id}
-                  className={`h-1 w-8 rounded-full transition-all duration-300 ${
-                    isActive ? 'bg-blue-500 shadow-sm' : isCompleted ? 'bg-green-400' : 'bg-gray-200'
-                  }`}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </div> */}
     </>
   );
 };
