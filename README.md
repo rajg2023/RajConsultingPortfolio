@@ -17,7 +17,9 @@ ConsultantPro is a comprehensive portfolio website designed for QA professionals
 - **🌈 Colorful Components** - Each section has its own color theme and icons
 - **📊 Interactive Elements** - Progress bars, tabs, forms, and animations
 - **🚀 Fast Performance** - Optimized loading with modern React patterns
-- **🔧 Admin Panel** - Built-in content management capabilities
+- **🔒 Secure Contact** - Protected contact information with human verification
+- **📄 Legal Compliance** - Comprehensive legal policies and terms of service
+- ~~🔧 Admin Panel~~ *(design cancelled due to budget and time constrain and will try to work in future if needed)*
 
 ## 🛠️ Built With
 
@@ -26,6 +28,9 @@ ConsultantPro is a comprehensive portfolio website designed for QA professionals
 - **Icons:** [Lucide React](https://lucide.dev/)
 - **Build Tool:** [Vite](https://vitejs.dev/)
 - **Language:** JavaScript (ES6+)
+- **Version Control:** [GitHub](https://github.com/rajg2023/RajConsultingPortfolio)
+
+
 
 ## 🏗️ Project Structure
 
@@ -103,7 +108,7 @@ Navigate to `http://localhost:5173` to view the portfolio
 
 ### ⭐ Skills  
 - **5 Skill Categories:** Technical, Testing & QA, Data Analytics, Leadership, Tools & Platforms
-- **40+ Skills Listed:** With proficiency levels and experience years
+- **50+ Skills Listed:** With proficiency levels and experience years
 - **Interactive Progress Bars:** Visual skill representation
 - **Certification Tracking:** Highlighted certified skills
 
@@ -127,13 +132,14 @@ Navigate to `http://localhost:5173` to view the portfolio
 - **Learning Outcomes:** Detailed achievements and skills gained
 - **Continuous Learning:** Ongoing education and professional development
 
-### ⚙️ Admin
+~~### ⚙️ Admin
 - **4 Admin Panels:** Profile Management, Content Management, Analytics, Settings
 - **Content Control:** Ability to update portfolio information
-- **Analytics Dashboard:** Mock statistics and performance metrics
+- **Analytics Dashboard:** Mock statistics and performance metrics~~
+
 
 ### 📞 Contact
-- **3 Contact Methods:** Contact Form, Direct Contact, Schedule Meeting
+- **3 Contact Methods:** Direct Contact, Schedule Meeting
 - **Multiple Channels:** Email, phone, social media links
 - **Professional Scheduling:** Consultation booking options
 
