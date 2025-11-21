@@ -11,13 +11,13 @@ const Legal = ({ defaultSection = 'privacy' }) => {
   useEffect(() => {
     const pathParts = location.pathname.split('/');
     const sectionFromUrl = pathParts[pathParts.length - 1];
-    
+
     // If we're at /legal with no section, use defaultSection
     if (sectionFromUrl === 'legal') {
       setActiveSection(defaultSection);
       // Optionally redirect to the default section
       navigate(`/legal/${defaultSection}`, { replace: true });
-    } 
+    }
     // If we have a valid section in the URL, use it
     else if (sectionFromUrl && sections[sectionFromUrl]) {
       setActiveSection(sectionFromUrl);
@@ -96,6 +96,17 @@ const Legal = ({ defaultSection = 'privacy' }) => {
         </svg>
       )
     }
+    ,
+    professionalServicesPolicy: {
+      id: 'professionalServicesPolicy',
+      title: 'Professional Services Policy',
+      color: 'gray',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      )
+    }
   };
 
   return (
@@ -106,33 +117,33 @@ const Legal = ({ defaultSection = 'privacy' }) => {
         <div className="absolute inset-0">
           {/* Deep space gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900"></div>
-          
+
           {/* Subtle stars in header */}
           <div className="absolute inset-0 opacity-50">
             {/* Small stars */}
-            <div className="absolute top-2 left-6 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0s', animationDuration: '2.5s'}}></div>
-            <div className="absolute top-4 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.2s', animationDuration: '3s'}}></div>
-            <div className="absolute top-3 right-8 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '0.8s', animationDuration: '2.8s'}}></div>
-            <div className="absolute top-6 right-1/5 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '1.5s', animationDuration: '3.2s'}}></div>
-            <div className="absolute top-1 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{animationDelay: '2s', animationDuration: '2.2s'}}></div>
-            
+            <div className="absolute top-2 left-6 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0s', animationDuration: '2.5s' }}></div>
+            <div className="absolute top-4 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.2s', animationDuration: '3s' }}></div>
+            <div className="absolute top-3 right-8 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '0.8s', animationDuration: '2.8s' }}></div>
+            <div className="absolute top-6 right-1/5 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '3.2s' }}></div>
+            <div className="absolute top-1 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: '2s', animationDuration: '2.2s' }}></div>
+
             {/* Medium stars */}
-            <div className="absolute top-3 left-12 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{animationDelay: '0.3s', animationDuration: '3.5s'}}></div>
-            <div className="absolute top-5 right-16 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{animationDelay: '1.8s', animationDuration: '3s'}}></div>
+            <div className="absolute top-3 left-12 w-2 h-2 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '0.3s', animationDuration: '3.5s' }}></div>
+            <div className="absolute top-5 right-16 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{ animationDelay: '1.8s', animationDuration: '3s' }}></div>
           </div>
         </div>
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
-            <Link to="/" className="text-xl font-bold text-white hover:text-indigo-300 transition-colors">
-              Logo Here
-            </Link>
-            <Link
-              to="/"
-              className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
-            >
-              Back to Home
-            </Link>
+              <Link to="/" className="text-xl font-bold text-white hover:text-indigo-300 transition-colors">
+                WIP[RTC]
+              </Link>
+              <Link
+                to="/"
+                className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
+              >
+                Back to Home
+              </Link>
             </div>
           </div>
         </div>
@@ -177,9 +188,8 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                 <button
                   key={section.id}
                   onClick={() => handleSectionChange(section.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 border ${
-                    isActive 
-                      ? `bg-opacity-20 border-opacity-50 shadow-lg` 
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 border ${isActive
+                      ? `bg-opacity-20 border-opacity-50 shadow-lg`
                       : `bg-opacity-10 border-opacity-30 hover:bg-opacity-20`
                     }`}
                   style={{
@@ -475,62 +485,108 @@ const Legal = ({ defaultSection = 'privacy' }) => {
               </div>
             </div>
           )}
-        
 
-        {activeSection === 'thirdParty' && (
-          <div className={`border-t-4 border-${sections.thirdParty.color}-500`}>
-                <div className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className={`p-3 rounded-lg mr-4 bg-${sections.thirdParty.color}-50 text-${sections.thirdParty.color}-600`}>
+
+          {activeSection === 'thirdParty' && (
+            <div className={`border-t-4 border-${sections.thirdParty.color}-500`}>
+              <div className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className={`p-3 rounded-lg mr-4 bg-${sections.thirdParty.color}-50 text-${sections.thirdParty.color}-600`}>
                     {sections.thirdParty.icon}
                   </div>
-                    <h2 className="text-2xl font-bold text-gray-900">Third-Party Services and Development Tools</h2>
-                  </div>
-                  <div className="prose max-w-none">
-                    <h3 className="text-xl font-semibold mb-4">Use of Third-Party Services and Tools</h3>
-                    <p className="mb-4">
-                      To operate, maintain, and improve this website, I rely on various trusted third-party service providers and development tools. These include (but are not limited to):
-                    </p>
-                    <ul className="list-disc pl-6 mb-4 space-y-2">
-                      <li><strong>Web Hosting Providers</strong> that keep the website accessible online</li>
-                      <li><strong>Email and Communication Platforms</strong> (such as Gmail) used to interact with you</li>
-                      <li><strong>Domain Registrars</strong> that manage the website's domain name</li>
-                      <li><strong>Analytics Services</strong> that help understand website usage and performance</li>
-                      <li><strong>Content Delivery Networks (CDNs)</strong> for faster content delivery</li>
-                      <li><strong>Payment Processors</strong> when handling transactions</li>
-                      <li><strong>Development Tools</strong> like APIs, version control platforms (GitHub), continuous integration/continuous deployment (CI/CD) tools, and databases</li>
-                    </ul>
-
-                    <p className="mb-4">
-                      These third-party providers may collect and process certain technical information during their normal operations, including:
-                    </p>
-                    <ul className="list-disc pl-6 mb-4 space-y-2">
-                      <li>Your IP address</li>
-                      <li>Browser type and version</li>
-                      <li>Device type and operating system</li>
-                      <li>Usage statistics, logs, or communications data</li>
-                    </ul>
-
-                    <p className="mb-4">
-                      Because these data collection activities are performed by third parties, I do <strong>not</strong> have direct control over them. However, these providers are required to comply with their own privacy policies and data protection regulations.
-                    </p>
-
-                    <h4 className="text-lg font-semibold mt-6 mb-3">What This Means for You:</h4>
-                    <ul className="list-disc pl-6 mb-4 space-y-2">
-                      <li>Your information may be collected or processed by these third parties according to their terms.</li>
-                      <li>I encourage you to review their privacy policies to understand how your data is managed and protected.</li>
-                      <li>Reviewing these policies will help you make informed decisions about your privacy and data security when interacting with this website.</li>
-                    </ul>
-
-                    <h4 className="text-lg font-semibold mt-6 mb-3">My Commitment to Transparency:</h4>
-                    <p className="mb-4">
-                      I believe in open communication about how data is collected and used. This disclosure is part of my ongoing effort to ensure you have a clear understanding of third-party data practices associated with this site.
-                    </p>
-                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900">Third-Party Services and Development Tools</h2>
                 </div>
-              
-          </div>
-        )}
+                <div className="prose max-w-none">
+                  <h3 className="text-xl font-semibold mb-4">Use of Third-Party Services and Tools</h3>
+                  <p className="mb-4">
+                    To operate, maintain, and improve this website, I rely on various trusted third-party service providers and development tools. These include (but are not limited to):
+                  </p>
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>Web Hosting Providers</strong> that keep the website accessible online</li>
+                    <li><strong>Email and Communication Platforms</strong> (such as Gmail) used to interact with you</li>
+                    <li><strong>Domain Registrars</strong> that manage the website's domain name</li>
+                    <li><strong>Analytics Services</strong> that help understand website usage and performance</li>
+                    <li><strong>Content Delivery Networks (CDNs)</strong> for faster content delivery</li>
+                    <li><strong>Payment Processors</strong> when handling transactions</li>
+                    <li><strong>Development Tools</strong> like APIs, version control platforms (GitHub), continuous integration/continuous deployment (CI/CD) tools, and databases</li>
+                  </ul>
+
+                  <p className="mb-4">
+                    These third-party providers may collect and process certain technical information during their normal operations, including:
+                  </p>
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li>Your IP address</li>
+                    <li>Browser type and version</li>
+                    <li>Device type and operating system</li>
+                    <li>Usage statistics, logs, or communications data</li>
+                  </ul>
+
+                  <p className="mb-4">
+                    Because these data collection activities are performed by third parties, I do <strong>not</strong> have direct control over them. However, these providers are required to comply with their own privacy policies and data protection regulations.
+                  </p>
+
+                  <h4 className="text-lg font-semibold mt-6 mb-3">What This Means for You:</h4>
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li>Your information may be collected or processed by these third parties according to their terms.</li>
+                    <li>I encourage you to review their privacy policies to understand how your data is managed and protected.</li>
+                    <li>Reviewing these policies will help you make informed decisions about your privacy and data security when interacting with this website.</li>
+                  </ul>
+
+                  <h4 className="text-lg font-semibold mt-6 mb-3">My Commitment to Transparency:</h4>
+                  <p className="mb-4">
+                    I believe in open communication about how data is collected and used. This disclosure is part of my ongoing effort to ensure you have a clear understanding of third-party data practices associated with this site.
+                  </p>
+                </div>
+              </div>
+
+
+            </div>
+          )}
+          {activeSection === 'professionalServicesPolicy' && (
+            <div className={`border-t-4 border-${sections.professionalServicesPolicy.color}-500`}>
+              <div className="p-8">
+                <div className="flex items-center mb-6">
+                  <div className={`p-3 rounded-lg mr-4 bg-${sections.professionalServicesPolicy.color}-50 text-${sections.professionalServicesPolicy.color}-600`}>
+                    {sections.professionalServicesPolicy.icon}
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900">Professional Services Policy</h2>
+                </div>
+                <div className="prose max-w-none">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Equal Opportunity & Non-Discrimination</h3>
+                  <p className="mb-4">
+                    I, Rajiv Giri is committed to providing professional services to all individuals without regard to race, color,
+                    religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability,
+                    age, or veteran status. I value diversity and inclusion in all professional engagements.
+                  </p>
+
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4 mt-8">Terms of Service</h3>
+                  <p className="mb-4">
+                    By using my contact information or engaging my services, you agree to the following terms:
+                  </p>
+                  <ul className="list-disc pl-6 mb-6 space-y-2">
+                    <li>You will not misuse my contact information for unsolicited marketing, spam, or any unlawful purpose</li>
+                    <li>All communications will be professional and relevant to potential business opportunities</li>
+                    <li>You will comply with all applicable local, state, and federal employment laws and regulations</li>
+                    <li>You will not engage in any form of harassment, discrimination, or unprofessional conduct</li>
+                    <li>You understand that all services are provided by Rajiv Giri as an independent contractor</li>
+                    <li>You will respect intellectual property rights and maintain confidentiality as appropriate</li>
+                  </ul>
+
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Service Limitations</h3>
+                  <p className="mb-4">
+                    All professional services are provided on a case-by-case basis and are subject to availability.
+                    I reserve the right to decline service or terminate engagement if these terms are violated or
+                    if the proposed work conflicts with my professional standards or existing commitments.
+                  </p>
+
+                  <p className="text-sm text-gray-600 mt-8">
+                    Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
         <div className="max-w-x1 mx-auto px-4 sm:px-6 lg:px-8 my-8 mb-12">
           <div className="bg-yellow-500/20 border-l-4 border-blue-500/500 p-4 rounded-md backdrop-blur-sm">
@@ -550,9 +606,6 @@ const Legal = ({ defaultSection = 'privacy' }) => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="mt-auto">
-        <Footer />
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ const ProjectsSection = () => {
       border: 'border-blue-200'
     },
 
-    'Security GRC Project': {
+    'Security GRC': {
       title: 'Security GRC Issue and Exception Analysis',
       description:
         'Supported Security Governance, Risk, and Compliance (GRC) operations by analyzing and resolving issues and exceptions raised by business stakeholders.',
@@ -55,7 +55,7 @@ const ProjectsSection = () => {
       border: 'border-green-200'
     },
 
-    'Bank Configuration Project': {
+    'Bank Configuration': {
       title: 'OFSAA Data Configuration Analysis (Banking Domain)',
       description:
         'Supported the configuration and testing of data integrity within Oracle Financial Services Analytical Applications (OFSAA).',
@@ -81,7 +81,7 @@ const ProjectsSection = () => {
       border: 'border-purple-200'
     },
 
-    'CRM Implementation Project': {
+    'CRM Implementation': {
       title: 'CRM Solution Implementation',
       description:
         'Worked as a Solution Implementation Manager, coordinating cross-functional teams to ensure seamless CRM deployment across customer operations.',
@@ -106,7 +106,7 @@ const ProjectsSection = () => {
       border: 'border-green-200'
     },
 
-    'POS Support Project': {
+    'POS Support': {
       title: 'POS Maintenance and Support – Retail',
       description:
         'Provided advanced support for retail Point-of-Sale (POS) systems, conducting troubleshooting, defect replication, and system optimization.',
@@ -131,7 +131,7 @@ const ProjectsSection = () => {
       border: 'border-blue-200'
     },
 
-    'Java Capstone Project': {
+    'Java Capstone': {
       title: 'Big Box Web Application (Java Capstone)',
       description:
         'Developed a dynamic web application as the final project of Java Bootcamp, implementing the DAO Factory Pattern using PL/SQL backend.',

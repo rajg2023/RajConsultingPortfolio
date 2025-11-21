@@ -8,23 +8,41 @@ import {
   ExternalLink,
   Linkedin,
   Github,
-  Twitter
+  Twitter,
+  Briefcase,
+  UserPlus,
+  Clock,
+  FileText
 } from 'lucide-react';
 
 const ContactSection = () => {
-  const [activeContact, setActiveContact] = useState('Direct Contact');
+  const [activeContact, setActiveContact] = useState('Direct Hire');
+  const [isVerified, setIsVerified] = useState(false);
+  const [directContactEnabled, setDirectContactEnabled] = useState(false);
 
+
+  const handleTabClick = (contactName) => {
+    if (contactName === 'Direct Contact' && !directContactEnabled) {
+      return; // Don't allow switching to Direct Contact if not enabled
+    }
+    if (activeContact === 'Direct Contact' && contactName !== 'Direct Contact') {
+      setDirectContactEnabled(false);
+    }
+
+    setActiveContact(contactName);
+  };
   const contactMethods = {
     'Direct Contact': {
       title: 'Get In Touch Directly',
       description: 'Prefer direct communication? Here are the best ways to reach me for immediate assistance.',
       icon: Phone,
       color: 'green',
+      disabled: !directContactEnabled,
       content: (
         <div className="space-y-8">
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
             <p className="text-blue-700">
-              To hire me for your next project, please contact me using the contact information provided in the "Direct Contact" section. All services are provided by Rajiv Giri as an independent consultant and not as "Company". Please refer to Legal section for more information. I can be reached at below provided email and phone number for more inquiries.
+              To engage my services for your upcoming project, please feel free to contact me using the details provided below. All professional services are rendered personally by me, Rajiv Giri, operating under my legal name and not under any company or corporate entity. This statement applies to all types of engagements, including full-time employment, contract assignments, freelance projects, part-time work, and consulting services. For further legal information, please refer to the Legal section. You may reach me via the email address, phone number, linkedin and github profiles listed below for any inquiries or additional information.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -34,8 +52,8 @@ const ContactSection = () => {
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Email Me</h4>
               <p><strong>Direct Email:</strong> rajivgiri2025@gmail.com</p>
-              
-              
+
+
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
               <div className="bg-green-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
@@ -43,16 +61,16 @@ const ContactSection = () => {
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Call Me</h4>
               <p className="text-gray-600 mb-3">(513) 834-3371</p>
-              
+
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-8">
             <h4 className="text-lg font-semibold text-gray-900 mb-6 text-center">Find Me Online</h4>
             <div className="flex justify-center space-x-8">
-              <a 
-                href="https://www.linkedin.com/in/girirajiv/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/girirajiv/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-blue-600 transition-colors flex flex-col items-center"
               >
@@ -61,8 +79,8 @@ const ContactSection = () => {
                 </div>
                 <span className="text-sm">LinkedIn</span>
               </a>
-              <a 
-                href="https://github.com/rajg2023" 
+              <a
+                href="https://github.com/rajg2023"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 transition-colors flex flex-col items-center"
@@ -97,7 +115,117 @@ const ContactSection = () => {
       icon_text: 'text-green-600',
       border: 'border-green-200'
     },
-    'Schedule Meeting': {
+    'Direct Hire': {
+      title: 'Hiring Opportunities',
+      description: 'Interested in having me join your team? Let\'s discuss full-time, part-time, or contract opportunities.',
+      icon: Briefcase,
+      color: 'indigo',
+      content: (
+        <div className="space-y-8">
+          <div className="text-center">
+            <div className="bg-indigo-100 p-6 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+              <Briefcase className="text-indigo-600" size={32} />
+            </div>
+            <h4 className="text-2xl font-semibold text-gray-900 mb-4">Let's Discuss Working Together</h4>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              I'm open to exploring new opportunities that align with my skills and experience. Let's schedule a call to discuss how I can contribute to your team.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center p-6 border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-colors cursor-pointer">
+              <div className="text-indigo-600 font-semibold mb-2">Part-time</div>
+              <div className="text-gray-600 text-sm mb-3">Flexible Hours</div>
+              <div className="text-gray-700">Perfect for ongoing projects with flexible time commitments</div>
+
+            </div>
+            <div className="text-center p-6 border-2 border-indigo-300 bg-indigo-50 rounded-lg cursor-pointer">
+              <div className="text-indigo-600 font-semibold mb-2">Full-time</div>
+              <div className="text-gray-600 text-sm mb-3">Permanent Positions</div>
+              <div className="text-gray-700">Ideal for long-term roles with benefits and growth opportunities</div>
+              <div className="text-indigo-600 text-sm font-medium mt-2">Available</div>
+            </div>
+            <div className="text-center p-6 border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-colors cursor-pointer">
+              <div className="text-indigo-600 font-semibold mb-2">Contract</div>
+              <div className="text-gray-600 text-sm mb-3">Project-based</div>
+              <div className="text-gray-700">Great for specific projects or temporary needs</div>
+            </div>
+          </div>
+
+          <div className="bg-green-50 border border-indigo-200 rounded-lg p-6">
+            <h4 className="font-semibold text-indigo-900 mb-3">What We'll Discuss:</h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="flex items-center text-indigo-700">
+                <CheckCircle size={16} className="mr-2 text-indigo-600" />
+                The role and your company
+              </div>
+              <div className="flex items-center text-indigo-700">
+                <CheckCircle size={16} className="mr-2 text-indigo-600" />
+                How my skills match your needs
+              </div>
+              <div className="flex items-center text-indigo-700">
+                <CheckCircle size={16} className="mr-2 text-indigo-600" />
+                Compensation and benefits
+              </div>
+              <div className="flex items-center text-indigo-700">
+                <CheckCircle size={16} className="mr-2 text-indigo-600" />
+                Next steps in the process
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-4">
+              <input
+                id="verifyCheckbox"
+                type="checkbox"
+                checked={isVerified}
+                onChange={(e) => setIsVerified(e.target.checked)}
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+              />
+              <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
+                I agree to the{' '}
+                <a
+                  href="/legal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 hover:underline"
+                >
+                  Terms and Conditions
+                </a>
+              </label>
+            </div>
+
+            <button
+              onClick={() => {
+    if (isVerified) {
+      setDirectContactEnabled(true);
+      setActiveContact('Direct Contact');
+      // Reset verification for next time
+      setIsVerified(false);
+    }
+  }}
+  disabled={!isVerified}
+  className={`px-8 py-3 rounded-lg flex items-center mx-auto font-medium ${
+    isVerified
+      ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+  } transition-colors`}
+>
+  <Calendar size={20} className="mr-2" />
+  Schedule a Call to Discuss
+            </button>
+            <p className="text-gray-500 text-sm mt-3">
+              No commitment required • Please send the detailed job description via email or phone. I'll respond within 24-48 hours.
+            </p>
+          </div>
+        </div>
+      ),
+      icon_bg: 'bg-indigo-50',
+      icon_text: 'text-indigo-600',
+      border: 'border-indigo-200'
+    },
+    'Consulting & Freelance': {
       title: 'Schedule a Consultation',
       description: 'Book a free consultation call to discuss your project requirements and how I can help.',
       icon: Calendar,
@@ -156,14 +284,49 @@ const ContactSection = () => {
           </div>
 
           <div className="text-center">
-            <button 
-              onClick={() => setActiveContact('Direct Contact')}
-              className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors flex items-center mx-auto font-medium"
-            >
-              <Calendar size={20} className="mr-2" />
-              Call or Email to Schedule Free Consultation
+            <div className="flex items-center justify-center mb-4">
+              <input
+                id="verifyCheckbox"
+                type="checkbox"
+                checked={isVerified}
+                onChange={(e) => setIsVerified(e.target.checked)}
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+              />
+              <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
+                I agree to the{' '}
+                <a
+                  href="/legal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 hover:underline"
+                >
+                  Terms and Conditions
+                </a>
+              </label>
+            </div>
+
+            <button
+              onClick={() => {
+    if (isVerified) {
+      setDirectContactEnabled(true);
+      setActiveContact('Direct Contact');
+      // Reset verification for next time
+      setIsVerified(false);
+    }
+  }}
+  disabled={!isVerified}
+  className={`px-8 py-3 rounded-lg flex items-center mx-auto font-medium ${
+    isVerified
+      ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+  } transition-colors`}
+>
+  <Calendar size={20} className="mr-2" />
+  Schedule a Call to Discuss
             </button>
-            <p className="text-gray-500 text-sm mt-3">No commitment required • First 15 to 60 minutes consultation completely free. I'll respond within 24 - 72 hours, depending on the urgency and availability.</p>
+            <p className="text-gray-500 text-sm mt-3">
+              No commitment required • First 30 minutes consultation is free. I'll respond within 24-48 hours.
+            </p>
           </div>
         </div>
       ),
@@ -181,7 +344,8 @@ const ContactSection = () => {
     const colorMap = {
       blue: active ? 'bg-blue-500 text-white shadow-lg' : 'bg-blue-50 text-blue-600 border border-blue-200 hover:bg-blue-100',
       green: active ? 'bg-green-500 text-white shadow-lg' : 'bg-green-50 text-green-600 border border-green-200 hover:bg-green-100',
-      purple: active ? 'bg-purple-500 text-white shadow-lg' : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100'
+      purple: active ? 'bg-purple-500 text-white shadow-lg' : 'bg-purple-50 text-purple-600 border border-purple-200 hover:bg-purple-100',
+      indigo: active ? 'bg-indigo-500 text-white shadow-lg' : 'bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100'
     };
     return colorMap[color];
   };
@@ -195,12 +359,19 @@ const ContactSection = () => {
             const contact = contactMethods[contactName];
             const ContactIconComponent = contact.icon;
             const isActive = activeContact === contactName;
+            const isDisabled = contactName === 'Direct Contact' && !directContactEnabled;
 
             return (
               <button
                 key={contactName}
-                onClick={() => setActiveContact(contactName)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${getColorClasses(contact.color, isActive)}`}
+                onClick={() => handleTabClick(contactName)}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 ${isActive
+                    ? getColorClasses(contact.color, true)
+                    : isDisabled
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                      : getColorClasses(contact.color, false)
+                  }`}
+                disabled={isDisabled}
               >
                 <ContactIconComponent size={18} />
                 <span>{contactName}</span>

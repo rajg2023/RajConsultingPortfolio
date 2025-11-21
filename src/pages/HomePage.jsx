@@ -1,9 +1,8 @@
 import React, { useState, lazy, Suspense, useEffect } from 'react';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer';
 import { useLocation } from 'react-router-dom';
 import { User, FileText, MessageCircle } from 'lucide-react';
 import ResumeSelector from '../components/Resume/ResumeSelector';
+
 
 // Lazy load components - only load when needed
 const AboutSection = lazy(() => import('../components/About/AboutSection'));
@@ -24,8 +23,7 @@ const LoadingSpinner = () => (
   </div>
 );
 
-const HomePage = () => {
-  const [activeSection, setActiveSection] = useState('home');
+const HomePage = ({ activeSection, setActiveSection }) => {
   const [resumeData, setResumeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -59,7 +57,7 @@ const HomePage = () => {
     if (target) {
       setActiveSection(target);
     }
-  }, [location.state]);
+  }, [location.state, setActiveSection]);
 
   if (loading) {
     return <LoadingSpinner />;
@@ -85,8 +83,10 @@ const HomePage = () => {
 
   const renderSection = () => {
     if (!resumeData && !loading && !error) return null;
+     
+    const section = activeSection || 'home'; // Default to 'home' if undefined
     
-    switch(activeSection) {
+    switch(section) {
       case 'home':
         return <AboutSection resumeData={resumeData} isLoading={loading} error={error} />;
       case 'skills':
@@ -129,7 +129,7 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+      
       
       {/* Dynamic Quote/Motto Banner */}
       <div className="relative bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 text-white overflow-hidden">
@@ -268,10 +268,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      
-     
-      
-      <Footer contact={resumeData?.contact} />
+    
     </div>
   );
 };

@@ -47,7 +47,7 @@ const Footer = () => {
                 </svg>
               </div>
               <div className="ml-3">
-                <p className="text-sm text-yellow-100">
+                <p className="text-sm text-yellow-300">
                   <strong className="font-medium">Work in Progress Notice</strong>
                   <br />
                   Parts of this website and certain pages may be undergoing active development or updates. Features, text, images, or components displayed may not represent the final version. It reserves the right to modify, update, or remove content as work progresses.
@@ -65,10 +65,11 @@ const Footer = () => {
               <Link to="/legal/ai" className="hover:text-gray-200 transition-colors">AI Disclosure</Link>
               <Link to="/legal/security" className="hover:text-gray-200 transition-colors">Data Security</Link>
               <Link to="/legal/thirdParty" className="hover:text-gray-200 transition-colors">Third-Party Services</Link>
+              <Link to="/legal/professionalServicesPolicy" className="hover:text-gray-200 transition-colors">Professional Services</Link>
             </div>
             
             {/* Centered copyright */}
-            <div className="text-xs text-gray-200 whitespace-nowrap">
+            <div className="text-sm text-gray-200 whitespace-nowrap">
               © {currentYear} Rajiv Giri. All Rights Reserved.
             </div>
             
