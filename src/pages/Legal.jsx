@@ -153,7 +153,10 @@ const Legal = ({ defaultSection = 'privacy' }) => {
   to="/"
   onClick={(e) => {
     e.preventDefault();
-    window.location.href = window.location.origin;
+    // Force a hard navigation after a small delay
+    setTimeout(() => {
+      window.location.replace('/');
+    }, 50);
   }}
   className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
 >
