@@ -150,15 +150,15 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                 <span className="font-bold">WIP[RTC]</span>
               </Link>
               <Link
-                to="/"
-                className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/', { replace: true });
-                }}
-              >
-                Back to Home
-              </Link>
+  to="/"
+  onClick={(e) => {
+    e.preventDefault();
+    window.location.href = window.location.origin;
+  }}
+  className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
+>
+  Back to Home
+</Link>
             </div>
           </div>
         </div>

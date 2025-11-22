@@ -12,7 +12,14 @@ from flask_cors import CORS
 import chromadb
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/chat": {
+        "origins": ["http://localhost:3000", "http://127.0.0.1:3000"],
+        "methods": ["POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"],
+        "supports_credentials": True
+    }
+})
 
 # Configurations
 JSON_FILE = "finetuneddata.json"
@@ -396,30 +403,56 @@ ANSWER:"""
     
     return answer
 
-@app.route('/')
-def index():
-    """Render the main chat interface"""
-    return render_template('index.html')
 
-@app.route('/chat', methods=['POST'])
+
+@app.route('/chat', methods=['POST', 'OPTIONS'])
 def chat():
-    """Handle chat requests with streaming support"""
+
+    print("\n=== New Request ===")
+    print("Headers:", dict(request.headers))
+    print("Raw data:", request.get_data())
+
+    """Handle chat requests with CORS support"""
+    if request.method == 'OPTIONS':
+        # Handle preflight request
+        response = jsonify({'status': 'ok'})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        return response
+        
     try:
         data = request.get_json()
-        user_message = data.get('message', '').strip()
+        print("Parsed JSON:", data)
         
+        if not data or 'message' not in data:
+            return jsonify({'response': 'No message provided'}), 400
+            
+        user_message = data['message'].strip()
         if not user_message:
-            return jsonify({'response': 'Please enter a message.'})
+            return jsonify({'response': 'Message cannot be empty'}), 400
         
-        # Get response from chatbot
+        print("Processing message:", user_message)
         response = answer_question(user_message)
+        print("Generated response:", response)
         
-        # Return response for typing effect (frontend will handle animation)
-        return jsonify({'response': response})
-    
+        result = jsonify({'response': response})
+        result.headers.add('Access-Control-Allow-Origin', '*')
+        return result
+        
     except Exception as e:
-        print(f"[ERROR] Chat endpoint error: {e}")
-        return jsonify({'response': 'I apologize, but I encountered an error. Please try again.'}), 500
+        print(f"Error in chat endpoint: {str(e)}")
+        print("Exception type:", type(e).__name__)
+        import traceback
+        traceback.print_exc()
+        
+        error = jsonify({
+            'response': 'I apologize, but I encountered an error processing your request.',
+            'error': str(e),
+            'type': type(e).__name__
+        })
+        error.headers.add('Access-Control-Allow-Origin', '*')
+        return error, 500
 
 @app.route('/health', methods=['GET'])
 def health():
@@ -430,9 +463,13 @@ if __name__ == '__main__':
     print("=" * 50)
     print("Initializing Portfolio Chatbot...")
     print("=" * 50)
-    initialize_models()
-    print("=" * 50)
-    print("Starting web server...")
-    print("=" * 50)
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    try:
+        initialize_models()
+        print("=" * 50)
+        print("Starting web server...")
+        print("=" * 50)
+        app.run(host='0.0.0.0', port=5000, debug=True)  # Enable debug mode
+    except Exception as e:
+        print(f"Failed to start server: {str(e)}")
+        raise
 
