@@ -1,0 +1,124 @@
+{
+  
+  "title": "Independent Digital and Technology Solutions Professional",
+  "contact": {
+    "email": "rajivgiri2025@gmail.com",
+    "phone": "(513) 834-3371",
+    "location": "Cincinnati, OH",
+    "linkedin": "linkedin.com/in/girirajiv",
+    "github": "rajg2023"
+  },
+  "summary": "I operate as an independent contractor, specializing in digital and technology solutions. I am not a registered business entity; rather, I provide my expertise directly to clients on a project basis. My focus is on delivering personalized, high-quality service tailored to your specific needs.\n\nGoogle Data Analytics Professional | Data/Application Analyst | Application Engineer | Software/Data Engineer | Business Systems Analyst\n\nDigital and Technology Solutions professional with 9+ years in dataintensive environments, whose 3+ years of hands-on IT experience are built upon a foundation of 6+ years in a pharmaceutical operations, where I developed important skills in data entry, validation, and process optimization within a highly regulated healthcare setting. These skills helped me succeed in IT, providing a strong foundation for data analysis, application support, and maintaining data accuracy.\nMy primary focus is on data/application analyst/testing roles, using analytical skills and attention to detail for data quality and application reliability. I'm also interested in exploring related areas like AI and software development. As a Senior Analyst at Robert Half & Protiviti (May 2022 - Jan 2024), I worked on a variety of client projects, developing a strong understanding of business processes, technical requirements, and client needs. This included identifying process improvements, reviewing analyst work to ensure quality, and training and guiding junior team members.\n\n<strong><u>Career Highlights & Key Contributions:</u></strong>\n<strong><i>Application Support (POS):</i></strong> Provided 3rd/4th level support for Vision Commerce Suite, triaging, diagnosing, and reproducing application defects via error logs, SQL queries, and code review. Tested and deployed patches/releases.\n<strong><i>Data Analysis & Testing (ETL):</i></strong> Performed data warehouse integration testing post-ETL, identifying/documenting data discrepancies. Analyzed data quality issues, contributing to improved data accuracy/reliability. Created process flowcharts (Visio) to document data flows.\n<strong><i>Security GRC:</i></strong> Resolved security issues/exceptions, validated data on TVM dashboards, ensuring data accuracy for case processing and providing data-driven recommendations.\n<strong><i>OFSAA:</i></strong> Created/maintained RTMs for 500+ KDEs using data mappings, layouts, and data repositories. Validated data integrity/ accuracy after OFSAA configuration.\n<strong><i>CRM Implementation:</i></strong> Collaborated on business needs analysis, process mapping, and successful CRM launches.\n\nMy healthcare background and IT experience have cultivated a strong commitment to data accuracy, security, and privacy. I excel at collaborating and using analytical problem-solving to drive business growth. I approach challenges proactively and collaboratively.\n\n I am looking to work on Data Analytics, Data/Application Analysis, Application Engineering, Software/Data Engineeing, Business Systems Analysis projects, I'm also open to AI/ software engineering opportunities.\n\nLet's connect and explore how I can contribute to your project/team!\n\nThank you for visiting my portfolio.\n\n<div style=\"font-family: 'Brush Script MT', cursive; font-size: 32px; color: #1a365d;\"><u>Rajiv Giri.</u></div>",
+  "skills": {
+    "technical": [
+      "Data Analysis & Visualization",
+      "Application Support & Testing",
+      "SQL & Database Management",
+      "Microsoft Power Platform",
+      "Data Cleansing & Manipulation",
+      "ETL Processes",
+      "Jira & Confluence",
+      "Process Mapping (Visio)",
+      "Security GRC",
+      "OFSAA Configuration"
+    ],
+    "soft": [
+      "Problem Solving",
+      "Team Leadership",
+      "Client Communication",
+      "Mentoring",
+      "Process Improvement"
+    ],
+    "languages": [
+      "English (Full Professional)",
+      "Nepali (Full Professional)",
+      "Hindi (Full Professional)",
+      "Dzongkha (Limited Working)",
+      "Sanskrit (Limited Working)"
+    ]
+  },
+  "experience": [
+    {
+      "position": "Senior Analyst (Technology)",
+      "company": "Protiviti (placed by Robert Half)",
+      "period": "May 2022 - January 2024",
+      "location": "Cincinnati, OH",
+      "responsibilities": [
+        "Led client engagements across various industries, focusing on business processes and technical requirements",
+        "Mentored junior team members and ensured quality through reviews and feedback",
+        "Security GRC: Resolved security issues, validated TVM dashboard data, and provided data-driven recommendations",
+        "OFSAA: Created/maintained RTMs for 500+ KDEs and validated data integrity post-configuration",
+        "CRM Implementation: Collaborated on business needs analysis and successful CRM launches"
+      ]
+    },
+    {
+      "position": "Technical Application Support Consultant (POS 3rd/4th level Support)",
+      "company": "Flooid (formerly PCMS Datafit)",
+      "period": "October 2017 - July 2018",
+      "location": "Cincinnati, KY",
+      "responsibilities": [
+        "Provided application support for Vision Commerce Suite POS system",
+        "Triaged, diagnosed, and reproduced application defects using error logs, SQL queries, and code review",
+        "Tested and deployed patches/releases across environments",
+        "Administered virtual machine servers and Beanstore applications"
+      ]
+    },
+    {
+      "position": "Data Analyst (Technology)",
+      "company": "Thrive Impact Sourcing (now Ingage Partners)",
+      "period": "July 2016 - February 2017",
+      "location": "Cincinnati, KY",
+      "responsibilities": [
+        "Performed data warehouse integration testing post-ETL",
+        "Identified and documented data quality issues",
+        "Revised company data dictionary definitions",
+        "Created process flowcharts using Visio to document data flows"
+      ]
+    },
+    {
+      "position": "Certified Pharmacy Technician",
+      "company": "Humana",
+      "period": "2009 - 2015",
+      "location": "Cincinnati, OH",
+      "responsibilities": [
+        "Performed high-volume data entry and validation of patient information",
+        "Participated in system migration from MS DOS to web-based application",
+        "Developed SIG short codes that increased productivity by 20%",
+        "Assisted an average of 30 customers daily with prescription needs"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Arts, Humanities",
+      "institution": "University of North Bengal",
+      "period": "2004 - 2007"
+    },
+    {
+      "degree": "Professional Certificate, Google Data Analytics",
+      "institution": "Google",
+      "period": "2025"
+    },
+    {
+      "degree": "Java Software Development Bootcamp",
+      "institution": "MAX Technical Training (formerly Cinci Code IT)",
+      "period": "2017"
+    }
+  ],
+  "certifications": [
+    "Database Foundations: Intro to Databases - LinkedIn Learning",
+    "Introduction to Prompt Engineering for Generative AI (2023) - Google Data Analytics"
+  ],
+  "projects": [
+    {
+      "name": "Desktop POS and Web Applications",
+      "description": "Developed desktop POS and web applications using Java, .NET, SQL, Azure, and Heroku",
+      "technologies": ["Java", ".NET", "SQL", "Azure", "Heroku"]
+    },
+    {
+      "name": "Data Warehouse Integration Testing",
+      "description": "Performed data warehouse integration testing post-ETL, identifying and documenting data discrepancies",
+      "technologies": ["ETL", "SQL", "Data Validation"]
+    }
+  ]
+}
