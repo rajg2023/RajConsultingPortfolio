@@ -187,12 +187,12 @@ const ContactSection = () => {
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
                 <a
-                  href="/legal"
+                  href="/legal/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-indigo-600 hover:underline"
                 >
-                  Terms and Conditions
+                  Legal Terms and Conditions
                 </a>
               </label>
             </div>
@@ -295,12 +295,12 @@ const ContactSection = () => {
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
                 <a
-                  href="/legal"
+                  href="/legal/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-indigo-600 hover:underline"
                 >
-                  Terms and Conditions
+                  Legal Terms and Conditions
                 </a>
               </label>
             </div>
@@ -391,12 +391,12 @@ const ContactSection = () => {
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
                 <a
-                  href="/legal"
+                  href="/legal/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-indigo-600 hover:underline"
                 >
-                  Terms and Conditions
+                  Legal Terms and Conditions
                 </a>
               </label>
             </div>
