@@ -1,4 +1,4 @@
-# 🚀 ConsultantPro - QA/SDET Portfolio Website
+# 🚀 Portfolio Website
 
 > A modern, responsive portfolio website showcasing Quality Assurance and Software Development Engineering in Test (SDET) skills, built with React and Tailwind CSS.
 
