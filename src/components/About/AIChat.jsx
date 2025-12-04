@@ -15,58 +15,57 @@ const AIChat = () => {
   ]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+   const [suggestions, setSuggestions] = useState([]);  // Add this line
   const messagesEndRef = useRef(null);
   const chatbot = new SimpleChatbot(knowledgeBase);
   const messagesContainerRef = useRef(null);
-  // Add this near the top of your component, with other state declarations
-  const [suggestions, setSuggestions] = useState(() => chatbot.getRandomQuestions(5));
-
+   // Initialize suggestions
   useEffect(() => {
-    // Only update suggestions when the last message changes and it's from the user
-    const lastMessage = messages[messages.length - 1];
-    if (!lastMessage || lastMessage.sender !== 'user') return;
+    setSuggestions(chatbot.getRandomQuestions(5));
+  }, []);
 
-    const scrollToBottom = () => {
+   // Handle scroll to bottom
+  const scrollToBottom = () => {
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
   };
+  // Add this function near the top of your component, after the state declarations
+const updateSuggestions = useCallback(() => {
+  try {
+    const recentMessages = messages
+      .filter(msg => msg.sender === 'user')
+      .slice(-3)
+      .map(msg => msg.text);
 
+    if (recentMessages.length === 0) {
+      const randomSuggestions = chatbot.getRandomQuestions(5);
+      setSuggestions(randomSuggestions);
+      return;
+    }
 
+    const contextBased = chatbot.generateDynamicSuggestions(recentMessages);
+    const newSuggestions = [...new Set([
+      ...contextBased,
+      ...chatbot.getRandomQuestions(5)
+    ])].slice(0, 5);
 
-    // Debounce the suggestion update
-    const timer = setTimeout(() => {
-      try {
-        const recentMessages = messages
-          .filter(msg => msg.sender === 'user')
-          .slice(-3)
-          .map(msg => msg.text);
+    setSuggestions(newSuggestions.length >= 3 ? newSuggestions : chatbot.getRandomQuestions(5));
+  } catch (error) {
+    console.error("Error updating suggestions:", error);
+    setSuggestions(chatbot.getRandomQuestions(5));
+  }
+}, [messages]);
 
-        if (recentMessages.length === 0) {
-          setSuggestions(chatbot.getRandomQuestions(5));
-          return;
-        }
-        if (messagesContainerRef.current) {
-          messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
-        }
+ 
+    // Add this new useEffect hook right after your other hooks
+    useEffect(() => {
+      
+      // Update suggestions when messages change, but not too frequently
+      const timer = setTimeout(updateSuggestions, 300);
+      return () => clearTimeout(timer);
+    }, [updateSuggestions]);
 
-        const contextBased = chatbot.generateDynamicSuggestions(recentMessages);
-        const newSuggestions = [...new Set([
-          ...contextBased,
-          ...chatbot.getRandomQuestions(5)
-        ])].slice(0, 5);
-
-        setSuggestions(newSuggestions.length >= 3 ? newSuggestions : chatbot.getRandomQuestions(5));
-      } catch (error) {
-        console.error("Error updating suggestions:", error);
-        setSuggestions(chatbot.getRandomQuestions(5));
-      }
-    }, 300); // Small delay to prevent jank
-
-    return () => clearTimeout(timer);
-
-    scrollToBottom();
-  }, [messages]); // Only run when messages change
 
 
   // Function to simulate typing effect
@@ -119,67 +118,67 @@ const AIChat = () => {
   };
 
   const handleSendMessage = async (e) => {
-    e.preventDefault();
-    if (!inputText.trim() || isTyping) return;
+     e.preventDefault();
+  if (!inputText.trim() || isTyping) return;
 
-    // Add user message to chat
-    const userMessage = {
-      id: Date.now(),
-      text: inputText,
-      displayText: inputText,
-      sender: 'user',
-      isTyping: false
+  const userMessage = {
+    id: Date.now(),
+    text: inputText,
+    sender: 'user',
+    displayText: inputText,
+    isTyping: false
+  };
+
+  setMessages(prev => [...prev, userMessage]);
+  setInputText('');
+  setIsTyping(true);
+
+  try {
+    // Get bot response
+    const response = await chatbot.getResponse(inputText);
+    
+    // Add bot's typing indicator
+    const botMessage = {
+      id: Date.now() + 1,
+      text: response,
+      sender: 'ai',
+      displayText: '',
+      isTyping: true
     };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInputText('');
-    setIsTyping(true);
+    setMessages(prev => [...prev, botMessage]);
+    await typeText(response, botMessage.id);
+    updateSuggestions(); // Update suggestions after bot responds
+    
+    /* // Update suggestions after a short delay
+    setTimeout(() => {
+      const recentMessages = [inputText];
+      const contextBased = chatbot.generateDynamicSuggestions(recentMessages);
+      const newSuggestions = [...new Set([
+        ...contextBased,
+        ...chatbot.getRandomQuestions(5)
+      ])].slice(0, 5);
+      
+      setSuggestions(newSuggestions.length >= 3 ? newSuggestions : chatbot.getRandomQuestions(5));
+    }, 500);
 
-    // Generate a unique ID for the bot's response
-    const botMessageId = Date.now() + 1;
-
-    // Add the bot's message with empty displayText
-    setMessages(prev => [
-      ...prev,
-      {
-        id: botMessageId,
-        text: '', // This will store the full response
-        displayText: '', // This will be updated during typing
-        sender: 'ai',
-        isTyping: true
-      }
-    ]);
-
-    try {
-      // Get response from local chatbot
-      const response = await chatbot.getResponse(inputText);
-
-      // Update message with response and start typing effect
-      setMessages(prev =>
-        prev.map(msg =>
-          msg.id === botMessageId
-            ? { ...msg, text: response, isTyping: true }
-            : msg
-        )
-      );
-      typeText(response, botMessageId);
-
-    } catch (error) {
-      console.error('Error:', error);
-      setMessages(prev =>
-        prev.map(msg =>
-          msg.id === botMessageId
-            ? {
-              ...msg,
-              text: `Oops Error: Sorry, I encountered an error. ${error.message}`,
-              displayText: `Oops Error: Sorry, I encountered an error. ${error.message}`,
-              isTyping: false
-            }
-            : msg
-        )
-      );
-      setIsTyping(false);
-    }
+    // Simulate typing effect
+    await typeText(response, botMessage.id); */
+    
+  } catch (error) {
+    console.error('Error getting response:', error);
+    // Add error message
+    const errorMessage = {
+      id: Date.now() + 1,
+      text: "I'm sorry, I encountered an error. Please try again.",
+      sender: 'ai',
+      displayText: "I'm sorry, I encountered an error. Please try again.",
+      isTyping: false
+    };
+    setMessages(prev => [...prev, errorMessage]);
+  } finally {
+    setIsTyping(false);
+  }
   };
   // Add this function to handle suggestion clicks
   const handleSuggestionClick = async (suggestion) => {
@@ -206,7 +205,7 @@ const AIChat = () => {
             </div>
             <div className="ml-3">
               <div className="text-sm text-yellow-700 space-y-1">
-                <p><strong>Important Notice:</strong> This is a ChatBot and NOT an AI assistant.The ChatBot is under training and information provided by this chatbot assistant is for general informational purposes only and may not be 100% accurate or up-to-date. For the most current and accurate information, or for specific inquiries, please contact me directly through official channels.</p>
+                <p><strong>Important Notice:</strong> This is a ChatBot and NOT an AI assistant.The ChatBot is currently being updated and is also under training and information provided by this chatbot assistant is for general informational purposes only and may not be 100% accurate or up-to-date. For the most current and accurate information, or for specific inquiries, please contact me directly through official channels.</p>
                 <p><strong>Privacy Notice:</strong> Please do not share any personal, sensitive, or confidential information in this chat. This is a chatbot assistant and not a secure communication channel.</p>
 
               </div>
@@ -238,8 +237,8 @@ const AIChat = () => {
                       )}
                       <div
                         className={`px-4 py-2 rounded-lg ${message.sender === 'user'
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-gray-100 text-gray-900'
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-gray-100 text-gray-900'
                           }`}
                       >
                         {message.isTyping && message.displayText === '' ? (
@@ -287,8 +286,8 @@ const AIChat = () => {
               <button
                 type="submit"
                 className={`px-4 py-2 rounded-lg transition-colors ${isTyping || !inputText.trim()
-                    ? 'bg-gray-300 cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
                   }`}
                 disabled={isTyping || !inputText.trim()}
               >
