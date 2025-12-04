@@ -187,7 +187,7 @@ const ContactSection = () => {
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
                 <a
-                  href="/legal/privacy"
+                  href="/RajConsultingPortfolio/legal/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-indigo-600 hover:underline"
@@ -294,8 +294,7 @@ const ContactSection = () => {
               />
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
-                <a
-                  href="/legal/privacy"
+                href="/RajConsultingPortfolio/legal/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-indigo-600 hover:underline"
@@ -391,7 +390,7 @@ const ContactSection = () => {
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
                 <a
-                  href="/legal/privacy"
+                  href="/RajConsultingPortfolio/legal/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-indigo-600 hover:underline"
