@@ -187,7 +187,7 @@ const ContactSection = () => {
               />
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
-                <Link to="/legal/privacy" className="text-indigo-600 hover:underline">Privacy Policy and Terms of Service.</Link>
+                <Link to="/legal/privacy" className="text-indigo-600 hover:underline">Privacy Policy, other Legal Policies, and Terms of Service.</Link>
               </label>
             </div>
 
@@ -288,7 +288,7 @@ const ContactSection = () => {
               />
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
-                <Link to="/legal/privacy" className="text-indigo-600 hover:underline">Privacy Policy and Terms of Service.</Link>
+                <Link to="/legal/privacy" className="text-indigo-600 hover:underline">Privacy Policy, other Legal Policies, and Terms of Service.</Link>
               </label>
             </div>
 
@@ -377,7 +377,7 @@ const ContactSection = () => {
               />
               <label htmlFor="verifyCheckbox" className="ml-2 block text-sm text-gray-700">
                 I agree to the{' '}
-                <Link to="/legal/privacy" className="text-indigo-600 hover:underline">Privacy Policy and Terms of Service.</Link>
+                <Link to="/legal/privacy" className="text-indigo-600 hover:underline">Privacy Policy, other Legal Policies, and Terms of Service.</Link>
               </label>
             </div>
 
