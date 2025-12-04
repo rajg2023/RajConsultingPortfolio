@@ -133,7 +133,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
       </div>
 
       {/* Mobile menu panel */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+      <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${
         isMobileMenuOpen ? 'max-h-96' : 'max-h-0'
       }`}>
         <div className="px-4 pt-2 pb-4 space-y-2 bg-slate-900/95 backdrop-blur-sm border-t border-white/10">
