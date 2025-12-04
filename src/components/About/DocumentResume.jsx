@@ -276,7 +276,7 @@ const DocumentResume = () => {
                       iframe.contentDocument.body.style.padding = '0';
                       iframe.contentDocument.body.style.overflow = 'hidden';
                     }
-                    iframe.style.height = '1600px';
+                    iframe.style.height = '1400px';
                   }}
                 />
               </div>
