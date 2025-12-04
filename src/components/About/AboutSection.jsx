@@ -36,7 +36,7 @@ const AboutSection = ({ resumeData, isLoading, error }) => {
       border: 'border-purple-200'
     },
     { 
-      name: 'AI Chat', 
+      name: 'Chat Bot', 
       icon: MessageCircle, 
       color: 'orange',
       icon_bg: 'bg-orange-50',
@@ -93,13 +93,13 @@ const AboutSection = ({ resumeData, isLoading, error }) => {
                   {activeTab === 'About Me' && 'Professional Profile'}
                   {activeTab === 'Video Resume' && 'Video Introduction'}
                   {activeTab === 'Document Resume' && 'Resume & Documents'}
-                  {activeTab === 'AI Chat' && 'AI Assistant'}
+                  {activeTab === 'Chat Bot' && 'Non AI Assistant'}
                 </h3>
                 <p className="text-gray-600 text-lg">
                   {activeTab === 'About Me' && 'Learn more about my background, skills, and experience'}
                   {activeTab === 'Video Resume' && 'Watch my video introduction and professional summary'}
                   {activeTab === 'Document Resume' && 'Download or view my resume and other documents'}
-                  {activeTab === 'AI Chat' && 'Chat with an AI assistant to learn more about me'}
+                  {activeTab === 'Chat Bot' && 'Chat with an Non AI assistant to learn more about me'}
                 </p>
               </div>
             </div>
@@ -114,7 +114,7 @@ const AboutSection = ({ resumeData, isLoading, error }) => {
                 <DocumentResume />
               </div>
             )}
-            {activeTab === 'AI Chat' && <AIChat />}
+            {activeTab === 'Chat Bot' && <AIChat />}
           </div>
         </div>
       </div>

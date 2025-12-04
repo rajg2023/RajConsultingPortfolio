@@ -1,6 +1,6 @@
 """
 Portfolio Chatbot Web Application
-Uses SmolLM-135M-Instruct with RAG for portfolio Q&A
+~~Main idea was to use SLM with RAG for portfolio Q&A, but could not do it within current application archetecture without using api's and application server due to time and budget constraints~~
 """
 import json
 import os
@@ -22,7 +22,7 @@ CORS(app, resources={
 })
 
 # Configurations
-JSON_FILE = "finetuneddata.json"
+JSON_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "finetuneddata.json")
 CHROMA_PERSIST_DIR = "./chroma_db"
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 # Force CPU - GPU (GTX 950M) is not compatible with current PyTorch CUDA version

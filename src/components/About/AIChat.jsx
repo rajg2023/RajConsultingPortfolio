@@ -1,26 +1,83 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Send, Bot, User } from 'lucide-react';
+import { SimpleChatbot } from '../../utils/chatbotLogic';
+import knowledgeBase from '../../utils/finetuneddata.json'; // Your Q&A data
 
 const AIChat = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi! I'm Raj's AI assistant ViRe. Ask me anything about his experience, skills, or projects!",
-      displayText: "Hi! I'm Raj's AI assistant ViRe. Ask me anything about his experience, skills, or projects!",
+      text: "Hi! I'm Raj's chatbot assistant ViRe.I am NOT an AI assistant yet. Ask me anything about his experience, skills, or projects!",
+      displayText: "Hi! I'm Raj's chatbot assistant ViRe. I am NOT an AI assistant yet. Ask me anything about his experience, skills, or projects!",
       sender: 'ai',
       isTyping: false
     }
   ]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef(null);
+  const chatbot = new SimpleChatbot(knowledgeBase);
+  const messagesContainerRef = useRef(null);
+  // Add this near the top of your component, with other state declarations
+  const [suggestions, setSuggestions] = useState(() => chatbot.getRandomQuestions(5));
+
+  useEffect(() => {
+    // Only update suggestions when the last message changes and it's from the user
+    const lastMessage = messages[messages.length - 1];
+    if (!lastMessage || lastMessage.sender !== 'user') return;
+
+    const scrollToBottom = () => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
+  };
+
+
+
+    // Debounce the suggestion update
+    const timer = setTimeout(() => {
+      try {
+        const recentMessages = messages
+          .filter(msg => msg.sender === 'user')
+          .slice(-3)
+          .map(msg => msg.text);
+
+        if (recentMessages.length === 0) {
+          setSuggestions(chatbot.getRandomQuestions(5));
+          return;
+        }
+        if (messagesContainerRef.current) {
+          messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+        }
+
+        const contextBased = chatbot.generateDynamicSuggestions(recentMessages);
+        const newSuggestions = [...new Set([
+          ...contextBased,
+          ...chatbot.getRandomQuestions(5)
+        ])].slice(0, 5);
+
+        setSuggestions(newSuggestions.length >= 3 ? newSuggestions : chatbot.getRandomQuestions(5));
+      } catch (error) {
+        console.error("Error updating suggestions:", error);
+        setSuggestions(chatbot.getRandomQuestions(5));
+      }
+    }, 300); // Small delay to prevent jank
+
+    return () => clearTimeout(timer);
+
+    scrollToBottom();
+  }, [messages]); // Only run when messages change
+
 
   // Function to simulate typing effect
   const typeText = (text, messageId) => {
+    // Ensure text is a string
+    const textStr = String(text || '');
     let i = 0;
     const speed = 20; // Adjust typing speed (lower = faster)
 
     const type = () => {
-      if (i < text.length) {
+      if (i < textStr.length) {
         setMessages(prev =>
           prev.map(msg =>
             msg.id === messageId
@@ -43,6 +100,22 @@ const AIChat = () => {
     };
 
     type();
+  };
+
+  // Add this function inside your AIChat component
+  const getSuggestions = (currentMessage) => {
+    const commonQuestions = [
+      "Who is Rajiv Giri?",
+      "What are Rajiv's technical skills?",
+      "What projects has Rajiv worked on?",
+      "What is Rajiv's educational background?",
+      "How can I contact Rajiv?"
+    ];
+
+    // Filter out the current question if it's in the suggestions
+    return commonQuestions.filter(q =>
+      !currentMessage || !currentMessage.toLowerCase().includes(q.toLowerCase())
+    ).slice(0, 3); // Show max 3 suggestions
   };
 
   const handleSendMessage = async (e) => {
@@ -78,26 +151,18 @@ const AIChat = () => {
     ]);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: inputText })
-      });
+      // Get response from local chatbot
+      const response = await chatbot.getResponse(inputText);
 
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-
-      // Update the message with the response text
+      // Update message with response and start typing effect
       setMessages(prev =>
         prev.map(msg =>
           msg.id === botMessageId
-            ? { ...msg, text: data.response, isTyping: true }
+            ? { ...msg, text: response, isTyping: true }
             : msg
         )
       );
-
-      // Start typing effect
-      typeText(data.response, botMessageId);
+      typeText(response, botMessageId);
 
     } catch (error) {
       console.error('Error:', error);
@@ -106,8 +171,8 @@ const AIChat = () => {
           msg.id === botMessageId
             ? {
               ...msg,
-              text: `Error: ${error.message}`,
-              displayText: `Error: ${error.message}`,
+              text: `Oops Error: Sorry, I encountered an error. ${error.message}`,
+              displayText: `Oops Error: Sorry, I encountered an error. ${error.message}`,
               isTyping: false
             }
             : msg
@@ -116,17 +181,21 @@ const AIChat = () => {
       setIsTyping(false);
     }
   };
+  // Add this function to handle suggestion clicks
+  const handleSuggestionClick = async (suggestion) => {
+    setInputText(suggestion);
+    // Trigger send automatically
+    const fakeEvent = { preventDefault: () => { } };
+    await handleSendMessage(fakeEvent);
+  };
+
+  const getDynamicSuggestions = useCallback(() => {
+    return suggestions;
+  }, [suggestions]);
 
   return (
     <div className="p-8 w-full">
       <div className="max-w-6xl mx-auto">
-        {/* <div className="flex items-center mb-6">
-          <Bot className="text-blue-600 mr-3" size={32} />
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900">AI Chat Assistant</h2>
-            <p className="text-gray-600">Ask me anything about Raj's professional background</p>
-          </div>
-        </div> */}
         {/* Update Notice Banner */}
         <div className="max-w-2x2 mx-auto bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md shadow-sm mb-8">
           <div className="flex items-start">
@@ -137,9 +206,9 @@ const AIChat = () => {
             </div>
             <div className="ml-3">
               <div className="text-sm text-yellow-700 space-y-1">
-                <p><strong>Important Notice:</strong> The information provided by this AI assistant is for general informational purposes only and may not be 100% accurate or up-to-date.</p>
-                <p>🔒 <strong>Privacy Notice:</strong> Please do not share any personal, sensitive, or confidential information in this chat. This is an AI assistant and not a secure communication channel.</p>
-                <p>For the most current and accurate information, or for specific inquiries, please contact me directly through official channels.</p>
+                <p><strong>Important Notice:</strong> This is a ChatBot and NOT an AI assistant.The ChatBot is under training and information provided by this chatbot assistant is for general informational purposes only and may not be 100% accurate or up-to-date. For the most current and accurate information, or for specific inquiries, please contact me directly through official channels.</p>
+                <p><strong>Privacy Notice:</strong> Please do not share any personal, sensitive, or confidential information in this chat. This is a chatbot assistant and not a secure communication channel.</p>
+
               </div>
             </div>
           </div>
@@ -147,42 +216,64 @@ const AIChat = () => {
 
 
         <div className="bg-white border border-gray-200 rounded-lg overflow-hidden w-full">
-          <div className="h-[500px] overflow-y-auto p-6 space-y-4">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div className="max-w-4xl w-full">
-                  <div className={`flex items-start ${message.sender === 'user' ? 'flex-row-reverse' : ''}`}>
-                    {message.sender === 'ai' && (
-                      <div className="bg-blue-100 p-2 rounded-full mr-3">
-                        <Bot size={20} className="text-blue-600" />
-                      </div>
-                    )}
-                    <div
-                      className={`px-4 py-2 rounded-lg ${message.sender === 'user'
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100 text-gray-900'
-                        }`}
-                    >
-                      {message.isTyping && message.displayText === '' ? (
-                        <span className="inline-block w-2 h-4 bg-gray-400 animate-pulse"></span>
-                      ) : (
-                        message.displayText || message.text
+          <div ref={messagesContainerRef}
+            className="h-[500px] overflow-y-auto"
+            style={{
+              scrollBehavior: 'smooth',
+              display: 'flex',
+              flexDirection: 'column-reverse'
+            }}>
+            <div className="p-6 space-y-4">
+              {messages.map((message) => (
+                <div
+                  key={message.id}
+                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div className="max-w-4xl w-full">
+                    <div className={`flex items-start ${message.sender === 'user' ? 'flex-row-reverse' : ''}`}>
+                      {message.sender === 'ai' && (
+                        <div className="bg-blue-100 p-2 rounded-full mr-3">
+                          <Bot size={20} className="text-blue-600" />
+                        </div>
                       )}
-                    </div>
-                    {message.sender === 'user' && (
-                      <div className="bg-gray-200 p-2 rounded-full ml-3">
-                        <User size={20} className="text-gray-600" />
+                      <div
+                        className={`px-4 py-2 rounded-lg ${message.sender === 'user'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-gray-100 text-gray-900'
+                          }`}
+                      >
+                        {message.isTyping && message.displayText === '' ? (
+                          <span className="inline-block w-2 h-4 bg-gray-400 animate-pulse"></span>
+                        ) : (
+                          <div>
+                            <div dangerouslySetInnerHTML={{ __html: message.displayText || message.text }} />
+                          </div>
+                        )}
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
+          {/* Suggestions section */}
+          <div className="px-6 py-3 border-t border-gray-200 bg-gray-50">
+            <div className="text-sm font-medium text-gray-500 mb-2">You might want to ask:</div>
+            <div className="flex flex-wrap gap-2">
+              {suggestions.map((suggestion, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                  className="text-xs bg-white hover:bg-gray-100 text-blue-600 border border-blue-200 px-3 py-1.5 rounded-full transition-colors shadow-sm"
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Input form */}
           <div className="border-t border-gray-200 p-4">
             <form onSubmit={handleSendMessage} className="flex space-x-3">
               <input
@@ -206,7 +297,6 @@ const AIChat = () => {
             </form>
           </div>
         </div>
-
       </div>
     </div>
   );

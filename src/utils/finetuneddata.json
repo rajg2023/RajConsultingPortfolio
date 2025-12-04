@@ -32,7 +32,7 @@
   {
     "instruction": "How can someone contact Rajiv Giri?",
     "input": "",
-    "output": "Rajiv can be contacted directly via email at rajivgiri2025@gmail.com or by phone at (513) 834-3371. He also offers free consultation calls ranging from 15 to 60 minutes to discuss project requirements. Response times are typically within 24-72 hours for emails and phone calls are available Monday-Friday, 9AM-6PM. He can also be found online through LinkedIn and GitHub."
+    "output": "Rajiv can be contacted directly via email or by phone listed on the contact page. He also offers free consultation calls ranging from 15 to 60 minutes to discuss project requirements. Response times are typically within 24-72 hours for emails and phone calls are available Monday-Friday, 9AM-6PM. He can also be found online through LinkedIn and GitHub."
   },
   {
     "instruction": "What certifications does Rajiv hold?",
@@ -112,7 +112,7 @@
   {
     "instruction": "What data analysis and visualization tools is Rajiv proficient in?",
     "input": "",
-    "output": "Rajiv is proficient in data analysis and visualization tools including SQL, Python, R (with ggplot2), Excel, Tableau, Power BI, Looker, and D3.js. He has experience with BigQuery for large-scale data analysis and has completed the Google Data Analytics Professional Certificate, mastering data cleaning, analysis, visualization, and decision-making using these tools. He creates clear, impactful visualizations that communicate complex data insights effectively and has applied statistical methods to validate findings and test hypotheses."
+    "output": "Rajiv is proficient in data analysis and visualization tools including SQL, Python, R (with ggplot2), Excel, Tableau, Power BI, Looker, and Smartsheet. He has experience with BigQuery for large-scale data analysis and has completed the Google Data Analytics Professional Certificate, mastering data cleaning, analysis, visualization, and decision-making using these tools. He creates clear, impactful visualizations that communicate complex data insights effectively and has applied statistical methods to validate findings and test hypotheses."
   },
   {
     "instruction": "What testing methodologies and tools has Rajiv used?",
@@ -212,7 +212,7 @@
   {
     "instruction": "What are Rajiv's direct contact details?",
     "input": "",
-    "output": "Rajiv's direct contact details include his email address: rajivgiri2025@gmail.com, and his phone number: (513) 834-3371. He also provides his online presence through LinkedIn and GitHub profiles. For response times, he typically responds to emails within 24 to 72 hours, depending on the urgency and availability, and is available by phone Monday through Friday, 9AM-6PM. He emphasizes that to hire him for projects, interested parties should contact him using these direct contact methods, noting that all services are provided by Rajiv Giri as an independent consultant and not as a company."
+    "output": "Rajiv's direct contact details are listed on the contact page. He also provides his online presence through LinkedIn and GitHub profiles. For response times, he typically responds to emails within 24 to 72 hours, depending on the urgency and availability, and is available by phone Monday through Friday, 9AM-6PM. He emphasizes that to hire him for projects, interested parties should contact him using these direct contact methods, noting that all services are provided by Rajiv Giri as an independent consultant and not as a company."
   },
   {
     "instruction": "What AI and LLM platforms is Rajiv familiar with?",
@@ -282,27 +282,27 @@
   {
     "instruction": "What is Rajiv's phone number?",
     "input": "",
-    "output": "Rajiv's phone number is (513) 834-3371. He is available by phone Monday through Friday, 9AM-6PM."
+    "output": "Rajiv's phone number is listed on the contact page.. He is available by phone Monday through Friday, 9AM-6PM."
   },
   {
     "instruction": "What is Rajiv's email address?",
     "input": "",
-    "output": "Rajiv's email address is rajivgiri2025@gmail.com. He typically responds to emails within 24 to 72 hours, depending on urgency and availability."
+    "output": "Rajiv's email address is listed on the contact page. He typically responds to emails within 24 to 72 hours, depending on urgency and availability."
   },
   {
     "instruction": "How can I reach Rajiv?",
     "input": "",
-    "output": "You can reach Rajiv via email at rajivgiri2025@gmail.com or by phone at (513) 834-3371. He also offers free consultation calls (15-60 minutes) to discuss project requirements. Response times are typically within 24-72 hours for emails, and phone calls are available Monday-Friday, 9AM-6PM."
+    "output": "You can reach Rajiv via email or phone that are listed on the contact page. He also offers free consultation calls (15-60 minutes) to discuss project requirements. Response times are typically within 24-72 hours for emails, and phone calls are available Monday-Friday, 9AM-6PM."
   },
   {
     "instruction": "What is Rajiv's email?",
     "input": "",
-    "output": "Rajiv's email address is rajivgiri2025@gmail.com. He typically responds within 24 to 72 hours depending on urgency and availability."
+    "output": "Rajiv's email address is listed on the contact page. He typically responds within 24 to 72 hours depending on urgency and availability."
   },
   {
     "instruction": "What is Rajiv's phone?",
     "input": "",
-    "output": "Rajiv's phone number is (513) 834-3371. He is available Monday through Friday, 9AM-6PM."
+    "output": "Rajiv's phone number is listed on the contact page.. He is available Monday through Friday, 9AM-6PM."
   },
   {
     "instruction": "Tell me about Rajiv's technical skills",
@@ -352,12 +352,12 @@
   {
     "instruction": "When is Rajiv available?",
     "input": "",
-    "output": "Rajiv is available by phone Monday through Friday, 9AM-6PM. He typically responds to emails within 24 to 72 hours depending on urgency and availability. He offers free consultation calls (15-60 minutes) to discuss project requirements and can be reached at rajivgiri2025@gmail.com or (513) 834-3371."
+    "output": "Rajiv is available by phone Monday through Friday, 9AM-6PM. He typically responds to emails within 24 to 72 hours depending on urgency and availability. He offers free consultation calls (15-60 minutes) to discuss project requirements and can be reached by email or phone listed on the contact page."
   },
   {
     "instruction": "What is Rajiv's availability?",
     "input": "",
-    "output": "Rajiv is available by phone Monday through Friday, 9AM-6PM. He typically responds to emails within 24 to 72 hours depending on urgency and availability. He offers free consultation calls (15-60 minutes) and can be reached at rajivgiri2025@gmail.com or (513) 834-3371."
+    "output": "Rajiv is available by phone Monday through Friday, 9AM-6PM. He typically responds to emails within 24 to 72 hours depending on urgency and availability. He offers free consultation calls (15-60 minutes) and can be reached by email or phone listed on the contact page."
   },
   {
     "instruction": "Tell me about Rajiv's education",
@@ -412,7 +412,7 @@
   {
     "instruction": "What is Rajiv's LinkedIn?",
     "input": "",
-    "output": "Rajiv can be found on LinkedIn. For his direct contact details, you can reach him at rajivgiri2025@gmail.com or (513) 834-3371. He also has a GitHub profile where you can find examples of his project work."
+    "output": "Rajiv can be found on LinkedIn. For his direct contact details, you can reach him at by email or phone listed on the contact page. He also has a GitHub profile where you can find examples of his project work."
   },
   {
     "instruction": "What is Rajiv's GitHub?",
@@ -427,17 +427,17 @@
   {
     "instruction": "What is Rajiv's location?",
     "input": "",
-    "output": "Rajiv is available for remote work and consultations. He can be contacted via email at rajivgiri2025@gmail.com or by phone at (513) 834-3371. He offers free consultation calls and is available Monday through Friday, 9AM-6PM by phone."
+    "output": "Rajiv is available for remote work and consultations. He can be contacted via email or phone listed on the contact page.. He offers free consultation calls and is available Monday through Friday, 9AM-6PM by phone."
   },
   {
     "instruction": "Where is Rajiv located?",
     "input": "",
-    "output": "Rajiv is available for remote work and consultations. He can be reached at rajivgiri2025@gmail.com or (513) 834-3371. He is available by phone Monday through Friday, 9AM-6PM."
+    "output": "Rajiv is available for remote work and consultations. He can be reached by email or phone listed on the contact page.. He is available by phone Monday through Friday, 9AM-6PM."
   },
   {
     "instruction": "Does Rajiv work remotely?",
     "input": "",
-    "output": "Rajiv is available for remote work and consultations. He can be contacted via email at rajivgiri2025@gmail.com or by phone at (513) 834-3371. He offers free consultation calls (15-60 minutes) to discuss project requirements."
+    "output": "Rajiv is available for remote work and consultations. He can be contacted by email or phone listed on the contact page. He offers free consultation calls (15-60 minutes) to discuss project requirements."
   },
   {
     "instruction": "What services does Rajiv provide?",
