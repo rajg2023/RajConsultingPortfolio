@@ -53,7 +53,7 @@ const BusinessSystemsAnalyst = () => (
           Streamlining business processes and workflows for maximum efficiency.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['BPMN', 'UML', 'Flowcharts', 'SOPs'].map((item, i) => (
+          {['UML', 'Flowcharts', 'SOPs', 'Other'].map((item, i) => (
             <span key={i} className="bg-amber-50 text-amber-700 text-xs font-medium px-3 py-1 rounded-full">
               {item}
             </span>

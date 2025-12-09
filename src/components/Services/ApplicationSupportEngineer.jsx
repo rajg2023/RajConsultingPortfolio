@@ -27,7 +27,7 @@ const ApplicationSupportEngineer = () => (
           Rapid response to production issues with systematic triage and resolution to minimize downtime.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['JIRA', 'ServiceNow', 'PagerDuty', 'SLA Management'].map((item, i) => (
+          {['JIRA', 'ServiceNow', 'SLA Management', 'Other'].map((item, i) => (
             <span key={i} className="bg-purple-50 text-purple-700 text-xs font-medium px-3 py-1 rounded-full">
               {item}
             </span>
@@ -44,7 +44,7 @@ const ApplicationSupportEngineer = () => (
           Proactive monitoring and maintenance of application infrastructure and databases.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['New Relic', 'Datadog', 'Splunk', 'Grafana'].map((item, i) => (
+          {['New Relic', 'Splunk', 'Other'].map((item, i) => (
             <span key={i} className="bg-purple-50 text-purple-700 text-xs font-medium px-3 py-1 rounded-full">
               {item}
             </span>
