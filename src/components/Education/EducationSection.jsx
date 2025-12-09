@@ -35,10 +35,10 @@ const EducationSection = () => {
       icon: Book,
       color: 'green',
       details: [
-        'Completed Java Software Development Bootcamp at Cinci Code IT (now MAX Technical Training)',
+        'Completed Java Software Development Bootcamp at now Java Software Development Bootcamp,
         'Learned object-oriented programming fundamentals and Java syntax',
         'Gained practical experience with front-end and back-end integration',
-        'Undertook QA Assurance Testing program at Per Scholas, focusing on SDLC and STLC processes',
+        'Undertook QA Assurance Testing program at IT Training institute, focusing on SDLC and STLC processes',
         'Performed manual testing and documentation exercises for web apps',
         'Completed CompTIA A+ and Network+ technical support training',
         'Built skills in hardware and network troubleshooting',
