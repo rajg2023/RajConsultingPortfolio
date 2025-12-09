@@ -100,7 +100,7 @@ const AboutMe = () => {
         description: "Completed and deployed desktop, Android, and web applications using Java, .NET, Python, AI models, JavaScript, SQL, Heroku, Docker, AWS, GitHub, and Azure independently, continuously enhancing skills beyond formal employment."
       }
     ],
-    closing: "I thrive at the intersection of data, technology, and problem-solving, leveraging analytical precision and a collaborative spirit to achieve measurable business outcomes.\n\nLet’s connect to explore how I can contribute to your team or project!\n\nThank you for visiting my profile,\nRajiv"
+    closing: "I thrive at the intersection of data, technology, and problem-solving, leveraging analytical precision and a collaborative spirit to achieve measurable business outcomes.\n\nLet’s connect to explore how I can contribute to your team or project!\n\nThank you for visiting my profile,\n"
   };
 
   // Default data in case resumeData is not provided
