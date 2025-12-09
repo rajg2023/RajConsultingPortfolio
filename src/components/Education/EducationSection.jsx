@@ -35,7 +35,7 @@ const EducationSection = () => {
       icon: Book,
       color: 'green',
       details: [
-        'Completed Java Software Development Bootcamp at now Java Software Development Bootcamp,
+        'Completed Java Software Development training at Software Development Bootcamp Institute',
         'Learned object-oriented programming fundamentals and Java syntax',
         'Gained practical experience with front-end and back-end integration',
         'Undertook QA Assurance Testing program at IT Training institute, focusing on SDLC and STLC processes',
