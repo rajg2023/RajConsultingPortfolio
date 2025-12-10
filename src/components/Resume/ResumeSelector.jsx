@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const resumeData = [
   {
     id: 'qa',
-    title: 'Quality Assurance Engineer',
+    title: 'Software QA Engineer',
     description: 'Expert in manual and automated testing, test planning, and quality assurance best practices.',
     previewFile: 'resume/Rajiv_Giri_QA_Resume.html',
     downloadFile: 'resume/Rajiv_Giri_QA_Resume.docx',

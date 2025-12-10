@@ -6,7 +6,7 @@ import './DocumentResume.css'; // We'll create this file next
 const RESUME_DATA = [
   {
     id: 'qa',
-    title: 'Quality Assurance Engineer',
+    title: 'Software QA Engineer',
     description: 'Expert in manual and automated testing, test planning, and quality assurance best practices.',
     file: 'resume/Rajiv_Giri_QA_Resume.docx',
     htmlFile: '/resume/Rajiv_Giri_QA_Resume.html',
