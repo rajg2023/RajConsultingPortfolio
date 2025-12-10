@@ -43,7 +43,7 @@ const ServicesSection = () => {
       component: BusinessSystemsAnalyst,
       isNew: true,  // Mark as new service
     },
-    'Application Support Engineer': {
+    'Application Analyst': {
       icon: Headphones,
       color: 'purple',
       component: ApplicationSupportEngineer,
