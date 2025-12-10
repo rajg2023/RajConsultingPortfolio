@@ -20,7 +20,7 @@ const TechnicalConsultantImplementation = () => (
           Executing reliable deployment, configuration, and integration of new technology solutions to ensure seamless operation and project success.
         </p>
          <div className="text-sm text-gray-600 bg-white/50 rounded-lg p-3 max-w-2xl mx-auto">
-          <p> <span className="font-medium">Transparency Note:</span> I'm currently expanding my expertise in this area. I bring strong technical skills and a passion for problem-solving, and I'm excited to apply these while growing my System Implementation toolkit. I'll be transparent about my experience level as we collaborate on solutions.</p>
+          <p> 🚀 <span className="font-medium">Transparency Note:</span> I'm currently expanding my expertise in this area. I bring strong technical skills and a passion for problem-solving, and I'm excited to apply these while growing my System Implementation toolkit. I'll be transparent about my experience level as we collaborate on solutions.</p>
         </div>
       </div>
     </div>
