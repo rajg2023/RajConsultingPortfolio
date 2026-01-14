@@ -142,7 +142,7 @@ const AboutMe = () => {
                     className="h-full w-full rounded-full object-cover"
                     poster={`${import.meta.env.BASE_URL || ''}images/ProfilePic1.jpg`}
                   >
-                    <source src="/videos/TestProfile1.mp4" type="video/mp4" />
+                    <source src="" type="" />
                     Your browser does not support the video tag.
                   </video>
                 </div>

@@ -205,7 +205,7 @@ const updateSuggestions = useCallback(() => {
             </div>
             <div className="ml-3">
               <div className="text-sm text-yellow-700 space-y-1">
-                <p><strong>Important Notice:</strong> This is a ChatBot and NOT an AI assistant.The ChatBot is currently being updated and is also under training and information provided by this chatbot assistant is for general informational purposes only and may not be 100% accurate or up-to-date. For the most current and accurate information, or for specific inquiries, please contact me directly through official channels.</p>
+                <p><strong>Important Notice:</strong> This is a ChatBot and NOT an AI assistant.The ChatBot is currently being updated and is also under training and information provided by this chatbot assistant is for general informational purposes only and may not be 100% accurate or up-to-date.For the most current and accurate information, or for specific inquiries, please contact me directly through official channels.</p>
                 <p><strong>Privacy Notice:</strong> Please do not share any personal, sensitive, or confidential information in this chat. This is a chatbot assistant and not a secure communication channel.</p>
 
               </div>
@@ -283,7 +283,7 @@ const updateSuggestions = useCallback(() => {
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="Typing is currently disabled and will be enabled upon the integration of AI SLM models. Please select the preset questions. Thanks!"
+                placeholder="Typing is currently disabled and will be enabled upon the integration of AI models. Please select the preset questions. Thanks!"
                 className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 disabled={true}
                 
@@ -309,7 +309,7 @@ const updateSuggestions = useCallback(() => {
                   </div>
                   <div className="ml-3">
                     <p className="text-sm text-blue-700">
-                      <strong>Note:</strong> Typing is currently disabled and will be enabled upon the integration of AI SLM models. Please select the preset questions from above to generate the answers or reach out to me for more information. Thanks!
+                      <strong>Note:</strong> Typing is currently disabled and will be enabled upon the integration of AI models. Once integrated with AI models the chat function will be available. Please select the preset questions from above to generate the answers or reach out to me for more information. Thanks!
                     </p>
                   </div>
                 </div>

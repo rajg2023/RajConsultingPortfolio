@@ -41,7 +41,7 @@ src/
 │ ├── About/
 │ │ ├── AboutSection.jsx # Main about container
 │ │ ├── AboutMe.jsx # Personal introduction
-│ │ ├── VideoResume.jsx # Video resume component
+│ │ ├── ~~VideoResume.jsx # Video resume component~~
 │ │ ├── DocumentResume.jsx # PDF resume viewer
 │ │ └── AIChat.jsx # Interactive chat component
 │ ├── Skills/
@@ -106,7 +106,8 @@ Navigate to `http://localhost:5173` to view the portfolio
 ## 📋 Portfolio Sections
 
 ### 🏠 Home/About
-- **4 Interactive Tabs:** About Me, Video Resume, Document Resume, AI Chat
+- **4 Interactive Tabs:** About Me, Document Resume, AI Chat
+- **Video Resume Tab:** Removed due to technical issues
 - **Professional Introduction:** Personal bio and key highlights
 - **Downloadable Resume:** PDF and Word format options
 

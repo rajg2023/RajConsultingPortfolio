@@ -79,7 +79,7 @@ const Header = ({ activeSection, setActiveSection, disabledNav = false, resumeDa
           {/* Logo/Name - Always visible */}
           <div className="flex-shrink-0 z-10 bg-gradient-to-r from-slate-950 to-indigo-950/50 pr-4 -ml-2 rounded-r-lg">
             <h1 className="text-base sm:text-lg font-bold text-white whitespace-nowrap overflow-visible">
-              {resumeData?.name || 'WIP[RTC]'}
+              {resumeData?.name || ''}
             </h1>
           </div>
 

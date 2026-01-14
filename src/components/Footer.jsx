@@ -41,7 +41,7 @@ const Footer = () => {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-6 pb-2">
         <div className="max-w-7x2 mx-auto">
           {/* Work in Progress Notice */}
-          <div className="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 mb-4 rounded-r">
+          {/* <div className="bg-yellow-900/20 border-l-4 border-yellow-500 p-4 mb-4 rounded-r">
             <div className="flex">
               <div className="flex-shrink-0">
                 <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
@@ -56,7 +56,7 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Left-aligned links */}

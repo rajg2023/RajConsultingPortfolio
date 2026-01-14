@@ -44,7 +44,7 @@ const ContactSection = () => {
         <div className="space-y-8">
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
             <p className="text-blue-700">
-              To engage my services for your upcoming project, please feel free to contact me using the details provided below. All professional services are rendered personally by me, Rajiv Giri, operating under my legal name and not under any company or corporate entity. This statement applies to all types of engagements, including full-time employment, contract assignments, freelance projects, part-time work, and consulting services. For further legal information, please refer to the Legal section. You may reach me via the email address, phone number, linkedin and github profiles listed below for any inquiries or additional information.
+              To engage my services for your upcoming project, please feel free to contact me using the details provided below. All professional services are rendered personally by me, Rajiv Giri, operating under my legal name and not under any company or corporate entity. This statement applies to all types of engagements, including full-time employment, contract assignments, freelance projects and consulting services. For further legal information, please refer to the Legal section. You may reach me via the email address, phone number, linkedin and github profiles listed below for any inquiries or additional information.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -119,7 +119,7 @@ const ContactSection = () => {
     },
     'Direct Hire': {
       title: 'Hiring Opportunities',
-      description: 'Interested in having me join your team? Let\'s discuss full-time, part-time, or contract opportunities.',
+      description: 'Interested in having me join your team? Let\'s discuss full-time, contract or freelance opportunities.',
       icon: Briefcase,
       color: 'indigo',
       content: (
@@ -136,9 +136,10 @@ const ContactSection = () => {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center p-6 border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-colors cursor-pointer">
-              <div className="text-indigo-600 font-semibold mb-2">Part-time</div>
-              <div className="text-gray-600 text-sm mb-3">Flexible Hours</div>
-              <div className="text-gray-700">Perfect for ongoing projects with flexible time commitments</div>
+              <div className="text-indigo-600 font-semibold mb-2">Fixed-Term</div>
+              <div className="text-gray-600 text-sm mb-3">Project-based</div>
+  <div className="text-gray-700">Ideal for high-impact projects with a defined completion date.</div>
+
 
             </div>
             <div className="text-center p-6 border-2 border-indigo-300 bg-indigo-50 rounded-lg cursor-pointer">

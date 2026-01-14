@@ -94,6 +94,7 @@ const ProjectsSection = () => {
         'Facilitated stakeholder meetings to streamline implementation phases.',
         'Identified workflow gaps and proposed improvements in CRM onboarding steps.',
         'Assisted client teams during pilot phase and go-live preparation.',
+        'Led CRM solution rollout for project and data tracking by importing, cleansing, and structuring datasets; building automated reports and dashboards; and streamlining workflows to enhance visibility and reduce manual effort.',
         'Documented implementation best practices for future CRM rollouts.'
       ],
       technologies: ['CRM Systems', 'Smartsheet', 'Project Management', 'Workflow Optimization'],

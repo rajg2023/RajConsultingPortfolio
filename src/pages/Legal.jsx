@@ -693,7 +693,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
             The information provided on this page is for general informational purposes only and does not constitute legal advice. For specific legal concerns, please consult with a qualified attorney or refer to official government resources.
           </p>
           <p>
-            While I strive to keep this information accurate and up-to-date, I cannot guarantee its completeness or applicability to your specific situation. If you identify any inaccuracies or require updates to the legal information presented, please don't hesitate to contact me.
+            While I strive to keep this information accurate and up-to-date, I cannot guarantee its completeness or applicability to your specific situation. Also, parts of this website and certain pages may be undergoing active development or updates. Features, text, images, or components displayed may not represent the final version. It reserves the right to modify, update, or remove content as work progresses.If you identify any inaccuracies or require updates to the legal information presented, please don't hesitate to contact me.
           </p>
         </div>
       </div>

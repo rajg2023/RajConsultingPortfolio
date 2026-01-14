@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { User, Play, FileText, MessageCircle, CheckCircle, Award } from 'lucide-react';
-import VideoResume from './About/VideoResume';
 import DocumentResume from './About/DocumentResume';
 import AIChat from './About/AIChat';
 
@@ -173,7 +172,6 @@ const ConsultantPortfolio = () => {
           {/* Tab Content */}
           <div className="min-h-[600px]">
             {activeTab === 'About Me' && <AboutMe />}
-            {activeTab === 'Video Resume' && <VideoResume />}
             {activeTab === 'Document Resume' && <DocumentResume />}
             {activeTab === 'AI Chat' && <AIChat />}
           </div>

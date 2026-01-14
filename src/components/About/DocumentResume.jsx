@@ -6,7 +6,7 @@ import './DocumentResume.css'; // We'll create this file next
 const RESUME_DATA = [
   {
     id: 'qa',
-    title: 'Quality Assurance Engineer',
+    title: 'Software QA Analyst',
     description: 'Expert in manual and automated testing, test planning, and quality assurance best practices.',
     file: 'resume/Rajiv_Giri_QA_Resume.docx',
     htmlFile: '/resume/Rajiv_Giri_QA_Resume.html',
@@ -30,6 +30,7 @@ const RESUME_DATA = [
     htmlFile: '/resume/Rajiv_Giri_Business_Systems_Analyst.html',
     lastUpdated: 'October 2023',
     tags: ['Requirements Gathering', 'Process Improvement', 'Documentation']
+    
   },
   {
     id: 'support',
@@ -263,22 +264,22 @@ const DocumentResume = () => {
               {/* Resume content */}
               <div className="resume-frame-container">
                 <iframe
-                  src={getHtmlFilePath(selectedResume)}
-                  title={`${selectedResume.title} Preview`}
-                  className="resume-iframe"
-                  sandbox="allow-scripts allow-forms allow-popups"
-                  loading="lazy"
-                  scrolling="no"
-                  onLoad={(e) => {
-                    const iframe = e.target;
-                    if (iframe.contentDocument) {
-                      iframe.contentDocument.body.style.margin = '0';
-                      iframe.contentDocument.body.style.padding = '0';
-                      iframe.contentDocument.body.style.overflow = 'hidden';
-                    }
-                    iframe.style.height = '1400px';
-                  }}
-                />
+  src={getHtmlFilePath(selectedResume)}
+  title={`${selectedResume.title} Preview`}
+  className="resume-iframe"
+  sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+  loading="lazy"
+  onLoad={(e) => {
+    const iframe = e.target;
+    if (iframe.contentDocument) {
+      iframe.contentDocument.body.style.margin = '0';
+      iframe.contentDocument.body.style.padding = '0';
+      iframe.contentDocument.body.style.overflow = 'auto'; // enables scrolling
+    }
+    iframe.style.height = '1400px'; // fixed height
+  }}
+/>
+
               </div>
             </motion.div>
           </div>

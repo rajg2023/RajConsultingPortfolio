@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { User, Play, FileText, MessageCircle } from 'lucide-react';
 import AboutMe from './AboutMe';
-import VideoResume from './VideoResume';
 import DocumentResume from './DocumentResume';
 import AIChat from './AIChat';
 
@@ -19,14 +18,14 @@ const AboutSection = ({ resumeData, isLoading, error }) => {
       icon_text: 'text-blue-600',
       border: 'border-blue-200'
     },
-    { 
+    /* { 
       name: 'Video Resume', 
       icon: Play, 
       color: 'green',
       icon_bg: 'bg-green-50',
       icon_text: 'text-green-600',
       border: 'border-green-200'
-    },
+    }, */
     { 
       name: 'Document Resume', 
       icon: FileText, 
@@ -91,13 +90,13 @@ const AboutSection = ({ resumeData, isLoading, error }) => {
               <div>
                 <h3 className="text-2xl font-bold text-gray-900">
                   {activeTab === 'About Me' && 'Professional Profile'}
-                  {activeTab === 'Video Resume' && 'Video Introduction'}
+                  {/* {activeTab === 'Video Resume' && 'Video Introduction'} */}
                   {activeTab === 'Document Resume' && 'Resume & Documents'}
                   {activeTab === 'Chat Bot' && 'Non AI Assistant'}
                 </h3>
                 <p className="text-gray-600 text-lg">
                   {activeTab === 'About Me' && 'Learn more about my background, skills, and experience'}
-                  {activeTab === 'Video Resume' && 'Watch my video introduction and professional summary'}
+                  {/* {activeTab === 'Video Resume' && 'Watch my video introduction and professional summary'} */}
                   {activeTab === 'Document Resume' && 'Download or view my resume and other documents'}
                   {activeTab === 'Chat Bot' && 'Chat with an Non AI assistant to learn more about me'}
                 </p>
@@ -108,7 +107,7 @@ const AboutSection = ({ resumeData, isLoading, error }) => {
           {/* Tab Content */}
           <div className={`p-6 min-h-[500px] ${activeTab === 'Document Resume' ? 'flex flex-col' : ''}`}>
             {activeTab === 'About Me' && <AboutMe resumeData={resumeData} isLoading={isLoading} error={error} />}
-            {activeTab === 'Video Resume' && <VideoResume />}
+            {/* {activeTab === 'Video Resume' && <VideoResume />} */}
             {activeTab === 'Document Resume' && (
               <div className="flex-1">
                 <DocumentResume />

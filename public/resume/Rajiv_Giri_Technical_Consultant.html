@@ -8,8 +8,8 @@
     :root {
         --primary: #8B5CF6;  /* purple-500 */
         --secondary: #7C3AED; /* purple-600 */
-        --bg: #F5F3FF;      /* purple-50 */
-        --text: #1F2937;    /* gray-800 */
+        --bg: #F5F3FF;        /* purple-50 */
+        --text: #1F2937;      /* gray-800 */
     }
     body {
         font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -54,6 +54,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
+        margin-top: 0.5rem;
     }
     .skill {
         background: var(--primary);
@@ -61,6 +62,14 @@
         padding: 0.5rem 1rem;
         border-radius: 20px;
         font-size: 0.9rem;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    ul li {
+        margin-bottom: 0.7rem;
+        line-height: 1.4;
     }
     @media(max-width: 768px) {
         section {
@@ -73,17 +82,32 @@
 
 <header>
     <h1>Technical Consultant</h1>
-    <p>Specializing in enterprise data analysis, application support, and project delivery</p>
+    <p>Enterprise Data, Application Support, QA/SDET, and Project Delivery Specialist</p>
 </header>
 
 <section>
     <div class="card">
         <h2>Professional Summary</h2>
-        <p>Technical Consultant specializing in enterprise data analysis, application support, and project delivery. Skilled in requirements gathering, training, documentation, and troubleshooting. Adept at aligning technical solutions with business needs and ensuring client satisfaction.</p>
+        <p>Technical Consultant with expertise in enterprise data analysis, application support, QA/SDET testing, and project delivery. Skilled in requirements gathering, documentation, training, troubleshooting, and aligning technical solutions with business objectives. Experienced in CRM, POS, Retail, Banking and healthcare/pharma systems, ensuring seamless project implementation and client satisfaction.</p>
     </div>
 
     <div class="card">
-        <h2>Core Competencies & Skills</h2>
+        <h2>Core Competencies & Technical Skills</h2>
+        <ul>
+            <li><strong>Data Analysis & Validation:</strong> ETL Testing, Data Mapping, Data Lineage, Data Quality Audits</li>
+            <li><strong>SQL & Databases:</strong> Advanced SQL (Oracle, SQL Server, MySQL, DB2, Teradata)</li>
+            <li><strong>Programming Languages:</strong> Java, C#, Python, R, SQL, JavaScript, HTML/CSS, XML</li>
+            <li><strong>QA / SDET & Testing:</strong> Selenium, Appium, JUnit, TestNG, Manual QA, Automation Testing, Defect Reproduction, Log Analysis</li>
+            <li><strong>Reporting & Visualization:</strong> Power BI, Tableau, Excel (Pivot Tables, VLOOKUP), Google Analytics, Google Sheets, BigQuery</li>
+            <li><strong>Documentation:</strong> RTM, FSD, TDD, Data Dictionaries, KDEs, T2T Mappings</li>
+            <li><strong>Methodologies:</strong> SDLC, STLC, Agile/Scrum, UAT, Integration Testing</li>
+            <li><strong>Domains:</strong> Security GRC, TVM, OFSAA, Retail POS, CRM, Healthcare/HIPAA</li>
+            <li><strong>Servers:</strong> Tomcat, WebSphere, IIS, Node.js, GlassFish, SQL Server</li>
+            <li><strong>Tools:</strong> Jira, Confluence, Smartsheet, Git, Postman, Jupyter</li>
+             <li><strong>IT Training:</strong> Java Software Development, Software QA Analyst, CompTIA IT Fundamentals, CompTIA Network+</li>
+        </ul>
+
+        <h3>Skill Highlights</h3>
         <div class="skills-container">
             <span class="skill">Project Coordination</span>
             <span class="skill">Requirements Gathering</span>
@@ -92,10 +116,33 @@
             <span class="skill">Data Analysis</span>
             <span class="skill">Documentation</span>
             <span class="skill">CRM Rollouts</span>
-            <span class="skill">SDLC</span>
-            <span class="skill">Agile/Scrum</span>
+            <span class="skill">ETL Testing</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Python</span>
+            <span class="skill">R</span>
+            <span class="skill">Java</span>
+            <span class="skill">C#</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">HTML/CSS</span>
+            <span class="skill">XML</span>
+            <span class="skill">Selenium</span>
+            <span class="skill">Appium</span>
+            <span class="skill">JUnit / TestNG</span>
+            <span class="skill">Manual QA</span>
+            <span class="skill">Defect Reproduction</span>
+            <span class="skill">Log Analysis</span>
+            <span class="skill">Google Analytics</span>
+            <span class="skill">BigQuery</span>
+            <span class="skill">Excel</span>
+            <span class="skill">Google Sheets</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">Tableau</span>
+            <span class="skill">RTM / FSD / TDD</span>
+            <span class="skill">SDLC / STLC</span>
+            <span class="skill">Agile / Scrum</span>
             <span class="skill">Jira</span>
             <span class="skill">Confluence</span>
+            <span class="skill">Smartsheet</span>
         </div>
     </div>
 
@@ -116,10 +163,12 @@
     <div class="card">
         <h2>Professional Experience</h2>
         <ul>
-            <li>Delivered technical consulting for CRM/data/business systems projects; ensured client needs were exceeded.</li>
-            <li>Documented requirements, FSD/TDDs, and led solution training for users.</li>
-            <li>Facilitated cross-functional communications, project delivery, and process optimization.</li>
-            <li>Leveraged technical and business insight to support diverse enterprise projects.</li>
+            <li>Delivered technical consulting for CRM, POS, and enterprise data systems; ensured client requirements were fully met.</li>
+            <li>Documented requirements, FSD/TDDs, and led solution training for end-users and stakeholders.</li>
+            <li>Facilitated cross-functional communication, project delivery, and process optimization.</li>
+            <li>Analyzed data, troubleshot issues, and provided actionable recommendations for technical solutions.</li>
+            <li>Performed manual and automated QA testing using Selenium, Appium, JUnit/TestNG, and advanced SQL queries to ensure system quality and data accuracy.</li>
+            <li>Collaborated with Sales, Customer Success, and Tech teams during solution rollouts, improving adoption and satisfaction.</li>
         </ul>
     </div>
 </section>

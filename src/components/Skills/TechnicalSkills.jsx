@@ -15,7 +15,7 @@ import {
   BarElement,
   Title,
 } from 'chart.js';
-import { Radar, Pie, PolarArea, Bar, Doughnut, Line, Scatter } from 'react-chartjs-2';
+import { Radar, Pie, PolarArea, Bar, Doughnut, Line, Scatter, Bubble } from 'react-chartjs-2';
 
 // Register Chart.js components
 ChartJS.register(
@@ -274,18 +274,15 @@ const TechnicalSkills = () => {
     servers: {
       type: 'doughnut',
       data: {
-        labels: ['Windows 7-11', 'Linux', 'macOS', 'Windows Server', 'Apache Tomcat', 'IIS', 'WebSphere', 'Raspberry Pi'],
+        labels: ['Windows Server', 'Node JS','Apache Tomcat', 'IIS', 'WebSphere'],
         datasets: [{
-          data: [9, 7, 8, 6, 5, 5, 4, 7],
+          data: [ 6, 5, 5, 4, 7],
           backgroundColor: [
             'rgba(22, 163, 74, 0.7)',
-            'rgba(21, 128, 61, 0.7)',
-            'rgba(22, 101, 52, 0.7)',
             'rgba(20, 83, 45, 0.7)',
             'rgba(74, 222, 128, 0.7)',
             'rgba(134, 239, 172, 0.7)',
-            'rgba(187, 247, 208, 0.7)',
-            'rgba(220, 252, 231, 0.7)'
+            'rgba(187, 247, 208, 0.7)'
           ],
           borderColor: 'rgba(255, 255, 255, 1)',
           borderWidth: 1
@@ -341,7 +338,92 @@ const TechnicalSkills = () => {
           }
         }
       }
+    },
+
+    dataAnalytics: {
+  type: 'bubble', // Changed from 'bar'
+  data: {
+    datasets: [{
+      label: 'Expertise Level',
+      // Map labels to x, values to y, and scale y for radius r
+      data: [
+        { x: 10, y: 6, r: 15 }, // Power BI
+        { x: 20, y: 5, r: 12 }, // Tableau
+        { x: 30, y: 8, r: 20 }, // Excel
+        { x: 40, y: 7, r: 18 }, // Google Sheets
+        { x: 50, y: 6, r: 15 }, // BigQuery
+        { x: 60, y: 6, r: 15 }, // Jupyter
+        { x: 70, y: 7, r: 18 }, // SQL Analysis
+        { x: 80, y: 6, r: 15 }  // Data Cleaning
+      ],
+      backgroundColor: 'rgba(16, 185, 129, 0.7)',
+      borderColor: 'rgba(5, 150, 105, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: { 
+        beginAtZero: true, 
+        max: 10,
+        title: { display: true, text: 'Expertise Level' }
+      },
+      x: { 
+        display: false, // Hide X axis as it's only used for spacing
+        suggestedMin: 0,
+        suggestedMax: 90 
+      }
+    },
+    plugins: {
+      legend: { position: 'right', labels: { boxWidth: 12, padding: 15 } },
+      tooltip: {
+        callbacks: {
+          // This maps the skill name back to the bubble on hover
+          label: function(context) {
+            const labels = ['Power BI', 'Tableau', 'Excel', 'Google Sheets', 'BigQuery', 'Jupyter', 'SQL Analysis', 'Data Cleaning'];
+            const label = labels[context.dataIndex];
+            return `${label}: Level ${context.raw.y}`;
+          }
+        }
+      }
     }
+  }
+},
+
+
+  itSupport: {
+    type: 'bar',
+    data: {
+      labels: ['CompTIA IT Fundamentals', 'Network+', 'Windows OS', 'Linux OS', 'macOS', 'RaspBerry Pi','VirtualBox', 'VMware', 'Troubleshooting'],
+      datasets: [{
+        data: [7, 6, 9, 7, 8, 6, 6, 8],
+        backgroundColor: [
+          'rgba(59, 130, 246, 0.7)',
+          'rgba(37, 99, 235, 0.7)',
+          'rgba(14, 165, 233, 0.7)',
+          'rgba(6, 182, 212, 0.7)',
+          'rgba(34, 197, 94, 0.7)',
+          'rgba(22, 163, 74, 0.7)',
+          'rgba(5, 150, 48, 0.7)',
+          'rgba(16, 185, 129, 0.7)',
+          'rgba(13, 224, 224, 0.7)'
+        ],
+        borderColor: 'rgba(255, 255, 255, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      aspectRatio: 1,
+      plugins: {
+        legend: { position: 'right', labels: { boxWidth: 12, padding: 15 } }
+      }
+    }
+  }
+
   };
 
   const chartComponents = {
@@ -351,7 +433,8 @@ const TechnicalSkills = () => {
     bar: Bar,
     doughnut: Doughnut,
     line: Line,
-    scatter: Scatter
+    scatter: Scatter,
+    bubble: Bubble
   };
 
   const charts = [
@@ -361,7 +444,9 @@ const TechnicalSkills = () => {
     { id: 'testing', title: 'Testing & Analysis Tools', color: 'text-pink-700' },
     { id: 'databases', title: 'Databases', color: 'text-blue-700' },
     { id: 'servers', title: 'Servers & OS', color: 'text-green-700' },
-    { id: 'networking', title: 'Networking', color: 'text-yellow-600' }
+    { id: 'networking', title: 'Networking', color: 'text-yellow-600' },
+    { id: 'dataAnalytics', title: 'Data Analytics', color: 'text-emerald-600' },
+    { id: 'itSupport', title: 'IT Support', color: 'text-cyan-600' }
   ];
 
   return (
