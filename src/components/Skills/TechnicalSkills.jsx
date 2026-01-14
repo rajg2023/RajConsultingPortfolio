@@ -274,12 +274,13 @@ const TechnicalSkills = () => {
     servers: {
       type: 'doughnut',
       data: {
-        labels: ['Windows Server', 'Node JS','Apache Tomcat', 'IIS', 'WebSphere'],
+        labels: ['Windows Server', 'Node.js', 'Vite Server','Apache Tomcat', 'IIS', 'WebSphere'],
         datasets: [{
           data: [ 6, 5, 5, 4, 7],
           backgroundColor: [
             'rgba(22, 163, 74, 0.7)',
             'rgba(20, 83, 45, 0.7)',
+            'rgba(99, 104, 101, 0.7)',
             'rgba(74, 222, 128, 0.7)',
             'rgba(134, 239, 172, 0.7)',
             'rgba(187, 247, 208, 0.7)'
