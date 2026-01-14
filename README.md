@@ -109,13 +109,13 @@ Navigate to `http://localhost:5173` to view the portfolio
 - **4 Interactive Tabs:** About Me, Document Resume, AI Chat
 - ~~**Video Resume Tab:**~~ Removed due to technical issues
 - **Professional Introduction:** Personal bio and key highlights
-- **Downloadable Resume:** PDF and Word format options
+- **Downloadable Resume:** HTML and Word format options
 
 ### ⭐ Skills  
 - **Skill Categories:** Display of lists of current and past skills
 - **50+ Skills Listed:** With proficiency levels and experience years
 - **Interactive Progress Bars:** Visual skill representation
-- **Certification Tracking:** Highlighted certified skills
+- **Skills Tracking:** Highlighted skills
 
 ### 🛠️ Services
 - **Service Areas:** Display of currrent and past services
@@ -175,7 +175,7 @@ Navigate to `http://localhost:5173` to view the portfolio
 4. Update contact information and social media links
 
 ### Content Management
-- Use the **Admin section** to manage content
+- ~~Use the **Admin section** to manage content~~
 - Update skills and proficiency levels
 - Add new projects and experiences
 - Modify service offerings
@@ -228,6 +228,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [Terms of Service](/legal/terms)
 - [Professional Services Policy](/legal/professionalServicesPolicy)
 - [Third-Party Services](/legal/thirdParty)
+- Other Policies
 
 ## 📞 Contact
 
