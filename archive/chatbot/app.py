@@ -466,9 +466,11 @@ if __name__ == '__main__':
     try:
         initialize_models()
         print("=" * 50)
-        print("Starting web server...")
+        # Configure debug mode via environment variable; default is disabled for safety
+        debug_mode = os.getenv("FLASK_DEBUG", "0") in ("1", "true", "True")
+        print(f"Starting web server (debug={debug_mode})...")
         print("=" * 50)
-        app.run(host='0.0.0.0', port=5000, debug=True)  # Enable debug mode
+        app.run(host='0.0.0.0', port=5000, debug=debug_mode)
     except Exception as e:
         print(f"Failed to start server: {str(e)}")
         raise
