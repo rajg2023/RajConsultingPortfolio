@@ -44,7 +44,7 @@ const DataAnalyst = () => (
           Creating clear, impactful visualizations that communicate complex data insights effectively.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['Tableau', 'Power BI', 'Looker', 'D3.js'].map((item, i) => (
+          {['Tableau', 'Power BI', 'Looker', 'Excel', 'Smartsheet'].map((item, i) => (
             <span key={i} className="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">
               {item}
             </span>

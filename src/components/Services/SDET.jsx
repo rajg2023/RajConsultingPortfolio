@@ -27,7 +27,7 @@ const SDET = () => (
           Designing and implementing scalable test automation frameworks for web, mobile, and API testing.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['Selenium', 'Appium', 'RestAssured', 'JUnit'].map((tool, i) => (
+          {['Selenium', 'Appium','JUnit'].map((tool, i) => (
             <span key={i} className="bg-green-50 text-green-700 text-xs font-medium px-3 py-1 rounded-full">
               {tool}
             </span>
@@ -44,7 +44,7 @@ const SDET = () => (
           Seamless integration with CI/CD pipelines for continuous testing and deployment.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['GitHub Actions', 'Jenkins', 'CircleCI', 'Docker'].map((tool, i) => (
+          {['GitHub Actions', 'Jenkins', 'Docker'].map((tool, i) => (
             <span key={i} className="bg-green-50 text-green-700 text-xs font-medium px-3 py-1 rounded-full">
               {tool}
             </span>

@@ -20,7 +20,7 @@ const BusinessSystemsAnalyst = () => (
           Bridging the gap between business needs and technical solutions through comprehensive analysis and strategic planning.
         </p>
         <div className="text-sm text-gray-600 bg-white/50 rounded-lg p-3 max-w-2xl mx-auto">
-          <p> <span className="font-medium">Transparency Note:</span> I'm currently expanding my expertise in this area. I bring strong analytical skills and a passion for problem-solving, and I'm excited to apply these while growing my BSA toolkit. I'll be transparent about my experience level as we collaborate on solutions.</p>
+          <p> 🚀 <span className="font-medium">Transparency Note:</span> I'm currently expanding my expertise in this area. I bring strong analytical skills and a passion for problem-solving, and I'm excited to apply these while growing my BSA toolkit. I'll be transparent about my experience level as we collaborate on solutions.</p>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@ const BusinessSystemsAnalyst = () => (
           Streamlining business processes and workflows for maximum efficiency.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {['BPMN', 'UML', 'Flowcharts', 'SOPs'].map((item, i) => (
+          {['UML', 'Flowcharts', 'SOPs', 'Other'].map((item, i) => (
             <span key={i} className="bg-amber-50 text-amber-700 text-xs font-medium px-3 py-1 rounded-full">
               {item}
             </span>
