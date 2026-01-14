@@ -107,7 +107,7 @@ Navigate to `http://localhost:5173` to view the portfolio
 
 ### 🏠 Home/About
 - **4 Interactive Tabs:** About Me, Document Resume, AI Chat
-- **Video Resume Tab:** Removed due to technical issues
+- ~~**Video Resume Tab:**~~ Removed due to technical issues
 - **Professional Introduction:** Personal bio and key highlights
 - **Downloadable Resume:** PDF and Word format options
 
