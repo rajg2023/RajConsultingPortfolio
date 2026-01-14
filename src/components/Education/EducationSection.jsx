@@ -35,17 +35,14 @@ const EducationSection = () => {
       icon: Book,
       color: 'green',
       details: [
-<<<<<<< HEAD
         'Completed Java Software Development Bootcamp at Technical Training Institute',
         'Learned object-oriented programming fundamentals and Java syntax',
         'Gained practical experience with front-end and back-end integration',
         'Undertook QA Assurance Testing program at Technical Training Institute, focusing on SDLC and STLC processes',
-=======
         'Completed Java Software Development training at Software Development Bootcamp Institute',
         'Learned object-oriented programming fundamentals and Java syntax',
         'Gained practical experience with front-end and back-end integration',
         'Undertook QA Assurance Testing program at IT Training institute, focusing on SDLC and STLC processes',
->>>>>>> 88dbca7531dbf14e1db541ee6126229ec171b353
         'Performed manual testing and documentation exercises for web apps',
         'Completed CompTIA A+ and Network+ technical support training at Technical Training Institute',
         'Built skills in hardware and network troubleshooting',
