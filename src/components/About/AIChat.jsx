@@ -247,9 +247,8 @@ const updateSuggestions = useCallback(() => {
                         {message.isTyping && message.displayText === '' ? (
                           <span className="inline-block w-2 h-4 bg-gray-400 animate-pulse"></span>
                         ) : (
-                          <div>
-                            
-                            <div dangerouslySetInnerHTML={{ __html: message.displayText || message.text }} />
+                          <div className="whitespace-pre-wrap">
+                            {message.displayText || message.text}
                           </div>
                         )}
                       </div>
