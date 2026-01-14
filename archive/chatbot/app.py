@@ -448,8 +448,7 @@ def chat():
         
         error = jsonify({
             'response': 'I apologize, but I encountered an error processing your request.',
-            'error': str(e),
-            'type': type(e).__name__
+            'code': 'internal_error'
         })
         error.headers.add('Access-Control-Allow-Origin', '*')
         return error, 500
