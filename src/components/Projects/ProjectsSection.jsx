@@ -55,8 +55,8 @@ const ProjectsSection = () => {
       border: 'border-green-200'
     },
 
-    'Bank Configuration': {
-      title: 'OFSAA Data Configuration Analysis (Banking Domain)',
+    'Data Configuration': {
+      title: 'OFSAA Data Configuration Analysis (Banking)',
       description:
         'Supported the configuration and testing of data integrity within Oracle Financial Services Analytical Applications (OFSAA).',
       icon: Code,
