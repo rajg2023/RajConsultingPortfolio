@@ -10,8 +10,8 @@ const Legal = ({ defaultSection = 'privacy' }) => {
   // Handle URL changes and set active section
   useEffect(() => {
     window.scrollTo({
-    top: 0,
-    behavior: 'smooth' // Adds smooth scrolling
+      top: 0,
+      behavior: 'smooth' // Adds smooth scrolling
     });
     const pathParts = location.pathname.split('/');
     const sectionFromUrl = pathParts[pathParts.length - 1];
@@ -147,21 +147,21 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                   navigate('/', { replace: true });
                 }}
               >
-                <span className="font-bold">WIP[RTC]</span>
+                <span className="font-bold">Back to Previous Page</span>
               </Link>
               <Link
-  to="/"
-  onClick={(e) => {
-    e.preventDefault();
-    // Force a hard navigation after a small delay
-    setTimeout(() => {
-      window.location.replace('/');
-    }, 50);
-  }}
-  className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
->
-  Back to Home
-</Link>
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  // Force a hard navigation after a small delay
+                  setTimeout(() => {
+                    window.location.replace('/');
+                  }, 50);
+                }}
+                className="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white/10 hover:text-indigo-300 transition-colors flex items-center gap-2"
+              >
+                Back to Home
+              </Link>
             </div>
           </div>
         </div>
@@ -181,7 +181,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
           })}</p>
 
           {/* Update Notice Banner */}
-          <div className="max-w-2x2 mx-auto bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md shadow-sm mb-8">
+          {/* <div className="max-w-2x2 mx-auto bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md shadow-sm mb-8">
             <div className="flex items-start">
               <div className="flex-shrink-0 pt-0.5">
                 <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
@@ -194,7 +194,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Navigation Tabs */}
           <nav aria-label="Legal documentation sections">
@@ -208,7 +208,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                   indigo: { bg: '#eef2ff', text: '#6366f1', hover: '#e0e7ff', activeBg: '#e0e7ff', activeText: '#4338ca' },
                   teal: { bg: '#f0fdfa', text: '#0d9488', hover: '#ccfbf1', activeBg: '#ccfbf1', activeText: '#0f766e' },
                   pink: { bg: '#fdf2f8', text: '#ec4899', hover: '#fce7f3', activeBg: '#fbcfe8', activeText: '#9d174d' },
-                  gray: {bg: '#f9fafb', text: '#6b7280', hover: '#f3f4f6', activeBg: '#e5e7eb', activeText: '#4b5563'},
+                  gray: { bg: '#f9fafb', text: '#6b7280', hover: '#f3f4f6', activeBg: '#e5e7eb', activeText: '#4b5563' },
                 };
                 const colors = colorMap[section.color] || { bg: '#f9fafb', text: '#4b5563', hover: '#f3f4f6', activeBg: '#e5e7eb', activeText: '#111827' };
 
@@ -275,8 +275,8 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                   </p>
                   <p>
                     <strong>However,</strong> please understand that despite reasonable security measures, no website or online service can be completely immune to data breaches,
-                    hacking attempts, or other malicious attacks that may result in unauthorized access or theft of data.Therefore, I cannot be held responsible
-                    for any loss, damage, or unauthorized disclosure of data resulting from such attacks or breaches beyond my control. Users of this website are
+                    hacking attempts, or other malicious attacks that may result in unauthorized access or theft of devices and/or data.Therefore, I cannot be held responsible
+                    for any loss, damage, or unauthorized disclosure of data resulting from such attacks or breaches beyond my control. Users of my services are
                     encouraged to exercise caution and follow best practices when sharing sensitive information online.</p>
 
 
@@ -321,12 +321,49 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                   <h2 className="text-2xl font-bold text-gray-900">Terms of Service</h2>
                 </div>
                 <div id="terms" className="prose max-w-none">
-                  <h3 className="text-xl font-semibold mt-6 mb-4">AI & Open-Source Compliance</h3>
+                  <h3 className="text-xl font-semibold mt-8 mb-4">Professional Engagements</h3>
+                  <p className="mb-4">I offer various types of professional engagements, each with specific terms:</p>
+
+                  <h4 className="text-lg font-medium mt-4 mb-2">1. Freelance Projects</h4>
+                  <ul className="list-disc pl-6 space-y-2 mb-6">
+                    <li>Scope and deliverables are defined in individual project agreements</li>
+                    <li>Payment terms are project-based or hourly, as specified in the agreement</li>
+                    <li>Intellectual property rights are transferred upon full payment, unless otherwise agreed</li>
+                    <li>Client is responsible for any third-party software licenses or services required</li>
+                  </ul>
+
+                  <h4 className="text-lg font-medium mt-6 mb-2">2. Contract Roles</h4>
+                  <ul className="list-disc pl-6 space-y-2 mb-6">
+                    <li>Engagement terms (duration, hours, compensation) specified in individual contracts</li>
+                    <li>Work-for-hire basis unless otherwise specified in the contract</li>
+                    <li>Compliance with client's policies and procedures during the engagement</li>
+                    <li>Confidentiality and non-disclosure terms as per the contract</li>
+                    <li>Ownership of work product typically belongs to the client, as specified in the contract</li>
+                  </ul>
+
+                  <h4 className="text-lg font-medium mt-6 mb-2">3. Full-time Employment</h4>
+                  <ul className="list-disc pl-6 space-y-2 mb-6">
+                    <li>Subject to the terms and conditions of the employment agreement</li>
+                    <li>Standard work hours and benefits as per company policy</li>
+                    <li>Compliance with all company policies and procedures</li>
+                    <li>Intellectual property rights as defined in the employment agreement</li>
+                    <li>Non-compete and non-solicitation terms may apply as per the agreement</li>
+                  </ul>
+
+                  <h4 className="text-lg font-medium mt-6 mb-2">General Terms for All Engagements</h4>
+                  <ul className="list-disc pl-6 space-y-2 mb-6">
+                    <li>All engagements require a written agreement outlining specific terms</li>
+                    <li>Confidentiality obligations apply to all engagements</li>
+                    <li>Compliance with applicable laws and regulations is required</li>
+                    <li>Termination terms will be specified in individual agreements</li>
+                    <li>Dispute resolution procedures will be outlined in the engagement agreement</li>
+                  </ul>
+                  <h3 className="text-xl font-semibold mt-6 mb-2">AI & Open-Source Compliance</h3>
                   <p className="mb-4">
-                    I use a <strong>VibeCoding</strong> and <strong>AI assistance</strong> approach — combining human creativity with ethical AI assistance — to efficiently develop digital projects. All generated code, assets, and written content are original works or adapted under valid licenses, ensuring full compliance with applicable third-party terms and intellectual property laws.
+                    I may use a <strong>VibeCoding</strong> and <strong>AI assistance</strong> approach — combining human creativity with ethical AI assistance — to efficiently develop digital and technology projects. All generated code, assets, and written content are original works or adapted under valid licenses, ensuring full compliance with applicable third-party terms and intellectual property laws.
                   </p>
 
-                  <h3 className="text-xl font-semibold mt-8 mb-4">General Information & Project Terms</h3>
+                  <h3 className="text-xl font-semibold mt-8 mb-2"> Other General Information & Project Terms</h3>
                   <ul className="list-disc pl-6 space-y-4 mb-6">
                     <li>
                       I utilize artificial intelligence technologies, internet search engines, open-source tools, and frameworks for project completion. By engaging with me, you acknowledge and agree to the privacy, usage, and licensing terms of such third-party and open-source solutions.
@@ -335,7 +372,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                       Use of any proprietary, commercial, or non-open-source software must be arranged and paid for by the client. I am not responsible or liable for licensing or costs of such tools unless agreed otherwise in writing.
                     </li>
                     <li>
-                      Project development is generally carried out on test data and non-production environments. Deployment on client production infrastructure is not included unless explicitly contracted. Clients are responsible for ensuring production-readiness and deployment requirements.
+                      Freelance Project development is generally carried out on test data and non-production environments. Deployment on client production infrastructure is not included unless explicitly contracted. Clients are responsible for ensuring production-readiness and deployment requirements.
                     </li>
                     <li>
                       Clients must review and approve delivered project samples or prototypes. Payment is generally contingent upon client satisfaction with the sample work. If a client does not approve or wish to continue with a sample, payment is not required unless prior written communication establishes other terms.
@@ -356,7 +393,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
 
                   <h3 className="text-xl font-semibold mt-8 mb-4">Terms of Service</h3>
                   <p className="mb-4">
-                    Please read these Terms of Service ("Terms") carefully before using the {window.location.hostname} website.
+                    Please read these Terms of Service ("Terms") carefully before contacting me or using this website and let me know if you have any questions.
                   </p>
 
                   <h3 className="text-xl font-semibold mt-6 mb-4">1. Acceptance of Terms</h3>
@@ -404,13 +441,13 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                   </p>
                   <p className="mb-4">
                     <strong>However,</strong> when you communicate with us via email (such as Gmail) or phone,
-                    the information you share—like your contact details—may be collected and processed by the respective service providers.
+                    the information you share—like about your employer, project or job descriptions, or contact details—may be collected and processed by the respective service providers.
                     Also, please be aware that third-party applications, browsers, and other services integrated with our website might collect certain data through their own mechanisms.
                     This could include browser and device information, usage data, or other technical details.
                     Please refer to the privacy policies of these third-party services for more information on how they handle your data.
                   </p>
 
-                  <h3 className="text-xl font-semibold mt-6 mb-4">1. Information We Collect</h3>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">1. Information Collection</h3>
                   <p className="mb-2">I may collect the following types of information:</p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>Personal identification information</li>
@@ -419,8 +456,8 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                     <li>Cookies and tracking technologies</li>
                   </ul>
 
-                  <h3 className="text-xl font-semibold mt-6 mb-4">2. How We Use Your Data</h3>
-                  <p className="mb-2">I use the collected data for various purposes:</p>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">2. Data Usage</h3>
+                  <p className="mb-2">I may use the collected data for various purposes:</p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>To provide and maintain our Service</li>
                     <li>To notify you about changes</li>
@@ -428,7 +465,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                     <li>To gather analysis for improvements</li>
                   </ul>
 
-                  <h3 className="text-xl font-semibold mt-6 mb-4">3. Your Data Protection Rights</h3>
+                  <h3 className="text-xl font-semibold mt-6 mb-4">3. Data Protection Rights</h3>
                   <p className="mb-2">You may have the following rights regarding your data:</p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>The right to access, update, or delete your information</li>
@@ -460,7 +497,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                 <div className="prose max-w-none">
                   <h3 className="text-xl font-semibold mt-6 mb-4">1. Employer Engagements</h3>
                   <p className="mb-4">
-                    While working with an employer (full-time, part-time, or contract), I comply fully with their:
+                    While working with an employer (full-time, or contract), I comply fully with their:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>Rules and regulations</li>
@@ -485,6 +522,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                   <p className="mb-4">
                     I encourage clients to provide remote access via secure VPN or remote access services such as Remote Desktop, AnyConnect or similar solutions. These tools offer encrypted, authenticated connections that reduce the risk of data interception and minimize the need to store sensitive information on local devices.
                   </p>
+                  
 
                   <h3 className="text-xl font-semibold mt-6 mb-4">3. Security Limitations and Liability</h3>
                   <p className="mb-4">
@@ -496,6 +534,23 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                     <li>I cannot be held liable for damages, losses, or unauthorized disclosures resulting from cyberattacks or physical theft that occur despite reasonable security measures</li>
                     <li>Clients are responsible for implementing their own security measures and risk management strategies</li>
                   </ul>
+
+                  <h3 className="text-xl font-semibold mt-6 mb-4">Residential Network & Infrastructure Notice</h3>
+                  <p className="mb-4">Please be advised that standard residential internet connections and basic web communications are inherently insecure. As a remote professional working from a home-office environment, I maintain standard security practices; however, the absolute security of data in transit cannot be guaranteed over public or residential networks without specialized tools.</p>
+
+                  <h3 className="text-xl font-semibold mt-6 mb-4">Client Security Responsibilities</h3>
+                  <p className="mb-4">For projects involving highly sensitive, proprietary, or regulated data (e.g., PII, HIPAA, or Financial records), the client is responsible for providing the necessary secure infrastructure. This includes, but is not limited to:</p>
+
+                  <ul className="list-disc pl-6 mb-4 space-y-2">
+                    <li ><strong>Provisioning a Secure VPN:</strong> For access to client networks.</li>
+                    <li ><strong>Encrypted Storage/Transfer:</strong> Providing access to secure file-sharing portals or encrypted databases.</li>
+                    <li><strong>Enterprise Software:</strong> Providing licenses for secure communication or development applications required by the client's internal security policy.</li>
+                  </ul>
+
+                  <p className="mb-4">
+                    In the absence of client-provided encrypted channels or VPNs, the client acknowledges and accepts the residual risks associated with standard remote work via residential internet. I shall not be held liable for interceptions or breaches occurring due to the lack of client-provided security infrastructure.
+                  </p>
+
 
                   <h3 className="text-xl font-semibold mt-6 mb-4">4. Breach Notification</h3>
                   <p className="mb-4">
@@ -613,7 +668,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                   <p className="mb-4">
                     I believe in open communication about how data is collected and used. This disclosure is part of my ongoing effort to ensure you have a clear understanding of third-party data practices associated with this site.
                   </p>
-                  
+
                 </div>
               </div>
 
@@ -652,7 +707,7 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                     <li>All communications will be professional and relevant to potential business opportunities</li>
                     <li>You will comply with all applicable local, state, and federal employment laws and regulations</li>
                     <li>You will not engage in any form of harassment, discrimination, or unprofessional conduct</li>
-                    <li>You understand that all services are provided by Rajiv Giri as an independent contractor</li>
+                    <li>For Contract roles, you understand that all services are provided by Rajiv Giri as an independent contractor</li>
                     <li>You will respect intellectual property rights and maintain confidentiality as appropriate</li>
                   </ul>
 
@@ -662,6 +717,11 @@ const Legal = ({ defaultSection = 'privacy' }) => {
                     I reserve the right to decline service or terminate engagement if these terms are violated or
                     if the proposed work conflicts with my professional standards or existing commitments.
                   </p>
+                  <p>
+                    All professional engagements with <strong>U.S. employers or clients</strong> comply with U.S. laws and labor
+                    regulations. If you are located outside the United States, please disclose your jurisdiction before engagement
+                    so we can address relevant regional compliance or contractual conditions.
+                  </p>
 
                 </div>
               </div>
@@ -670,36 +730,39 @@ const Legal = ({ defaultSection = 'privacy' }) => {
 
         </div>
         <div className="max-w-4x2 mx-auto px-4 sm:px-6 lg:px-8 my-12">
-  <div className="bg-blue-50/80 border-l-4 border-blue-600 p-6 rounded-lg shadow-sm backdrop-blur-sm">
-    <div className="flex">
-      <div className="flex-shrink-0">
-        <svg 
-          className="h-6 w-6 text-blue-600" 
-          viewBox="0 0 20 20" 
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path 
-            fillRule="evenodd" 
-            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" 
-            clipRule="evenodd" 
-          />
-        </svg>
-      </div>
-      <div className="ml-4">
-        <h4 className="text-base font-semibold text-gray-900">Legal Information Notice</h4>
-        <div className="mt-2 text-sm text-gray-900 space-y-3">
-          <p>
-            The information provided on this page is for general informational purposes only and does not constitute legal advice. For specific legal concerns, please consult with a qualified attorney or refer to official government resources.
-          </p>
-          <p>
-            While I strive to keep this information accurate and up-to-date, I cannot guarantee its completeness or applicability to your specific situation. Also, parts of this website and certain pages may be undergoing active development or updates. Features, text, images, or components displayed may not represent the final version. It reserves the right to modify, update, or remove content as work progresses.If you identify any inaccuracies or require updates to the legal information presented, please don't hesitate to contact me.
-          </p>
+          <div className="bg-blue-50/80 border-l-4 border-blue-600 p-6 rounded-lg shadow-sm backdrop-blur-sm">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg
+                  className="h-6 w-6 text-blue-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div className="ml-4">
+                <h4 className="text-base font-semibold text-gray-900">Legal Information Notice</h4>
+                <div className="mt-2 text-sm text-gray-900 space-y-3">
+                  <p>
+                    <strong>General Information:</strong> The information provided on this page is for general informational purposes only and does not constitute legal advice. For specific legal concerns, please consult with a qualified attorney or refer to official government resources.
+                  </p>
+                  <p>
+                    <strong>Accuracy & Development:</strong> While I strive to keep this information accurate and up-to-date, I cannot guarantee its completeness or applicability to your specific situation. Please note that parts of this website may be undergoing active development. Features, text, images, or components displayed may not represent the final version. I reserve the right to modify, update, or remove content as work progresses.
+                  </p>
+                  <p>
+                    <strong>Contact:</strong> If you identify any inaccuracies or require updates to the legal information presented, please contact me.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
       </div>
