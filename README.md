@@ -6,7 +6,7 @@
 
 ## 📖 About The Project
 
-ConsultantPro is a comprehensive portfolio website designed for QA professionals and SDET consultants who are building their careers in software testing and automation. The website features a modern, single-page application design with smooth navigation and full-screen sections optimized for all devices.
+This project is a comprehensive website designed to showcase the users portfolio. The website features a modern, single-page application design with smooth navigation and full-screen sections optimized for all devices.
 
 ### ✨ Key Features
 
