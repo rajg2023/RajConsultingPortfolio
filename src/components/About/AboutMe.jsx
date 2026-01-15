@@ -76,28 +76,32 @@ const AboutMe = () => {
         description: "Completed the Google Data Analytics Professional Certificate from Coursera, mastering data cleaning, analysis, visualization, and decision-making using spreadsheets, SQL, R, and Tableau."
       },
       {
-        title: "Security GRC",
-        description: "Assisted clients in resolving security issues/exceptions, validated data from TVM dashboards, ensured data accuracy for case processing, and provided data-driven recommendations."
+        title: "Strategic Requirement Analysis",
+        description: "Spearheaded cross-functional requirement gathering for Security GRC and CRM enterprise projects, translating complex business needs into actionable technical specifications for offshore and onshore development teams."
       },
       {
-        title: "OFSAA",
-        description: "Built and maintained RTMs for 500+ KDEs, verified data mappings, and ensured configuration integrity."
+        title: "Data Governance & Lineage",
+        description: "Engineered and managed Requirement Traceability Matrices (RTMs) for 500+ Key Data Elements (KDEs), ensuring 100% data lineage compliance for high-stakes OFSAA (Oracle Financial Services Analytical Applications) implementations."
       },
       {
-        title: "CRM Implementation",
-        description: "Requirement gathering, data automation, cleansing, visualization, reporting, and successful CRM launches."
+        title: "Automated Analytics & CRM Optimization",
+        description: "Architected a CRM-based tracking solution by cleansing and structuring large-scale datasets; developed automated BI dashboards that increased executive visibility into project KPIs and reduced manual reporting overhead by 40%."
       },
       {
         title: "Application Support (POS)",
         description: "POS application support, QA, patch management, code review, application and server management; collaborating with project teams to triage and resolve issues through log and code analysis primarily in Dev and QA environments."
       },
       {
-        title: "Data Analysis & Testing (ETL)",
-        description: "ETL testing, data QA, data warehouse validation, stored procedure and SQL troubleshooting, log collection, and process mapping (Visio). Completed multiple opensource trainings and hands-on projects in data QA, analysis and analytics independently."
+        title: "ETL Quality Assurance",
+        description: "Orchestrated post-ETL data validation protocols to identify and remediate data quality gaps, significantly improving system configuration accuracy and reducing downstream reporting errors.ETL testing, data QA, data warehouse validation, stored procedure and SQL troubleshooting, log collection, and process mapping (Visio). Completed multiple opensource trainings and hands-on projects in data QA, analysis and analytics independently."
       },
       {
         title: "Software Development & Deployment",
         description: "Completed and deployed desktop, Android, and web applications using Java, .NET, Python, AI models, JavaScript, SQL, Heroku, Docker, AWS, GitHub, and Azure independently, continuously enhancing skills beyond formal employment."
+      },
+      {
+        title: "Technical Documentation Leadership",
+        description: "Standardized project documentation within Confluence, authoring comprehensive Functional and Technical Specification Documents (FSD/TSD) that served as the single source of truth for stakeholders and engineers."
       }
     ],
     closing: "I thrive at the intersection of data, technology, and problem-solving, leveraging analytical precision and a collaborative spirit to achieve measurable business outcomes.\n\nLet’s connect to explore how I can contribute to your team or project!\n\nThank you for visiting my profile,\n"
