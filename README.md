@@ -79,7 +79,7 @@ Make sure you have the following installed:
 ### Installation
 
 1. **Clone the repository**
-git clone https://github.com/yourusername/consultant-portfolio.git
+git clone [https://github.com/rajg2023/RajConsultingPortfolio/tree/main.git]
 cd consultant-portfolio
 
 text
