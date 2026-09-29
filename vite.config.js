@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   
   // For custom domain, use root path
-  const base = '/';
+  const base = 'RajConsultingPortfolio';
   
   return {
     plugins: [react()],
