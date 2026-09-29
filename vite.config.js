@@ -1,14 +1,10 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Load environment variables
-  const env = loadEnv(mode, process.cwd(), '');
-  
-  // For GitHub Pages deployment with repo name as base path
-  const base = '/RajConsultingPortfolio/';
+  const base = mode === 'production' ? '/RajConsultingPortfolio/' : '/';
   
   return {
     plugins: [react()],
