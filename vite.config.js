@@ -7,8 +7,8 @@ export default defineConfig(({ mode }) => {
   // Load environment variables
   const env = loadEnv(mode, process.cwd(), '');
   
-  // For custom domain, use root path
-  const base = '/RajConsultingPortfolio';
+  // For GitHub Pages deployment with repo name as base path
+  const base = '/RajConsultingPortfolio/';
   
   return {
     plugins: [react()],
@@ -21,15 +21,12 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 3000,
-      strictPort: true,
+      strictPort: false,
     },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       }
-    },
-    define: {
-      'import.meta.env.BASE_URL': JSON.stringify(base)
     }
   };
 });
